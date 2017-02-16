@@ -2,7 +2,7 @@
 % Please edit documentation in R/readDLS.R
 \name{readDLS}
 \alias{readDLS}
-\title{Read DLS Advice from File}
+\title{Read DLS3.2 Results from File}
 \usage{
 readDLS(file)
 }
@@ -14,22 +14,22 @@ A list containing \code{advice} and other elements showing intermediate steps
 in the calculations.
 }
 \description{
-Read the advisory calculations for a data-limited stock (DLS) from a file.
+Read results from the \code{DLS3.2} advisory method from a file into a list.
 }
 \examples{
 \dontrun{
 library(icesAdvice)
 survey <- data.frame(year=2001:2010, randu[1:10,])
 dls <- DLS3.2(1000, survey$y)
-writeDLS(dls, "dls-output.txt")
-dls2 <- readDLS("dls-output.txt")
+writeDLS(dls, "dls.txt")
+readDLS("dls.txt")
 }
 }
 \seealso{
-\code{\link{writeDLS}} writes DLS advisory calculations to a file.
+\code{\link{writeDLS}} writes \code{DLS3.2} results to a file.
 
 \code{\link[icesAdvice]{DLS3.2}} in the \pkg{icesAdvice} package can be used
-to calculate catch advice for data-limited stocks.
+to calculate catch advice for data-limited stocks (DLS).
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

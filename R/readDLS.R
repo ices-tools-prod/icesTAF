@@ -1,6 +1,6 @@
-#' Read DLS Advice from File
+#' Read DLS3.2 Results from File
 #'
-#' Read the advisory calculations for a data-limited stock (DLS) from a file.
+#' Read results from the \code{DLS3.2} advisory method from a file into a list.
 #'
 #' @param file a filename.
 #'
@@ -9,10 +9,10 @@
 #' in the calculations.
 #'
 #' @seealso
-#' \code{\link{writeDLS}} writes DLS advisory calculations to a file.
+#' \code{\link{writeDLS}} writes \code{DLS3.2} results to a file.
 #'
 #' \code{\link[icesAdvice]{DLS3.2}} in the \pkg{icesAdvice} package can be used
-#' to calculate catch advice for data-limited stocks.
+#' to calculate catch advice for data-limited stocks (DLS).
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -21,8 +21,8 @@
 #' library(icesAdvice)
 #' survey <- data.frame(year=2001:2010, randu[1:10,])
 #' dls <- DLS3.2(1000, survey$y)
-#' writeDLS(dls, "dls-output.txt")
-#' dls2 <- readDLS("dls-output.txt")
+#' writeDLS(dls, "dls.txt")
+#' readDLS("dls.txt")
 #' }
 #' @export
 
