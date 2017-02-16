@@ -38,5 +38,9 @@ writeDLS <- function(x, file="")
     write(x[[i]], file, ncolumns=10, append=TRUE)
   }
   ## Dos line endings
-  writeLines(readLines(file), file, sep="\r\n")
+  if(file != "")
+  {
+    txt <- readLines(file)
+    writeLines(txt, file, sep="\r\n")
+  }
 }
