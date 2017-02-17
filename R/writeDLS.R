@@ -16,6 +16,7 @@
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
+#' @examples
 #' \dontrun{
 #' survey <- data.frame(year=2001:2010, randu[1:10,])
 #' dls <- icesAdvice::DLS3.2(1000, survey$y)
