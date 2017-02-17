@@ -24,6 +24,7 @@
 #' writeDLS(dls, "dls.txt")
 #' readDLS("dls.txt")
 #' }
+#'
 #' @export
 
 readDLS <- function(file)

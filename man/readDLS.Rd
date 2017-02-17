@@ -24,6 +24,7 @@ dls <- DLS3.2(1000, survey$y)
 writeDLS(dls, "dls.txt")
 readDLS("dls.txt")
 }
+
 }
 \seealso{
 \code{\link{writeDLS}} writes \code{DLS3.2} results to a file.

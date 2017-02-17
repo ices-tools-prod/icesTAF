@@ -1,4 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 1.0-0 (2017-02-15)
+icesTAF 1.0-0 (2017-02-17)
 --------------------------------------------------------------------------------
-o Initial release, with two functions: readDLS() and writeDLS().
+o Initial release, with five functions: dir.remove(), dos2unix(), readDLS(),
+  unix2dos(), and writeDLS().

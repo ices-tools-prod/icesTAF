@@ -24,6 +24,7 @@
 #' writeDLS(dls, "dls.txt")
 #' readDLS("dls.txt")
 #' }
+#'
 #' @export
 
 writeDLS <- function(x, file="")
@@ -37,8 +38,8 @@ writeDLS <- function(x, file="")
     write(nn[i], file, append=TRUE)
     write(x[[i]], file, ncolumns=10, append=TRUE)
   }
-  ## Dos line endings
-  if(file != "")
+  ## Dos line endings on all platforms
+  if(.Platform$OS.type!="windows" && file!="")
   {
     txt <- readLines(file)
     writeLines(txt, file, sep="\r\n")

@@ -25,6 +25,7 @@ dls <- DLS3.2(1000, survey$y)
 writeDLS(dls, "dls.txt")
 readDLS("dls.txt")
 }
+
 }
 \seealso{
 \code{\link{readDLS}} reads \code{DLS3.2} results from a file back into R.

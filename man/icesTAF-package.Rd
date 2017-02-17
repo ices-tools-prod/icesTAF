@@ -15,6 +15,12 @@ International Council for the Exploration of the Sea (ICES).
   \code{\link{readDLS}}  \tab read \code{DLS3.2} output from file\cr
   \code{\link{writeDLS}} \tab write \code{DLS3.2} output to file
 }
+\emph{File management:}
+\tabular{ll}{
+  \code{\link{dir.remove}} \tab remove empty directory\cr
+  \code{\link{dos2unix}}   \tab convert line endings\cr
+  \code{\link{unix2dos}}   \tab convert line endings
+}
 }
 \author{
 Arni Magnusson and Colin Millar.
