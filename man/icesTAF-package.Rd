@@ -2,8 +2,8 @@
 % Please edit documentation in R/icesTAF-package.R
 \docType{package}
 \name{icesTAF-package}
-\alias{icesTAF}
 \alias{icesTAF-package}
+\alias{icesTAF}
 \title{Helper Functions for the ICES Transparent Assessment Framework}
 \description{
 Helper functions for the Transparent Assessment Framework (TAF) used by the
@@ -22,10 +22,9 @@ International Council for the Exploration of the Sea (ICES).
   \code{\link{unix2dos}}   \tab convert line endings
 }
 }
-\author{
-Arni Magnusson and Colin Millar.
-}
 \references{
 ICES Transparent Assessment Framework: \url{http://taf.ices.dk}.
 }
-
+\author{
+Arni Magnusson and Colin Millar.
+}

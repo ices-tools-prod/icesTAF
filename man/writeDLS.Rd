@@ -17,16 +17,6 @@ Write results from the \code{DLS3.2} advisory method to a file.
 \note{
 The resulting text file has Dos line endings (CRLF).
 }
-\examples{
-\dontrun{
-library(icesAdvice)
-survey <- data.frame(year=2001:2010, randu[1:10,])
-dls <- DLS3.2(1000, survey$y)
-writeDLS(dls, "dls.txt")
-readDLS("dls.txt")
-}
-
-}
 \seealso{
 \code{\link{readDLS}} reads \code{DLS3.2} results from a file back into R.
 
@@ -34,5 +24,14 @@ readDLS("dls.txt")
 to calculate catch advice for data-limited stocks (DLS).
 
 \code{\link{icesTAF-package}} gives an overview of the package.
-}
 
+\dontrun{
+survey <- data.frame(year=2001:2010, randu[1:10,])
+dls <- icesAdvice::DLS3.2(1000, survey$y)
+
+writeDLS(dls, "dls.txt")
+readDLS("dls.txt")
+
+file.remove("dls.txt")
+}
+}

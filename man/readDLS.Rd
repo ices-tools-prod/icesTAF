@@ -18,11 +18,13 @@ Read results from the \code{DLS3.2} advisory method from a file into a list.
 }
 \examples{
 \dontrun{
-library(icesAdvice)
 survey <- data.frame(year=2001:2010, randu[1:10,])
-dls <- DLS3.2(1000, survey$y)
+dls <- icesAdvice::DLS3.2(1000, survey$y)
+
 writeDLS(dls, "dls.txt")
 readDLS("dls.txt")
+
+file.remove("dls.txt")
 }
 
 }
@@ -34,4 +36,3 @@ to calculate catch advice for data-limited stocks (DLS).
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
-

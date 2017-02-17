@@ -29,6 +29,8 @@ file.size(file)
 
 unix2dos(file)
 file.size(file)
+
+file.remove(file)
 }
 
 }
@@ -39,4 +41,3 @@ file.size(file)
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
-

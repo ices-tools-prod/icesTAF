@@ -25,6 +25,8 @@
 #'
 #' unix2dos(file)
 #' file.size(file)
+#'
+#' file.remove(file)
 #' }
 #'
 #' @export

@@ -29,4 +29,3 @@ dir.remove("emptydir")
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
-

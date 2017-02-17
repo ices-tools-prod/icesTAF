@@ -18,11 +18,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' library(icesAdvice)
 #' survey <- data.frame(year=2001:2010, randu[1:10,])
-#' dls <- DLS3.2(1000, survey$y)
+#' dls <- icesAdvice::DLS3.2(1000, survey$y)
+#'
 #' writeDLS(dls, "dls.txt")
 #' readDLS("dls.txt")
+#'
+#' file.remove("dls.txt")
 #' }
 #'
 #' @export
