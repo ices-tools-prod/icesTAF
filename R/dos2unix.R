@@ -17,9 +17,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' write("123", "test.txt")
-#' dos2unix("test.txt")  # file is now 4 bytes
-#' unix2dos("test.txt")  # file is now 5 bytes
+#' file <- "test.txt"
+#' write("123", file)
+#'
+#' dos2unix(file)
+#' file.size(file)
+#'
+#' unix2dos(file)
+#' file.size(file)
 #' }
 #'
 #' @export
