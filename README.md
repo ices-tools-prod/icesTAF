@@ -5,8 +5,9 @@
 icesTAF
 =======
 
-icesTAF provides helper functions for the [ICES](http://ices.dk)
-[Transparent Assessment Framework](http://taf.ices.dk).
+icesTAF provides functions to support the [ICES](http://ices.dk)
+[Transparent Assessment Framework](http://taf.ices.dk), to organize data,
+methods, and results used in ICES assessments.
 
 <!-- icesTAF is implemented as an [R](https://www.r-project.org) package and
 available on [CRAN](https://cran.r-project.org/package=icesTAF). -->

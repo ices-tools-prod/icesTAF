@@ -4,10 +4,10 @@
 #'
 #' @aliases icesTAF
 #'
-#' @title Functions Supporting the ICES Transparent Assessment Framework
+#' @title Functions to Support the ICES Transparent Assessment Framework
 #'
 #' @description
-#' Functions supporting the ICES Transparent Assessment Framework, to organize
+#' Functions to support the ICES Transparent Assessment Framework, to organize
 #' data, methods, and results used in ICES assessments.
 #'
 #' @details
