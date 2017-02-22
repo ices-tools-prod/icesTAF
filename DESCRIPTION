@@ -1,11 +1,12 @@
 Package: icesTAF
 Version: 1.0-0
 Date: 2017-02-17
-Title: Helper Functions for the ICES Transparent Assessment Framework
+Title: Functions Supporting the ICES Transparent Assessment Framework
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="arni.magnusson@ices.dk"),
              person("Colin", "Millar", role="aut"))
 Suggests: icesAdvice
-Description: Helper functions for the Transparent Assessment Framework (TAF)
-  used by the International Council for the Exploration of the Sea (ICES).
+Description: Functions supporting the ICES Transparent Assessment Framework, to
+             organize data, methods, and results used in ICES assessments.
 License: GPL (>= 2)
+URL: http://taf.ices.dk
 RoxygenNote: 6.0.1

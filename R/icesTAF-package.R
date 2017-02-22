@@ -4,11 +4,11 @@
 #'
 #' @aliases icesTAF
 #'
-#' @title Helper Functions for the ICES Transparent Assessment Framework
+#' @title Functions Supporting the ICES Transparent Assessment Framework
 #'
 #' @description
-#' Helper functions for the Transparent Assessment Framework (TAF) used by the
-#' International Council for the Exploration of the Sea (ICES).
+#' Functions supporting the ICES Transparent Assessment Framework, to organize
+#' data, methods, and results used in ICES assessments.
 #'
 #' @details
 #' \emph{Data-limited stocks:}
