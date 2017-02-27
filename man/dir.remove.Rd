@@ -4,26 +4,31 @@
 \alias{dir.remove}
 \title{Remove Empty Directory}
 \usage{
-dir.remove(path)
+dir.remove(path, recursive = FALSE)
 }
 \arguments{
 \item{path}{a directory name.}
+
+\item{recursive}{whether to remove empty subdirectories as well.}
 }
 \value{
 0 for success, 1 for failure, invisibly.
 }
 \description{
-Remove an empty directory under any operating system.
+Remove empty directories under any operating system.
 }
 \examples{
 \dontrun{
 dir.create("emptydir")
 dir.remove("emptydir")
+
+dir.create("outer/inner", recursive=TRUE)
+dir.remove("outer/inner", recursive=TRUE)
 }
 
 }
 \seealso{
-\code{\link{unlink}} can remove a non-empty directory.
+\code{\link{unlink}} can remove non-empty directories.
 
 \code{\link{dir.create}} creates an empty directory.
 

@@ -17,7 +17,7 @@ data, methods, and results used in ICES assessments.
 }
 \emph{File management:}
 \tabular{ll}{
-  \code{\link{dir.remove}} \tab remove empty directory\cr
+  \code{\link{dir.remove}} \tab remove empty directories\cr
   \code{\link{dos2unix}}   \tab convert line endings\cr
   \code{\link{unix2dos}}   \tab convert line endings
 }
