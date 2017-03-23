@@ -17,6 +17,14 @@ dir.remove(path, recursive = FALSE)
 \description{
 Remove empty directories under any operating system.
 }
+\note{
+To tidy up a project workspace, it can be useful to remove empty directories,
+while leaving non-empty directories intact.
+
+The base function \code{unlink(dir, recursive=FALSE)} does not remove empty
+directories in Windows and \code{unlink(dir, recursive=TRUE)} removes
+non-empty directories, making it unsuitable for tidying up empty ones.
+}
 \examples{
 \dontrun{
 dir.create("emptydir")
