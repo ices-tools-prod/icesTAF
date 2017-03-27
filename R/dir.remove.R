@@ -9,8 +9,8 @@
 #' 0 for success, 1 for failure, invisibly.
 #'
 #' @note
-#' To tidy up a project workspace, it can be useful to remove empty directories,
-#' while leaving non-empty directories intact.
+#' To tidy up a project directory, it can be useful to remove empty
+#' subdirectories, while leaving non-empty directories intact.
 #'
 #' The base function \code{unlink(dir, recursive=FALSE)} does not remove empty
 #' directories in Windows and \code{unlink(dir, recursive=TRUE)} removes
