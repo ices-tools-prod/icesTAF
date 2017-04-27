@@ -4,15 +4,15 @@
 \alias{flr2taf}
 \title{Convert FLR table to TAF format}
 \usage{
-flr2taf(x, na = NULL, year = TRUE)
+flr2taf(x, year = TRUE, na = NULL)
 }
 \arguments{
 \item{x}{a table of class \code{FLQuant}.}
 
-\item{na}{a value that should be converted to NA.}
-
 \item{year}{whether the year should be stored in the first column, instead of
 row names.}
+
+\item{na}{a value that should be converted to NA.}
 }
 \value{
 A data frame with crosstab data.
@@ -29,7 +29,7 @@ x <- array(round(runif(70)/3, 1), dim=c(7,10,1,1,1,1))
 dimnames(x) <- list(age=2:8, year=1991:2000,
                     unit="unique", season="all", area="unique", iter=1)
 flr2taf(x)
-flr2taf(x, na=0, year=FALSE)
+flr2taf(x, year=FALSE, na=0)
 
 }
 \seealso{
