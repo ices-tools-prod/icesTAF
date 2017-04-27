@@ -2,6 +2,8 @@
 
 export(dir.remove)
 export(dos2unix)
+export(flr2taf)
 export(readDLS)
+export(taf2long)
 export(unix2dos)
 export(writeDLS)

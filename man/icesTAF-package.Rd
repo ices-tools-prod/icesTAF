@@ -15,6 +15,11 @@ data, methods, and results used in ICES assessments.
   \code{\link{readDLS}}  \tab read \code{DLS3.2} output from file\cr
   \code{\link{writeDLS}} \tab write \code{DLS3.2} output to file
 }
+\emph{Table converters:}
+\tabular{ll}{
+  \code{\link{flr2taf}}  \tab from FLR to TAF format\cr
+  \code{\link{taf2long}} \tab from TAF to long format
+}
 \emph{File management:}
 \tabular{ll}{
   \code{\link{dir.remove}} \tab remove empty directories\cr
