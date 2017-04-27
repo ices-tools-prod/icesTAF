@@ -1,11 +1,14 @@
 #' Convert TAF table to long format
 #'
-#' Convert a table from TAF crosstab format to a 3-column long format.
+#' Convert a TAF crosstab table to long format.
 #'
 #' @param x a data frame containing crosstab data.
 #' @param names a vector of three column names for the resulting data frame.
 #' @param year whether the input table has year in the first column, instead of
 #' row names.
+#'
+#' @return
+#' A data frame with three columns.
 #'
 #' @note
 #' TAF stores crosstab tables as data frames with a year column, as seen in

@@ -14,8 +14,11 @@ flr2taf(x, na = NULL, year = TRUE)
 \item{year}{whether the year should be stored in the first column, instead of
 row names.}
 }
+\value{
+A data frame with crosstab data.
+}
 \description{
-Convert a simple crosstab table from FLR format to TAF format.
+Convert a simple crosstab table from FLR to TAF format.
 }
 \note{
 FLR uses the \code{FLQuant} class to store tables as 6-dimensional arrays,
