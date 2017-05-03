@@ -1,8 +1,8 @@
-#' Convert TAF table to long format
+#' Convert TAF Table to Long Format
 #'
-#' Convert a TAF crosstab table to long format.
+#' Convert a table from TAF to long format.
 #'
-#' @param x a data frame containing crosstab data.
+#' @param x a data frame in TAF format.
 #' @param names a vector of three column names for the resulting data frame.
 #' @param year whether the input table has year in the first column, instead of
 #' row names.
@@ -11,12 +11,12 @@
 #' A data frame with three columns.
 #'
 #' @note
-#' TAF stores crosstab tables as data frames with a year column, as seen in
-#' stock assessment reports. The long format is practical for analysis and
-#' producing plots.
+#' TAF stores tables as data frames with a year column, as seen in stock
+#' assessment reports. The long format is practical for analysis and producing
+#' plots.
 #'
 #' @seealso
-#' \code{\link{flr2taf}} converts tables from FLR to TAF format.
+#' \code{\link{flr2taf}} converts FLR tables to TAF format.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'

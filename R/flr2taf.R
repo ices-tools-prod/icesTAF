@@ -1,6 +1,6 @@
-#' Convert FLR table to TAF format
+#' Convert FLR Table to TAF Format
 #'
-#' Convert a simple crosstab table from FLR to TAF format.
+#' Convert a table from FLR to TAF format.
 #'
 #' @param x a table of class \code{FLQuant}.
 #' @param year whether the year should be stored in the first column, instead of
@@ -8,11 +8,11 @@
 #' @param na a value that should be converted to NA.
 #'
 #' @return
-#' A data frame with crosstab data.
+#' A data frame in TAF format.
 #'
 #' @note
 #' FLR uses the \code{FLQuant} class to store tables as 6-dimensional arrays,
-#' while TAF crosstabs are stored as data frames with a year column.
+#' while TAF tables are stored as data frames with a year column.
 #'
 #' @seealso
 #' \code{\link{as.data.frame}} is a method provided by the \pkg{FLCore} package
