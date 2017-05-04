@@ -1,6 +1,6 @@
 #' Convert TAF Table to Long Format
 #'
-#' Convert a table from TAF to long format.
+#' Convert a table from TAF format to long format.
 #'
 #' @param x a data frame in TAF format.
 #' @param names a vector of three column names for the resulting data frame.
@@ -14,7 +14,7 @@
 #' producing plots.
 #'
 #' @seealso
-#' \code{\link{flr2taf}} converts FLR tables to TAF format.
+#' \code{\link{taf2long}} converts between different table formats.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'

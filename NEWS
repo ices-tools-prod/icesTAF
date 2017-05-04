@@ -1,4 +1,16 @@
 --------------------------------------------------------------------------------
+icesTAF 1.2-0 (2017-05-04)
+--------------------------------------------------------------------------------
+o Added functions long2taf(), and taf2xtab(), and xtab2taf to convert between
+  table formats.
+
+o Added example data frames catage.long, catage.taf, and catage.xtab to
+  demonstrate different table formats.
+
+
+
+
+--------------------------------------------------------------------------------
 icesTAF 1.1-0 (2017-04-27)
 --------------------------------------------------------------------------------
 o Added functions flr2taf() and taf2long() to convert between table formats.

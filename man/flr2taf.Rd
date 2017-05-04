@@ -13,7 +13,7 @@ flr2taf(x)
 A data frame in TAF format.
 }
 \description{
-Convert a table from FLR to TAF format.
+Convert a table from FLR format to TAF format.
 }
 \note{
 FLR uses the \code{FLQuant} class to store tables as 6-dimensional arrays,
@@ -30,7 +30,7 @@ flr2taf(x)
 \code{\link{as.data.frame}} is a method provided by the \pkg{FLCore} package
 to convert \code{FLQuant} tables to a 7-column long format.
 
-\code{\link{taf2long}} converts TAF tables to long format.
+\code{\link{taf2long}} converts between different table formats.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

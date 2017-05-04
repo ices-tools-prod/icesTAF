@@ -17,8 +17,11 @@ data, methods, and results used in ICES assessments.
 }
 \emph{Table converters:}
 \tabular{ll}{
-  \code{\link{flr2taf}}  \tab from FLR to TAF format\cr
-  \code{\link{taf2long}} \tab from TAF to long format
+  \code{\link{flr2taf}}  \tab FLR format to TAF format\cr
+  \code{\link{long2taf}} \tab long format to TAF format\cr
+  \code{\link{taf2long}} \tab TAF format to long format\cr
+  \code{\link{taf2xtab}} \tab TAF format to crosstab format\cr
+  \code{\link{xtab2taf}} \tab crosstab format to TAF format
 }
 \emph{File management:}
 \tabular{ll}{

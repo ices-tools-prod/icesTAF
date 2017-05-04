@@ -1,0 +1,33 @@
+#' Convert Long Table to TAF Format
+#'
+#' Convert a table from long format to TAF format.
+#'
+#' @param x a data frame in long format.
+#'
+#' @return
+#' A data frame in TAF format.
+#'
+#' @note
+#' TAF stores tables as data frames with a year column, as seen in stock
+#' assessment reports. The long format is more convenient for analysis and
+#' producing plots.
+#'
+#' @seealso
+#' \code{\link{taf2long}} converts between different table formats.
+#'
+#' \code{\link{icesTAF-package}} gives an overview of the package.
+#'
+#' @examples
+#' long2taf(catage.long)
+#'
+#' @importFrom stats xtabs
+#'
+#' @export
+
+long2taf <- function(x)
+{
+  y <- unclass(xtabs(x[[3]]~x[[1]]+x[[2]]))
+  y <- data.frame(Year=as.integer(row.names(y)), y, check.names=FALSE)
+  row.names(y) <- NULL
+  y
+}
