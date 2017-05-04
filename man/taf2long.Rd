@@ -4,15 +4,12 @@
 \alias{taf2long}
 \title{Convert TAF Table to Long Format}
 \usage{
-taf2long(x, names = c("Year", "Age", "Value"), year = TRUE)
+taf2long(x, names = c("Year", "Age", "Value"))
 }
 \arguments{
 \item{x}{a data frame in TAF format.}
 
 \item{names}{a vector of three column names for the resulting data frame.}
-
-\item{year}{whether the input table has year in the first column, instead of
-row names.}
 }
 \value{
 A data frame with three columns.
@@ -22,17 +19,11 @@ Convert a table from TAF to long format.
 }
 \note{
 TAF stores tables as data frames with a year column, as seen in stock
-assessment reports. The long format is practical for analysis and producing
-plots.
+assessment reports. The long format is more convenient for analysis and
+producing plots.
 }
 \examples{
-fish <- matrix(round(runif(30),3), 5)
-fish <- data.frame(Year=2001:2005, fish, check.names=FALSE)
-taf2long(fish)
-
-alt <- fish[-1]
-row.names(alt) <- fish$Year
-taf2long(alt, names=c("Year","Age","Weight"), year=FALSE)
+taf2long(catage.taf, names=c("Year","Age","Catch"))
 
 }
 \seealso{
