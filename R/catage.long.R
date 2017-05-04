@@ -1,0 +1,46 @@
+#' @docType data
+#'
+#' @name catage.long
+#'
+#' @aliases catage.long
+#'
+#' @title Catch at Age in Long Format
+#'
+#' @description
+#' Small catch-at-age table to describe a long format data frame to store
+#' year-age values.
+#'
+#' @usage
+#' catage.long
+#'
+#' @format
+#' Data frame containing three columns:
+#' \tabular{ll}{
+#'   \code{Year}  \tab year\cr
+#'   \code{Age}   \tab age\cr
+#'   \code{Catch} \tab catch (millions of individuals)
+#' }
+#'
+#' @details
+#' The data are an excerpt (first years and ages) from the catch-at-age table
+#' for North Sea cod from the ICES (2016) assessment.
+#'
+#' @source
+#' ICES. 2016. Report of the working group on the assessment of demersal stocks
+#' in the North Sea and Skagerrak (WGNSSK).
+#' \href{http://ices.dk/sites/pub/Publication\%20Reports/Expert\%20Group\%20Report/acom/2016/WGNSSK/01\%20WGNSSK\%20report\%202016.pdf}{\cite{ICES
+#' CM 2016/ACOM:14}}, p. 656.
+#'
+#' @seealso
+#' \code{\link{catage.taf}} and \code{\link{catage.xtab}} describe alternative
+#' table formats.
+#'
+#' \code{\link{taf2long}} converts between different table formats.
+#'
+#' \code{\link{icesTAF-package}} gives an overview of the package.
+#'
+#'
+#' @examples
+#' taf2long(catage.taf)
+
+NA

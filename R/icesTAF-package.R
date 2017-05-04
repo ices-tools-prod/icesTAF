@@ -27,6 +27,12 @@
 #'   \code{\link{dos2unix}}   \tab convert line endings\cr
 #'   \code{\link{unix2dos}}   \tab convert line endings
 #' }
+#' \emph{Examples:}
+#' \tabular{ll}{
+#'   \code{\link{catage.long}} \tab long format\cr
+#'   \code{\link{catage.taf}}  \tab TAF format\cr
+#'   \code{\link{catage.xtab}} \tab crosstab format
+#' }
 #'
 #' @author Arni Magnusson and Colin Millar.
 #'
