@@ -2,7 +2,7 @@
 % Please edit documentation in R/flr2taf.R
 \name{flr2taf}
 \alias{flr2taf}
-\title{Convert FLR table to TAF format}
+\title{Convert FLR Table to TAF Format}
 \usage{
 flr2taf(x, year = TRUE, na = NULL)
 }
@@ -15,14 +15,14 @@ row names.}
 \item{na}{a value that should be converted to NA.}
 }
 \value{
-A data frame with crosstab data.
+A data frame in TAF format.
 }
 \description{
-Convert a simple crosstab table from FLR to TAF format.
+Convert a table from FLR to TAF format.
 }
 \note{
 FLR uses the \code{FLQuant} class to store tables as 6-dimensional arrays,
-while TAF crosstabs are stored as data frames with a year column.
+while TAF tables are stored as data frames with a year column.
 }
 \examples{
 x <- array(round(runif(70)/3, 1), dim=c(7,10,1,1,1,1))

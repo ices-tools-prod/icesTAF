@@ -2,12 +2,12 @@
 % Please edit documentation in R/taf2long.R
 \name{taf2long}
 \alias{taf2long}
-\title{Convert TAF table to long format}
+\title{Convert TAF Table to Long Format}
 \usage{
 taf2long(x, names = c("Year", "Age", "Value"), year = TRUE)
 }
 \arguments{
-\item{x}{a data frame containing crosstab data.}
+\item{x}{a data frame in TAF format.}
 
 \item{names}{a vector of three column names for the resulting data frame.}
 
@@ -18,12 +18,12 @@ row names.}
 A data frame with three columns.
 }
 \description{
-Convert a TAF crosstab table to long format.
+Convert a table from TAF to long format.
 }
 \note{
-TAF stores crosstab tables as data frames with a year column, as seen in
-stock assessment reports. The long format is practical for analysis and
-producing plots.
+TAF stores tables as data frames with a year column, as seen in stock
+assessment reports. The long format is practical for analysis and producing
+plots.
 }
 \examples{
 fish <- matrix(round(runif(30),3), 5)
@@ -36,7 +36,7 @@ taf2long(alt, names=c("Year","Age","Weight"), year=FALSE)
 
 }
 \seealso{
-\code{\link{flr2taf}} converts tables from FLR to TAF format.
+\code{\link{flr2taf}} converts FLR tables to TAF format.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
