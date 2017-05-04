@@ -4,15 +4,10 @@
 \alias{flr2taf}
 \title{Convert FLR Table to TAF Format}
 \usage{
-flr2taf(x, year = TRUE, na = NULL)
+flr2taf(x)
 }
 \arguments{
 \item{x}{a table of class \code{FLQuant}.}
-
-\item{year}{whether the year should be stored in the first column, instead of
-row names.}
-
-\item{na}{a value that should be converted to NA.}
 }
 \value{
 A data frame in TAF format.
@@ -25,11 +20,10 @@ FLR uses the \code{FLQuant} class to store tables as 6-dimensional arrays,
 while TAF tables are stored as data frames with a year column.
 }
 \examples{
-x <- array(round(runif(70)/3, 1), dim=c(7,10,1,1,1,1))
-dimnames(x) <- list(age=2:8, year=1991:2000,
+x <- array(t(catage.xtab), dim=c(4,8,1,1,1,1))
+dimnames(x) <- list(age=1:4, year=1963:1970,
                     unit="unique", season="all", area="unique", iter=1)
 flr2taf(x)
-flr2taf(x, year=FALSE, na=0)
 
 }
 \seealso{

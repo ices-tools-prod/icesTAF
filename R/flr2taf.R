@@ -3,9 +3,6 @@
 #' Convert a table from FLR to TAF format.
 #'
 #' @param x a table of class \code{FLQuant}.
-#' @param year whether the year should be stored in the first column, instead of
-#' row names.
-#' @param na a value that should be converted to NA.
 #'
 #' @return
 #' A data frame in TAF format.
@@ -23,25 +20,14 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
-#' x <- array(round(runif(70)/3, 1), dim=c(7,10,1,1,1,1))
-#' dimnames(x) <- list(age=2:8, year=1991:2000,
+#' x <- array(t(catage.xtab), dim=c(4,8,1,1,1,1))
+#' dimnames(x) <- list(age=1:4, year=1963:1970,
 #'                     unit="unique", season="all", area="unique", iter=1)
 #' flr2taf(x)
-#' flr2taf(x, year=FALSE, na=0)
 #'
 #' @export
 
-flr2taf <- function(x, year=TRUE, na=NULL)
+flr2taf <- function(x)
 {
-  y <- as.data.frame(t(drop(unclass(x))))
-  if(year)
-  {
-    y <- cbind(Year=as.integer(row.names(y)), y)
-    row.names(y) <- NULL
-  }
-  if(!is.null(na))
-  {
-    y[y==na] <- NA
-  }
-  y
+  as.data.frame(t(drop(unclass(x))))
 }
