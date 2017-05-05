@@ -9,7 +9,7 @@
 #' The resulting text file has Dos line endings (CRLF).
 #'
 #' @seealso
-#' \code{\link{readDLS}} reads \code{DLS3.2} results from a file back into R.
+#' \code{\link{read.dls}} reads \code{DLS3.2} results from a file back into R.
 #'
 #' \code{\link[icesAdvice]{DLS3.2}} in the \pkg{icesAdvice} package can be used
 #' to calculate catch advice for data-limited stocks (DLS).
@@ -21,15 +21,15 @@
 #' survey <- data.frame(year=2001:2010, randu[1:10,])
 #' dls <- icesAdvice::DLS3.2(1000, survey$y)
 #'
-#' writeDLS(dls, "dls.txt")
-#' readDLS("dls.txt")
+#' write.dls(dls, "dls.txt")
+#' read.dls("dls.txt")
 #'
 #' file.remove("dls.txt")
 #' }
 #'
 #' @export
 
-writeDLS <- function(x, file="")
+write.dls <- function(x, file="")
 {
   nn <- names(x)
   write(nn[1], file)

@@ -12,22 +12,22 @@ data, methods, and results used in ICES assessments.
 \details{
 \emph{Data-limited stocks:}
 \tabular{ll}{
-  \code{\link{readDLS}}  \tab read \code{DLS3.2} output from file\cr
-  \code{\link{writeDLS}} \tab write \code{DLS3.2} output to file
-}
-\emph{Table converters:}
-\tabular{ll}{
-  \code{\link{flr2taf}}  \tab FLR format to TAF format\cr
-  \code{\link{long2taf}} \tab long format to TAF format\cr
-  \code{\link{taf2long}} \tab TAF format to long format\cr
-  \code{\link{taf2xtab}} \tab TAF format to crosstab format\cr
-  \code{\link{xtab2taf}} \tab crosstab format to TAF format
+  \code{\link{read.dls}}  \tab read \code{DLS3.2} output from file\cr
+  \code{\link{write.dls}} \tab write \code{DLS3.2} output to file
 }
 \emph{File management:}
 \tabular{ll}{
   \code{\link{dir.remove}} \tab remove empty directories\cr
   \code{\link{dos2unix}}   \tab convert line endings\cr
   \code{\link{unix2dos}}   \tab convert line endings
+}
+\emph{Table converters:}
+\tabular{ll}{
+  \code{\link{flr2taf}}  \tab FLR to TAF\cr
+  \code{\link{long2taf}} \tab long format to TAF\cr
+  \code{\link{taf2long}} \tab TAF to long format\cr
+  \code{\link{taf2xtab}} \tab TAF to crosstab\cr
+  \code{\link{xtab2taf}} \tab crosstab to TAF
 }
 \emph{Examples:}
 \tabular{ll}{

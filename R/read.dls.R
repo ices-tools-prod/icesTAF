@@ -9,7 +9,7 @@
 #' in the calculations.
 #'
 #' @seealso
-#' \code{\link{writeDLS}} writes \code{DLS3.2} results to a file.
+#' \code{\link{write.dls}} writes \code{DLS3.2} results to a file.
 #'
 #' \code{\link[icesAdvice]{DLS3.2}} in the \pkg{icesAdvice} package can be used
 #' to calculate catch advice for data-limited stocks (DLS).
@@ -21,15 +21,15 @@
 #' survey <- data.frame(year=2001:2010, randu[1:10,])
 #' dls <- icesAdvice::DLS3.2(1000, survey$y)
 #'
-#' writeDLS(dls, "dls.txt")
-#' readDLS("dls.txt")
+#' write.dls(dls, "dls.txt")
+#' read.dls("dls.txt")
 #'
 #' file.remove("dls.txt")
 #' }
 #'
 #' @export
 
-readDLS <- function(file)
+read.dls <- function(file)
 {
   x <- readLines(file)
   x <- x[x != ""]
