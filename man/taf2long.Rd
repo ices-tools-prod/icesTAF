@@ -27,7 +27,10 @@ taf2long(catage.taf, names=c("Year","Age","Catch"))
 
 }
 \seealso{
-\code{\link{taf2long}} converts between different table formats.
+\code{\link{catage.long}} and \code{\link{catage.taf}} describe the long and
+TAF formats.
+
+\code{\link{long2taf}} converts a long table to TAF format.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

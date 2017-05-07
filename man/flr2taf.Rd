@@ -27,10 +27,10 @@ flr2taf(x)
 
 }
 \seealso{
+\code{\link{catage.taf}} describes the TAF format.
+
 \code{\link{as.data.frame}} is a method provided by the \pkg{FLCore} package
 to convert \code{FLQuant} tables to a 7-column long format.
-
-\code{\link{taf2long}} converts between different table formats.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

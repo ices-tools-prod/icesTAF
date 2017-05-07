@@ -25,7 +25,10 @@ xtab2taf(catage.xtab)
 
 }
 \seealso{
-\code{\link{taf2long}} converts between different table formats.
+\code{\link{catage.taf}} and \code{\link{catage.xtab}} describe the TAF and
+crosstab formats.
+
+\code{\link{taf2xtab}} converts a TAF table to crosstab format.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

@@ -13,7 +13,10 @@
 #' and producing plots.
 #'
 #' @seealso
-#' \code{\link{taf2long}} converts between different table formats.
+#' \code{\link{catage.taf}} and \code{\link{catage.xtab}} describe the TAF and
+#' crosstab formats.
+#'
+#' \code{\link{xtab2taf}} converts a crosstab table to TAF format.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'

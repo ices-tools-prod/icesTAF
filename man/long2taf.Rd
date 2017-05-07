@@ -25,7 +25,10 @@ long2taf(catage.long)
 
 }
 \seealso{
-\code{\link{taf2long}} converts between different table formats.
+\code{\link{catage.long}} and \code{\link{catage.taf}} describe the long and
+TAF formats.
+
+\code{\link{taf2long}} converts a TAF table to long format.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
