@@ -29,7 +29,8 @@ The data are an excerpt (first years and ages) from the catch-at-age table
 for North Sea cod from the ICES (2016) assessment.
 }
 \examples{
-taf2long(catage.taf)
+catage.xtab
+xtab2taf(catage.xtab)
 }
 \seealso{
 \code{\link{catage.long}} and \code{\link{catage.taf}} describe alternative

@@ -42,6 +42,7 @@
 #'
 #'
 #' @examples
-#' taf2long(catage.taf)
+#' catage.xtab
+#' xtab2taf(catage.xtab)
 
 NA

@@ -39,8 +39,8 @@
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
-#'
 #' @examples
-#' taf2long(catage.taf)
+#' catage.long
+#' long2taf(catage.long)
 
 NA
