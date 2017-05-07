@@ -12,14 +12,19 @@ data, methods, and results used in ICES assessments.
 \details{
 \emph{Data-limited stocks:}
 \tabular{ll}{
-  \code{\link{read.dls}}  \tab read \code{DLS3.2} output from file\cr
-  \code{\link{write.dls}} \tab write \code{DLS3.2} output to file
+  \code{\link{read.dls}}  \tab read \code{DLS3.2} results from file\cr
+  \code{\link{write.dls}} \tab write \code{DLS3.2} results to file
 }
 \emph{File management:}
 \tabular{ll}{
   \code{\link{dir.remove}} \tab remove empty directories\cr
   \code{\link{dos2unix}}   \tab convert line endings\cr
   \code{\link{unix2dos}}   \tab convert line endings
+}
+\emph{Read/write TAF tables:}
+\tabular{ll}{
+  \code{\link{read.taf}}  \tab read TAF table from file\cr
+  \code{\link{write.taf}} \tab write TAF table to file
 }
 \emph{Table converters:}
 \tabular{ll}{
@@ -29,7 +34,7 @@ data, methods, and results used in ICES assessments.
   \code{\link{taf2xtab}} \tab TAF to crosstab\cr
   \code{\link{xtab2taf}} \tab crosstab to TAF
 }
-\emph{Examples:}
+\emph{Example tables:}
 \tabular{ll}{
   \code{\link{catage.long}} \tab long format\cr
   \code{\link{catage.taf}}  \tab TAF format\cr

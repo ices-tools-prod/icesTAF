@@ -29,5 +29,5 @@
 
 flr2taf <- function(x)
 {
-  as.data.frame(t(drop(unclass(x))))
+  xtab2taf(as.data.frame(t(drop(unclass(x)))))
 }
