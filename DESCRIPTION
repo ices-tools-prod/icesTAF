@@ -4,7 +4,7 @@ Date: 2017-05-04
 Title: Functions to Support the ICES Transparent Assessment Framework
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="arni.magnusson@ices.dk"),
              person("Colin", "Millar", role="aut"))
-Imports: stats
+Imports: stats, utils
 Suggests: icesAdvice
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework, to

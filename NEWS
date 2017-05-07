@@ -4,6 +4,8 @@ icesTAF 1.2-0 (2017-05-05)
 o Added functions long2taf(), and taf2xtab(), and xtab2taf to convert between
   table formats.
 
+o Added functions read.taf() and write.taf() to read and write TAF tables.
+
 o Renamed functions readDLS() and writeDLS() to read.dls() and write.dls().
 
 o Added example data frames catage.long, catage.taf, and catage.xtab to
