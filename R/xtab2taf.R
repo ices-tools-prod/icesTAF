@@ -27,7 +27,9 @@
 
 xtab2taf <- function(x)
 {
-  y <- data.frame(Year=as.integer(row.names(x)), x, check.names=FALSE)
+  if(is.table(x))
+    x <- unclass(x)  # handle xtabs() output
+  y <- data.frame(Year=simplify(row.names(x)), x, check.names=FALSE)
   row.names(y) <- NULL
   y
 }

@@ -29,8 +29,6 @@
 
 long2taf <- function(x)
 {
-  y <- unclass(xtabs(x[[3]]~x[[1]]+x[[2]]))
-  y <- data.frame(Year=as.integer(row.names(y)), y, check.names=FALSE)
-  row.names(y) <- NULL
-  y
+  y <- xtabs(x[[3]]~x[[1]]+x[[2]])
+  xtab2taf(y)
 }
