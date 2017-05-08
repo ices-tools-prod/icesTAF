@@ -23,7 +23,7 @@
 #' taf2xtab(catage.taf)
 #' t.taf(catage.taf)
 #'
-#' @export
+#' @export t.taf
 
 t.taf <- function(x)
 {
