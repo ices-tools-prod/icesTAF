@@ -25,4 +25,5 @@
 write.taf <- function(x, file)
 {
   write.csv(x, file, quote=FALSE, row.names=FALSE)
+  unix2dos(file)
 }
