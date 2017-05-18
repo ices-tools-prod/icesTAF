@@ -16,7 +16,7 @@ unix2dos(file)
 Convert line endings in a text file between Dos (CRLF) and Unix (LF) format.
 }
 \note{
-TAF uses \code{unix2dos} to ensure that text files on the FTP server have Dos
+TAF uses \code{unix2dos} to ensure that text files on the server have Dos
 line endings.
 }
 \examples{
