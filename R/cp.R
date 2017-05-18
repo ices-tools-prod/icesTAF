@@ -13,7 +13,7 @@
 #' Shorthand for \code{invisible(file.copy(..., overwrite=TRUE))}.
 #'
 #' @seealso
-#' \code{\link{file.copy}}.
+#' \code{\link{file.copy}} is the base function to copy files.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'

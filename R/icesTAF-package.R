@@ -11,21 +11,20 @@
 #' data, methods, and results used in ICES assessments.
 #'
 #' @details
-#' \emph{Data-limited stocks:}
+#' \emph{Read and write files:}
 #' \tabular{ll}{
 #'   \code{\link{read.dls}}  \tab read \code{DLS3.2} results from file\cr
-#'   \code{\link{write.dls}} \tab write \code{DLS3.2} results to file
-#' }
-#' \emph{File management:}
-#' \tabular{ll}{
-#'   \code{\link{dir.remove}} \tab remove empty directories\cr
-#'   \code{\link{dos2unix}}   \tab convert line endings\cr
-#'   \code{\link{unix2dos}}   \tab convert line endings
-#' }
-#' \emph{Read/write TAF tables:}
-#' \tabular{ll}{
 #'   \code{\link{read.taf}}  \tab read TAF table from file\cr
+#'   \code{\link{write.dls}} \tab write \code{DLS3.2} results to file\cr
 #'   \code{\link{write.taf}} \tab write TAF table to file
+#' }
+#' \emph{Other file management:}
+#' \tabular{ll}{
+#'   \code{\link{cp}}       \tab copy files\cr
+#'   \code{\link{mkdir}}    \tab create directory\cr
+#'   \code{\link{rmdir}}    \tab remove empty directories\cr
+#'   \code{\link{dos2unix}} \tab convert line endings\cr
+#'   \code{\link{unix2dos}} \tab convert line endings
 #' }
 #' \emph{Table converters:}
 #' \tabular{ll}{
@@ -33,6 +32,7 @@
 #'   \code{\link{long2taf}} \tab long format to TAF\cr
 #'   \code{\link{taf2long}} \tab TAF to long format\cr
 #'   \code{\link{taf2xtab}} \tab TAF to crosstab\cr
+#'   \code{\link{tt}}       \tab transpose TAF table\cr
 #'   \code{\link{xtab2taf}} \tab crosstab to TAF
 #' }
 #' \emph{Example tables:}

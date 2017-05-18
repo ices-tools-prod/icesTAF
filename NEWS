@@ -6,9 +6,10 @@ o Added functions long2taf(), and taf2xtab(), tt(), and xtab2taf to convert
 
 o Added functions read.taf() and write.taf() to read and write TAF tables.
 
-o Added function cp() to copy files.
+o Added function cp() to copy files and mkdir() to create a directory.
 
-o Renamed functions readDLS() and writeDLS() to read.dls() and write.dls().
+o Renamed function dir.remove() to rmdir(). Renamed readDLS() and writeDLS() to
+  read.dls() and write.dls().
 
 o Added example data frames catage.long, catage.taf, and catage.xtab to
   demonstrate different table formats.

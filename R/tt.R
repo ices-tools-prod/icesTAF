@@ -1,4 +1,4 @@
-#' Convert TAF Table to Transposed Crosstab Format
+#' TAF Transpose
 #'
 #' Convert a table from TAF format to transposed crosstab format.
 #'

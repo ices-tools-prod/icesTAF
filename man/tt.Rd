@@ -2,7 +2,7 @@
 % Please edit documentation in R/tt.R
 \name{tt}
 \alias{tt}
-\title{Convert TAF Table to Transposed Crosstab Format}
+\title{TAF Transpose}
 \usage{
 tt(x)
 }
