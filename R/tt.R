@@ -21,11 +21,11 @@
 #'
 #' @examples
 #' taf2xtab(catage.taf)
-#' t.taf(catage.taf)
+#' tt(catage.taf)
 #'
-#' @export t.taf
+#' @export
 
-t.taf <- function(x)
+tt <- function(x)
 {
   as.data.frame(t(taf2xtab(x)))
 }

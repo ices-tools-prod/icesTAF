@@ -1,10 +1,12 @@
 --------------------------------------------------------------------------------
 icesTAF 1.2-0 (2017-05-11)
 --------------------------------------------------------------------------------
-o Added functions long2taf(), and taf2xtab(), t.taf(), and xtab2taf to convert
+o Added functions long2taf(), and taf2xtab(), tt(), and xtab2taf to convert
   between table formats.
 
 o Added functions read.taf() and write.taf() to read and write TAF tables.
+
+o Added function cp() to copy files.
 
 o Renamed functions readDLS() and writeDLS() to read.dls() and write.dls().
 

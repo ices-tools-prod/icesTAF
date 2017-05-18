@@ -16,7 +16,7 @@
 #' \code{\link{catage.taf}} and \code{\link{catage.xtab}} describe the TAF and
 #' crosstab formats.
 #'
-#' \code{\link{t.taf}} converts a TAF table to transposed crosstab format.
+#' \code{\link{tt}} converts a TAF table to transposed crosstab format.
 #'
 #' \code{\link{xtab2taf}} converts a crosstab table to TAF format.
 #'
