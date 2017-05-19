@@ -7,7 +7,8 @@
 cp(from, to)
 }
 \arguments{
-\item{from}{source file names.}
+\item{from}{source file names. Multiple filenames can be matched using
+wildcard notation, such as \code{*.csv} to copy all CSV files.}
 
 \item{to}{destination file names, or directory.}
 }

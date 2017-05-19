@@ -3,7 +3,8 @@
 #' Copy files, overwriting existing files if necessary, and returning the result
 #' invisibly.
 #'
-#' @param from source file names.
+#' @param from source file names. Multiple filenames can be matched using
+#'        wildcard notation, such as \code{*.csv} to copy all CSV files.
 #' @param to destination file names, or directory.
 #'
 #' @return
@@ -28,5 +29,5 @@
 
 cp <- function(from, to)
 {
-  invisible(file.copy(from, to, overwrite=TRUE))
+  invisible(file.copy(Sys.glob(from), to, overwrite=TRUE))
 }
