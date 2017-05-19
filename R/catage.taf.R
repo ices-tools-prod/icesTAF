@@ -2,8 +2,6 @@
 #'
 #' @name catage.taf
 #'
-#' @aliases catage.taf
-#'
 #' @title Catch at Age in TAF format
 #'
 #' @description

@@ -2,8 +2,6 @@
 #'
 #' @name catage.long
 #'
-#' @aliases catage.long
-#'
 #' @title Catch at Age in Long Format
 #'
 #' @description

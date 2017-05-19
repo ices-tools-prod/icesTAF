@@ -2,8 +2,6 @@
 #'
 #' @name catage.xtab
 #'
-#' @aliases catage.xtab
-#'
 #' @title Catch at Age in Crosstab Format
 #'
 #' @description
