@@ -1,10 +1,10 @@
-#' Copy File
+#' Copy Files
 #'
-#' Copy file, overwriting existing file if necessary, and returning the result
+#' Copy files, overwriting existing files if necessary, and returning the result
 #' invisibly.
 #'
-#' @param from source file name.
-#' @param to destination file name.
+#' @param from source file names.
+#' @param to destination file names, or directory.
 #'
 #' @return
 #' \code{TRUE} for success, \code{FALSE} for failure, invisibly.

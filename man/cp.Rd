@@ -2,20 +2,20 @@
 % Please edit documentation in R/cp.R
 \name{cp}
 \alias{cp}
-\title{Copy File}
+\title{Copy Files}
 \usage{
 cp(from, to)
 }
 \arguments{
-\item{from}{source file name.}
+\item{from}{source file names.}
 
-\item{to}{destination file name.}
+\item{to}{destination file names, or directory.}
 }
 \value{
 \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 }
 \description{
-Copy file, overwriting existing file if necessary, and returning the result
+Copy files, overwriting existing files if necessary, and returning the result
 invisibly.
 }
 \note{
