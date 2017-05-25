@@ -1,29 +1,32 @@
 #' Run TAF Script
 #'
-#' Run an R script. Optionally start by cleaning the workspace and setting the
-#' working directory.
+#' Run a TAF script and return to the original directory. Optionally start with
+#' an empty workspace.
 #'
 #' @param script script filename.
-#' @param rm whether to remove all files from the global environment, before the
-#'        script is run.
-#' @param wd path to set as the working directory, or \code{NULL} to use the
-#'        current working directory.
+#' @param rm whether to remove all objects from the global environment, before
+#'        the script is run.
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
-#' TAF scripts use \code{rm=TRUE} to make sure each script starts with an empty
-#' workspace. The default \code{rm=FALSE} is mainly to prevent accidental loss
-#' of work by users not familiar with the function.
-#'
-#' TAF scripts use a \code{taf.root} option to set the working directory. If
-#' this option is not set and \code{wd=getOption("taf.root")}, it is equivalent
-#' to passing \code{wd=NULL} which uses the current working directory.
+#' TAF scripts should be run with \code{rm = TRUE} to make sure each script
+#' starts with an empty workspace. The default \code{rm = FALSE} is mainly to
+#' prevent accidental loss of work by users not familiar with the function.
 #'
 #' @return
-#' Invisible \code{TRUE} if script ran without errors.
+#' Invisible \code{TRUE} or \code{FALSE}, indicating whether the script ran
+#' without errors.
+#'
+#' @note
+#' Commands within a script may change the working directory, but
+#' \code{sourceTAF} guarantees that after running a script, the working
+#' directory reported by \code{getwd()} is the same before and after running a
+#' script.
 #'
 #' @seealso
 #' \code{\link{source}} is the base function to run R scripts.
+#'
+#' \code{\link{sourceAtoZ}} runs all TAF scripts in a directory.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -32,20 +35,24 @@
 #' write("print(pi)", "script.R")
 #' source("script.R")
 #' sourceTAF("script.R")
+#' file.remove("script.R")
 #' }
 #'
 #' @export
 
-sourceTAF <- function(script, rm=FALSE, wd=getOption("taf.root"), quiet=FALSE)
+sourceTAF <- function(script, rm=FALSE, quiet=FALSE)
 {
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
-  if(!is.null(wd))
-    setwd(wd)
   if(!quiet)
     message("* Running ", script, " ...")
-  source(script)
+
+  owd <- setwd(dirname(script))
+  on.exit(setwd(owd))
+  result <- try(source(basename(script)))
+
+  ok <- class(result) != "try-error"
   if(!quiet)
-    message("Done")
-  invisible(TRUE)
+    message(if(ok) "Done" else "Failed")
+  invisible(ok)
 }
