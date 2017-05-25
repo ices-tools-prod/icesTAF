@@ -11,7 +11,7 @@
 #' \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 #'
 #' @note
-#' Shorthand for \code{invisible(file.copy(..., overwrite=TRUE))}.
+#' Shorthand for \code{invisible(file.copy(..., overwrite = TRUE))}.
 #'
 #' @seealso
 #' \code{\link{file.copy}} is the base function to copy files.

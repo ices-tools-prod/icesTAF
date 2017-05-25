@@ -20,7 +20,7 @@ Copy files, overwriting existing files if necessary, and returning the result
 invisibly.
 }
 \note{
-Shorthand for \code{invisible(file.copy(..., overwrite=TRUE))}.
+Shorthand for \code{invisible(file.copy(..., overwrite = TRUE))}.
 }
 \examples{
 \dontrun{
