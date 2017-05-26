@@ -22,10 +22,10 @@
 #' \tabular{ll}{
 #'   \code{\link{clean}}      \tab clean TAF directories\cr
 #'   \code{\link{cp}}         \tab copy files\cr
-#'   \code{\link{mkdir}}      \tab create directory\cr
 #'   \code{\link{dos2unix}}   \tab convert line endings\cr
-#'   \code{\link{sourceTAF}}  \tab run TAF script\cr
+#'   \code{\link{mkdir}}      \tab create directory\cr
 #'   \code{\link{sourceAtoZ}} \tab run all TAF scripts\cr
+#'   \code{\link{sourceTAF}}  \tab run TAF script\cr
 #'   \code{\link{unix2dos}}   \tab convert line endings
 #' }
 #' \emph{Table converters:}
