@@ -24,6 +24,8 @@
 #' @seealso
 #' \code{\link{source}} is the base function to run R scripts.
 #'
+#' \code{\link{make}} runs a TAF script if needed.
+#'
 #' \code{\link{sourceAtoZ}} runs all TAF scripts in a directory.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
