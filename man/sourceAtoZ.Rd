@@ -47,7 +47,7 @@ sourceAtoZ()
 \seealso{
 \code{\link{sourceTAF}} runs a TAF script.
 
-\code{\link{sourceTAF}} runs a TAF script if needed.
+\code{\link{make}} runs a TAF script if needed.
 
 \code{\link{clean}} cleans TAF directories.
 
