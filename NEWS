@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 icesTAF 1.3-0 (2017-05-26)
 --------------------------------------------------------------------------------
-o Added function make() to run script if needed and sourceAtoZ() to run all
+o Added function make() to run script if needed, and sourceAtoZ() to run all
   scripts in alphabetical order. Added clean() to remove TAF directories.
 
 
