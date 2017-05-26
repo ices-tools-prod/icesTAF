@@ -5,21 +5,17 @@
 #' directories and emptying the workspace before running each script.
 #'
 #' @param path directory containing TAF scripts.
-#' @param rm whether to remove all objects from the global environment, before
+#' @param rm whether to remove all objects from the global environment before
 #'        each script is run.
-#' @param clean whether to remove directories \file{db}, \file{input},
-#'        \file{model}, \file{output}, and \file{report}.
+#' @param clean whether to \code{\link{clean}} existing TAF directories before
+#'        running the scripts.
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
-#' TAF scripts should be run with \code{rm = TRUE} to make sure each script
-#' starts with an empty workspace. The default \code{rm = FALSE} is mainly to
-#' prevent accidental loss of work by users not familiar with the function.
-#'
-#' Use \code{clean = TRUE} to make sure the scripts start by creating new empty
-#' directories and populate them one by one. Again, the default
-#' \code{clean = FALSE} is mainly to prevent accidental loss of work by users
-#' not familiar with the function.
+#' By default, TAF scripts are run with \code{rm = TRUE} to make sure each
+#' script starts with an empty workspace. Likewise, the default
+#' \code{clean = TRUE} makes sure that the scripts start by creating new empty
+#' directories and populate them one by one.
 #'
 #' @return
 #' Logical vector, indicating which scripts ran without errors.
@@ -34,6 +30,8 @@
 #' @seealso
 #' \code{\link{sourceTAF}} runs a TAF script.
 #'
+#' \code{\link{clean}} cleans TAF directories.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
@@ -43,10 +41,10 @@
 #'
 #' @export
 
-sourceAtoZ <- function(path=".", rm=FALSE, clean=FALSE, quiet=FALSE)
+sourceAtoZ <- function(path=".", rm=TRUE, clean=TRUE, quiet=FALSE)
 {
   if(clean)
-    unlink(c("db","input","model","output","upload"), recursive=TRUE)
+    clean()
 
   scripts <- dir(path, pattern="\\.[Rr]$")
   scripts <- grep("^all\\.[Rr]", scripts, invert=TRUE, value=TRUE)

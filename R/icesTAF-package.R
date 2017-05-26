@@ -20,6 +20,7 @@
 #' }
 #' \emph{Other file management:}
 #' \tabular{ll}{
+#'   \code{\link{clean}}      \tab clean TAF directories\cr
 #'   \code{\link{cp}}         \tab copy files\cr
 #'   \code{\link{mkdir}}      \tab create directory\cr
 #'   \code{\link{dos2unix}}   \tab convert line endings\cr

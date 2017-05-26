@@ -4,16 +4,16 @@
 \alias{sourceAtoZ}
 \title{Run TAF Scripts in Alphabetical Order}
 \usage{
-sourceAtoZ(path = ".", rm = FALSE, clean = FALSE, quiet = FALSE)
+sourceAtoZ(path = ".", rm = TRUE, clean = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{path}{directory containing TAF scripts.}
 
-\item{rm}{whether to remove all objects from the global environment, before
+\item{rm}{whether to remove all objects from the global environment before
 each script is run.}
 
-\item{clean}{whether to remove directories \file{db}, \file{input},
-\file{model}, \file{output}, and \file{report}.}
+\item{clean}{whether to \code{\link{clean}} existing TAF directories before
+running the scripts.}
 
 \item{quiet}{whether to suppress messages reporting progress.}
 }
@@ -26,14 +26,10 @@ sequentially, in alphabetical order. Optionally, start by cleaning old output
 directories and emptying the workspace before running each script.
 }
 \details{
-TAF scripts should be run with \code{rm = TRUE} to make sure each script
-starts with an empty workspace. The default \code{rm = FALSE} is mainly to
-prevent accidental loss of work by users not familiar with the function.
-
-Use \code{clean = TRUE} to make sure the scripts start by creating new empty
-directories and populate them one by one. Again, the default
-\code{clean = FALSE} is mainly to prevent accidental loss of work by users
-not familiar with the function.
+By default, TAF scripts are run with \code{rm = TRUE} to make sure each
+script starts with an empty workspace. Likewise, the default
+\code{clean = TRUE} makes sure that the scripts start by creating new empty
+directories and populate them one by one.
 }
 \note{
 The \code{sourceAtoZ} function ignores \file{all.R} if such a script exists.
@@ -50,6 +46,8 @@ sourceAtoZ()
 }
 \seealso{
 \code{\link{sourceTAF}} runs a TAF script.
+
+\code{\link{clean}} cleans TAF directories.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

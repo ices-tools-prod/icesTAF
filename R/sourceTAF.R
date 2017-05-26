@@ -4,14 +4,12 @@
 #' an empty workspace.
 #'
 #' @param script script filename.
-#' @param rm whether to remove all objects from the global environment, before
+#' @param rm whether to remove all objects from the global environment before
 #'        the script is run.
 #' @param quiet whether to suppress messages reporting progress.
 #'
-#' @details
-#' TAF scripts should be run with \code{rm = TRUE} to make sure each script
-#' starts with an empty workspace. The default \code{rm = FALSE} is mainly to
-#' prevent accidental loss of work by users not familiar with the function.
+#' By default, TAF scripts are run with \code{rm = TRUE} to make sure each
+#' script starts with an empty workspace.
 #'
 #' @return
 #' Invisible \code{TRUE} or \code{FALSE}, indicating whether the script ran
@@ -40,7 +38,7 @@
 #'
 #' @export
 
-sourceTAF <- function(script, rm=FALSE, quiet=FALSE)
+sourceTAF <- function(script, rm=TRUE, quiet=FALSE)
 {
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
