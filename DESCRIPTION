@@ -10,7 +10,7 @@ LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework
   <http://taf.ices.dk> to organize data, methods, and results used in ICES
   assessments. ICES is an organization facilitating international collaboration
-  in marine research.
+  in marine science.
 License: GPL (>= 2)
 URL: http://taf.ices.dk
 RoxygenNote: 6.0.1
