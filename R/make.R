@@ -20,7 +20,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' make("model.R", "input/input.txt", "model/results.txt")
+#' make("model.R", "input/input.dat", "model/results.dat")
 #' }
 #'
 #' @export

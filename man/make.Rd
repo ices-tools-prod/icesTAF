@@ -24,7 +24,7 @@ Run a TAF script if underlying data files have changed, otherwise do nothing.
 }
 \examples{
 \dontrun{
-make("model.R", "input/input.txt", "model/results.txt")
+make("model.R", "input/input.dat", "model/results.dat")
 }
 
 }
