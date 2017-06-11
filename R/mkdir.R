@@ -17,6 +17,8 @@
 #'
 #' \code{\link{unlink}} with \code{recursive = TRUE} removes directories.
 #'
+#' \code{\link{clean}} cleans TAF directories.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
