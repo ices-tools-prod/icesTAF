@@ -32,7 +32,7 @@ make <- function(recipe, prereq, target, debug=FALSE)
                      File=c(target,prereq),
                      Modified=file.mtime(c(target,prereq))))
   if(!all(file.exists(prereq)))
-    stop("Missing prerequisite file: ", prereq[!file.exists(prereq)][1])
+    stop("missing prerequisite file '", prereq[!file.exists(prereq)][1], "'")
   if(!file.exists(target) || file.mtime(target) < max(file.mtime(prereq)))
   {
     sourceTAF(recipe)
