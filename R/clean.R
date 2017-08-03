@@ -4,6 +4,7 @@
 #' \file{upload}.
 #'
 #' @param path location where directories are found.
+#' @param also vector of additional directories to remove.
 #'
 #' @note
 #' The purpose of removing the directories is to make sure that subsequent TAF
@@ -23,9 +24,10 @@
 #'
 #' @export
 
-clean <- function(path=".")
+clean <- function(path=".", also=NULL)
 {
   owd <- setwd(path)
   on.exit(setwd(owd))
-  unlink(c("db","input","model","output","upload"), recursive=TRUE)
+  dirs <- c("db", "input", "model", "output", "upload", also)
+  unlink(dirs, recursive=TRUE)
 }

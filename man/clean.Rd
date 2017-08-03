@@ -4,10 +4,12 @@
 \alias{clean}
 \title{Clean TAF Directories}
 \usage{
-clean(path = ".")
+clean(path = ".", also = NULL)
 }
 \arguments{
 \item{path}{location where directories are found.}
+
+\item{also}{vector of additional directories to remove.}
 }
 \description{
 Remove directories \file{db}, \file{input}, \file{model}, \file{output}, and
