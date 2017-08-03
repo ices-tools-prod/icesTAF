@@ -46,7 +46,7 @@
 sourceAtoZ <- function(path=".", rm=TRUE, clean=TRUE, quiet=FALSE)
 {
   if(clean)
-    clean()
+    clean(path)
 
   scripts <- dir(path, pattern="\\.[Rr]$")
   scripts <- grep("^all\\.[Rr]", scripts, invert=TRUE, value=TRUE)
