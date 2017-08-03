@@ -1,4 +1,4 @@
-#' Make Directory
+#' Create Directory
 #'
 #' Create directory, including parent directories if necessary, without
 #' generating a warning if the directory already exists.

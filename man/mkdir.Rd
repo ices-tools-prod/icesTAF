@@ -2,7 +2,7 @@
 % Please edit documentation in R/mkdir.R
 \name{mkdir}
 \alias{mkdir}
-\title{Make Directory}
+\title{Create Directory}
 \usage{
 mkdir(path)
 }
