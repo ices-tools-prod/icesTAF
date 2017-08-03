@@ -45,7 +45,7 @@ sourceTAF <- function(script, rm=TRUE, quiet=FALSE)
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
   if(!quiet)
-    message("* Running ", script, " ...")
+    msg("Running ", script, " ...")
 
   owd <- setwd(dirname(script))
   on.exit(setwd(owd))
