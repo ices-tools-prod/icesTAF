@@ -11,6 +11,10 @@
 #' data, methods, and results used in ICES assessments.
 #'
 #' @details
+#' \emph{Web services:}
+#' \tabular{ll}{
+#'   \code{\link{upload}} \tab upload data file to server
+#' }
 #' \emph{Read and write files:}
 #' \tabular{ll}{
 #'   \code{\link{read.dls}}  \tab read \code{DLS3.2} results from file\cr
