@@ -8,6 +8,7 @@
 #'        the script is run.
 #' @param quiet whether to suppress messages reporting progress.
 #'
+#' @details
 #' By default, TAF scripts are run with \code{rm = TRUE} to make sure each
 #' script starts with an empty workspace.
 #'

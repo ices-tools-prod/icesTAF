@@ -12,10 +12,7 @@ sourceTAF(script, rm = TRUE, quiet = FALSE)
 \item{rm}{whether to remove all objects from the global environment before
 the script is run.}
 
-\item{quiet}{whether to suppress messages reporting progress.
-
-By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-script starts with an empty workspace.}
+\item{quiet}{whether to suppress messages reporting progress.}
 }
 \value{
 Invisible \code{TRUE} or \code{FALSE}, indicating whether the script ran
@@ -24,6 +21,10 @@ without errors.
 \description{
 Run a TAF script and return to the original directory. Optionally start with
 an empty workspace.
+}
+\details{
+By default, TAF scripts are run with \code{rm = TRUE} to make sure each
+script starts with an empty workspace.
 }
 \note{
 Commands within a script may change the working directory, but
