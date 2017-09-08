@@ -7,8 +7,8 @@
 #'
 #' @note
 #' The file will be stored in the TAF database and made available in the
-#' \file{data-raw} directory on the file server, e.g.
-#' \url{http://taf.ices.local/taf/fs/2015_rjm-347d/data-raw/catch.csv}.
+#' \file{raw} directory on the file server, e.g.
+#' \url{http://taf.ices.local/taf/fs/2015_rjm-347d/raw/catch.csv}.
 #'
 #' The term \emph{raw data} refers to the initial data step to be archived.
 #' These archived data files are the basis of all subsequent analysis, and
@@ -37,7 +37,7 @@
 upload <- function(analysis, file)
 {
   file <- upload_file(file)
-  url <- sprintf("http://taf.ices.local/taf/fs/%s/data-raw/%s",
+  url <- sprintf("http://taf.ices.local/taf/fs/%s/raw/%s",
                  analysis, basename(file$path))
   POST(url, body=file)
 }
