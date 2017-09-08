@@ -2,7 +2,7 @@
 % Please edit documentation in R/upload.R
 \name{upload}
 \alias{upload}
-\title{Upload Data File to TAF Server}
+\title{Upload File to TAF Database}
 \usage{
 upload(analysis, file)
 }
@@ -12,11 +12,11 @@ upload(analysis, file)
 \item{file}{filename, e.g. \code{surveys_all.csv}.}
 }
 \description{
-Upload a file containing raw data to the TAF file server.
+Upload a file containing raw data to the TAF database.
 }
 \note{
-The file will be stored and made available inside the \file{data-raw}
-directory on the TAF file server, e.g.
+The file will be stored in the TAF database and made available in the
+\file{data-raw} directory on the file server, e.g.
 \url{http://taf.ices.local/taf/fs/2015_rjm-347d/data-raw/catch.csv}.
 
 The term \emph{raw data} refers to the initial data step to be archived.
