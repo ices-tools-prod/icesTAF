@@ -12,8 +12,8 @@ clean(path = ".", also = NULL)
 \item{also}{vector of additional directories to remove.}
 }
 \description{
-Remove TAF directories \file{data}, \file{input}, \file{model},
-\file{output}, \file{plot}, and \file{report}.
+Remove TAF directories: \verb{data}, \verb{input}, \verb{model},
+\verb{output}, \verb{plot}, \verb{report}.
 }
 \note{
 The purpose of removing the directories is to make sure that subsequent TAF

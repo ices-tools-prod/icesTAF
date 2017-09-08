@@ -1,7 +1,7 @@
 #' Clean TAF Directories
 #'
-#' Remove TAF directories \file{data}, \file{input}, \file{model},
-#' \file{output}, \file{plot}, and \file{report}.
+#' Remove TAF directories: \verb{data}, \verb{input}, \verb{model},
+#' \verb{output}, \verb{plot}, \verb{report}.
 #'
 #' @param path location where directories are found.
 #' @param also vector of additional directories to remove.
