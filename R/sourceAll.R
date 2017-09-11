@@ -31,12 +31,12 @@
 #'
 #' @examples
 #' \dontrun{
-#' sourceAtoZ()
+#' sourceAll()
 #' }
 #'
 #' @export
 
-sourceAtoZ <- function(path=".", rm=TRUE, clean=TRUE, quiet=FALSE)
+sourceAll <- function(path=".", rm=TRUE, clean=TRUE, quiet=FALSE)
 {
   if(clean)
     clean(path)

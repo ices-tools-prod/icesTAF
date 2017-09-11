@@ -46,7 +46,7 @@ file.remove("script.R")
 
 \code{\link{make}} runs a TAF script if needed.
 
-\code{\link{sourceAtoZ}} runs all TAF scripts in a directory.
+\code{\link{sourceAll}} runs all TAF scripts in a directory.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

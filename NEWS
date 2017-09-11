@@ -3,6 +3,8 @@ icesTAF 1.4-0 (2017-09-07)
 --------------------------------------------------------------------------------
 o Added function upload() to upload file to TAF database.
 
+o Renamed function sourceAtoZ() to sourceAll().
+
 
 
 

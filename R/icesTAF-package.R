@@ -24,10 +24,10 @@
 #' }
 #' \emph{Run scripts:}
 #' \tabular{ll}{
-#'   \code{\link{make}}       \tab run TAF script if needed\cr
-#'   \code{\link{msg}}        \tab show message\cr
-#'   \code{\link{sourceAtoZ}} \tab run all TAF scripts\cr
-#'   \code{\link{sourceTAF}}  \tab run TAF script
+#'   \code{\link{make}}      \tab run TAF script if needed\cr
+#'   \code{\link{msg}}       \tab show message\cr
+#'   \code{\link{sourceAll}} \tab run all TAF scripts\cr
+#'   \code{\link{sourceTAF}} \tab run TAF script
 #' }
 #' \emph{Other file management:}
 #' \tabular{ll}{
