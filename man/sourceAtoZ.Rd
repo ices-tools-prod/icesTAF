@@ -21,22 +21,15 @@ running the scripts.}
 Logical vector, indicating which scripts ran without errors.
 }
 \description{
-Run all TAF scripts in a directory, except \file{all.R}. Scripts are run
-sequentially, in alphabetical order. Optionally, start by cleaning old output
-directories and emptying the workspace before running each script.
+Run all TAF scripts in a directory, in alphabetical order. Optionally, start
+by cleaning old output directories and emptying the workspace before running
+each script.
 }
 \details{
 By default, TAF scripts are run with \code{rm = TRUE} to make sure each
 script starts with an empty workspace. Likewise, the default
 \code{clean = TRUE} makes sure that the scripts start by creating new empty
 directories and populate them one by one.
-}
-\note{
-The \code{sourceAtoZ} function ignores \file{all.R} if such a script exists.
-The reason for this is that many TAF assessments have a script called
-\file{all.R} that runs all (or selected) scripts in alphabetical order.
-Running \file{all.R} and then running all other scripts would effectively
-repeat the entire assessment procedure twice.
 }
 \examples{
 \dontrun{
