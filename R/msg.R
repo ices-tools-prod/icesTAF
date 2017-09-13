@@ -19,5 +19,5 @@
 
 msg <- function(...)
 {
-  message(format(Sys.time(), "[%H:%M:%S] "), ..., "\n")
+  message(format(Sys.time(), "[%H:%M:%S] "), ...)
 }
