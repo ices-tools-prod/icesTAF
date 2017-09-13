@@ -13,7 +13,7 @@ clean(path = ".", also = NULL)
 }
 \description{
 Remove TAF directories: \verb{data}, \verb{input}, \verb{model},
-\verb{output}, \verb{plot}, \verb{report}.
+\verb{output}, \verb{report}.
 }
 \note{
 The purpose of removing the directories is to make sure that subsequent TAF

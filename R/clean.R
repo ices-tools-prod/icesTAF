@@ -1,7 +1,7 @@
 #' Clean TAF Directories
 #'
 #' Remove TAF directories: \verb{data}, \verb{input}, \verb{model},
-#' \verb{output}, \verb{plot}, \verb{report}.
+#' \verb{output}, \verb{report}.
 #'
 #' @param path location where directories are found.
 #' @param also vector of additional directories to remove.
@@ -28,6 +28,6 @@ clean <- function(path=".", also=NULL)
 {
   owd <- setwd(path)
   on.exit(setwd(owd))
-  dirs <- c("data", "input", "model", "output", "plot", "report", also)
+  dirs <- c("data", "input", "model", "output", "report", also)
   unlink(dirs, recursive=TRUE)
 }
