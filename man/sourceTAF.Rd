@@ -4,13 +4,16 @@
 \alias{sourceTAF}
 \title{Run TAF Script}
 \usage{
-sourceTAF(script, rm = TRUE, quiet = FALSE)
+sourceTAF(script, rm = TRUE, clean = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{script}{script filename.}
 
 \item{rm}{whether to remove all objects from the global environment before
 the script is run.}
+
+\item{clean}{whether to remove the corresponding TAF directory before running
+the script.}
 
 \item{quiet}{whether to suppress messages reporting progress.}
 }
@@ -24,7 +27,9 @@ an empty workspace.
 }
 \details{
 By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-script starts with an empty workspace.
+script starts with an empty workspace. Likewise, the default
+\code{clean = TRUE} makes sure that the script starts by creating a new empty
+directory.
 }
 \note{
 Commands within a script may change the working directory, but

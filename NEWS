@@ -5,7 +5,7 @@ o Added function upload() to upload file to TAF database.
 
 o Renamed function sourceAtoZ() to sourceAll().
 
-o Added argument 'move' to cp().
+o Added argument 'move' to cp(). Added argument 'clean' to sourceTAF().
 
 
 
