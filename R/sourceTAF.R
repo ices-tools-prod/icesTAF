@@ -51,7 +51,7 @@ sourceTAF <- function(script, rm=TRUE, clean=TRUE, quiet=FALSE)
 {
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
-  if(clean)
+  if(clean && dir.exists(file_path_sans_ext(script)))
     unlink(file_path_sans_ext(script), recursive=TRUE)
   if(!quiet)
     msg("Running ", script, " ...")
