@@ -14,8 +14,8 @@ upload(analysis, type, file)
 \item{file}{filename.}
 }
 \description{
-Upload a file to the TAF database, either containing \emph{raw} data or
-\emph{model} executable.
+Upload a file to the TAF database, either \emph{raw} data or a \emph{model}
+executable.
 }
 \section{Raw data}{
 
@@ -50,5 +50,7 @@ upload("2015_rjm-347d", "raw", "surveys_all.csv")
 
 }
 \seealso{
+\code{\link{download}} downloads a file in binary mode.
+
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

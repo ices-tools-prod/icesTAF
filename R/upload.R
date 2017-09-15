@@ -1,7 +1,7 @@
 #' Upload File to TAF Database
 #'
-#' Upload a file to the TAF database, either containing \emph{raw} data or
-#' \emph{model} executable.
+#' Upload a file to the TAF database, either \emph{raw} data or a \emph{model}
+#' executable.
 #'
 #' @param analysis name of TAF analysis.
 #' @param type file type, either \code{"raw"} or \code{"model"}.
@@ -30,6 +30,8 @@
 #' in the same way, but is version-controlled with the rest of the TAF analysis.
 #'
 #' @seealso
+#' \code{\link{download}} downloads a file in binary mode.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
