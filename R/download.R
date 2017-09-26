@@ -16,9 +16,10 @@
 #' ends. This is particularly relevant for Windows model executables, while the
 #' \code{chmod} switch is useful when downloading Linux executables.
 #'
-#' Data files in CSV or other text format can be read directly into memory using
-#' \code{read.table}, \code{read.taf} or similar functions, without writing to
-#' the file system.
+#' This function can be convenient for downloading any file, including text
+#' files. Data files in CSV or other text format can also be read directly into
+#' memory using \code{read.table}, \code{read.taf} or similar functions, without
+#' writing to the file system.
 #'
 #' @seealso
 #' \code{\link{read.taf}} reads a TAF table into a data frame.
