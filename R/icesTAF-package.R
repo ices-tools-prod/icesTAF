@@ -46,6 +46,11 @@
 #'   \code{\link{tt}}       \tab transpose TAF table\cr
 #'   \code{\link{xtab2taf}} \tab crosstab to TAF
 #' }
+#' \emph{Plotting tools:}
+#' \tabular{ll}{
+#'   \code{\link{lim}}    \tab compute axis limits\cr
+#'   \code{\link{tafpng}} \tab open PNG graphics device
+#' }
 #' \emph{Example tables:}
 #' \tabular{ll}{
 #'   \code{\link{catage.long}} \tab long format\cr
