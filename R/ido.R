@@ -2,8 +2,6 @@
 #'
 #' Close graphics device quietly.
 #'
-#' @param \dots passed to \code{dev.off}.
-#'
 #' @note
 #' A simple convenience function to shorten
 #' \preformatted{invisible(dev.off())}
@@ -29,7 +27,7 @@
 #'
 #' @export
 
-ido <- function(...)
+ido <- function()
 {
-  invisible(dev.off(...))
+  invisible(dev.off())
 }

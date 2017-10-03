@@ -48,6 +48,7 @@
 #' }
 #' \emph{Plotting tools:}
 #' \tabular{ll}{
+#'   \code{\link{ido}}    \tab close graphics device\cr
 #'   \code{\link{lim}}    \tab compute axis limits\cr
 #'   \code{\link{tafpng}} \tab open PNG graphics device
 #' }

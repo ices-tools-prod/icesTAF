@@ -4,10 +4,7 @@
 \alias{ido}
 \title{Invisible Dev Off}
 \usage{
-ido(...)
-}
-\arguments{
-\item{\dots}{passed to \code{dev.off}.}
+ido()
 }
 \description{
 Close graphics device quietly.

@@ -6,8 +6,8 @@ o Added function upload() to upload file to TAF database. Added function
 
 o Added function msg() to show a message, as well as the current time.
 
-o Added function tafpng() to open a graphics device. Added function lim() to
-  compute axis limits.
+o Added functions tafpng() and ido() to open and close a graphics device. Added
+  function lim() to compute axis limits.
 
 o Renamed function sourceAtoZ() to sourceAll().
 
