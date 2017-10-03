@@ -23,16 +23,15 @@
 #' \code{\link{png}} is the underlying function used to open a PNG graphics
 #' device.
 #'
-#' \code{\link{lim}} computes axis limits.
+#' \code{\link{ido}} closes a graphics device.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
 #' \dontrun{
-#' mkdir("report")
 #' tafpng("myplot")
 #' plot(1)
-#' invisible(dev.off())
+#' ido()
 #' }
 #'
 #' @importFrom grDevices png

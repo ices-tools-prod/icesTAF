@@ -10,8 +10,6 @@
 #' A vector of length two, which can be used as axis limits.
 #'
 #' @seealso
-#' \code{\link{tafpng}} opens a PNG graphics device.
-#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples

@@ -23,7 +23,5 @@ plot(rivers, ylim=lim(rivers))
 
 }
 \seealso{
-\code{\link{tafpng}} opens a PNG graphics device.
-
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

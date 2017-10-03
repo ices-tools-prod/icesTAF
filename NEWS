@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 1.4-0 (2017-10-02)
+icesTAF 1.4-0 (2017-10-03)
 --------------------------------------------------------------------------------
 o Added function upload() to upload file to TAF database. Added function
   download() to download file in binary mode.
