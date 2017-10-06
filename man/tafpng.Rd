@@ -35,15 +35,13 @@ to
 \dontrun{
 tafpng("myplot")
 plot(1)
-ido()
+dev.off()
 }
 
 }
 \seealso{
 \code{\link{png}} is the underlying function used to open a PNG graphics
 device.
-
-\code{\link{ido}} closes a graphics device.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
