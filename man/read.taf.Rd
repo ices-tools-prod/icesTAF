@@ -4,10 +4,17 @@
 \alias{read.taf}
 \title{Read TAF Table from File}
 \usage{
-read.taf(file)
+read.taf(file, check.names = FALSE, fileEncoding = "UTF-8-BOM", ...)
 }
 \arguments{
 \item{file}{a filename.}
+
+\item{check.names}{whether to enforce regular column names, e.g. convert
+column name \samp{3} to \samp{X3}.}
+
+\item{fileEncoding}{character encoding of input file.}
+
+\item{\dots}{passed to \code{read.csv}.}
 }
 \value{
 A data frame in TAF format.
@@ -25,6 +32,9 @@ file.remove("catage.csv")
 
 }
 \seealso{
+\code{\link{read.csv}} is the underlying function used to read a table from a
+file.
+
 \code{\link{write.taf}} writes a TAF table to a file.
 
 \code{\link{icesTAF-package}} gives an overview of the package.

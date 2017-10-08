@@ -13,6 +13,8 @@ o Renamed function sourceAtoZ() to sourceAll().
 
 o Added argument 'move' to cp(). Added argument 'clean' to sourceTAF().
 
+o Set UTF-8 as default encoding in read.taf() and write.taf().
+
 
 
 
