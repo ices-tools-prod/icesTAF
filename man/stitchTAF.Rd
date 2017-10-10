@@ -38,9 +38,7 @@ script.
 
 \code{\link{sourceTAF}} runs a single TAF script.
 
-\code{\link{sourceAtoZ}} runs all TAF scripts in a directory.
-
-\code{\link{stitchAtoZ}} stitches all TAF scripts in a directory into an HTML report.
+\code{\link{sourceAll}} runs all TAF scripts in a directory.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
