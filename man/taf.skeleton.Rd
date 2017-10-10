@@ -4,24 +4,17 @@
 \alias{taf.skeleton}
 \title{Create a Skeleton for a New TAF Analysis}
 \usage{
-taf.skeleton(name = "aTAFanalysis", list = character(),
-  environment = .GlobalEnv, path = ".", force = FALSE,
-  code_files = character(), encoding = "UTF-8-DOM")
+taf.skeleton(name = "aTAFanalysis", path = ".", force = FALSE,
+  encoding = "UTF-8")
 }
 \arguments{
-\item{name}{character string: the package name and directory name for your package.}
+\item{name}{character string: the name and directory name for your analysis,
+if NULL then it effectively assumes the parent directory name as the
+analysis name.}
 
-\item{list}{character vector naming the R objects to put in the package. Usually, at most one of list, environment, or code_files will be supplied. See ‘Details’.}
-
-\item{environment}{an environment where objects are looked for. See ‘Details’.}
-
-\item{path}{path to put the package directory in.}
+\item{path}{path to put the analysis directory in.}
 
 \item{force}{If FALSE will not overwrite an existing directory.}
-
-\item{code_files}{a character vector with the paths to R code files to build the package around. See ‘Details’.}
-
-\item{encoding}{optionally a character string with an encoding for an optional Encoding: line in ‘DESCRIPTION’ when non-ASCII characters will be used; typically one of "latin1", "latin2", or "UTF-8"; see the WRE manual.}
 }
 \description{
 \code{taf.skeleton()} is motivated by \code{package.skeleton}. It automates
