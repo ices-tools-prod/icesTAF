@@ -1,9 +1,8 @@
 #' Create a Skeleton for a New TAF Analysis
 #'
 #' \code{taf.skeleton()} is motivated by \code{package.skeleton}. It automates
-#' some of the setup for a new TAF analysis. It creates directories, saves functions,
-#' data, and R code files to appropriate places, and creates a ‘Read-and-delete-me’
-#' file describing further steps to create a functioning TAF analysis.
+#' some of the setup for a new TAF analysis. Currently it creates directories and
+#' empty R scripts with appropriate header information.
 #'
 #'
 #' @param name character string: the name and directory name for your analysis,
