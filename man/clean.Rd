@@ -12,8 +12,8 @@ clean(path = ".", also = NULL)
 \item{also}{vector of additional directories to remove.}
 }
 \description{
-Remove directories \file{db}, \file{input}, \file{model}, \file{output}, and
-\file{upload}.
+Remove TAF directories: \verb{data}, \verb{input}, \verb{model},
+\verb{output}, \verb{report}.
 }
 \note{
 The purpose of removing the directories is to make sure that subsequent TAF
@@ -28,7 +28,7 @@ clean()
 \seealso{
 \code{\link{sourceTAF}} runs a TAF script.
 
-\code{\link{sourceAtoZ}} runs all TAF scripts in a directory.
+\code{\link{sourceAll}} runs all TAF scripts in a directory.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

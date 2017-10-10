@@ -4,12 +4,21 @@
 \alias{write.taf}
 \title{Write TAF Table to File}
 \usage{
-write.taf(x, file)
+write.taf(x, file, quote = FALSE, row.names = FALSE,
+  fileEncoding = "UTF-8", ...)
 }
 \arguments{
 \item{x}{a data frame in TAF format.}
 
 \item{file}{a filename.}
+
+\item{quote}{whether to quote strings.}
+
+\item{row.names}{whether to include row names.}
+
+\item{fileEncoding}{character encoding for output file.}
+
+\item{\dots}{passed to \code{write.csv}.}
 }
 \description{
 Write a TAF table to a file.
@@ -24,6 +33,9 @@ file.remove("catage.csv")
 
 }
 \seealso{
+\code{\link{write.csv}} is the underlying function used to write a table to a
+file.
+
 \code{\link{read.taf}} reads a TAF table from a file into a data frame.
 
 \code{\link{icesTAF-package}} gives an overview of the package.

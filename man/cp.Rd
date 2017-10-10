@@ -4,13 +4,14 @@
 \alias{cp}
 \title{Copy Files}
 \usage{
-cp(from, to)
+cp(from, to, move = FALSE)
 }
 \arguments{
-\item{from}{source file names. Multiple filenames can be matched using
-wildcard notation, such as \code{*.csv} to copy all CSV files.}
+\item{from}{source filenames, e.g. \code{*.csv}.}
 
-\item{to}{destination file names, or directory.}
+\item{to}{destination filenames, or directory.}
+
+\item{move}{whether to move instead of copy.}
 }
 \value{
 \code{TRUE} for success, \code{FALSE} for failure, invisibly.
@@ -26,12 +27,14 @@ Shorthand for \code{invisible(file.copy(..., overwrite = TRUE))}.
 \dontrun{
 write(pi, "A.txt")
 cp("A.txt", "B.txt")
-file.remove("A.txt", "B.txt")
+cp("A.txt", "B.txt", move=TRUE)
+file.remove("B.txt")
 }
 
 }
 \seealso{
-\code{\link{file.copy}} is the base function to copy files.
+\code{\link{file.copy}} and \code{\link{file.rename}} are the base functions
+to copy and move files.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

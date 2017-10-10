@@ -4,7 +4,7 @@
 \alias{sourceTAF}
 \title{Run TAF Script}
 \usage{
-sourceTAF(script, rm = TRUE, quiet = FALSE)
+sourceTAF(script, rm = TRUE, clean = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{script}{script filename.}
@@ -12,10 +12,10 @@ sourceTAF(script, rm = TRUE, quiet = FALSE)
 \item{rm}{whether to remove all objects from the global environment before
 the script is run.}
 
-\item{quiet}{whether to suppress messages reporting progress.
+\item{clean}{whether to remove the corresponding TAF directory before running
+the script.}
 
-By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-script starts with an empty workspace.}
+\item{quiet}{whether to suppress messages reporting progress.}
 }
 \value{
 Invisible \code{TRUE} or \code{FALSE}, indicating whether the script ran
@@ -24,6 +24,12 @@ without errors.
 \description{
 Run a TAF script and return to the original directory. Optionally start with
 an empty workspace.
+}
+\details{
+By default, TAF scripts are run with \code{rm = TRUE} to make sure each
+script starts with an empty workspace. Likewise, the default
+\code{clean = TRUE} makes sure that the script starts by creating a new empty
+directory.
 }
 \note{
 Commands within a script may change the working directory, but
@@ -45,7 +51,7 @@ file.remove("script.R")
 
 \code{\link{make}} runs a TAF script if needed.
 
-\code{\link{sourceAtoZ}} runs all TAF scripts in a directory.
+\code{\link{sourceAll}} runs all TAF scripts in a directory.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

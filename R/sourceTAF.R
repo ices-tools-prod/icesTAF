@@ -6,10 +6,15 @@
 #' @param script script filename.
 #' @param rm whether to remove all objects from the global environment before
 #'        the script is run.
+#' @param clean whether to remove the corresponding TAF directory before running
+#'        the script.
 #' @param quiet whether to suppress messages reporting progress.
 #'
+#' @details
 #' By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-#' script starts with an empty workspace.
+#' script starts with an empty workspace. Likewise, the default
+#' \code{clean = TRUE} makes sure that the script starts by creating a new empty
+#' directory.
 #'
 #' @return
 #' Invisible \code{TRUE} or \code{FALSE}, indicating whether the script ran
@@ -26,7 +31,7 @@
 #'
 #' \code{\link{make}} runs a TAF script if needed.
 #'
-#' \code{\link{sourceAtoZ}} runs all TAF scripts in a directory.
+#' \code{\link{sourceAll}} runs all TAF scripts in a directory.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -38,12 +43,16 @@
 #' file.remove("script.R")
 #' }
 #'
+#' @importFrom tools file_path_sans_ext
+#'
 #' @export
 
-sourceTAF <- function(script, rm=TRUE, quiet=FALSE)
+sourceTAF <- function(script, rm=TRUE, clean=TRUE, quiet=FALSE)
 {
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
+  if(clean && dir.exists(file_path_sans_ext(script)))
+    unlink(file_path_sans_ext(script), recursive=TRUE)
   if(!quiet)
     msg("Running ", script, " ...")
 

@@ -1,7 +1,19 @@
 --------------------------------------------------------------------------------
-icesTAF 1.3-3 (2017-08-03)
+icesTAF 1.4-0 (2017-10-03)
 --------------------------------------------------------------------------------
+o Added function upload() to upload file to TAF database. Added function
+  download() to download file in binary mode.
+
 o Added function msg() to show a message, as well as the current time.
+
+o Added function tafpng() to open a graphics device. Added function lim() to
+  compute axis limits.
+
+o Renamed function sourceAtoZ() to sourceAll().
+
+o Added argument 'move' to cp(). Added argument 'clean' to sourceTAF().
+
+o Set UTF-8 as default encoding in read.taf() and write.taf().
 
 
 

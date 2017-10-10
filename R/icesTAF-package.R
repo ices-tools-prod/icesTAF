@@ -11,6 +11,10 @@
 #' data, methods, and results used in ICES assessments.
 #'
 #' @details
+#' \emph{Web services:}
+#' \tabular{ll}{
+#'   \code{\link{upload}} \tab upload data file to server
+#' }
 #' \emph{Read and write files:}
 #' \tabular{ll}{
 #'   \code{\link{read.dls}}  \tab read \code{DLS3.2} results from file\cr
@@ -20,10 +24,10 @@
 #' }
 #' \emph{Run scripts:}
 #' \tabular{ll}{
-#'   \code{\link{make}}       \tab run TAF script if needed\cr
-#'   \code{\link{msg}}        \tab show message\cr
-#'   \code{\link{sourceAtoZ}} \tab run all TAF scripts\cr
-#'   \code{\link{sourceTAF}}  \tab run TAF script
+#'   \code{\link{make}}      \tab run TAF script if needed\cr
+#'   \code{\link{msg}}       \tab show message\cr
+#'   \code{\link{sourceAll}} \tab run all TAF scripts\cr
+#'   \code{\link{sourceTAF}} \tab run TAF script
 #' }
 #' \emph{Other file management:}
 #' \tabular{ll}{
@@ -41,6 +45,11 @@
 #'   \code{\link{taf2xtab}} \tab TAF to crosstab\cr
 #'   \code{\link{tt}}       \tab transpose TAF table\cr
 #'   \code{\link{xtab2taf}} \tab crosstab to TAF
+#' }
+#' \emph{Plotting tools:}
+#' \tabular{ll}{
+#'   \code{\link{lim}}    \tab compute axis limits\cr
+#'   \code{\link{tafpng}} \tab open PNG graphics device
 #' }
 #' \emph{Example tables:}
 #' \tabular{ll}{
