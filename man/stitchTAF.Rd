@@ -10,11 +10,11 @@ stitchTAF(script, rm = TRUE, quiet = FALSE)
 \item{script}{script filename.}
 
 \item{rm}{whether to remove all objects from the global environment before
-the script is run.}
+the script is stitched.}
 
 \item{quiet}{whether to suppress messages reporting progress.
 
-By default, TAF scripts are run with \code{rm = TRUE} to make sure each
+By default, TAF scripts are stitched with \code{rm = TRUE} to make sure each
 script starts with an empty workspace.}
 }
 \value{
@@ -32,7 +32,7 @@ directory reported by \code{getwd()} is the same before and after running a
 script.
 }
 \seealso{
-\code{\link{source}} is the base function to run R scripts.
+\code{\link{stitch}} is the base function to stitch R scripts.
 
 \code{\link{make}} runs a TAF script if needed.
 
