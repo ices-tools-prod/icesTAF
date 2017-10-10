@@ -15,7 +15,7 @@
 #' @export
 
 taf.skeleton <- function (name = "aTAFanalysis", path = ".",
-                          force = FALSE, encoding = "UTF-8")
+                          force = FALSE)
 {
   owd <- setwd(path)
   on.exit(setwd(owd))

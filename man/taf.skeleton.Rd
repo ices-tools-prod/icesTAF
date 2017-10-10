@@ -4,8 +4,7 @@
 \alias{taf.skeleton}
 \title{Create a Skeleton for a New TAF Analysis}
 \usage{
-taf.skeleton(name = "aTAFanalysis", path = ".", force = FALSE,
-  encoding = "UTF-8")
+taf.skeleton(name = "aTAFanalysis", path = ".", force = FALSE)
 }
 \arguments{
 \item{name}{character string: the name and directory name for your analysis,
