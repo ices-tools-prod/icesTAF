@@ -4,19 +4,19 @@
 \alias{lim}
 \title{Axis Limits}
 \usage{
-lim(x, mult = 1.05)
+lim(x, mult = 1.1)
 }
 \arguments{
 \item{x}{a vector of data values.}
 
-\item{mult}{a scalar to multiply with the highest data value.}
+\item{mult}{a number to multiply with the highest data value.}
 }
 \value{
 A vector of length two, which can be used as axis limits.
 }
 \description{
 Compute axis limits. The lower limit is 0 and the upper limit is determined
-by the highest data value, multiplied with a scalar.
+by the highest data value, times a multiplier.
 }
 \examples{
 plot(rivers, ylim=lim(rivers))
