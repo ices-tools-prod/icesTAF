@@ -2,6 +2,7 @@
 
 export(clean)
 export(cp)
+export(div)
 export(dos2unix)
 export(download)
 export(flr2taf)
