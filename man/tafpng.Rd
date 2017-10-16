@@ -4,7 +4,7 @@
 \alias{tafpng}
 \title{PNG Device}
 \usage{
-tafpng(filename, width = 800, height = 600, pointsize = 24, ...)
+tafpng(filename, width = 800, height = 600, pointsize = 22, ...)
 }
 \arguments{
 \item{filename}{image filename.}
@@ -27,7 +27,7 @@ The \code{filename} can be passed without the preceding
 }
 \note{
 A simple convenience function to shorten
-\preformatted{png("report/myplot.png", width=800, height=600, pointsize=24)}
+\preformatted{png("report/myplot.png", width=800, height=600, pointsize=22)}
 to
 \preformatted{tafpng("myplot")}
 }

@@ -15,7 +15,7 @@
 #'
 #' @note
 #' A simple convenience function to shorten
-#' \preformatted{png("report/myplot.png", width=800, height=600, pointsize=24)}
+#' \preformatted{png("report/myplot.png", width=800, height=600, pointsize=22)}
 #' to
 #' \preformatted{tafpng("myplot")}
 #'
@@ -36,7 +36,7 @@
 #'
 #' @export
 
-tafpng <- function(filename, width=800, height=600, pointsize=24, ...)
+tafpng <- function(filename, width=800, height=600, pointsize=22, ...)
 {
   if(!grepl("^report/", filename))
     filename <- paste0("report/", filename)
