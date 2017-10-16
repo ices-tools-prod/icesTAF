@@ -1,0 +1,5 @@
+taf.green <- "#90d0b0"
+taf.orange <- "#f07040"
+taf.blue <- "#70b0c0"
+taf.dark <- "#404040"
+taf.light <- "#808080"
