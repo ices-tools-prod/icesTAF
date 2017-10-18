@@ -1,65 +1,74 @@
-#' Create a Skeleton for a New TAF Analysis
+#' TAF Skeleton
 #'
-#' \code{taf.skeleton()} is motivated by \code{package.skeleton}. It automates
-#' some of the setup for a new TAF analysis. Currently it creates directories and
-#' empty R scripts with appropriate header information.
+#' Create an empty template for a new TAF analysis: initial directories and R
+#' scripts with TAF header comments.
 #'
+#' @param name main directory name for the analysis.
+#' @param path path to create the analysis directory in.
+#' @param force whether to overwrite an existing directory.
 #'
-#' @param name character string: the name and directory name for your analysis,
-#'             if NULL then it effectively assumes the parent directory name as the
-#'             analysis name.
-#' @param path path to put the analysis directory in.
-#' @param force	If FALSE will not overwrite an existing directory.
+#' @details
+#' Use \code{name = "."} to create initial directories and scripts inside the
+#' current working directory.
+#'
+#' @return
+#' Full path to analysis directory.
+#'
+#' @seealso
+#' \code{\link{package.skeleton}} creates an empty template for a new R package.
+#'
+#' \code{\link{icesTAF-package}} gives an overview of the package.
+#'
+#' @examples
+#' \dontrun{
+#' taf.skeleton()
+#' }
+#'
+#' @importFrom tools file_path_as_absolute
 #'
 #' @export
 
-taf.skeleton <- function (name = "aTAFanalysis", path = ".",
-                          force = FALSE)
+taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
 {
-  owd <- setwd(path)
-  on.exit(setwd(owd))
-  # create analysis directory
-  if (!is.null(name)) {
-    mkdir(name)
-    setwd(name)
-  }
-
-  # create directory structure
-  mkdir("_raw")
-  mkdir("_config")
-
-  # add in basic R files with header info
-  header_template <- "## %s\n\n## Before:\n## After:"
-  headers <- list(`_raw` = "Upload raw data to TAF database",
-                  data = "Preprocess data, write TAF data tables",
-                  input = "Convert data to model format, write model input files",
-                  model = "Run analysis, write model results",
-                  output = "Extract model results of interest, write TAF output tables",
-                  report = "Plot data and results")
-
-  safe.cat <- function(..., file, force, sep = " ", fill = FALSE, labels = NULL, append = FALSE) {
-    if (file.exists(file) && force) {
-      unlink(file)
+  # only overwrite files if force = TRUE
+  safe.cat <- function(..., file = "", force = FALSE) {
+    if (!file.exists(file) || force) {
+      cat(..., file = file)
     }
-    cat(..., file = file, sep = sep, fill = fill, labels = labels, append = append)
   }
 
+  # create analysis directory
+  mkdir(paste0(path, "/", name))
+  owd <- setwd(paste0(path, "/", name))
+  on.exit(setwd(owd))
+
+  # create initial directories
+  mkdir("_raw")
+  mkdir("_model")
+
+  # define headers
+  template <- "## %s\n\n## Before:\n## After:\n\n"
+  headers <- list(
+    `_model` = "Upload model executables to TAF database",
+    `_raw` = "Upload raw data to TAF database",
+    data = "Preprocess data, write TAF data tables",
+    input = "Convert data to model format, write model input files",
+    model = "Run analysis, write model results",
+    output = "Extract model results of interest, write TAF output tables",
+    report = "Prepare plots/tables for report")
+
+  # create TAF scripts
   for (section in names(headers)) {
-    if (section == "_raw") {
+    if (section %in% c("_model", "_raw")) {
       safe.cat(file = file.path(section, "upload.R"),
-          sprintf(header_template, headers[[section]]),
+          sprintf(template, headers[[section]]),
           force = force)
     } else {
       safe.cat(file = paste0(section, ".R"),
-          sprintf(header_template, headers[[section]]),
+          sprintf(template, headers[[section]]),
           force = force)
     }
   }
 
-  # check names of list entries:
-  #   - should be _raw, _config, scripts?
-
-  # return directory created analysis
-  return(path.expand(path))
+  invisible(getwd())
 }
-

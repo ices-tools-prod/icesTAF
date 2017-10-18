@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 1.4-0 (2017-10-15)
+icesTAF 1.4-0 (2017-10-18)
 --------------------------------------------------------------------------------
 o Added function upload() to upload file to TAF database. Added function
   download() to download file in binary mode.
@@ -10,6 +10,8 @@ o Added function tafpng() to open a graphics device. Added function lim() to
   compute axis limits.
 
 o Added function div() to divide columns with a common number.
+
+o Added function taf.skeleton() to create an empty template for a TAF analysis.
 
 o Renamed function sourceAtoZ() to sourceAll().
 

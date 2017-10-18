@@ -2,21 +2,36 @@
 % Please edit documentation in R/taf.skeleton.R
 \name{taf.skeleton}
 \alias{taf.skeleton}
-\title{Create a Skeleton for a New TAF Analysis}
+\title{TAF Skeleton}
 \usage{
-taf.skeleton(name = "aTAFanalysis", path = ".", force = FALSE)
+taf.skeleton(name = "analysis", path = ".", force = FALSE)
 }
 \arguments{
-\item{name}{character string: the name and directory name for your analysis,
-if NULL then it effectively assumes the parent directory name as the
-analysis name.}
+\item{name}{main directory name for the analysis.}
 
-\item{path}{path to put the analysis directory in.}
+\item{path}{path to create the analysis directory in.}
 
-\item{force}{If FALSE will not overwrite an existing directory.}
+\item{force}{whether to overwrite an existing directory.}
+}
+\value{
+Full path to analysis directory.
 }
 \description{
-\code{taf.skeleton()} is motivated by \code{package.skeleton}. It automates
-some of the setup for a new TAF analysis. Currently it creates directories and
-empty R scripts with appropriate header information.
+Create an empty template for a new TAF analysis: initial directories and R
+scripts with TAF header comments.
+}
+\details{
+Use \code{name = "."} to create initial directories and scripts inside the
+current working directory.
+}
+\examples{
+\dontrun{
+taf.skeleton()
+}
+
+}
+\seealso{
+\code{\link{package.skeleton}} creates an empty template for a new R package.
+
+\code{\link{icesTAF-package}} gives an overview of the package.
 }

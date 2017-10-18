@@ -31,11 +31,12 @@
 #' }
 #' \emph{Other file management:}
 #' \tabular{ll}{
-#'   \code{\link{clean}}    \tab clean TAF directories\cr
-#'   \code{\link{cp}}       \tab copy files\cr
-#'   \code{\link{dos2unix}} \tab convert line endings\cr
-#'   \code{\link{mkdir}}    \tab create directory\cr
-#'   \code{\link{unix2dos}} \tab convert line endings
+#'   \code{\link{clean}}        \tab clean TAF directories\cr
+#'   \code{\link{cp}}           \tab copy files\cr
+#'   \code{\link{dos2unix}}     \tab convert line endings\cr
+#'   \code{\link{mkdir}}        \tab create directory\cr
+#'   \code{\link{taf.skeleton}} \tab create empty TAF template\cr
+#'   \code{\link{unix2dos}}     \tab convert line endings
 #' }
 #' \emph{Table converters:}
 #' \tabular{ll}{
