@@ -24,8 +24,6 @@
 #' taf.skeleton()
 #' }
 #'
-#' @importFrom tools file_path_as_absolute
-#'
 #' @export
 
 taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
