@@ -49,14 +49,19 @@
 #' }
 #' \emph{Plotting tools:}
 #' \tabular{ll}{
-#'   \code{\link{lim}}    \tab compute axis limits\cr
-#'   \code{\link{tafpng}} \tab open PNG graphics device
+#'   \code{\link{lim}}        \tab compute axis limits\cr
+#'   \code{\link{taf.colors}} \tab predefined colors\cr
+#'   \code{\link{tafpng}}     \tab open PNG graphics device
 #' }
 #' \emph{Example tables:}
 #' \tabular{ll}{
 #'   \code{\link{catage.long}} \tab long format\cr
 #'   \code{\link{catage.taf}}  \tab TAF format\cr
 #'   \code{\link{catage.xtab}} \tab crosstab format
+#' }
+#' \emph{Administrative tools:}
+#' \tabular{ll}{
+#'   \code{\link{deps}} \tab list dependencies
 #' }
 #'
 #' @author Arni Magnusson and Colin Millar.
