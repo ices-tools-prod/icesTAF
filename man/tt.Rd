@@ -4,10 +4,15 @@
 \alias{tt}
 \title{TAF Transpose}
 \usage{
-tt(x)
+tt(x, column = FALSE)
 }
 \arguments{
 \item{x}{a data frame in TAF format.}
+
+\item{column}{a logical indicating whether the group names should be stored
+in a column called \samp{Age} instead of in row names. Alternatively,
+\code{column} can be a string supplying another name for that first
+column.}
 }
 \value{
 A data frame with years as column names.
@@ -22,6 +27,8 @@ reports.
 \examples{
 taf2xtab(catage.taf)
 tt(catage.taf)
+tt(catage.taf, TRUE)
+tt(catage.taf, "Custom")
 
 }
 \seealso{
