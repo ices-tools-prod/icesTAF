@@ -1,8 +1,8 @@
 #' List Dependencies
 #'
-#' Search R code for packages that are required.
+#' Search R scripts for packages that are required.
 #'
-#' @param path a directory or file containing R code.
+#' @param path a directory or file containing R scripts.
 #' @param base whether to include base packages in the output.
 #' @param installed whether to include installed packages in the output.
 #' @param available whether to include available packages in the output.

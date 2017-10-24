@@ -8,7 +8,7 @@ deps(path = ".", base = FALSE, installed = TRUE, available = TRUE,
   list = FALSE)
 }
 \arguments{
-\item{path}{a directory or file containing R code.}
+\item{path}{a directory or file containing R scripts.}
 
 \item{base}{whether to include base packages in the output.}
 
@@ -23,7 +23,7 @@ Names of packages as a vector, or in list format if \code{list=TRUE}. If no
 dependencies are found, the return value is \code{NULL}.
 }
 \description{
-Search R code for packages that are required.
+Search R scripts for packages that are required.
 }
 \note{
 Package names are matched based on four patterns:\preformatted{
