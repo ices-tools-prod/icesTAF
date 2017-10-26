@@ -55,11 +55,12 @@ deps <- function(path=".", base=FALSE, installed=TRUE, available=TRUE,
   names(code) <- basename(files)
 
   ## Look for loaded packages and pkg::object calls
-  p.load <- lapply(code, grep, pattern="library\\(|require\\(", value=TRUE)
-  p.load <- gsub(".*(library|require)\\(\"?'? *([A-Za-z0-9.]+).*", "\\2",
-                 unlist(p.load))
-  p.obj <- lapply(code, grep, pattern="::", value=TRUE)
-  p.obj <- gsub(".*?([A-Za-z0-9.]+)::+.*", "\\1", unlist(p.obj))
+  pattern <- ".*(library|require)\\(\"?'? *([A-Za-z0-9.]+).*"
+  p.load <- lapply(code, grep, pattern=pattern, value=TRUE)
+  p.load <- gsub(pattern, "\\2", unlist(p.load))
+  pattern <- ".*?([A-Za-z0-9.]+):::?[A-Za-z].*"
+  p.obj <- lapply(code, grep, pattern=pattern, value=TRUE)
+  p.obj <- gsub(pattern, "\\1", unlist(p.obj))
 
   ## Combine all packages, maybe exclude base/installed/available
   pkgs <- c(p.load, p.obj)
