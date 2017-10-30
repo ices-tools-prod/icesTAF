@@ -2,7 +2,7 @@
 #'
 #' @name catage.taf
 #'
-#' @title Catch at Age in TAF format
+#' @title Catch at Age in TAF Format
 #'
 #' @description
 #' Small catch-at-age table to describe a TAF format data frame to store

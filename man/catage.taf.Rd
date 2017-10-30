@@ -3,7 +3,7 @@
 \docType{data}
 \name{catage.taf}
 \alias{catage.taf}
-\title{Catch at Age in TAF format}
+\title{Catch at Age in TAF Format}
 \format{Data frame containing five columns:
 \tabular{ll}{
   \code{Year} \tab year\cr
