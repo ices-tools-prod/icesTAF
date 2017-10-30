@@ -37,14 +37,16 @@ data, methods, and results used in ICES assessments.
   \code{\link{taf.skeleton}} \tab create empty TAF template\cr
   \code{\link{unix2dos}}     \tab convert line endings
 }
-\emph{Table converters:}
+\emph{Table tools:}
 \tabular{ll}{
-  \code{\link{flr2taf}}  \tab FLR to TAF\cr
-  \code{\link{long2taf}} \tab long format to TAF\cr
-  \code{\link{taf2long}} \tab TAF to long format\cr
-  \code{\link{taf2xtab}} \tab TAF to crosstab\cr
+  \code{\link{div}}      \tab divide column values\cr
+  \code{\link{flr2taf}}  \tab convert FLR to TAF\cr
+  \code{\link{long2taf}} \tab convert long format to TAF\cr
+  \code{\link{rnd}}      \tab round column values\cr
+  \code{\link{taf2long}} \tab convert TAF to long format\cr
+  \code{\link{taf2xtab}} \tab convert TAF to crosstab\cr
   \code{\link{tt}}       \tab transpose TAF table\cr
-  \code{\link{xtab2taf}} \tab crosstab to TAF
+  \code{\link{xtab2taf}} \tab convert crosstab to TAF
 }
 \emph{Plotting tools:}
 \tabular{ll}{

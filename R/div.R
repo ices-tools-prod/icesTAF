@@ -10,16 +10,21 @@
 #' A data frame similar to \code{x}, after dividing columns \code{cols} by the
 #' number \code{by}.
 #'
+#' @note
+#' Provides notation that is reliable and convenient for modifying a large
+#' number of columns, not repeating column names twice.
+#'
 #' @seealso
 #' \code{\link{sweep}} and \code{\link{transform}} can also be used to
 #' recalculate column values, using a more general and verbose syntax.
 #'
+#' \code{\link{rnd}} is a similar function to round columns.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
-#' summary <- data.frame(Year=2000:2001, Rec=c(12345,23456), SSB=c(98765,87654),
-#'                       Catch=c(12345,23456), Fbar=c(1.2345,2.3456))
-#' summary <- div(summary, c("Rec","SSB","Catch"))
+#' summary <- div(summary.taf,
+#'   c("Rec","Rec_lo","Rec_hi","TSB","TSB_lo","TSB_hi","SSB","SSB_lo","SSB_hi"))
 #'
 #' @export
 
