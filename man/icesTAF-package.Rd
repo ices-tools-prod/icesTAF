@@ -12,7 +12,8 @@ data, methods, and results used in ICES assessments.
 \details{
 \emph{Web services:}
 \tabular{ll}{
-  \code{\link{upload}} \tab upload data file to server
+  \code{\link{download}} \tab download file in binary mode\cr
+  \code{\link{upload}}   \tab upload data file to server
 }
 \emph{Read and write files:}
 \tabular{ll}{
@@ -58,7 +59,8 @@ data, methods, and results used in ICES assessments.
 \tabular{ll}{
   \code{\link{catage.long}} \tab long format\cr
   \code{\link{catage.taf}}  \tab TAF format\cr
-  \code{\link{catage.xtab}} \tab crosstab format
+  \code{\link{catage.xtab}} \tab crosstab format\cr
+  \code{\link{summary.taf}} \tab summary results
 }
 \emph{Administrative tools:}
 \tabular{ll}{
