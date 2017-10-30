@@ -3,7 +3,7 @@
 #' Round column values in a data frame.
 #'
 #' @param x a data frame.
-#' @param cols column names.
+#' @param cols column names, or column indices.
 #' @param digits number of decimal places.
 #'
 #' @return

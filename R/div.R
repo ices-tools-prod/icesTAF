@@ -3,7 +3,7 @@
 #' Divide column values in a data frame with a common number.
 #'
 #' @param x a data frame.
-#' @param cols column names.
+#' @param cols column names, or column indices.
 #' @param by a number to divide with.
 #'
 #' @return

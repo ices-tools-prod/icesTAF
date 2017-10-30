@@ -9,7 +9,7 @@ rnd(x, cols, digits = 0)
 \arguments{
 \item{x}{a data frame.}
 
-\item{cols}{column names.}
+\item{cols}{column names, or column indices.}
 
 \item{digits}{number of decimal places.}
 }

@@ -9,7 +9,7 @@ div(x, cols, by = 1000)
 \arguments{
 \item{x}{a data frame.}
 
-\item{cols}{column names.}
+\item{cols}{column names, or column indices.}
 
 \item{by}{a number to divide with.}
 }
