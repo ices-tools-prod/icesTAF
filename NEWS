@@ -23,6 +23,8 @@ o Added argument 'move' to cp(). Added argument 'clean' to sourceTAF(). Added
 
 o Added color objects: taf.green, taf.orange, taf.blue, taf.dark, and taf.light.
 
+o Added example data frame summary.taf to demonstrate div() and rnd().
+
 
 
 
