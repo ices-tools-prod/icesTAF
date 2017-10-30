@@ -4,7 +4,7 @@
 \alias{write.taf}
 \title{Write TAF Table to File}
 \usage{
-write.taf(x, file, quote = FALSE, row.names = FALSE,
+write.taf(x, file = "", quote = FALSE, row.names = FALSE,
   fileEncoding = "UTF-8", ...)
 }
 \arguments{

@@ -29,10 +29,11 @@
 #'
 #' @export
 
-write.taf <- function(x, file, quote=FALSE, row.names=FALSE,
+write.taf <- function(x, file="", quote=FALSE, row.names=FALSE,
                       fileEncoding="UTF-8", ...)
 {
-  write.csv(x, file, quote=quote, row.names=row.names,
+  write.csv(x, file=file, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
-  unix2dos(file)
+  if(file != "")
+    unix2dos(file)
 }
