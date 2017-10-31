@@ -4,7 +4,7 @@
 \alias{div}
 \title{Divide Columns}
 \usage{
-div(x, cols, by = 1000, grep = FALSE)
+div(x, cols, by = 1000, grep = FALSE, ...)
 }
 \arguments{
 \item{x}{a data frame.}
@@ -14,6 +14,8 @@ div(x, cols, by = 1000, grep = FALSE)
 \item{by}{a number to divide with.}
 
 \item{grep}{whether \code{cols} is a regular expression.}
+
+\item{\dots}{passed to \code{grep()}.}
 }
 \value{
 A data frame similar to \code{x}, after dividing columns \code{cols} by the

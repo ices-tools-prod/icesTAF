@@ -6,6 +6,7 @@
 #' @param cols column names, or column indices.
 #' @param digits number of decimal places.
 #' @param grep whether \code{cols} is a regular expression.
+#' @param \dots passed to \code{grep()}.
 #'
 #' @return
 #' A data frame similar to \code{x}, after rounding columns \code{cols} to the
@@ -38,10 +39,10 @@
 #'
 #' @export
 
-rnd <- function(x, cols, digits=0, grep=FALSE)
+rnd <- function(x, cols, digits=0, grep=FALSE, ...)
 {
   if(grep)
-    cols <- grep(cols, names(x))
+    cols <- grep(cols, names(x), ...)
   x[cols] <- round(x[cols], digits)
   x
 }

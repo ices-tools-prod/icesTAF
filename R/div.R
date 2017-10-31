@@ -6,6 +6,7 @@
 #' @param cols column names, or column indices.
 #' @param by a number to divide with.
 #' @param grep whether \code{cols} is a regular expression.
+#' @param \dots passed to \code{grep()}.
 #'
 #' @return
 #' A data frame similar to \code{x}, after dividing columns \code{cols} by the
@@ -36,10 +37,10 @@
 #'
 #' @export
 
-div <- function(x, cols, by=1000, grep=FALSE)
+div <- function(x, cols, by=1000, grep=FALSE, ...)
 {
   if(grep)
-    cols <- grep(cols, names(x))
+    cols <- grep(cols, names(x), ...)
   x[cols] <- x[cols] / by
   x
 }

@@ -4,7 +4,7 @@
 \alias{rnd}
 \title{Round Columns}
 \usage{
-rnd(x, cols, digits = 0, grep = FALSE)
+rnd(x, cols, digits = 0, grep = FALSE, ...)
 }
 \arguments{
 \item{x}{a data frame.}
@@ -14,6 +14,8 @@ rnd(x, cols, digits = 0, grep = FALSE)
 \item{digits}{number of decimal places.}
 
 \item{grep}{whether \code{cols} is a regular expression.}
+
+\item{\dots}{passed to \code{grep()}.}
 }
 \value{
 A data frame similar to \code{x}, after rounding columns \code{cols} to the
