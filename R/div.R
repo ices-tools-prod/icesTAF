@@ -30,10 +30,14 @@
 #' @examples
 #' # Equivalent alternatives:
 #'
-#' summary <- div(summary.taf,
-#'   c("Rec","Rec_lo","Rec_hi","TSB","TSB_lo","TSB_hi","SSB","SSB_lo","SSB_hi"))
+#' x <- div(summary.taf, c("Rec","Rec_lo","Rec_hi",
+#'                         "TSB","TSB_lo","TSB_hi",
+#'                         "SSB","SSB_lo","SSB_hi",
+#'                         "Removals","Removals_lo","Removals_hi"))
 #'
-#' summary <- div(summary.taf, "Rec|TSB|SSB", grep=TRUE)
+#' y <- div(summary.taf, "Rec|TSB|SSB|Removals", grep=TRUE)
+#'
+#' z <- div(summary.taf, "Year|Fbar", grep=TRUE, invert=TRUE)
 #'
 #' @export
 

@@ -33,9 +33,17 @@
 #' @examples
 #' # Equivalent alternatives:
 #'
-#' summary <- rnd(summary.taf, c("Fbar", "Fbar_lo", "Fbar_hi"), 2)
+#' x <- rnd(summary.taf, c("Rec","Rec_lo","Rec_hi",
+#'                         "TSB","TSB_lo","TSB_hi",
+#'                         "SSB","SSB_lo","SSB_hi",
+#'                         "Removals","Removals_lo","Removals_hi"))
+#' x <- rnd(x, c("Fbar", "Fbar_lo", "Fbar_hi"), 3)
 #'
-#' summary <- rnd(summary.taf, "Fbar", 2, grep=TRUE)
+#' y <- rnd(summary.taf, "Rec|TSB|SSB|Removals", grep=TRUE)
+#' y <- rnd(y, "Fbar", 3, grep=TRUE)
+#'
+#' z <- rnd(summary.taf, "Fbar", grep=TRUE, invert=TRUE)
+#' z <- rnd(z, "Fbar", 3, grep=TRUE)
 #'
 #' @export
 

@@ -4,21 +4,26 @@
 \name{summary.taf}
 \alias{summary.taf}
 \title{Summary Results in TAF Format}
-\format{Data frame containing thirteen columns:
+\format{Data frame containing 16 columns:
 \tabular{ll}{
-  \code{Year}    \tab year\cr
-  \code{Rec}     \tab recruitment, numbers at age 1 in this year (thousands)\cr
-  \code{Rec_lo}  \tab lower 95\% confidence limit\cr
-  \code{Rec_hi}  \tab upper 95\% confidence limit\cr
-  \code{TSB}     \tab total stock biomass (tonnes)\cr
-  \code{TSB_lo}  \tab lower 95\% confidence limit\cr
-  \code{TSB_hi}  \tab upper 95\% confidence limit\cr
-  \code{SSB}     \tab spawning stock biomass (tonnes)\cr
-  \code{SSB_lo}  \tab lower 95\% confidence limit\cr
-  \code{SSB_hi}  \tab upper 95\% confidence limit\cr
-  \code{Fbar}    \tab average fishing mortality (ages 2-4)\cr
-  \code{Fbar_lo} \tab lower 95\% confidence limit\cr
-  \code{Fbar_hi} \tab upper 95\% confidence limit
+  \code{Year}        \tab year\cr
+  \code{Rec}         \tab recruitment, numbers at age 1 in this year
+                          (thousands)\cr
+  \code{Rec_lo}      \tab lower 95\% confidence limit\cr
+  \code{Rec_hi}      \tab upper 95\% confidence limit\cr
+  \code{TSB}         \tab total stock biomass (tonnes)\cr
+  \code{TSB_lo}      \tab lower 95\% confidence limit\cr
+  \code{TSB_hi}      \tab upper 95\% confidence limit\cr
+  \code{SSB}         \tab spawning stock biomass (tonnes)\cr
+  \code{SSB_lo}      \tab lower 95\% confidence limit\cr
+  \code{SSB_hi}      \tab upper 95\% confidence limit\cr
+  \code{Removals}    \tab total removals, including catches due to
+                          unaccounted mortality\cr
+  \code{Removals_lo} \tab lower 95\% confidence limit\cr
+  \code{Removals_hi} \tab upper 95\% confidence limit\cr
+  \code{Fbar}        \tab average fishing mortality (ages 2-4)\cr
+  \code{Fbar_lo}     \tab lower 95\% confidence limit\cr
+  \code{Fbar_hi}     \tab upper 95\% confidence limit
 }}
 \source{
 ICES. 2016. Report of the working group on the assessment of demersal stocks
@@ -39,9 +44,9 @@ North Sea cod from the ICES (2016) assessment.
 }
 \examples{
 summary.taf
-div(summary.taf,
-  c("Rec","Rec_lo","Rec_hi","TSB","TSB_lo","TSB_hi","SSB","SSB_lo","SSB_hi"))
-rnd(summary.taf, c("Fbar", "Fbar_lo", "Fbar_hi"), 2)
+x <- div(summary.taf, "Rec|TSB|SSB|Removals", grep=TRUE)
+y <- rnd(x, "Rec|TSB|SSB|Removals", grep=TRUE)
+y <- rnd(x, "Fbar", 3, grep=TRUE)
 }
 \seealso{
 \code{\link{div}} and \code{\link{rnd}} can modify a large number of columns.
