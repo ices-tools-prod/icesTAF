@@ -52,7 +52,7 @@
 #' @examples
 #' summary.taf
 #' x <- div(summary.taf, "Rec|TSB|SSB|Removals", grep=TRUE)
-#' y <- rnd(x, "Rec|TSB|SSB|Removals", grep=TRUE)
-#' y <- rnd(x, "Fbar", 3, grep=TRUE)
+#' x <- rnd(x, "Rec|TSB|SSB|Removals", grep=TRUE)
+#' x <- rnd(x, "Fbar", 3, grep=TRUE)
 
 NA

@@ -13,8 +13,7 @@
 #' number \code{by}.
 #'
 #' @note
-#' Provides notation that is reliable and convenient for modifying many columns
-#' at once.
+#' Provides notation that is convenient for modifying many columns at once.
 #'
 #' @seealso
 #' \code{\link{transform}} can also be used to recalculate column values, using
@@ -23,21 +22,23 @@
 #' \code{\link{grep}} is the underlying function used to match column names if
 #' \code{grep} is \code{TRUE}.
 #'
-#' \code{\link{rnd}} is a similar function to round columns.
+#' \code{\link{rnd}} is a similar function that rounds columns.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
-#' # Equivalent alternatives:
+#' # These are equivalent:
 #'
-#' x <- div(summary.taf, c("Rec","Rec_lo","Rec_hi",
-#'                         "TSB","TSB_lo","TSB_hi",
-#'                         "SSB","SSB_lo","SSB_hi",
-#'                         "Removals","Removals_lo","Removals_hi"))
+#' x1 <- div(summary.taf, c("Rec","Rec_lo","Rec_hi",
+#'                          "TSB","TSB_lo","TSB_hi",
+#'                          "SSB","SSB_lo","SSB_hi",
+#'                          "Removals","Removals_lo","Removals_hi"))
 #'
-#' y <- div(summary.taf, "Rec|TSB|SSB|Removals", grep=TRUE)
+#' x2 <- div(summary.taf, "Rec|TSB|SSB|Removals", grep=TRUE)
 #'
-#' z <- div(summary.taf, "Year|Fbar", grep=TRUE, invert=TRUE)
+#' x3 <- div(summary.taf, "Year|Fbar", grep=TRUE, invert=TRUE)
+#'
+#' x4 <- div(summary.taf, 2:13)
 #'
 #' @export
 
