@@ -40,6 +40,7 @@ x2 <- div(summary.taf, "Rec|TSB|SSB|Removals", grep=TRUE)
 x3 <- div(summary.taf, "Year|Fbar", grep=TRUE, invert=TRUE)
 
 # Less reliable in scripts if columns have been added, deleted, or reordered:
+
 x4 <- div(summary.taf, 2:13)
 
 }
