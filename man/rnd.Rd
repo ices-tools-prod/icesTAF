@@ -42,6 +42,7 @@ x2 <- rnd(x2, "Fbar", 3, grep=TRUE)
 x3 <- rnd(summary.taf, "Fbar", grep=TRUE, invert=TRUE)
 x3 <- rnd(x3, "Fbar", 3, grep=TRUE)
 
+# Less reliable in scripts if columns have been added, deleted, or reordered:
 x4 <- rnd(summary.taf, 2:13)
 x4 <- rnd(x4, 14:16, 3)
 
