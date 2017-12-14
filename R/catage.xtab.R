@@ -25,9 +25,9 @@
 #' for North Sea cod from the ICES (2016) assessment.
 #'
 #' @source
-#' ICES. 2016. Report of the working group on the assessment of demersal stocks
+#' ICES (2016) Report of the working group on the assessment of demersal stocks
 #' in the North Sea and Skagerrak (WGNSSK).
-#' \href{http://ices.dk/sites/pub/Publication\%20Reports/Expert\%20Group\%20Report/acom/2016/WGNSSK/01\%20WGNSSK\%20report\%202016.pdf}{\cite{ICES
+#' \href{http://ices.dk/sites/pub/Publication\%20Reports/Expert\%20Group\%20Report/acom/2016/WGNSSK/01\%20WGNSSK\%20report\%202016.pdf}{\emph{ICES
 #' CM 2016/ACOM:14}}, p. 656.
 #'
 #' @seealso
