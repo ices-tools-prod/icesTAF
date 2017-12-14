@@ -7,11 +7,9 @@
 #' @param to destination filenames, or directory.
 #' @param move whether to move instead of copy.
 #'
-#' @return
-#' \code{TRUE} for success, \code{FALSE} for failure, invisibly.
+#' @return \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 #'
-#' @note
-#' Shorthand for \code{invisible(file.copy(..., overwrite = TRUE))}.
+#' @note Shorthand for \code{invisible(file.copy(..., overwrite = TRUE))}.
 #'
 #' @seealso
 #' \code{\link{file.copy}} and \code{\link{file.rename}} are the base functions

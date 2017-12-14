@@ -17,8 +17,7 @@
 #' \code{clean = TRUE} makes sure that the scripts start by creating new empty
 #' directories and populate them one by one.
 #'
-#' @return
-#' Logical vector, indicating which scripts ran without errors.
+#' @return Logical vector, indicating which scripts ran without errors.
 #'
 #' @seealso
 #' \code{\link{sourceTAF}} runs a TAF script.

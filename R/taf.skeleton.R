@@ -11,8 +11,7 @@
 #' Use \code{name = "."} to create initial directories and scripts inside the
 #' current working directory.
 #'
-#' @return
-#' Full path to analysis directory.
+#' @return Full path to analysis directory.
 #'
 #' @seealso
 #' \code{\link{package.skeleton}} creates an empty template for a new R package.

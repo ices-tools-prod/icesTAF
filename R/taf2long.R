@@ -5,8 +5,7 @@
 #' @param x a data frame in TAF format.
 #' @param names a vector of three column names for the resulting data frame.
 #'
-#' @return
-#' A data frame with three columns.
+#' @return A data frame with three columns.
 #'
 #' @note
 #' TAF stores tables as data frames with a year column, as seen in stock

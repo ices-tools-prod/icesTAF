@@ -8,8 +8,7 @@
 #' @param fileEncoding character encoding of input file.
 #' @param \dots passed to \code{read.csv}.
 #'
-#' @return
-#' A data frame in TAF format.
+#' @return A data frame in TAF format.
 #'
 #' @seealso
 #' \code{\link{read.csv}} is the underlying function used to read a table from a

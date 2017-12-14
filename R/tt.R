@@ -8,8 +8,7 @@
 #'        \code{column} can be a string supplying another name for that first
 #'        column.
 #'
-#' @return
-#' A data frame with years as column names.
+#' @return A data frame with years as column names.
 #'
 #' @note
 #' Transposing can be useful when comparing TAF tables to stock assessment

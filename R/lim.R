@@ -6,8 +6,7 @@
 #' @param x a vector of data values.
 #' @param mult a number to multiply with the highest data value.
 #'
-#' @return
-#' A vector of length two, which can be used as axis limits.
+#' @return A vector of length two, which can be used as axis limits.
 #'
 #' @seealso
 #' \code{\link{icesTAF-package}} gives an overview of the package.

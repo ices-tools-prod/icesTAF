@@ -5,8 +5,7 @@
 #'
 #' @param path a directory name.
 #'
-#' @return
-#' \code{TRUE} for success, \code{FALSE} for failure, invisibly.
+#' @return \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 #'
 #' @note
 #' Shorthand for

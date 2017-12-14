@@ -4,8 +4,7 @@
 #'
 #' @param x a data frame in long format.
 #'
-#' @return
-#' A data frame in TAF format.
+#' @return A data frame in TAF format.
 #'
 #' @note
 #' TAF stores tables as data frames with a year column, as seen in stock

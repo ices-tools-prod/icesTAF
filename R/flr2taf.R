@@ -4,8 +4,7 @@
 #'
 #' @param x a table of class \code{FLQuant}.
 #'
-#' @return
-#' A data frame in TAF format.
+#' @return A data frame in TAF format.
 #'
 #' @note
 #' FLR uses the \code{FLQuant} class to store tables as 6-dimensional arrays,
