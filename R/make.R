@@ -5,6 +5,7 @@
 #' @param recipe TAF script filename.
 #' @param prereq one or more underlying data files, required by the TAF script.
 #' @param target one output file, produced by the TAF script.
+#' @param quiet whether to suppress message when nothing is done.
 #' @param debug whether to show a diagnostic table of files and time last
 #'        modified.
 #'
@@ -25,7 +26,7 @@
 #'
 #' @export
 
-make <- function(recipe, prereq, target, debug=FALSE)
+make <- function(recipe, prereq, target, quiet=FALSE, debug=FALSE)
 {
   if(debug)
     print(data.frame(Object=c("target",rep("prereq",length(prereq))),
@@ -40,7 +41,8 @@ make <- function(recipe, prereq, target, debug=FALSE)
   }
   else
   {
-    message("Nothing to be done")
+    if(!quiet)
+      message("Nothing to be done")
     out <- FALSE
   }
   invisible(out)

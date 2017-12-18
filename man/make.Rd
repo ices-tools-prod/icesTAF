@@ -4,7 +4,7 @@
 \alias{make}
 \title{Run TAF Script If Needed}
 \usage{
-make(recipe, prereq, target, debug = FALSE)
+make(recipe, prereq, target, quiet = FALSE, debug = FALSE)
 }
 \arguments{
 \item{recipe}{TAF script filename.}
@@ -12,6 +12,8 @@ make(recipe, prereq, target, debug = FALSE)
 \item{prereq}{one or more underlying data files, required by the TAF script.}
 
 \item{target}{one output file, produced by the TAF script.}
+
+\item{quiet}{whether to suppress message when nothing is done.}
 
 \item{debug}{whether to show a diagnostic table of files and time last
 modified.}
