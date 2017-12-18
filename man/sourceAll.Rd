@@ -40,7 +40,7 @@ sourceAll()
 \seealso{
 \code{\link{sourceTAF}} runs a TAF script.
 
-\code{\link{make}} runs a TAF script if needed.
+\code{\link{makeAll}} runs all TAF scripts as needed.
 
 \code{\link{clean}} cleans TAF directories.
 
