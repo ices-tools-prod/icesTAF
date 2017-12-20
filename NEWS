@@ -1,9 +1,14 @@
 --------------------------------------------------------------------------------
-icesTAF 1.5-0 (2017-12-18)
+icesTAF 1.5-0 (2017-12-19)
 --------------------------------------------------------------------------------
 o Added function makeAll() to run all TAF scripts as needed.
 
-o Added argument 'quiet' to make().
+o Added argument 'local' to sourceTAF(), replacing the 'rm' argument.
+
+o Added argument 'include' to make().
+
+o Changed sourceAll() so it only runs TAF scripts: data.R, input.R, model.R,
+  output.R, and report.R.
 
 
 

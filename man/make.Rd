@@ -4,7 +4,7 @@
 \alias{make}
 \title{Run TAF Script If Needed}
 \usage{
-make(recipe, prereq, target, quiet = FALSE, debug = FALSE)
+make(recipe, prereq, target, include = TRUE, debug = FALSE, ...)
 }
 \arguments{
 \item{recipe}{TAF script filename.}
@@ -13,13 +13,16 @@ make(recipe, prereq, target, quiet = FALSE, debug = FALSE)
 
 \item{target}{one output file, produced by the TAF script.}
 
-\item{quiet}{whether to suppress message when nothing is done.}
+\item{include}{whether to automatically include the TAF script as a
+prerequisite file.}
 
 \item{debug}{whether to show a diagnostic table of files and time last
 modified.}
+
+\item{\dots}{passed to \code{\link{sourceTAF}}.}
 }
 \value{
-Invisible \code{TRUE} or \code{FALSE}, indicating whether the script was run.
+\code{TRUE} or \code{FALSE}, indicating whether the script was run.
 }
 \description{
 Run a TAF script if underlying data files have changed, otherwise do nothing.

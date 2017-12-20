@@ -2,34 +2,25 @@
 % Please edit documentation in R/sourceAll.R
 \name{sourceAll}
 \alias{sourceAll}
-\title{Run TAF Scripts in Alphabetical Order}
+\title{Run All TAF Scripts}
 \usage{
-sourceAll(path = ".", rm = TRUE, clean = TRUE, quiet = FALSE)
+sourceAll(path = ".", ...)
 }
 \arguments{
 \item{path}{directory containing TAF scripts.}
 
-\item{rm}{whether to remove all objects from the global environment before
-each script is run.}
-
-\item{clean}{whether to \code{\link{clean}} existing TAF directories before
-running the scripts.}
-
-\item{quiet}{whether to suppress messages reporting progress.}
+\item{\dots}{passed to \code{\link{sourceTAF}}.}
 }
 \value{
 Logical vector, indicating which scripts ran without errors.
 }
 \description{
-Run all TAF scripts in a directory, in alphabetical order. Optionally, start
-by cleaning old output directories and emptying the workspace before running
-each script.
+Run all TAF scripts found in a directory. Optionally, start by cleaning old
+output directories.
 }
-\details{
-By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-script starts with an empty workspace. Likewise, the default
-\code{clean = TRUE} makes sure that the scripts start by creating new empty
-directories and populate them one by one.
+\note{
+TAF scripts that will be run if they exist: \code{data.R}, \code{input.R},
+\code{model.R}, \code{output.R}, and \code{report.R}.
 }
 \examples{
 \dontrun{

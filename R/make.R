@@ -5,12 +5,13 @@
 #' @param recipe TAF script filename.
 #' @param prereq one or more underlying data files, required by the TAF script.
 #' @param target one output file, produced by the TAF script.
-#' @param quiet whether to suppress message when nothing is done.
+#' @param include whether to automatically include the TAF script as a
+#'        prerequisite file.
 #' @param debug whether to show a diagnostic table of files and time last
 #'        modified.
+#' @param \dots passed to \code{\link{sourceTAF}}.
 #'
-#' @return
-#' Invisible \code{TRUE} or \code{FALSE}, indicating whether the script was run.
+#' @return \code{TRUE} or \code{FALSE}, indicating whether the script was run.
 #'
 #' @seealso
 #' \code{\link{sourceTAF}} runs a TAF script.
@@ -26,8 +27,10 @@
 #'
 #' @export
 
-make <- function(recipe, prereq, target, quiet=FALSE, debug=FALSE)
+make <- function(recipe, prereq, target, include=TRUE, debug=FALSE, ...)
 {
+  if(include)
+    prereq <- union(prereq, recipe)
   if(debug)
     print(data.frame(Object=c("target",rep("prereq",length(prereq))),
                      File=c(target,prereq),
@@ -36,13 +39,11 @@ make <- function(recipe, prereq, target, quiet=FALSE, debug=FALSE)
     stop("missing prerequisite file '", prereq[!file.exists(prereq)][1], "'")
   if(!file.exists(target) || file.mtime(target) < max(file.mtime(prereq)))
   {
-    sourceTAF(recipe)
+    sourceTAF(recipe, ...)
     out <- TRUE
   }
   else
   {
-    if(!quiet)
-      message("Nothing to be done")
     out <- FALSE
   }
   invisible(out)

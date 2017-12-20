@@ -4,21 +4,22 @@
 \alias{makeAll}
 \title{Run All TAF Scripts as Needed}
 \usage{
-makeAll(path = ".", quiet = TRUE, debug = FALSE)
+makeAll(path = ".", ...)
 }
 \arguments{
 \item{path}{directory containing TAF scripts.}
 
-\item{quiet}{whether to suppress messages when nothing is done.}
-
-\item{debug}{whether to show a diagnostic table of files and time last
-modified.}
+\item{\dots}{passed to \code{\link{make}}.}
 }
 \value{
 Logical vector indicating which scripts were run.
 }
 \description{
 Run TAF scripts that have changed, or if previous steps were rerun.
+}
+\note{
+TAF scripts that will be run as needed: \code{data.R}, \code{input.R},
+\code{model.R}, \code{output.R}, and \code{report.R}.
 }
 \examples{
 \dontrun{

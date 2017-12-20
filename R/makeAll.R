@@ -3,12 +3,13 @@
 #' Run TAF scripts that have changed, or if previous steps were rerun.
 #'
 #' @param path directory containing TAF scripts.
-#' @param quiet whether to suppress messages when nothing is done.
-#' @param debug whether to show a diagnostic table of files and time last
-#'        modified.
+#' @param \dots passed to \code{\link{make}}.
 #'
-#' @return
-#' Logical vector indicating which scripts were run.
+#' @return Logical vector indicating which scripts were run.
+#'
+#' @note
+#' TAF scripts that will be run as needed: \code{data.R}, \code{input.R},
+#' \code{model.R}, \code{output.R}, and \code{report.R}.
 #'
 #' @seealso
 #' \code{\link{make}} runs a TAF script if needed.
@@ -22,29 +23,28 @@
 #' makeAll()
 #' }
 #'
-#' @importFrom stats setNames
-#'
 #' @export
 
-makeAll <- function(path=".", quiet=TRUE, debug=FALSE)
+makeAll <- function(path=".", ...)
 {
+  owd <- setwd(path)
+  on.exit(setwd(owd))
+
   data <- input <- model <- output <- report <- FALSE
+
   data <- if(file.exists("data.R"))
-            make("data.R", "data.R", "data",
-                 quiet=quiet, debug=debug)
+            make("data.R", NULL, "data", ...)
   input <- if(file.exists("input.R"))
-             make("input.R", c("data", "input.R"), "input",
-                  quiet=quiet, debug=debug)
+             make("input.R", "data", "input", ...)
   model <- if(file.exists("model.R"))
-             make("model.R", c("input", "model.R"), "model",
-                  quiet=quiet, debug=debug)
+             make("model.R", "input", "model", ...)
   output <- if(file.exists("output.R"))
-              make("output.R", c("model", "output.R"), "output",
-                   quiet=quiet, debug=debug)
+              make("output.R", "model", "output", ...)
   report <- if(file.exists("report.R"))
-              make("report.R", c("output", "report.R"), "report",
-                   quiet=quiet, debug=debug)
-  out <- setNames(c(data, input, model, output, report),
-                  c("data", "input", "model", "output", "report"))
+              make("report.R", "output", "report", ...)
+
+  out <- c(data, input, model, output, report)
+  names(out) <- c("data.R", "input.R", "model.R", "output.R", "report.R")
+
   invisible(out)
 }

@@ -1,24 +1,24 @@
 #' Run TAF Script
 #'
-#' Run a TAF script and return to the original directory. Optionally start with
-#' an empty workspace.
+#' Run a TAF script and return to the original directory. Optionally, start by
+#' cleaning old output directory.
 #'
 #' @param script script filename.
-#' @param rm whether to remove all objects from the global environment before
-#'        the script is run.
+#' @param local whether to run script in a local temporary environment, so that
+#'        objects are not created in the global workspace.
 #' @param clean whether to remove the corresponding TAF directory before running
 #'        the script.
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
-#' By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-#' script starts with an empty workspace. Likewise, the default
-#' \code{clean = TRUE} makes sure that the script starts by creating a new empty
-#' directory.
+#' By default, TAF scripts are run with \code{local = TRUE} to make sure that
+#' only files, not objects, are carried over between scripts. Likewise, the
+#' default \code{clean = TRUE} makes sure that the script starts by creating a
+#' new empty directory.
 #'
 #' @return
-#' Invisible \code{TRUE} or \code{FALSE}, indicating whether the script ran
-#' without errors.
+#' \code{TRUE} or \code{FALSE}, indicating whether the script ran without
+#' errors.
 #'
 #' @note
 #' Commands within a script may change the working directory, but
@@ -47,10 +47,8 @@
 #'
 #' @export
 
-sourceTAF <- function(script, rm=TRUE, clean=TRUE, quiet=FALSE)
+sourceTAF <- function(script, local=TRUE, clean=TRUE, quiet=FALSE)
 {
-  if(rm)
-    rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
   if(clean && dir.exists(file_path_sans_ext(script)))
     unlink(file_path_sans_ext(script), recursive=TRUE)
   if(!quiet)
@@ -58,7 +56,8 @@ sourceTAF <- function(script, rm=TRUE, clean=TRUE, quiet=FALSE)
 
   owd <- setwd(dirname(script))
   on.exit(setwd(owd))
-  result <- try(source(basename(script)))
+  envir <- if(local) new.env() else .GlobalEnv
+  result <- try(source(basename(script), local=envir))
 
   ok <- class(result) != "try-error"
   if(!quiet)

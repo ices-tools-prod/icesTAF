@@ -1,23 +1,16 @@
-#' Run TAF Scripts in Alphabetical Order
+#' Run All TAF Scripts
 #'
-#' Run all TAF scripts in a directory, in alphabetical order. Optionally, start
-#' by cleaning old output directories and emptying the workspace before running
-#' each script.
+#' Run all TAF scripts found in a directory. Optionally, start by cleaning old
+#' output directories.
 #'
 #' @param path directory containing TAF scripts.
-#' @param rm whether to remove all objects from the global environment before
-#'        each script is run.
-#' @param clean whether to \code{\link{clean}} existing TAF directories before
-#'        running the scripts.
-#' @param quiet whether to suppress messages reporting progress.
-#'
-#' @details
-#' By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-#' script starts with an empty workspace. Likewise, the default
-#' \code{clean = TRUE} makes sure that the scripts start by creating new empty
-#' directories and populate them one by one.
+#' @param \dots passed to \code{\link{sourceTAF}}.
 #'
 #' @return Logical vector, indicating which scripts ran without errors.
+#'
+#' @note
+#' TAF scripts that will be run if they exist: \code{data.R}, \code{input.R},
+#' \code{model.R}, \code{output.R}, and \code{report.R}.
 #'
 #' @seealso
 #' \code{\link{sourceTAF}} runs a TAF script.
@@ -35,14 +28,15 @@
 #'
 #' @export
 
-sourceAll <- function(path=".", rm=TRUE, clean=TRUE, quiet=FALSE)
+sourceAll <- function(path=".", ...)
 {
-  if(clean)
-    clean(path)
+  owd <- setwd(path)
+  on.exit(setwd(owd))
 
-  scripts <- dir(path, pattern="\\.[Rr]$")
+  scripts <- c("data.R", "input.R", "model.R", "output.R", "report.R")
+  scripts <- scripts[file.exists(scripts)]
 
-  ok <- sapply(scripts, function(x) sourceTAF(x, rm=rm, quiet=quiet))
+  ok <- sapply(scripts, sourceTAF, ...)
   if(length(ok) == 0)
     ok <- logical(0)
 
