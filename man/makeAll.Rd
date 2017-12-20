@@ -28,7 +28,7 @@ makeAll()
 
 }
 \seealso{
-\code{\link{make}} runs a TAF script if needed.
+\code{\link{makeTAF}} runs a TAF script if needed.
 
 \code{\link{sourceAll}} runs all TAF scripts in a directory.
 

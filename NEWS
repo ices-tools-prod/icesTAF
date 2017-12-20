@@ -1,11 +1,11 @@
 --------------------------------------------------------------------------------
-icesTAF 1.5-0 (2017-12-19)
+icesTAF 1.5-0 (2017-12-20)
 --------------------------------------------------------------------------------
-o Added function makeAll() to run all TAF scripts as needed.
+o Added functions makeTAF() and makeAll() to run TAF scripts as needed.
+
+o Added arguments 'include' and 'engine' to make().
 
 o Added argument 'local' to sourceTAF(), replacing the 'rm' argument.
-
-o Added argument 'include' to make().
 
 o Changed sourceAll() so it only runs TAF scripts: data.R, input.R, model.R,
   output.R, and report.R.

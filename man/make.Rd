@@ -2,30 +2,33 @@
 % Please edit documentation in R/make.R
 \name{make}
 \alias{make}
-\title{Run TAF Script If Needed}
+\title{Run R Script If Needed}
 \usage{
-make(recipe, prereq, target, include = TRUE, debug = FALSE, ...)
+make(recipe, prereq, target, include = TRUE, engine = source,
+  debug = FALSE, ...)
 }
 \arguments{
-\item{recipe}{TAF script filename.}
+\item{recipe}{script filename.}
 
-\item{prereq}{one or more underlying data files, required by the TAF script.}
+\item{prereq}{one or more underlying data files, required by the script.}
 
-\item{target}{one output file, produced by the TAF script.}
+\item{target}{one output file, produced by the script.}
 
-\item{include}{whether to automatically include the TAF script as a
-prerequisite file.}
+\item{include}{whether to automatically include the script as a prerequisite
+file.}
+
+\item{engine}{function to source the script.}
 
 \item{debug}{whether to show a diagnostic table of files and time last
 modified.}
 
-\item{\dots}{passed to \code{\link{sourceTAF}}.}
+\item{\dots}{passed to \code{engine}.}
 }
 \value{
 \code{TRUE} or \code{FALSE}, indicating whether the script was run.
 }
 \description{
-Run a TAF script if underlying data files have changed, otherwise do nothing.
+Run an R script if underlying data files have changed, otherwise do nothing.
 }
 \examples{
 \dontrun{
@@ -34,9 +37,9 @@ make("model.R", "input/input.dat", "model/results.dat")
 
 }
 \seealso{
-\code{\link{sourceTAF}} runs a TAF script.
+\code{\link{source}} runs an R script.
 
-\code{\link{sourceAll}} runs all TAF scripts in a directory.
+\code{\link{makeTAF}} runs a TAF script if needed.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

@@ -25,8 +25,9 @@
 #' }
 #' \emph{Run scripts:}
 #' \tabular{ll}{
-#'   \code{\link{make}}      \tab run TAF script if needed\cr
+#'   \code{\link{make}}      \tab run R script if needed\cr
 #'   \code{\link{makeAll}}   \tab run all TAF scripts as needed\cr
+#'   \code{\link{makeTAF}}   \tab run TAF script if needed\cr
 #'   \code{\link{msg}}       \tab show message\cr
 #'   \code{\link{sourceAll}} \tab run all TAF scripts\cr
 #'   \code{\link{sourceTAF}} \tab run TAF script
