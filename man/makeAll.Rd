@@ -28,9 +28,13 @@ makeAll()
 
 }
 \seealso{
-\code{\link{makeTAF}} runs a TAF script if needed.
+\code{\link{source}} runs any R script, \code{\link{sourceTAF}} is more
+convenient for running a TAF  script, and \code{\link{sourceAll}} runs all
+TAF scripts.
 
-\code{\link{sourceAll}} runs all TAF scripts in a directory.
+\code{\link{make}}, \code{\link{makeTAF}}, and \code{\link{makeAll}} are
+similar to the \code{source} functions, except they avoid repeating tasks
+that have already been run.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
