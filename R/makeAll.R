@@ -33,7 +33,13 @@ makeAll <- function(path=".", ...)
 {
   owd <- setwd(path)
   on.exit(setwd(owd))
+
   scripts <- c("data.R", "input.R", "model.R", "output.R", "report.R")
-  out <- sapply(scripts, makeTAF, ...)
-  invisible(out)
+  scripts <- scripts[file.exists(scripts)]
+
+  ok <- sapply(scripts, makeTAF, ...)
+  if(length(ok) == 0)
+    ok <- logical(0)
+
+  invisible(ok)
 }
