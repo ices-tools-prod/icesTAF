@@ -34,8 +34,9 @@ Run an R script if underlying files have changed, otherwise do nothing.
 }
 \note{
 This function provides functionality similar to makefile rules, to determine
-whether a script should be (re)run or not. If \code{target} is newer than any
-\code{prereq}, then the script is run.
+whether a script should be (re)run or not.
+
+If \code{target} is newer than any \code{prereq}, then the script is run.
 }
 \examples{
 \dontrun{
