@@ -18,6 +18,12 @@ makeTAF(script, ...)
 Run a TAF script if the target directory is either older than the script, or
 older than the directory of the previous TAF step.
 }
+\note{
+Any underlying scripts are automatically included if they share the same
+filename prefix, followed by an underscore. For example, when determining
+whether a script \verb{data.R} should be run, this function checks whether
+\verb{data_foo.R} and \verb{data_bar.R} have been recently modified.
+}
 \examples{
 \dontrun{
 makeTAF("model.R")
