@@ -13,11 +13,11 @@ make(recipe, prereq, target, include = TRUE, engine = source,
 \item{prereq}{one or more underlying files, required by the script. For
 example, data files and/or scripts.}
 
-\item{target}{one output file, produced by the script. This can also be a
-directory name.}
+\item{target}{one or more output files, produced by the script. Directory
+names can also be used.}
 
-\item{include}{whether to automatically include the script as a prerequisite
-file.}
+\item{include}{whether to automatically include the script itself as a
+prerequisite file.}
 
 \item{engine}{function to source the script.}
 
@@ -36,7 +36,8 @@ Run an R script if underlying files have changed, otherwise do nothing.
 This function provides functionality similar to makefile rules, to determine
 whether a script should be (re)run or not.
 
-If \code{target} is newer than any \code{prereq}, then the script is run.
+If any \code{target} is missing or older than any \code{prereq}, then the
+script is run.
 }
 \examples{
 \dontrun{
