@@ -15,8 +15,7 @@ sourceAll(path = ".", ...)
 Logical vector, indicating which scripts ran without errors.
 }
 \description{
-Run all TAF scripts found in a directory. Optionally, start by cleaning old
-output directories.
+Run all TAF scripts found in a directory.
 }
 \note{
 TAF scripts that will be run if they exist: \code{data.R}, \code{input.R},

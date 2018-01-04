@@ -22,8 +22,7 @@ the script.}
 errors.
 }
 \description{
-Run a TAF script and return to the original directory. Optionally, start by
-cleaning old output directory.
+Run a TAF script and return to the original directory.
 }
 \details{
 By default, TAF scripts are run with \code{local = TRUE} to make sure that

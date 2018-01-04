@@ -1,7 +1,6 @@
 #' Run All TAF Scripts
 #'
-#' Run all TAF scripts found in a directory. Optionally, start by cleaning old
-#' output directories.
+#' Run all TAF scripts found in a directory.
 #'
 #' @param path directory containing TAF scripts.
 #' @param \dots passed to \code{\link{sourceTAF}}.

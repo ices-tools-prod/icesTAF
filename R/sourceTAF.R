@@ -1,7 +1,6 @@
 #' Run TAF Script
 #'
-#' Run a TAF script and return to the original directory. Optionally, start by
-#' cleaning old output directory.
+#' Run a TAF script and return to the original directory.
 #'
 #' @param script script filename.
 #' @param local whether to run script in a local temporary environment, so that
