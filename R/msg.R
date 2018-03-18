@@ -13,7 +13,7 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
-#' msg("Running script.R")
+#' msg("script.R running...")
 #'
 #' @export
 

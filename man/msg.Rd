@@ -13,7 +13,7 @@ msg(...)
 Show a message, as well as the current time.
 }
 \examples{
-msg("Running script.R")
+msg("script.R running...")
 
 }
 \seealso{

@@ -51,7 +51,7 @@ sourceTAF <- function(script, local=TRUE, clean=TRUE, quiet=FALSE)
   if(clean && dir.exists(file_path_sans_ext(script)))
     unlink(file_path_sans_ext(script), recursive=TRUE)
   if(!quiet)
-    msg("Running ", script, " ...")
+    msg(script, " running...")
 
   owd <- setwd(dirname(script))
   on.exit(setwd(owd))
@@ -60,6 +60,6 @@ sourceTAF <- function(script, local=TRUE, clean=TRUE, quiet=FALSE)
 
   ok <- class(result) != "try-error"
   if(!quiet)
-    message(if(ok) "Done" else "Failed")
+    msg(script, if(ok) " done" else " failed")
   invisible(ok)
 }
