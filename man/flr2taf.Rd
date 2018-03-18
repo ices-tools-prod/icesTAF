@@ -4,10 +4,12 @@
 \alias{flr2taf}
 \title{Convert FLR Table to TAF Format}
 \usage{
-flr2taf(x)
+flr2taf(x, colname = "Value")
 }
 \arguments{
 \item{x}{a table of class \code{FLQuant}.}
+
+\item{colname}{a column name to use if the FLR table contains only one row.}
 }
 \value{
 A data frame in TAF format.
@@ -25,6 +27,9 @@ dimnames(x) <- list(age=1:4, year=1963:1970,
                     unit="unique", season="all", area="unique", iter=1)
 flr2taf(x)
 
+x1 <- x[1,,,,,,drop=FALSE]
+flr2taf(x1)
+flr2taf(x1, "Juveniles")
 }
 \seealso{
 \code{\link{catage.taf}} describes the TAF format.
