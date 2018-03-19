@@ -10,7 +10,7 @@ sourceTAF(script, rm = FALSE, clean = TRUE, quiet = FALSE)
 \item{script}{script filename.}
 
 \item{rm}{whether to remove all objects from the global environment before
-the script is run.}
+and after the script is run.}
 
 \item{clean}{whether to remove the corresponding TAF directory before running
 the script.}

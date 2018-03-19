@@ -4,7 +4,7 @@
 #'
 #' @param script script filename.
 #' @param rm whether to remove all objects from the global environment before
-#'        the script is run.
+#'        and after the script is run.
 #' @param clean whether to remove the corresponding TAF directory before running
 #'        the script.
 #' @param quiet whether to suppress messages reporting progress.
@@ -59,9 +59,12 @@ sourceTAF <- function(script, rm=FALSE, clean=TRUE, quiet=FALSE)
   owd <- setwd(dirname(script))
   on.exit(setwd(owd))
   result <- try(source(basename(script)))
-
   ok <- class(result) != "try-error"
   if(!quiet)
     msg("  ", script, if(ok) " done" else " failed")
+
+  if(rm)
+    rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
+
   invisible(ok)
 }
