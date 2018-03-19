@@ -4,7 +4,7 @@
 \alias{sourceTAF}
 \title{Run TAF Script}
 \usage{
-sourceTAF(script, rm = TRUE, clean = TRUE, quiet = FALSE)
+sourceTAF(script, rm = FALSE, clean = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{script}{script filename.}
@@ -25,10 +25,11 @@ errors.
 Run a TAF script and return to the original directory.
 }
 \details{
-By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-script starts with an empty workspace. Likewise, the default
-\code{clean = TRUE} makes sure that the script starts by creating a new empty
-directory.
+The default value of \code{rm = FALSE} is to protect users from accidental
+loss of work, but the TAF server always runs with \code{rm = TRUE} to make
+sure that only files, not objects, are carried over between scripts. The
+default \code{clean = TRUE} makes sure that the script starts by creating a
+new empty directory.
 }
 \note{
 Commands within a script may change the working directory, but

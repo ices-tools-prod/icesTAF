@@ -10,10 +10,11 @@
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
-#' By default, TAF scripts are run with \code{rm = TRUE} to make sure each
-#' script starts with an empty workspace. Likewise, the default
-#' \code{clean = TRUE} makes sure that the script starts by creating a new empty
-#' directory.
+#' The default value of \code{rm = FALSE} is to protect users from accidental
+#' loss of work, but the TAF server always runs with \code{rm = TRUE} to make
+#' sure that only files, not objects, are carried over between scripts. The
+#' default \code{clean = TRUE} makes sure that the script starts by creating a
+#' new empty directory.
 #'
 #' @return
 #' \code{TRUE} or \code{FALSE}, indicating whether the script ran without
@@ -46,7 +47,7 @@
 #'
 #' @export
 
-sourceTAF <- function(script, rm=TRUE, clean=TRUE, quiet=FALSE)
+sourceTAF <- function(script, rm=FALSE, clean=TRUE, quiet=FALSE)
 {
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)

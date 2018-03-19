@@ -4,6 +4,8 @@
 #' older than the directory of the previous TAF step.
 #'
 #' @param script TAF script filename.
+#' @param rm whether to remove all objects from the global environment before
+#'        each script is run.
 #' @param \dots passed to \code{\link{make}} and \code{\link{sourceTAF}}.
 #'
 #' @return \code{TRUE} or \code{FALSE}, indicating whether the script was run.
@@ -32,7 +34,7 @@
 #'
 #' @export
 
-makeTAF <- function(script, ...)
+makeTAF <- function(script, rm=FALSE, ...)
 {
   owd <- setwd(dirname(script))
   on.exit(setwd(owd))
@@ -40,19 +42,19 @@ makeTAF <- function(script, ...)
   out <- switch(script,
                 "data.R"=make("data.R",
                               dir(pattern="^data_.*\\.R$"),
-                              "data", engine=sourceTAF, ...),
+                              "data", engine=sourceTAF, rm=rm, ...),
                 "input.R"=make("input.R",
                                c("data",dir(pattern="^input_.*\\.R$")),
-                               "input", engine=sourceTAF, ...),
+                               "input", engine=sourceTAF, rm=rm, ...),
                 "model.R"=make("model.R",
                                c("input",dir(pattern="^model_.*\\.R$")),
-                               "model", engine=sourceTAF, ...),
+                               "model", engine=sourceTAF, rm=rm, ...),
                 "output.R"=make("output.R",
                                 c("model",dir(pattern="^output_.*\\.R$")),
-                                "output", engine=sourceTAF, ...),
+                                "output", engine=sourceTAF, rm=rm, ...),
                 "report.R"=make("report.R",
                                 c("output",dir(pattern="^report_.*\\.R$")),
-                                "report", engine=sourceTAF, ...),
+                                "report", engine=sourceTAF, rm=rm, ...),
                 FALSE)
   invisible(out)
 }
