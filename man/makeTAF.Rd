@@ -4,13 +4,10 @@
 \alias{makeTAF}
 \title{Run TAF Script If Needed}
 \usage{
-makeTAF(script, rm = FALSE, ...)
+makeTAF(script, ...)
 }
 \arguments{
 \item{script}{TAF script filename.}
-
-\item{rm}{whether to remove all objects from the global environment before
-each script is run.}
 
 \item{\dots}{passed to \code{\link{make}} and \code{\link{sourceTAF}}.}
 }
