@@ -53,10 +53,8 @@ sourceTAF <- function(script, local=TRUE, clean=TRUE, quiet=FALSE)
   if(!quiet)
     msg(script, " running...")
 
-  owd <- setwd(dirname(script))
-  on.exit(setwd(owd))
   envir <- if(local) new.env() else .GlobalEnv
-  result <- try(source(basename(script), local=envir))
+  result <- try(sys.source(script, envir=envir, chdir=TRUE))
 
   ok <- class(result) != "try-error"
   if(!quiet)
