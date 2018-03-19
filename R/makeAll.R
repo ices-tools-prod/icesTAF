@@ -3,7 +3,7 @@
 #' Run TAF scripts that have changed, or if previous steps were rerun.
 #'
 #' @param path directory containing TAF scripts.
-#' @param \dots passed to \code{\link{make}}.
+#' @param \dots passed to \code{\link{makeTAF}}.
 #'
 #' @return Logical vector indicating which scripts were run.
 #'

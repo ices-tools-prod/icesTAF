@@ -9,7 +9,7 @@ makeAll(path = ".", ...)
 \arguments{
 \item{path}{directory containing TAF scripts.}
 
-\item{\dots}{passed to \code{\link{make}}.}
+\item{\dots}{passed to \code{\link{makeTAF}}.}
 }
 \value{
 Logical vector indicating which scripts were run.
