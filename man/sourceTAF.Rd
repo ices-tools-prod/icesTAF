@@ -4,13 +4,13 @@
 \alias{sourceTAF}
 \title{Run TAF Script}
 \usage{
-sourceTAF(script, local = TRUE, clean = TRUE, quiet = FALSE)
+sourceTAF(script, rm = TRUE, clean = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{script}{script filename.}
 
-\item{local}{whether to run script in a local temporary environment, so that
-objects are not created in the global workspace.}
+\item{rm}{whether to remove all objects from the global environment before
+the script is run.}
 
 \item{clean}{whether to remove the corresponding TAF directory before running
 the script.}
@@ -25,10 +25,10 @@ errors.
 Run a TAF script and return to the original directory.
 }
 \details{
-By default, TAF scripts are run with \code{local = TRUE} to make sure that
-only files, not objects, are carried over between scripts. Likewise, the
-default \code{clean = TRUE} makes sure that the script starts by creating a
-new empty directory.
+By default, TAF scripts are run with \code{rm = TRUE} to make sure each
+script starts with an empty workspace. Likewise, the default
+\code{clean = TRUE} makes sure that the script starts by creating a new empty
+directory.
 }
 \note{
 Commands within a script may change the working directory, but
