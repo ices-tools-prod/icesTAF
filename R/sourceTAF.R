@@ -60,6 +60,6 @@ sourceTAF <- function(script, local=TRUE, clean=TRUE, quiet=FALSE)
 
   ok <- class(result) != "try-error"
   if(!quiet)
-    msg(script, if(ok) " done" else " failed")
+    msg("  ", script, if(ok) " done" else " failed")
   invisible(ok)
 }
