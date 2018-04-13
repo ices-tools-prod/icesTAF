@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/ices-tools-prod/icesTAF.svg?branch=master)](https://travis-ci.org/ices-tools-prod/icesTAF)
 [![CRAN Status](http://r-pkg.org/badges/version/icesTAF)](https://cran.r-project.org/package=icesTAF)
-[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/icesTAF)](https://cran.r-project.org/package=icesTAF)
+[![CRAN Monthly](http://cranlogs.r-pkg.org/badges/icesTAF)](https://cran.r-project.org/package=icesTAF)
+[![CRAN Total](http://cranlogs.r-pkg.org/badges/grand-total/icesTAF)](https://cran.r-project.org/package=icesTAF)
 
 [<img align="right" alt="ICES Logo" width="17%" height="17%" src="http://ices.dk/_layouts/15/1033/images/icesimg/iceslogo.png">](http://ices.dk)
 
