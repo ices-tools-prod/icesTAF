@@ -33,10 +33,10 @@ cp <- function(from, to, move=FALSE)
   ## in case some filenames without asterisk are not found
   from <- sort(unique(c(Sys.glob(from), from[!grepl("\\*", from)])))
 
-  ret <- file.copy(from, to, overwrite=TRUE)
+  out <- file.copy(from, to, overwrite=TRUE)
   if(move)
-    ret <- file.remove(from)
-  names(ret) <- from
+    out <- file.remove(from)
+  names(out) <- from
 
-  invisible(ret)
+  invisible(out)
 }
