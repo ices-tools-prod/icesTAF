@@ -30,7 +30,13 @@
 #' function to round values for ICES advice sheets.
 #'
 #' @examples
-#' # These are equivalent:
+#' # With rnd() we no longer need to repeat the column names:
+#'
+#' m <- mtcars
+#' m[c("mpg","disp","qsec")] <- round(m[c("mpg","disp","qsec")])
+#' m <- rnd(m, c("mpg","disp","qsec"))
+#'
+#' # The x1/x2/x3/x4 approaches are equivalent:
 #'
 #' x1 <- rnd(summary.taf, c("Rec","Rec_lo","Rec_hi",
 #'                          "TSB","TSB_lo","TSB_hi",
