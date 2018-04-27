@@ -17,24 +17,25 @@ cp(from, to, move = FALSE)
 \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 }
 \description{
-Copy files, overwriting existing files if necessary, and returning the result
-invisibly.
-}
-\note{
-Shorthand for \code{invisible(file.copy(..., overwrite = TRUE))}.
+Copy or move files, overwriting existing files if necessary, and returning
+the result invisibly.
 }
 \examples{
 \dontrun{
 write(pi, "A.txt")
 cp("A.txt", "B.txt")
 cp("A.txt", "B.txt", move=TRUE)
-file.remove("B.txt")
+
+## Copy directory tree
+cp(system.file(package="datasets"), ".")
+mkdir("everything")
+cp("datasets/*", "everything")
 }
 
 }
 \seealso{
-\code{\link{file.copy}} and \code{\link{file.rename}} are the base functions
-to copy and move files.
+\code{\link{file.copy}} and \code{\link{unlink}} are the underlying functions
+used to copy and (if \code{move = TRUE}) delete files.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

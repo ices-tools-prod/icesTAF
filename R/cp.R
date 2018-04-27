@@ -1,7 +1,7 @@
 #' Copy Files
 #'
-#' Copy files, overwriting existing files if necessary, and returning the result
-#' invisibly.
+#' Copy or move files, overwriting existing files if necessary, and returning
+#' the result invisibly.
 #'
 #' @param from source filenames, e.g. \code{*.csv}.
 #' @param to destination filenames, or directory.
@@ -9,11 +9,9 @@
 #'
 #' @return \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 #'
-#' @note Shorthand for \code{invisible(file.copy(..., overwrite = TRUE))}.
-#'
 #' @seealso
-#' \code{\link{file.copy}} and \code{\link{file.rename}} are the base functions
-#' to copy and move files.
+#' \code{\link{file.copy}} and \code{\link{unlink}} are the underlying functions
+#' used to copy and (if \code{move = TRUE}) delete files.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -22,7 +20,11 @@
 #' write(pi, "A.txt")
 #' cp("A.txt", "B.txt")
 #' cp("A.txt", "B.txt", move=TRUE)
-#' file.remove("B.txt")
+#'
+#' ## Copy directory tree
+#' cp(system.file(package="datasets"), ".")
+#' mkdir("everything")
+#' cp("datasets/*", "everything")
 #' }
 #'
 #' @export
@@ -33,9 +35,9 @@ cp <- function(from, to, move=FALSE)
   ## in case some filenames without asterisk are not found
   from <- sort(unique(c(Sys.glob(from), from[!grepl("\\*", from)])))
 
-  out <- file.copy(from, to, overwrite=TRUE)
+  out <- file.copy(from, to, overwrite=TRUE, recursive=TRUE)
   if(move)
-    out <- file.remove(from)
+    unlink(from, recursive=TRUE, force=TRUE)
   names(out) <- from
 
   invisible(out)
