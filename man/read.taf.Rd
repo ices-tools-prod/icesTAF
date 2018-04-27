@@ -4,7 +4,7 @@
 \alias{read.taf}
 \title{Read TAF Table from File}
 \usage{
-read.taf(file, check.names = FALSE, fileEncoding = "UTF-8-BOM", ...)
+read.taf(file, check.names = FALSE, fileEncoding = "UTF-8", ...)
 }
 \arguments{
 \item{file}{a filename.}

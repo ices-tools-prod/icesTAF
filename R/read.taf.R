@@ -30,7 +30,7 @@
 #'
 #' @export
 
-read.taf <- function(file, check.names=FALSE, fileEncoding="UTF-8-BOM", ...)
+read.taf <- function(file, check.names=FALSE, fileEncoding="UTF-8", ...)
 {
   read.csv(file, check.names=check.names, fileEncoding=fileEncoding, ...)
 }
