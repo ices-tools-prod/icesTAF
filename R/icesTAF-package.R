@@ -77,6 +77,6 @@
 #'
 #' To explore example TAF stock assessments, see the introductory
 #' \href{https://www.youtube.com/watch?v=FweJbr9hfdY}{video} and
-#' \href{https://github.com/ices-taf/doc/tree/master/tutorial-1}{tutorial}.
+#' \href{https://github.com/ices-taf/doc/tree/master/tutorial-1/README.md}{tutorial}.
 
 NA
