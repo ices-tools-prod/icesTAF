@@ -16,10 +16,6 @@ mkdir(path)
 Create directory, including parent directories if necessary, without
 generating a warning if the directory already exists.
 }
-\note{
-Shorthand for
-\code{dir.create(path, showWarnings = FALSE, recursive = TRUE)}.
-}
 \examples{
 \dontrun{
 mkdir("emptydir")

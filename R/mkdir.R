@@ -7,10 +7,6 @@
 #'
 #' @return \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 #'
-#' @note
-#' Shorthand for
-#' \code{dir.create(path, showWarnings = FALSE, recursive = TRUE)}.
-#'
 #' @seealso
 #' \code{\link{dir.create}} is the base function to create an empty directory.
 #'
@@ -33,5 +29,6 @@
 
 mkdir <- function(path)
 {
-  dir.create(path, showWarnings=FALSE, recursive=TRUE)
+  out <- sapply(path, dir.create, showWarnings=FALSE, recursive=TRUE)
+  invisible(out)
 }
