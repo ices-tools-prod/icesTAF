@@ -35,7 +35,8 @@ cp <- function(from, to, move=FALSE)
   ## in case some filenames without asterisk are not found
   from <- sort(unique(c(Sys.glob(from), from[!grepl("\\*", from)])))
 
-  out <- mapply(file.copy, from, to, overwrite=TRUE, recursive=dir.exists(from))
+  out <- mapply(file.copy, from, to, overwrite=TRUE,
+                recursive=dir.exists(from), copy.date=TRUE)
   if(move)
     unlink(from, recursive=TRUE, force=TRUE)
   names(out) <- from
