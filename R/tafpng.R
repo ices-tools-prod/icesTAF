@@ -13,10 +13,11 @@
 #' The \code{filename} can be passed without the preceding
 #' \verb{report/}, and without the \verb{.png} filename extension.
 #'
-#' Specifically, the function prepends \verb{"report/"} to the filename if the
-#' filename does not contain a \verb{"/"} separator and the working directory is
-#' not \verb{"report"}. The function appends \verb{".png"} to the filename if it
-#' does not already have that filename extension.
+#' Specifically, the function prepends \verb{"report/"} to the filename if (1)
+#' the filename does not contain a \verb{"/"} separator, (2) the working
+#' directory is not \verb{"report"}, and (3) the directory \verb{"report"}
+#' exists. The function appends \verb{".png"} to the filename if it does not
+#' already have that filename extension.
 #'
 #' This automatic filename manipulation can be bypassed by using the \code{png}
 #' function directly.
@@ -46,7 +47,7 @@
 
 tafpng <- function(filename, width=800, height=600, pointsize=22, ...)
 {
-  if(!grepl("/",filename) && !grepl("report$",getwd()))
+  if(!grepl("/",filename) && !grepl("report$",getwd()) && dir.exists("report"))
     filename <- paste0("report/", filename)
   if(!grepl("\\.png$", filename))
     filename <- paste0(filename, ".png")
