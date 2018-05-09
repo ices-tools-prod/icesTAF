@@ -9,9 +9,9 @@ tafpng(filename, width = 800, height = 600, pointsize = 22, ...)
 \arguments{
 \item{filename}{image filename.}
 
-\item{width}{image width.}
+\item{width}{image width (pixels).}
 
-\item{height}{image height.}
+\item{height}{image height (pixels).}
 
 \item{pointsize}{text size.}
 

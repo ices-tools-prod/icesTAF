@@ -4,8 +4,8 @@
 #' folder.
 #'
 #' @param filename image filename.
-#' @param width image width.
-#' @param height image height.
+#' @param width image width (pixels).
+#' @param height image height (pixels).
 #' @param pointsize text size.
 #' @param \dots passed to \code{png}.
 #'
