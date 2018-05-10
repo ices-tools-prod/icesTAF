@@ -9,9 +9,9 @@ tafpng(filename, width = 800, height = 600, pointsize = 22, ...)
 \arguments{
 \item{filename}{image filename.}
 
-\item{width}{image width (pixels).}
+\item{width}{image width.}
 
-\item{height}{image height (pixels).}
+\item{height}{image height.}
 
 \item{pointsize}{text size.}
 
@@ -23,12 +23,12 @@ folder.
 }
 \details{
 The \code{filename} can be passed without the preceding
-\verb{report/}, and without the \verb{.png} filename extension.
+\code{"report/"}, and without the \code{".png"} filename extension.
 
-Specifically, the function prepends \verb{"report/"} to the filename if (1)
-the filename does not contain a \verb{"/"} separator, (2) the working
-directory is not \verb{"report"}, and (3) the directory \verb{"report"}
-exists. The function appends \verb{".png"} to the filename if it does not
+Specifically, the function prepends \code{"report/"} to the filename if (1)
+the filename does not contain a \code{"/"} separator, (2) the working
+directory is not \verb{report}, and (3) the directory \verb{report} exists.
+The function also appends \verb{".png"} to the filename if it does not
 already have that filename extension.
 
 This automatic filename manipulation can be bypassed by using the \code{png}
@@ -39,11 +39,24 @@ A simple convenience function to shorten
 \preformatted{png("report/myplot.png", width=800, height=600, pointsize=22)}
 to
 \preformatted{tafpng("myplot")}
+To successfully export \verb{trellis} and \verb{ggplot} objects to image
+files in scripts, these objects should be explicitly printed (see examples
+below).
 }
 \examples{
 \dontrun{
 tafpng("myplot")
 plot(1)
+dev.off()
+
+library(lattice)
+tafpng("mytrellis")
+print(xyplot(1~1))
+dev.off()
+
+library(ggplot2)
+tafpng("myggplot")
+print(qplot(1))
 dev.off()
 }
 
