@@ -45,6 +45,7 @@ data, methods, and results used in ICES assessments.
   \code{\link{div}}      \tab divide column values\cr
   \code{\link{flr2taf}}  \tab convert FLR to TAF\cr
   \code{\link{long2taf}} \tab convert long format to TAF\cr
+  \code{\link{plus}}     \tab rename plus group column\cr
   \code{\link{rnd}}      \tab round column values\cr
   \code{\link{taf2long}} \tab convert TAF to long format\cr
   \code{\link{taf2xtab}} \tab convert TAF to crosstab\cr
