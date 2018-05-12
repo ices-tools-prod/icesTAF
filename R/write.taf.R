@@ -4,10 +4,16 @@
 #'
 #' @param x a data frame in TAF format.
 #' @param file a filename.
+#' @param dir an optional directory name.
 #' @param quote whether to quote strings.
 #' @param row.names whether to include row names.
 #' @param fileEncoding character encoding for output file.
 #' @param \dots passed to \code{write.csv}.
+#'
+#' @details
+#' The default value \code{file = NULL} will use the object name of the data
+#' frame as a filename. The special value \code{file = ""} prints the data frame
+#' in the console, similar to \code{write.csv}.
 #'
 #' @seealso
 #' \code{\link{write.csv}} is the underlying function used to write a table to a
@@ -22,6 +28,7 @@
 #' write.taf(catage.taf, "catage.csv")
 #' catage <- read.taf("catage.csv")
 #'
+#' write.taf(catage)
 #' file.remove("catage.csv")
 #' }
 #'
@@ -29,9 +36,13 @@
 #'
 #' @export
 
-write.taf <- function(x, file="", quote=FALSE, row.names=FALSE,
+write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
                       fileEncoding="UTF-8", ...)
 {
+  if(is.null(file))
+    file <- paste0(deparse(substitute(x)), ".csv")
+  if(!is.null(dir))
+    file <- paste0(sub("[/\\]+$","",dir), "/", file)  # remove trailing slash
   write.csv(x, file=file, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
   if(file != "")

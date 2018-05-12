@@ -23,6 +23,7 @@
 #' write.taf(catage.taf, "catage.csv")
 #' catage <- read.taf("catage.csv")
 #'
+#' write.taf(catage)
 #' file.remove("catage.csv")
 #' }
 #'

@@ -3,6 +3,10 @@ icesTAF 1.5-4 (2018-05-12)
 --------------------------------------------------------------------------------
 o Added function plus() to rename plus group column.
 
+o Added argument 'dir' to write.taf().
+
+o Changed write.taf() so the name of the data frame is the default filename.
+
 
 
 
