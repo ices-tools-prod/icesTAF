@@ -1,6 +1,9 @@
 --------------------------------------------------------------------------------
 icesTAF 1.6-0 (2018-05-14)
 --------------------------------------------------------------------------------
+o Removed function upload(). Initial data and model files are now in the 'begin'
+  folder of each assessment.
+
 o Added function plus() to rename plus group column.
 
 o Added argument 'dir' to write.taf().

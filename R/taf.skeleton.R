@@ -40,14 +40,12 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
   on.exit(setwd(owd))
 
   # create initial directories
-  mkdir("_raw")
-  mkdir("_model")
+  mkdir("begin/data")
+  mkdir("begin/model")
 
   # define headers
   template <- "## %s\n\n## Before:\n## After:\n\n"
   headers <- list(
-    `_model` = "Upload model executables to TAF database",
-    `_raw` = "Upload raw data to TAF database",
     data = "Preprocess data, write TAF data tables",
     input = "Convert data to model format, write model input files",
     model = "Run analysis, write model results",
@@ -56,15 +54,9 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
 
   # create TAF scripts
   for (section in names(headers)) {
-    if (section %in% c("_model", "_raw")) {
-      safe.cat(file = file.path(section, "upload.R"),
-          sprintf(template, headers[[section]]),
-          force = force)
-    } else {
-      safe.cat(file = paste0(section, ".R"),
-          sprintf(template, headers[[section]]),
-          force = force)
-    }
+    safe.cat(file = paste0(section, ".R"),
+             sprintf(template, headers[[section]]),
+             force = force)
   }
 
   invisible(getwd())

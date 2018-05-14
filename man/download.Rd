@@ -46,7 +46,5 @@ download(url)
 \seealso{
 \code{\link{read.taf}} reads a TAF table into a data frame.
 
-\code{\link{upload}} uploads a file to the TAF database.
-
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

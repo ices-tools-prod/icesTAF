@@ -12,8 +12,7 @@ data, methods, and results used in ICES assessments.
 \details{
 \emph{Web services:}
 \tabular{ll}{
-  \code{\link{download}} \tab download file in binary mode\cr
-  \code{\link{upload}}   \tab upload data file to server
+  \code{\link{download}} \tab download file in binary mode
 }
 \emph{Read and write files:}
 \tabular{ll}{
