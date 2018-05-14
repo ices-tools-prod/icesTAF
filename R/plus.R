@@ -18,6 +18,9 @@
 #' # Rename last column
 #' catage <- plus(catage)
 #'
+#' # Shorter and less error-prone than
+#' names(catage)[names(catage)=="4"] <- "4+"
+#'
 #' @export
 
 plus <- function(x)
