@@ -30,7 +30,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' download("http://taf.ices.local/taf/fs/2015_had-iceg/model/catageysa.exe")
+#' url <- paste0("https://github.com/ices-taf/2015_had-iceg/raw/master/",
+#'               "begin/model/catageysa.exe")
+#' download(url)
 #' }
 #'
 #' @importFrom tools file_ext
