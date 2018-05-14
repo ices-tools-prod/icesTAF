@@ -26,9 +26,13 @@ write.taf(x, file = NULL, dir = NULL, quote = FALSE, row.names = FALSE,
 Write a TAF table to a file.
 }
 \details{
-The default value \code{file = NULL} will use the object name of the data
-frame as a filename. The special value \code{file = ""} prints the data frame
-in the console, similar to \code{write.csv}.
+Alternatively, \code{x} can be a string vector of names to write many tables
+in one call, using \code{file = NULL} to automatically name the resulting
+files.
+
+The default value \code{file = NULL} uses the name of \code{x} as a filename.
+The special value \code{file = ""} prints the data frame in the console,
+similar to \code{write.csv}.
 }
 \examples{
 \dontrun{

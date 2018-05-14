@@ -5,6 +5,9 @@ o Added function plus() to rename plus group column.
 
 o Added argument 'dir' to write.taf().
 
+o Changed read.taf() and write.taf() so they can read/write many tables in one
+  call.
+
 o Changed write.taf() so the name of the data frame is the default filename.
 
 
