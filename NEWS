@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 1.6-0 (2018-05-14)
+icesTAF 1.6-0 (2018-05-15)
 --------------------------------------------------------------------------------
 o Removed function upload(). Initial data and model files are now in the 'begin'
   folder of each assessment.
