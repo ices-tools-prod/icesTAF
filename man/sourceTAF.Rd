@@ -4,7 +4,7 @@
 \alias{sourceTAF}
 \title{Run TAF Script}
 \usage{
-sourceTAF(script, rm = FALSE, clean = TRUE, quiet = FALSE)
+sourceTAF(script, rm = FALSE, clean = FALSE, quiet = FALSE)
 }
 \arguments{
 \item{script}{script filename.}
@@ -12,8 +12,8 @@ sourceTAF(script, rm = FALSE, clean = TRUE, quiet = FALSE)
 \item{rm}{whether to remove all objects from the global environment before
 and after the script is run.}
 
-\item{clean}{whether to remove the corresponding TAF directory before running
-the script.}
+\item{clean}{whether to remove the target directory before running the
+script.}
 
 \item{quiet}{whether to suppress messages reporting progress.}
 }
@@ -27,15 +27,18 @@ Run a TAF script and return to the original directory.
 \details{
 The default value of \code{rm = FALSE} is to protect users from accidental
 loss of work, but the TAF server always runs with \code{rm = TRUE} to make
-sure that only files, not objects, are carried over between scripts. The
-default \code{clean = TRUE} makes sure that the script starts by creating a
-new empty directory.
+sure that only files, not objects, are carried over between scripts.
+
+Likewise, the TAF server runs with \code{clean = TRUE} to make sure that the
+script starts by creating a new empty directory. The target directory of a
+TAF script has the same filename prefix as the script: \file{data.R} creates
+\file{data} etc.
 }
 \note{
-Commands within a script may change the working directory, but
-\code{sourceTAF} guarantees that after running a script, the working
-directory reported by \code{getwd()} is the same before and after running a
-script.
+Commands within a script (such as \code{setwd}) may change the working
+directory, but \code{sourceTAF} guarantees that after running a script, the
+working directory reported by \code{getwd()} is the same before and after
+running a script.
 }
 \examples{
 \dontrun{
