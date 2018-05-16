@@ -3,6 +3,8 @@
 #' Run all TAF scripts found in a directory.
 #'
 #' @param path directory containing TAF scripts.
+#' @param clean whether to remove the target directory before running each
+#'        script.
 #' @param \dots passed to \code{\link{sourceTAF}}.
 #'
 #' @return Logical vector, indicating which scripts ran without errors.
@@ -27,7 +29,7 @@
 #'
 #' @export
 
-sourceAll <- function(path=".", ...)
+sourceAll <- function(path=".", clean=TRUE, ...)
 {
   owd <- setwd(path)
   on.exit(setwd(owd))
@@ -35,7 +37,7 @@ sourceAll <- function(path=".", ...)
   scripts <- c("data.R", "input.R", "model.R", "output.R", "report.R")
   scripts <- scripts[file.exists(scripts)]
 
-  ok <- sapply(scripts, sourceTAF, ...)
+  ok <- sapply(scripts, sourceTAF, clean=clean, ...)
   if(length(ok) == 0)
     ok <- logical(0)
 

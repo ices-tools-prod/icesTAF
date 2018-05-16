@@ -1,7 +1,8 @@
 --------------------------------------------------------------------------------
 icesTAF 1.6-1 (2018-05-16)
 --------------------------------------------------------------------------------
-o Changed sourceTAF() so the default is clean=FALSE.
+o Changed sourceTAF() so the default is clean=FALSE. The default continues to be
+  clean=TRUE in sourceAll(), makeTAF(), and makeAll().
 
 
 

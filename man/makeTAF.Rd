@@ -4,10 +4,13 @@
 \alias{makeTAF}
 \title{Run TAF Script If Needed}
 \usage{
-makeTAF(script, ...)
+makeTAF(script, clean = TRUE, ...)
 }
 \arguments{
 \item{script}{TAF script filename.}
+
+\item{clean}{whether to remove the target directory if the script is run
+(passed to \code{sourceTAF}).}
 
 \item{\dots}{passed to \code{\link{make}} and \code{\link{sourceTAF}}.}
 }
