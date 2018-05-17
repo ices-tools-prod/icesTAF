@@ -3,8 +3,7 @@
 #' Remove TAF directories: \verb{data}, \verb{input}, \verb{model},
 #' \verb{output}, \verb{report}.
 #'
-#' @param path location where directories are found.
-#' @param also vector of additional directories to remove.
+#' @param dirs directories to delete.
 #'
 #' @note
 #' The purpose of removing the directories is to make sure that subsequent TAF
@@ -24,10 +23,7 @@
 #'
 #' @export
 
-clean <- function(path=".", also=NULL)
+clean <- function(dirs=c("data","input","model","output","report"))
 {
-  owd <- setwd(path)
-  on.exit(setwd(owd))
-  dirs <- c("data", "input", "model", "output", "report", also)
   unlink(dirs, recursive=TRUE)
 }
