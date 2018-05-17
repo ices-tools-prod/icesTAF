@@ -1,8 +1,7 @@
 #' Run All TAF Scripts
 #'
-#' Run core TAF scripts found in a directory.
+#' Run core TAF scripts in current directory.
 #'
-#' @param path directory containing TAF scripts.
 #' @param \dots passed to \code{\link{sourceTAF}}.
 #'
 #' @return Logical vector, indicating which scripts ran without errors.
@@ -29,11 +28,8 @@
 #'
 #' @export
 
-sourceAll <- function(path=".", ...)
+sourceAll <- function(...)
 {
-  owd <- setwd(path)
-  on.exit(setwd(owd))
-
   scripts <- c("data.R", "input.R", "model.R", "output.R", "report.R")
   scripts <- scripts[file.exists(scripts)]
 

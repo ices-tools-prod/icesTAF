@@ -4,18 +4,16 @@
 \alias{sourceAll}
 \title{Run All TAF Scripts}
 \usage{
-sourceAll(path = ".", ...)
+sourceAll(...)
 }
 \arguments{
-\item{path}{directory containing TAF scripts.}
-
 \item{\dots}{passed to \code{\link{sourceTAF}}.}
 }
 \value{
 Logical vector, indicating which scripts ran without errors.
 }
 \description{
-Run core TAF scripts found in a directory.
+Run core TAF scripts in current directory.
 }
 \note{
 TAF scripts that will be run if they exist: \verb{data.R}, \verb{input.R},

@@ -34,8 +34,6 @@
 
 makeTAF <- function(script, ...)
 {
-  owd <- setwd(dirname(script))
-  on.exit(setwd(owd))
   script <- basename(script)
   out <- switch(script,
                 "data.R"=make("data.R",

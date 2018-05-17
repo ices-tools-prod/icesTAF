@@ -2,7 +2,6 @@
 #'
 #' Run core TAF scripts that have changed, or if previous steps were rerun.
 #'
-#' @param path directory containing TAF scripts.
 #' @param \dots passed to \code{\link{makeTAF}}.
 #'
 #' @return Logical vector indicating which scripts were run.
@@ -31,11 +30,8 @@
 #'
 #' @export
 
-makeAll <- function(path=".", ...)
+makeAll <- function(...)
 {
-  owd <- setwd(path)
-  on.exit(setwd(owd))
-
   scripts <- c("data.R", "input.R", "model.R", "output.R", "report.R")
   scripts <- scripts[file.exists(scripts)]
 

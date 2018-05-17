@@ -4,6 +4,9 @@ icesTAF 1.6-1 (2018-05-17)
 o Changed sourceTAF(), sourceAll(), makeTAF(), and makeAll() so they never
   delete the 'begin' folder.
 
+o Changed sourceAll(), makeTAF(), makeAll() so they don't set the working
+  directory.
+
 o Changed clean() so user can specify directories to remove.
 
 

@@ -4,11 +4,9 @@
 \alias{makeAll}
 \title{Run All TAF Scripts as Needed}
 \usage{
-makeAll(path = ".", ...)
+makeAll(...)
 }
 \arguments{
-\item{path}{directory containing TAF scripts.}
-
 \item{\dots}{passed to \code{\link{makeTAF}}.}
 }
 \value{
