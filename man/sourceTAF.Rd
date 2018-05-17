@@ -4,7 +4,7 @@
 \alias{sourceTAF}
 \title{Run TAF Script}
 \usage{
-sourceTAF(script, rm = FALSE, clean = FALSE, quiet = FALSE)
+sourceTAF(script, rm = FALSE, clean = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{script}{script filename.}

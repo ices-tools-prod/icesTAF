@@ -50,11 +50,11 @@
 #'
 #' @export
 
-sourceTAF <- function(script, rm=FALSE, clean=FALSE, quiet=FALSE)
+sourceTAF <- function(script, rm=FALSE, clean=TRUE, quiet=FALSE)
 {
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
-  if(clean && dir.exists(file_path_sans_ext(script)))
+  if(clean && dir.exists(file_path_sans_ext(script)) && script!="begin.R")
     unlink(file_path_sans_ext(script), recursive=TRUE)
   if(!quiet)
     msg(script, " running...")

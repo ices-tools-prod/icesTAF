@@ -4,13 +4,10 @@
 \alias{sourceAll}
 \title{Run All TAF Scripts}
 \usage{
-sourceAll(path = ".", clean = TRUE, ...)
+sourceAll(path = ".", ...)
 }
 \arguments{
 \item{path}{directory containing TAF scripts.}
-
-\item{clean}{whether to remove the target directory before running each
-script.}
 
 \item{\dots}{passed to \code{\link{sourceTAF}}.}
 }

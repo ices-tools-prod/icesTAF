@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
-icesTAF 1.6-1 (2018-05-16)
+icesTAF 1.6-1 (2018-05-17)
 --------------------------------------------------------------------------------
-o Changed sourceTAF() so the default is clean=FALSE. The default continues to be
-  clean=TRUE in sourceAll(), makeTAF(), and makeAll().
+o Changed sourceTAF(), sourceAll(), makeTAF(), and makeAll() so they never
+  delete the 'begin' folder.
 
 
 
