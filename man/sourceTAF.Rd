@@ -31,8 +31,9 @@ sure that only files, not objects, are carried over between scripts.
 
 Likewise, the TAF server runs with \code{clean = TRUE} to make sure that the
 script starts by creating a new empty directory. The target directory of a
-TAF script has the same filename prefix as the script: \file{data.R} creates
-\file{data} etc.
+TAF script has the same filename prefix as the script: \verb{data.R} creates
+\file{data} etc. An important exception is that a directory called
+\file{begin} will never be deleted.
 }
 \note{
 Commands within a script (such as \code{setwd}) may change the working

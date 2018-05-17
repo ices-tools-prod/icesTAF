@@ -1,6 +1,6 @@
 #' Run All TAF Scripts
 #'
-#' Run all TAF scripts found in a directory.
+#' Run core TAF scripts found in a directory.
 #'
 #' @param path directory containing TAF scripts.
 #' @param \dots passed to \code{\link{sourceTAF}}.
@@ -8,8 +8,10 @@
 #' @return Logical vector, indicating which scripts ran without errors.
 #'
 #' @note
-#' TAF scripts that will be run if they exist: \code{data.R}, \code{input.R},
-#' \code{model.R}, \code{output.R}, and \code{report.R}.
+#' TAF scripts that will be run if they exist: \verb{data.R}, \verb{input.R},
+#' \verb{model.R}, \verb{output.R}, and \verb{report.R}.
+#'
+#' If a \verb{begin.R} script exists, it is ignored.
 #'
 #' @seealso
 #' \code{\link{sourceTAF}} runs a TAF script.
