@@ -20,6 +20,18 @@ cp(from, to, move = FALSE)
 Copy or move files, overwriting existing files if necessary, and returning
 the result invisibly.
 }
+\note{
+To prevent accidental loss of files, two safeguards are enforced when
+\code{move = TRUE}:
+\enumerate{
+\item When moving files, the \code{to} argument must either have a filename
+extension or be an existing directory.
+\item When moving many files to one destination, the \code{to} argument must
+be an existing directory.
+}
+If these conditions do not hold, no files are changed and an error is
+returned.
+}
 \examples{
 \dontrun{
 write(pi, "A.txt")
@@ -36,6 +48,8 @@ cp("datasets/*", "everything")
 \seealso{
 \code{\link{file.copy}} and \code{\link{unlink}} are the underlying functions
 used to copy and (if \code{move = TRUE}) delete files.
+
+\code{\link{file.rename}} is the base function to rename files.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

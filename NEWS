@@ -11,6 +11,8 @@ o Changed clean() so user can specify directories to remove.
 
 o Changed write.taf() to search in the global workspace if 'x' is a string.
 
+o Changed cp() to enforce safeguards when moving files.
+
 
 
 
@@ -29,7 +31,7 @@ o Changed read.taf() and write.taf() so they can read/write many tables in one
 
 o Changed write.taf() so the name of the data frame is the default filename.
 
-o Changed cp() so it preserves the timestamp when copying a file.
+o Changed cp() to preserve the timestamp when copying a file.
 
 
 
@@ -61,7 +63,7 @@ o Added arguments 'include' and 'engine' to make().
 
 o Added argument 'local' to sourceTAF(), replacing the 'rm' argument.
 
-o Changed sourceAll() so it only runs TAF scripts: data.R, input.R, model.R,
+o Changed sourceAll() to only run TAF scripts: data.R, input.R, model.R,
   output.R, and report.R.
 
 
