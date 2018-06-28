@@ -53,6 +53,8 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
       file <- paste0(x, ".csv")
     x <- get(x, envir=.GlobalEnv)
   }
+  if(is.null(x))
+    stop("x should be data.frame or character, not NULL")
   if(is.null(file))
     file <- paste0(deparse(substitute(x)), ".csv")
   if(!is.null(dir))
