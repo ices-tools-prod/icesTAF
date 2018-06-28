@@ -5,7 +5,7 @@
 \title{Write TAF Table to File}
 \usage{
 write.taf(x, file = NULL, dir = NULL, quote = FALSE, row.names = FALSE,
-  fileEncoding = "UTF-8", ...)
+  fileEncoding = "UTF-8", underscore = TRUE, ...)
 }
 \arguments{
 \item{x}{a data frame in TAF format.}
@@ -20,6 +20,9 @@ write.taf(x, file = NULL, dir = NULL, quote = FALSE, row.names = FALSE,
 
 \item{fileEncoding}{character encoding for output file.}
 
+\item{underscore}{whether automatically generated filenames (when
+\code{file = NULL}) should use underscore separators instead of dots.}
+
 \item{\dots}{passed to \code{write.csv}.}
 }
 \description{
@@ -30,7 +33,11 @@ Alternatively, \code{x} can be a string vector of names to write many tables
 in one call, using \code{file = NULL} to automatically name the resulting
 files.
 
-The default value \code{file = NULL} uses the name of \code{x} as a filename.
+The default value \code{file = NULL} uses the name of \code{x} as a filename,
+so a data frame called \code{survey.uk} will be written to a file called
+\file{survey_uk.csv} (when \code{underscore = TRUE}) or \file{survey.uk.csv}
+(when \code{underscore = FALSE}).
+
 The special value \code{file = ""} prints the data frame in the console,
 similar to \code{write.csv}.
 }

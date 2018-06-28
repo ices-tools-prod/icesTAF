@@ -1,5 +1,5 @@
 Package: icesTAF
-Version: 1.6-1
+Version: 1.6-2
 Date: 2018-06-28
 Title: Functions to Support the ICES Transparent Assessment Framework
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="arni.magnusson@ices.dk"),

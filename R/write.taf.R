@@ -8,6 +8,8 @@
 #' @param quote whether to quote strings.
 #' @param row.names whether to include row names.
 #' @param fileEncoding character encoding for output file.
+#' @param underscore whether automatically generated filenames (when
+#'        \code{file = NULL}) should use underscore separators instead of dots.
 #' @param \dots passed to \code{write.csv}.
 #'
 #' @details
@@ -15,7 +17,11 @@
 #' in one call, using \code{file = NULL} to automatically name the resulting
 #' files.
 #'
-#' The default value \code{file = NULL} uses the name of \code{x} as a filename.
+#' The default value \code{file = NULL} uses the name of \code{x} as a filename,
+#' so a data frame called \code{survey.uk} will be written to a file called
+#' \file{survey_uk.csv} (when \code{underscore = TRUE}) or \file{survey.uk.csv}
+#' (when \code{underscore = FALSE}).
+#'
 #' The special value \code{file = ""} prints the data frame in the console,
 #' similar to \code{write.csv}.
 #'
@@ -41,7 +47,7 @@
 #' @export
 
 write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
-                      fileEncoding="UTF-8", ...)
+                      fileEncoding="UTF-8", underscore=TRUE, ...)
 {
   if(is.character(x) && length(x)>1)
     return(invisible(sapply(x, write.taf, file=NULL, dir=dir, quote=quote,
@@ -50,13 +56,18 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
   if(is.character(x) && length(x)==1)
   {
     if(is.null(file))
-      file <- paste0(x, ".csv")
+      file <- paste0(if(underscore) chartr(".","_",x) else x, ".csv")
     x <- get(x, envir=.GlobalEnv)
   }
   if(is.null(x))
-    stop("x should be data.frame or character, not NULL")
+    stop("x should be a data frame, not NULL")
   if(is.null(file))
-    file <- paste0(deparse(substitute(x)), ".csv")
+  {
+    file <- deparse(substitute(x))
+    file <- if(underscore) chartr(".","_",file) else file
+    file <- sub(".*[@$]", "", file)  # parent@obj$data -> data
+    file <- paste0(file, ".csv")
+  }
   if(!is.null(dir))
     file <- paste0(sub("[/\\]+$","",dir), "/", file)  # remove trailing slash
   write.csv(x, file=file, quote=quote, row.names=row.names,
