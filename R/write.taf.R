@@ -51,7 +51,7 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
   {
     if(is.null(file))
       file <- paste0(x, ".csv")
-    x <- get(x)
+    x <- get(x, envir=.GlobalEnv)
   }
   if(is.null(file))
     file <- paste0(deparse(substitute(x)), ".csv")

@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 1.6-1 (2018-05-17)
+icesTAF 1.6-1 (2018-06-28)
 --------------------------------------------------------------------------------
 o Changed sourceTAF(), sourceAll(), makeTAF(), and makeAll() so they never
   delete the 'begin' folder.
@@ -8,6 +8,8 @@ o Changed sourceAll(), makeTAF(), makeAll() so they don't set the working
   directory.
 
 o Changed clean() so user can specify directories to remove.
+
+o Changed write.taf() to search in the global workspace if 'x' is a string.
 
 
 
