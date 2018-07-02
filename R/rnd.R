@@ -61,6 +61,6 @@ rnd <- function(x, cols, digits=0, grep=FALSE, ...)
 {
   if(grep)
     cols <- grep(cols, names(x), ...)
-  x[cols] <- round(x[cols], digits)
+  x[cols] <- mapply(round, x[cols], digits)
   x
 }
