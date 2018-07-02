@@ -4,13 +4,16 @@
 \alias{read.taf}
 \title{Read TAF Table from File}
 \usage{
-read.taf(file, check.names = FALSE, fileEncoding = "UTF-8", ...)
+read.taf(file, check.names = FALSE, stringsAsFactors = FALSE,
+  fileEncoding = "UTF-8", ...)
 }
 \arguments{
 \item{file}{a filename.}
 
 \item{check.names}{whether to enforce regular column names, e.g. convert
 column name \samp{3} to \samp{X3}.}
+
+\item{stringsAsFactors}{whether to import strings as factors.}
 
 \item{fileEncoding}{character encoding of input file.}
 

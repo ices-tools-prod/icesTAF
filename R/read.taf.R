@@ -5,6 +5,7 @@
 #' @param file a filename.
 #' @param check.names whether to enforce regular column names, e.g. convert
 #'        column name \samp{3} to \samp{X3}.
+#' @param stringsAsFactors whether to import strings as factors.
 #' @param fileEncoding character encoding of input file.
 #' @param \dots passed to \code{read.csv}.
 #'
@@ -34,17 +35,20 @@
 #'
 #' @export
 
-read.taf <- function(file, check.names=FALSE, fileEncoding="UTF-8", ...)
+read.taf <- function(file, check.names=FALSE, stringsAsFactors=FALSE,
+                     fileEncoding="UTF-8", ...)
 {
   if(length(file) > 1)
   {
     out <- lapply(file, read.taf, check.names=check.names,
+                  stringsAsFactors=stringsAsFactors,
                   fileEncoding=fileEncoding, ...)
     names(out) <- basename(file_path_sans_ext(file))
     out
   }
   else
   {
-    read.csv(file, check.names=check.names, fileEncoding=fileEncoding, ...)
+    read.csv(file, check.names=check.names, stringsAsFactors=stringsAsFactors,
+             fileEncoding=fileEncoding, ...)
   }
 }

@@ -3,6 +3,8 @@ icesTAF 1.6-2 (2018-06-28)
 --------------------------------------------------------------------------------
 o Added argument 'underscore' to write.taf().
 
+o Added argument 'stringsAsFactors' to read.taf().
+
 
 
 
