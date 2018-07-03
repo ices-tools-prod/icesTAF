@@ -11,7 +11,7 @@ read.taf(file, check.names = FALSE, stringsAsFactors = FALSE,
 \item{file}{a filename.}
 
 \item{check.names}{whether to enforce regular column names, e.g. convert
-column name \samp{3} to \samp{X3}.}
+column name \samp{"3"} to \samp{"X3"}.}
 
 \item{stringsAsFactors}{whether to import strings as factors.}
 

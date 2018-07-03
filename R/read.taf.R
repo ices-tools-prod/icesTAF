@@ -4,7 +4,7 @@
 #'
 #' @param file a filename.
 #' @param check.names whether to enforce regular column names, e.g. convert
-#'        column name \samp{3} to \samp{X3}.
+#'        column name \samp{"3"} to \samp{"X3"}.
 #' @param stringsAsFactors whether to import strings as factors.
 #' @param fileEncoding character encoding of input file.
 #' @param \dots passed to \code{read.csv}.
