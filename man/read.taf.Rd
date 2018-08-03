@@ -21,10 +21,14 @@ column name \samp{"3"} to \samp{"X3"}.}
 }
 \value{
 A data frame in TAF format, or a list of data frames if \code{file} is a
-vector of filenames.
+directory or a vector of filenames.
 }
 \description{
 Read a TAF table from a file into a data frame.
+}
+\details{
+Alternatively, \code{file} can be a directory or a vector of filenames, to
+read many tables in one call.
 }
 \examples{
 \dontrun{

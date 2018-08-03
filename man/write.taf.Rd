@@ -4,8 +4,8 @@
 \alias{write.taf}
 \title{Write TAF Table to File}
 \usage{
-write.taf(x, file = NULL, dir = NULL, quote = FALSE, row.names = FALSE,
-  fileEncoding = "UTF-8", underscore = TRUE, ...)
+write.taf(x, file = NULL, dir = NULL, quote = FALSE,
+  row.names = FALSE, fileEncoding = "UTF-8", underscore = TRUE, ...)
 }
 \arguments{
 \item{x}{a data frame in TAF format.}
@@ -29,9 +29,9 @@ write.taf(x, file = NULL, dir = NULL, quote = FALSE, row.names = FALSE,
 Write a TAF table to a file.
 }
 \details{
-Alternatively, \code{x} can be a string vector of names to write many tables
-in one call, using \code{file = NULL} to automatically name the resulting
-files.
+Alternatively, \code{x} can be a list of data frames or a string vector of
+object names, to write many tables in one call. The resulting files are named
+automatically, similar to \code{file = NULL}.
 
 The default value \code{file = NULL} uses the name of \code{x} as a filename,
 so a data frame called \code{survey.uk} will be written to a file called

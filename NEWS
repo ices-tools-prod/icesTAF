@@ -1,9 +1,11 @@
 --------------------------------------------------------------------------------
-icesTAF 1.6-2 (2018-07-03)
+icesTAF 1.6-2 (2018-08-03)
 --------------------------------------------------------------------------------
 o Added argument 'underscore' to write.taf().
 
 o Added argument 'stringsAsFactors' to read.taf().
+
+o Improved multitable support for read.taf() and write.taf().
 
 
 
