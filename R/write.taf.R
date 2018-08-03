@@ -13,9 +13,9 @@
 #' @param \dots passed to \code{write.csv}.
 #'
 #' @details
-#' Alternatively, \code{x} can be a string vector of names to write many tables
-#' in one call, using \code{file = NULL} to automatically name the resulting
-#' files.
+#' Alternatively, \code{x} can be a list of data frames or a string vector of
+#' object names, to write many tables in one call. The resulting files are named
+#' automatically, similar to \code{file = NULL}.
 #'
 #' The default value \code{file = NULL} uses the name of \code{x} as a filename,
 #' so a data frame called \code{survey.uk} will be written to a file called
@@ -49,10 +49,22 @@
 write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
                       fileEncoding="UTF-8", underscore=TRUE, ...)
 {
+  ## 1  Handle many tables
   if(is.character(x) && length(x)>1)
     return(invisible(sapply(x, write.taf, file=NULL, dir=dir, quote=quote,
                             row.names=row.names, fileEncoding=fileEncoding,
-                            ...)))
+                            underscore=underscore, ...)))
+  if(is.list(x) && is.data.frame(x[[1]]))
+  {
+    file <- paste0(if(underscore) chartr(".","_",names(x))
+                   else names(x), ".csv")
+    dir <- if(is.null(dir)) "." else dir
+    return(invisible(mapply(write.taf, x, file=file, dir=dir, quote=quote,
+                            row.names=row.names, fileEncoding=fileEncoding,
+                            underscore=underscore, ...)))
+  }
+
+  ## 2  Handle one table
   if(is.character(x) && length(x)==1)
   {
     if(is.null(file))
@@ -61,6 +73,8 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
   }
   if(is.null(x))
     stop("x should be a data frame, not NULL")
+
+  ## 3  Prepare file path
   if(is.null(file))
   {
     file <- deparse(substitute(x))
@@ -70,6 +84,8 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
   }
   if(!is.null(dir))
     file <- paste0(sub("[/\\]+$","",dir), "/", file)  # remove trailing slash
+
+  ## 4  Export
   write.csv(x, file=file, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
   if(file != "")
