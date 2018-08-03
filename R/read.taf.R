@@ -9,9 +9,13 @@
 #' @param fileEncoding character encoding of input file.
 #' @param \dots passed to \code{read.csv}.
 #'
+#' @details
+#' Alternatively, \code{file} can be a directory or a vector of filenames, to
+#' read many tables in one call.
+#'
 #' @return
 #' A data frame in TAF format, or a list of data frames if \code{file} is a
-#' vector of filenames.
+#' directory or a vector of filenames.
 #'
 #' @seealso
 #' \code{\link{read.csv}} is the underlying function used to read a table from a
@@ -38,6 +42,8 @@
 read.taf <- function(file, check.names=FALSE, stringsAsFactors=FALSE,
                      fileEncoding="UTF-8", ...)
 {
+  if(dir.exists(file))
+    file <- dir(file, pattern="\\.csv$", full.names=TRUE)
   if(length(file) > 1)
   {
     out <- lapply(file, read.taf, check.names=check.names,
