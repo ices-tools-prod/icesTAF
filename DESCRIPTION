@@ -13,4 +13,5 @@ Description: Functions to support the ICES Transparent Assessment Framework
   in marine science.
 License: GPL (>= 2)
 URL: http://taf.ices.dk
+Encoding: UTF-8
 RoxygenNote: 6.1.0
