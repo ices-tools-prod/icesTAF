@@ -41,7 +41,7 @@
 download <- function(url, dir=".", mode="wb", chmod=file_ext(url)=="",
                      quiet=TRUE, ...)
 {
-  destfile <- paste0(dir, "/", basename(url))
+  destfile <- file.path(dir, basename(url))
   download.file(url=url, destfile=destfile, mode=mode, quiet=quiet, ...)
   if(chmod)
     Sys.chmod(destfile)

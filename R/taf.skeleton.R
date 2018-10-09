@@ -35,8 +35,8 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
   }
 
   # create analysis directory
-  mkdir(paste0(path, "/", name))
-  owd <- setwd(paste0(path, "/", name))
+  mkdir(file.path(path, name))
+  owd <- setwd(file.path(path, name))
   on.exit(setwd(owd))
 
   # create initial directories

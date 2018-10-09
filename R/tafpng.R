@@ -61,7 +61,7 @@
 tafpng <- function(filename, width=800, height=600, pointsize=22, ...)
 {
   if(!grepl("/",filename) && !grepl("report$",getwd()) && dir.exists("report"))
-    filename <- paste0("report/", filename)
+    filename <- file.path("report", filename)
   if(!grepl("\\.png$", filename))
     filename <- paste0(filename, ".png")
   png(filename=filename, width=width, height=height, pointsize=pointsize, ...)

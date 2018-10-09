@@ -83,7 +83,7 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
     file <- paste0(file, ".csv")
   }
   if(!is.null(dir))
-    file <- paste0(sub("[/\\]+$","",dir), "/", file)  # remove trailing slash
+    file <- file.path(sub("[/\\]+$","",dir), file)  # remove trailing slash
 
   ## 4  Export
   write.csv(x, file=file, quote=quote, row.names=row.names,
