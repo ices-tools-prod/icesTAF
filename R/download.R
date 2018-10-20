@@ -7,6 +7,8 @@
 #' @param mode download mode, see details.
 #' @param chmod whether to set execute permission (default is \code{TRUE} if
 #'        file has no filename extension).
+#' @param destfile destination path and filename (optional, overrides
+#'        \code{dir}).
 #' @param quiet whether to suppress messages.
 #' @param \dots passed to \code{download.file}.
 #'
@@ -39,9 +41,8 @@
 #' @export
 
 download <- function(url, dir=".", mode="wb", chmod=file_ext(url)=="",
-                     quiet=TRUE, ...)
+                     destfile=file.path(dir,basename(url)), quiet=TRUE, ...)
 {
-  destfile <- file.path(dir, basename(url))
   download.file(url=url, destfile=destfile, mode=mode, quiet=quiet, ...)
   if(chmod)
     Sys.chmod(destfile)
