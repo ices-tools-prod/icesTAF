@@ -26,7 +26,7 @@
 #' A simple convenience function to shorten
 #' \preformatted{png("report/myplot.png", width=800, height=600, pointsize=22)}
 #' to
-#' \preformatted{tafpng("myplot")}
+#' \preformatted{taf.png("myplot")}
 #' To successfully export \verb{trellis} and \verb{ggplot} objects to image
 #' files in scripts, these objects should be explicitly printed (see examples
 #' below).
@@ -39,30 +39,40 @@
 #'
 #' @examples
 #' \dontrun{
-#' tafpng("myplot")
+#' taf.png("myplot")
 #' plot(1)
 #' dev.off()
 #'
 #' library(lattice)
-#' tafpng("mytrellis")
+#' taf.png("mytrellis")
 #' print(xyplot(1~1))
 #' dev.off()
 #'
 #' library(ggplot2)
-#' tafpng("myggplot")
+#' taf.png("myggplot")
 #' print(qplot(1))
 #' dev.off()
 #' }
+#'
+#' @aliases tafpng
 #'
 #' @importFrom grDevices png
 #'
 #' @export
 
-tafpng <- function(filename, width=800, height=600, pointsize=22, ...)
+taf.png <- function(filename, width=800, height=600, pointsize=22, ...)
 {
   if(!grepl("/",filename) && !grepl("report$",getwd()) && dir.exists("report"))
     filename <- file.path("report", filename)
   if(!grepl("\\.png$", filename))
     filename <- paste0(filename, ".png")
   png(filename=filename, width=width, height=height, pointsize=pointsize, ...)
+}
+
+#' @export
+
+tafpng <- function(...)
+{
+  .Deprecated("taf.png")
+  taf.png(...)
 }
