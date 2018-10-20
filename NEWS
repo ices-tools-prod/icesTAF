@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 icesTAF 1.6-3 (2018-10-20)
 --------------------------------------------------------------------------------
+o Added function taflib() to add TAF library to search path.
+
 o Added argument 'destfile' to download().
 
 
