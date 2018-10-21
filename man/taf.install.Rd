@@ -46,6 +46,8 @@ taf.install("ices-tools-prod", "icesTAF",
 
 }
 \seealso{
+\code{\link{taf.library}} adds the TAF library to the search path.
+
 \code{\link{install.packages}} is the underlying base function that installs
 the package after downloading from GitHub.
 

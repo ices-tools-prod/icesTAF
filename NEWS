@@ -1,7 +1,8 @@
 --------------------------------------------------------------------------------
 icesTAF 1.6-3 (2018-10-21)
 --------------------------------------------------------------------------------
-o Added function taf.install() to install package from GitHub into TAF library.
+o Added functions taf.install() and taf.library() to work with packages in a
+  local TAF library.
 
 o Renamed function tafpng() to taf.png().
 
