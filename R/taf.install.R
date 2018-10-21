@@ -20,7 +20,8 @@
 #' reference tool to support long-term reproducibility of TAF assessments,
 #' without adding \pkg{devtools} and its underlying packages as dependencies.
 #'
-#' The TAF library is intended for R packages that are not archived on CRAN.
+#' The purpose of the TAF library is to retain R packages used in a TAF
+#' assessment that are not archived on CRAN.
 #'
 #' @seealso
 #' \code{\link{install.packages}} is the underlying base function that installs
