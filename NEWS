@@ -1,11 +1,9 @@
 --------------------------------------------------------------------------------
-icesTAF 1.6-3 (2018-10-20)
+icesTAF 1.6-3 (2018-10-21)
 --------------------------------------------------------------------------------
-o Added function taflib() to add TAF library to search path.
+o Renamed function tafpng() to taf.png().
 
 o Added argument 'destfile' to download().
-
-o Renamed function tafpng() to taf.png().
 
 
 
