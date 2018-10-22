@@ -68,13 +68,13 @@ taf.install <- function(owner, repo, ref, subdir="")
   ## 4  Install, either from tar.gz or subdir
   if(subdir == "")
   {
-    install.packages(tar.gz, lib="bootstrap/library", repos=NULL)
+    install.packages(tar.gz, lib="bootstrap/library", repos=NULL, type="source")
   }
   else
   {
     untar(tar.gz, exdir="bootstrap/packages")
     pkg <- file.path(file_path_sans_ext(tar.gz,compression=TRUE), subdir)
-    install.packages(pkg, lib="bootstrap/library", repos=NULL)
+    install.packages(pkg, lib="bootstrap/library", repos=NULL, type="source")
     unlink(file_path_sans_ext(tar.gz,compression=TRUE), recursive=TRUE)
   }
 }
