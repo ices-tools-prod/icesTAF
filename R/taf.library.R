@@ -42,7 +42,10 @@
 
 taf.library <- function(names=FALSE)
 {
-  .libPaths(unique(c("bootstrap/library", .libPaths())))
+  paths <- .libPaths(unique(c("bootstrap/library", .libPaths())))
+  pkgs <- unname(installed.packages(lib.loc="bootstrap/library")[,"Package"])
   if(names)
-    unname(installed.packages(lib.loc="bootstrap/library")[,"Package"])
+    pkgs
+  else
+    invisible(paths)
 }
