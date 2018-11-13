@@ -11,7 +11,7 @@ taf.install(owner, repo, ref, subdir = "")
 
 \item{repo}{GitHub repository name.}
 
-\item{ref}{reference, preferably a tag, release, or 40-character SHA-1 hash.}
+\item{ref}{reference, preferably a tag, release, or SHA-1 hash.}
 
 \item{subdir}{subdirectory containing the R package, if it's not at the top
 level of the repository.}
@@ -22,9 +22,9 @@ a local TAF library \file{bootstrap/library} within the assessment directory
 tree.
 }
 \note{
-A fixed reference such as a tag, release, or 40-character SHA-1 hash is
-recommended. Branch names, such as \code{"master"}, are pointers that are
-subject to change, and are therefore not reliable as long-term references.
+A fixed reference such as a tag, release, or SHA-1 hash is recommended.
+Branch names, such as \code{"master"}, are pointers that are subject to
+change, and are therefore not reliable as long-term references.
 
 This function is not intended as a replacement for the \code{install_github}
 function found in the \pkg{devtools} package. Rather, it serves as a
@@ -39,9 +39,12 @@ assessment that are not archived on CRAN.
 # Installing the tagged release 1.0-0
 taf.install("ices-tools-prod", "icesTAF", "1.0-0")
 
-# is equivalent to the SHA-1 hash
+# is equivalent to the 40-character SHA-1 hash
 taf.install("ices-tools-prod", "icesTAF",
             "69beeb4300453d93a10a5a35142775119df7da66")
+
+# SHA-1 hashes are commonly shortened to 7 characters
+taf.install("ices-tools-prod", "icesTAF", "69beeb4")
 }
 
 }

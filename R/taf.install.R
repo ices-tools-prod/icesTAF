@@ -6,14 +6,14 @@
 #'
 #' @param owner GitHub user name or organization hosting the repository.
 #' @param repo GitHub repository name.
-#' @param ref reference, preferably a tag, release, or 40-character SHA-1 hash.
+#' @param ref reference, preferably a tag, release, or SHA-1 hash.
 #' @param subdir subdirectory containing the R package, if it's not at the top
 #'        level of the repository.
 #'
 #' @note
-#' A fixed reference such as a tag, release, or 40-character SHA-1 hash is
-#' recommended. Branch names, such as \code{"master"}, are pointers that are
-#' subject to change, and are therefore not reliable as long-term references.
+#' A fixed reference such as a tag, release, or SHA-1 hash is recommended.
+#' Branch names, such as \code{"master"}, are pointers that are subject to
+#' change, and are therefore not reliable as long-term references.
 #'
 #' This function is not intended as a replacement for the \code{install_github}
 #' function found in the \pkg{devtools} package. Rather, it serves as a
@@ -39,9 +39,12 @@
 #' # Installing the tagged release 1.0-0
 #' taf.install("ices-tools-prod", "icesTAF", "1.0-0")
 #'
-#' # is equivalent to the SHA-1 hash
+#' # is equivalent to the 40-character SHA-1 hash
 #' taf.install("ices-tools-prod", "icesTAF",
 #'             "69beeb4300453d93a10a5a35142775119df7da66")
+#'
+#' # SHA-1 hashes are commonly shortened to 7 characters
+#' taf.install("ices-tools-prod", "icesTAF", "69beeb4")
 #' }
 #'
 #' @importFrom tools file_path_sans_ext
@@ -59,11 +62,11 @@ taf.install <- function(owner, repo, ref, subdir="")
   .libPaths(unique(c("bootstrap/library", .libPaths())))
 
   ## 3  Download repo as tar.gz
-  url <- paste("https://codeload.github.com", owner, repo,
-               "legacy.tar.gz", ref, sep="/")
+  url <- paste("https://api.github.com/repos", owner, repo,
+               "tarball", ref, sep="/")
   tar.gz <- paste0("bootstrap/packages/", owner, "-", repo,
                    "-", substring(ref,1,7), ".tar.gz")
-  download(url, destfile=tar.gz)
+  suppressMessages(download(url, destfile=tar.gz))
 
   ## 4  Install, either from tar.gz or subdir
   if(subdir == "")
