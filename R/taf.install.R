@@ -66,7 +66,7 @@ taf.install <- function(owner, repo, ref, subdir="")
                "tarball", ref, sep="/")
   tar.gz <- paste0("bootstrap/packages/", owner, "-", repo,
                    "-", substring(ref,1,7), ".tar.gz")
-  suppressMessages(download(url, destfile=tar.gz))
+  suppressWarnings(download(url, destfile=tar.gz))
 
   ## 4  Install, either from tar.gz or subdir
   if(subdir == "")
