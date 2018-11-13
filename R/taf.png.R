@@ -73,6 +73,6 @@ taf.png <- function(filename, width=800, height=600, pointsize=22, ...)
 
 tafpng <- function(...)
 {
-  .Deprecated("taf.png")
+  ## .Deprecated("taf.png")
   taf.png(...)
 }
