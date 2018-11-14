@@ -26,6 +26,7 @@
 #'
 #' @examples
 #' \dontrun{
+#'
 #' # Enable TAF library
 #' taf.library()
 #'

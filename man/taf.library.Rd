@@ -24,6 +24,7 @@ reproducibility of TAF analyses.
 }
 \examples{
 \dontrun{
+
 # Enable TAF library
 taf.library()
 
