@@ -18,7 +18,7 @@ level of the repository.}
 }
 \description{
 Install an R package that is hosted on GitHub. The package is installed into
-a local TAF library \file{bootstrap/library} within the assessment directory
+a local library \file{bootstrap/library} within the TAF analysis directory
 tree.
 }
 \note{
@@ -28,11 +28,11 @@ change, and are therefore not reliable as long-term references.
 
 This function is not intended as a replacement for the \code{install_github}
 function found in the \pkg{devtools} package. Rather, it serves as a
-reference tool to support long-term reproducibility of TAF assessments,
+reference tool to support long-term reproducibility of TAF analyses,
 without adding \pkg{devtools} and its underlying packages as dependencies.
 
 The purpose of the TAF library is to retain R packages used in a TAF
-assessment that are not archived on CRAN.
+analysis that are not archived on CRAN.
 }
 \examples{
 \dontrun{
@@ -54,7 +54,7 @@ taf.install("ices-tools-prod", "icesTAF", "69beeb4")
 \code{\link{install.packages}} is the underlying base function that installs
 the package after downloading from GitHub.
 
-\code{\link[devtools]{install_github}} is a commonly used function to install
+\code{\link[remotes]{install_github}} is a commonly used function to install
 packages from GitHub.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
