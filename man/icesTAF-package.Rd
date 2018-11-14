@@ -16,9 +16,7 @@ data, methods, and results used in ICES assessments.
 }
 \emph{Read and write files:}
 \tabular{ll}{
-  \code{\link{read.dls}}  \tab read \code{DLS3.2} results from file\cr
   \code{\link{read.taf}}  \tab read TAF table from file\cr
-  \code{\link{write.dls}} \tab write \code{DLS3.2} results to file\cr
   \code{\link{write.taf}} \tab write TAF table to file
 }
 \emph{Run scripts:}

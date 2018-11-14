@@ -1,8 +1,10 @@
 --------------------------------------------------------------------------------
-icesTAF 1.6-3 (2018-10-21)
+icesTAF 1.7-0 (2018-11-14)
 --------------------------------------------------------------------------------
 o Added functions taf.install() and taf.library() to work with packages in a
   local TAF library.
+
+o Moved functions read.dls() and write.dls() to the 'icesAdvice' package.
 
 o Renamed function tafpng() to taf.png().
 
