@@ -3,49 +3,59 @@
 #' Add local TAF library \file{bootstrap/library} to the search path, where
 #' packages are stored.
 #'
-#' @param names whether to return the names of packages currently installed in
-#'        the TAF library.
-#'
 #' @return
-#' The resulting search path, or names of packages if \code{names = TRUE}.
+#' The names of packages currently installed in the TAF library.
 #'
 #' @note
-#' This function inserts the entry \code{"bootstrap/library"} in front of the
-#' existing library search path.
+#' This function inserts the directory entry \code{"bootstrap/library"} in front
+#' of the existing library search path. The directory is created, if it does not
+#' already exist.
 #'
 #' The purpose of the TAF library is to retain R packages used in a TAF
-#' assessment that are not archived on CRAN, to support long-term
-#' reproducibility of TAF assessments.
+#' analysis that are not archived on CRAN, to support long-term
+#' reproducibility of TAF analyses.
 #'
 #' @seealso
 #' \code{\link{taf.install}} installs a package from GitHub into the TAF
 #' library.
 #'
-#' \code{\link{.libPaths}} is the underlying base function to set the library
-#' search path.
+#' \code{\link{.libPaths}} is the underlying base function to get/set the
+#' library search path.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
 #' \dontrun{
+#' # Enable TAF library
 #' taf.library()
+#'
+#' # Show updated path
+#' .libPaths()
+#'
+#' # Load packages
 #' library(this)
 #' library(that)
 #'
-#' # Show packages in TAF library
-#' taf.library(TRUE)
+#' # BibTeX references
+#' library(bibtex)
+#' write.bib(taf.library())
 #' }
 #'
 #' @importFrom utils installed.packages
 #'
 #' @export
 
-taf.library <- function(names=FALSE)
+taf.library <- function()
 {
-  paths <- .libPaths(unique(c("bootstrap/library", .libPaths())))
+  if(!dir.exists("bootstrap/library"))
+  {
+    mkdir("bootstrap/library")
+    message("Created empty dir 'bootstrap/library'.")
+  }
+  .libPaths(unique(c("bootstrap/library", .libPaths())))
   pkgs <- unname(installed.packages(lib.loc="bootstrap/library")[,"Package"])
-  if(names)
-    pkgs
+  if(length(pkgs) == 0)
+    return(invisible(pkgs))
   else
-    invisible(paths)
+    pkgs
 }

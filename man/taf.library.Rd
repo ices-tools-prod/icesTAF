@@ -4,35 +4,39 @@
 \alias{taf.library}
 \title{Enable TAF Library}
 \usage{
-taf.library(names = FALSE)
-}
-\arguments{
-\item{names}{whether to return the names of packages currently installed in
-the TAF library.}
+taf.library()
 }
 \value{
-The resulting search path, or names of packages if \code{names = TRUE}.
+The names of packages currently installed in the TAF library.
 }
 \description{
 Add local TAF library \file{bootstrap/library} to the search path, where
 packages are stored.
 }
 \note{
-This function inserts the entry \code{"bootstrap/library"} in front of the
-existing library search path.
+This function inserts the directory entry \code{"bootstrap/library"} in front
+of the existing library search path. The directory is created, if it does not
+already exist.
 
 The purpose of the TAF library is to retain R packages used in a TAF
-assessment that are not archived on CRAN, to support long-term
-reproducibility of TAF assessments.
+analysis that are not archived on CRAN, to support long-term
+reproducibility of TAF analyses.
 }
 \examples{
 \dontrun{
+# Enable TAF library
 taf.library()
+
+# Show updated path
+.libPaths()
+
+# Load packages
 library(this)
 library(that)
 
-# Show packages in TAF library
-taf.library(TRUE)
+# BibTeX references
+library(bibtex)
+write.bib(taf.library())
 }
 
 }
@@ -40,8 +44,8 @@ taf.library(TRUE)
 \code{\link{taf.install}} installs a package from GitHub into the TAF
 library.
 
-\code{\link{.libPaths}} is the underlying base function to set the library
-search path.
+\code{\link{.libPaths}} is the underlying base function to get/set the
+library search path.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
