@@ -36,14 +36,11 @@
 #'
 #' @examples
 #' \dontrun{
+#'
 #' # Installing the tagged release 1.0-0
 #' taf.install("ices-tools-prod", "icesTAF", "1.0-0")
 #'
-#' # is equivalent to the 40-character SHA-1 hash
-#' taf.install("ices-tools-prod", "icesTAF",
-#'             "69beeb4300453d93a10a5a35142775119df7da66")
-#'
-#' # SHA-1 hashes are commonly shortened to 7 characters
+#' # is equivalent to the SHA-1 hash
 #' taf.install("ices-tools-prod", "icesTAF", "69beeb4")
 #' }
 #'
