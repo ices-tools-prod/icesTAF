@@ -31,6 +31,9 @@ taf.library()
 # Show updated path
 .libPaths()
 
+# Show packages in TAF library
+print(taf.library())
+
 # Load packages
 library(this)
 library(that)

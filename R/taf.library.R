@@ -33,6 +33,9 @@
 #' # Show updated path
 #' .libPaths()
 #'
+#' # Show packages in TAF library
+#' print(taf.library())
+#'
 #' # Load packages
 #' library(this)
 #' library(that)
@@ -55,8 +58,5 @@ taf.library <- function()
   }
   .libPaths(unique(c("bootstrap/library", .libPaths())))
   pkgs <- unname(installed.packages(lib.loc="bootstrap/library")[,"Package"])
-  if(length(pkgs) == 0)
-    return(invisible(pkgs))
-  else
-    pkgs
+  invisible(pkgs)
 }
