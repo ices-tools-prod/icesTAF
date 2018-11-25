@@ -49,7 +49,7 @@
 #'
 #' @export
 
-taf.install <- function(owner, repo, ref, subdir="")
+taf.install <- function(repo, ref, subdir=NULL)
 {
   ## 1  Make sure directories exist
   mkdir("bootstrap/packages")
@@ -66,8 +66,7 @@ taf.install <- function(owner, repo, ref, subdir="")
   suppressWarnings(download(url, destfile=tar.gz))
 
   ## 4  Install, either from tar.gz or subdir
-  if(subdir == "")
-  {
+  if(is.null(subdir))  {
     install.packages(tar.gz, lib="bootstrap/library", repos=NULL, type="source")
   }
   else
