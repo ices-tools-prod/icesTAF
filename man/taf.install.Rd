@@ -4,17 +4,17 @@
 \alias{taf.install}
 \title{Install Package from GitHub into TAF Library}
 \usage{
-taf.install(owner, repo, ref, subdir = "")
+taf.install(repo, ref, subdir = NULL)
 }
 \arguments{
-\item{owner}{GitHub user name or organization hosting the repository.}
-
 \item{repo}{GitHub repository name.}
 
 \item{ref}{reference, preferably a tag, release, or SHA-1 hash.}
 
 \item{subdir}{subdirectory containing the R package, if it's not at the top
 level of the repository.}
+
+\item{owner}{GitHub user name or organization hosting the repository.}
 }
 \description{
 Install an R package that is hosted on GitHub. The package is installed into
