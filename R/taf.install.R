@@ -49,7 +49,7 @@
 #'
 #' @export
 
-taf.install <- function(repo, ref, subdir=NULL)
+taf.install <- function(owner, repo, ref, subdir=NULL)
 {
   ## 1  Make sure directories exist
   mkdir("bootstrap/packages")
