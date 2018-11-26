@@ -50,7 +50,7 @@ deps <- function(path=".", base=FALSE, installed=TRUE, available=TRUE,
                  list=FALSE)
 {
   files <- if(dir.exists(path)) dir(path, pattern="\\.[Rr]$", full.names=TRUE)
-             else path
+           else path
   code <- lapply(files, readLines)
   names(code) <- basename(files)
 
