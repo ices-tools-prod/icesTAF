@@ -45,9 +45,6 @@ write.bib(taf.library())
 
 }
 \seealso{
-\code{\link{taf.install}} installs a package from GitHub into the TAF
-library.
-
 \code{\link{.libPaths}} is the underlying base function to get/set the
 library search path.
 
