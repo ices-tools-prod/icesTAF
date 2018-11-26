@@ -16,10 +16,8 @@ Logical vector indicating which scripts were run.
 Run core TAF scripts that have changed, or if previous steps were rerun.
 }
 \note{
-TAF scripts that will be run as needed: \verb{data.R}, \verb{input.R},
-\verb{model.R}, \verb{output.R}, and \verb{report.R}.
-
-If a \verb{begin.R} script exists, it is ignored.
+TAF scripts that will be run as needed: \verb{data.R}, \verb{model.R},
+\verb{output.R}, and \verb{report.R}.
 }
 \examples{
 \dontrun{
