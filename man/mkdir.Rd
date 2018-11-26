@@ -19,19 +19,17 @@ generating a warning if the directory already exists.
 \examples{
 \dontrun{
 mkdir("emptydir")
-unlink("emptydir", recursive=TRUE)
+rmdir("emptydir")
 
 mkdir("outer/inner")
-unlink("outer/inner", recursive=TRUE)
+rmdir("outer", recursive=TRUE)
 }
 
 }
 \seealso{
 \code{\link{dir.create}} is the base function to create an empty directory.
 
-\code{\link{unlink}} with \code{recursive = TRUE} removes directories.
-
-\code{\link{clean}} cleans TAF directories.
+\code{\link{rmdir}} removes an empty directory.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

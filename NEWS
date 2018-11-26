@@ -1,12 +1,14 @@
 --------------------------------------------------------------------------------
 icesTAF 2.0-0 (2018-11-26)
 --------------------------------------------------------------------------------
-o Changed clean(), makeAll(), makeTAF(), sourceAll(), and taf.skeleton() to
-  align with new data->model workflow.
-
 o Added function taf.library() to work with packages in a local TAF library.
 
+o Added function rmdir() to remove an empty directory.
+
 o Moved functions read.dls() and write.dls() to the 'icesAdvice' package.
+
+o Changed clean(), makeAll(), makeTAF(), sourceAll(), and taf.skeleton() to
+  align with new data->model workflow.
 
 o Renamed function tafpng() to taf.png().
 
