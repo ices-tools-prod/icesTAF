@@ -31,7 +31,7 @@
 #' @examples
 #' \dontrun{
 #' url <- paste0("https://github.com/ices-taf/2015_had-iceg/raw/master/",
-#'               "begin/model/catageysa.exe")
+#'               "bootstrap/initial/software/catageysa.exe")
 #' download(url)
 #' }
 #'
