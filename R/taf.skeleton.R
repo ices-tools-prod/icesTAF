@@ -47,7 +47,6 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
   template <- "## %s\n\n## Before:\n## After:\n\n"
   headers <- list(
     data = "Preprocess data, write TAF data tables",
-    input = "Convert data to model format, write model input files",
     model = "Run analysis, write model results",
     output = "Extract results of interest, write TAF output tables",
     report = "Prepare plots/tables for report")

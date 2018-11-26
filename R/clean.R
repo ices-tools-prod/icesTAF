@@ -1,7 +1,7 @@
 #' Clean TAF Directories
 #'
-#' Remove TAF directories: \verb{data}, \verb{input}, \verb{model},
-#' \verb{output}, \verb{report}.
+#' Remove TAF directories: \verb{data}, \verb{model}, \verb{output},
+#' \verb{report}.
 #'
 #' @param dirs directories to delete.
 #'
@@ -23,7 +23,7 @@
 #'
 #' @export
 
-clean <- function(dirs=c("data","input","model","output","report"))
+clean <- function(dirs=c("data","model","output","report"))
 {
   unlink(dirs, recursive=TRUE)
 }

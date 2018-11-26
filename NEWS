@@ -1,7 +1,8 @@
 --------------------------------------------------------------------------------
 icesTAF 2.0-0 (2018-11-26)
 --------------------------------------------------------------------------------
-o Changed makeAll() and makeTAF() to align with new data->model workflow.
+o Changed clean(), makeAll(), makeTAF(), sourceAll(), and taf.skeleton() to
+  align with new data->model workflow.
 
 o Added function taf.library() to work with packages in a local TAF library.
 

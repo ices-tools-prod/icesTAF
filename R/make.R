@@ -41,7 +41,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' make("model.R", "input/input.dat", "model/results.dat")
+#' make("model.R", "data/input.dat", "model/results.dat")
 #' }
 #'
 #' @export

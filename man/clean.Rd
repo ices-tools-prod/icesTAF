@@ -4,14 +4,14 @@
 \alias{clean}
 \title{Clean TAF Directories}
 \usage{
-clean(dirs = c("data", "input", "model", "output", "report"))
+clean(dirs = c("data", "model", "output", "report"))
 }
 \arguments{
 \item{dirs}{directories to delete.}
 }
 \description{
-Remove TAF directories: \verb{data}, \verb{input}, \verb{model},
-\verb{output}, \verb{report}.
+Remove TAF directories: \verb{data}, \verb{model}, \verb{output},
+\verb{report}.
 }
 \note{
 The purpose of removing the directories is to make sure that subsequent TAF
