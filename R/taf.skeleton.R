@@ -40,8 +40,7 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
   on.exit(setwd(owd))
 
   # create initial directories
-  mkdir("begin/data")
-  mkdir("begin/model")
+  mkdir("bootstrap/initial/data")
 
   # define headers
   template <- "## %s\n\n## Before:\n## After:\n\n"
