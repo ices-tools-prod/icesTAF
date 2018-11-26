@@ -54,9 +54,9 @@ taf.library <- function()
   if(!dir.exists("bootstrap/library"))
   {
     mkdir("bootstrap/library")
-    message("Created empty dir 'bootstrap/library'.")
+    message("Created empty dir 'bootstrap/library'")
   }
-  .libPaths(unique(c("bootstrap/library", .libPaths())))
-  pkgs <- unname(installed.packages(lib.loc="bootstrap/library")[,"Package"])
+  .libPaths(c("bootstrap/library", .libPaths()))
+  pkgs <- rownames(installed.packages(lib.loc="bootstrap/library"))
   invisible(pkgs)
 }
