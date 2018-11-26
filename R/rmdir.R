@@ -36,29 +36,37 @@
 
 rmdir <- function(path, recursive=FALSE)
 {
-  if(recursive)
+  if(length(path) > 1)
   {
-    paths <- rev(c(path, dir(path, full.names=TRUE, recursive=TRUE,
-                             include.dirs=TRUE)))
-    code <- sapply(paths, rmdir, recursive=FALSE)
+    code <- sapply(path, rmdir, recursive=recursive)
+    invisible(code)
   }
   else
   {
-    ## Not an existing directory
-    if(!dir.exists(path))
+    if(recursive)
     {
-      code <- FALSE
+      paths <- rev(c(path, dir(path, full.names=TRUE, recursive=TRUE,
+                               include.dirs=TRUE)))
+      code <- sapply(paths, rmdir, recursive=FALSE)
     }
-    ## Not an empty directory
-    else if(length(dir(path,all.files=TRUE,no..=TRUE)) > 0)
-    {
-      code <- FALSE
-    }
-    ## Existing and empty
     else
     {
-      unlink(path, recursive=TRUE)
-      code <- TRUE
+      ## Not an existing directory
+      if(!dir.exists(path))
+      {
+        code <- FALSE
+      }
+      ## Not an empty directory
+      else if(length(dir(path,all.files=TRUE,no..=TRUE)) > 0)
+      {
+        code <- FALSE
+      }
+      ## Existing and empty
+      else
+      {
+        unlink(path, recursive=TRUE)
+        code <- TRUE
+      }
     }
   }
   invisible(code)
