@@ -38,6 +38,7 @@
 #'   \code{\link{rmdir}}        \tab remove directory\cr
 #'   \code{\link{taf.library}}  \tab enable TAF library\cr
 #'   \code{\link{taf.skeleton}} \tab create empty TAF template\cr
+#'   \code{\link{taf.unzip}}    \tab unzip file\cr
 #'   \code{\link{unix2dos}}     \tab convert line endings
 #' }
 #' \emph{Table tools:}

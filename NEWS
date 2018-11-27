@@ -7,6 +7,8 @@ o Added function rmdir() to remove an empty directory.
 
 o Added functions os.unix() and os.windows() to determine OS family.
 
+o Added function taf.unzip() to extract files from zip archives.
+
 o Moved functions read.dls() and write.dls() to the 'icesAdvice' package.
 
 o Changed clean(), makeAll(), makeTAF(), sourceAll(), and taf.skeleton() to
