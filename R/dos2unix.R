@@ -4,14 +4,13 @@
 #'
 #' @param file a filename.
 #'
-#' @note
-#' TAF uses \code{unix2dos} to ensure that text files on the server have Dos
-#' line endings.
-#'
 #' @seealso
 #' \code{\link{file}} is used to open a binary connection to the text file.
 #'
 #' \code{\link{writeLines}} is used to apply CRLF or LF line endings.
+#'
+#' \code{\link{write.taf}} uses \code{unix2dos} to ensure that the resulting
+#' files have Dos line endings.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'

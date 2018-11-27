@@ -15,10 +15,6 @@ unix2dos(file)
 \description{
 Convert line endings in a text file between Dos (CRLF) and Unix (LF) format.
 }
-\note{
-TAF uses \code{unix2dos} to ensure that text files on the server have Dos
-line endings.
-}
 \examples{
 \dontrun{
 file <- "test.txt"
@@ -38,6 +34,9 @@ file.remove(file)
 \code{\link{file}} is used to open a binary connection to the text file.
 
 \code{\link{writeLines}} is used to apply CRLF or LF line endings.
+
+\code{\link{write.taf}} uses \code{unix2dos} to ensure that the resulting
+files have Dos line endings.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
