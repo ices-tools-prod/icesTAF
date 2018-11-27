@@ -5,7 +5,8 @@
 #' @param script script filename.
 #' @param rm whether to remove all objects from the global environment before
 #'        and after the script is run.
-#' @param clean whether to clean the target directory before running the script.
+#' @param clean whether to \code{\link{clean}} the target directory before
+#'        running the script.
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
@@ -14,9 +15,9 @@
 #' sure that only files, not objects, are carried over between scripts.
 #'
 #' Likewise, the TAF server runs with \code{clean = TRUE} to make sure that the
-#' script starts with a \code{\link{clean}} directory. The target directory of a
-#' TAF script has the same filename prefix as the script: \verb{data.R} creates
-#' \file{data} etc.
+#' script starts with a clean directory. The target directory of a TAF script
+#' has the same filename prefix as the script: \verb{data.R} creates \file{data}
+#' etc.
 #'
 #' @return
 #' \code{TRUE} or \code{FALSE}, indicating whether the script ran without
