@@ -5,7 +5,7 @@ o Added function taf.library() to work with packages in a local TAF library.
 
 o Added function rmdir() to remove an empty directory.
 
-o Added functions taf.unix() and taf.windows() to determine OS family.
+o Added functions os.unix() and os.windows() to determine OS family.
 
 o Moved functions read.dls() and write.dls() to the 'icesAdvice' package.
 
