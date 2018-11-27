@@ -3,6 +3,9 @@
 #' Add local TAF library \file{bootstrap/library} to the search path, where
 #' packages are stored.
 #'
+#' @param quiet whether to suppress messages in the case when a new directory
+#'        \file{bootstrap/library} is created.
+#'
 #' @return
 #' The names of packages currently installed in the TAF library.
 #'
