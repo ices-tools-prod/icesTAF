@@ -9,15 +9,15 @@
 #' The purpose of removing the directories is to make sure that subsequent TAF
 #' scripts start by creating new empty directories.
 #'
-#' If any of the \code{dirs} is \code{"bootstrap"}, it is treated specially.
+#' If any of the \code{dirs} is \code{"bootstrap"} it is treated specially.
 #' Instead of completely removing the \verb{bootstrap} directory, only the
 #' subdirectories \verb{data}, \verb{library}, and \verb{software} are removed.
 #' This protects the subdirectory \verb{bootstrap/initial} and \verb{*.bib}
 #' metadata files from being accidentally deleted.
 #'
 #' @seealso
-#' \code{\link{mkdir}} and \code{\link{rmdir}}  create and remove
-#' empty-directories.
+#' \code{\link{mkdir}} and \code{\link{rmdir}} create and remove empty
+#' directories.
 #'
 #' \code{\link{sourceTAF}} and \code{\link{sourceAll}} run TAF scripts.
 #'
