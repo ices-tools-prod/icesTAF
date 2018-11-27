@@ -14,6 +14,8 @@ taf.unzip(zipfile, files = NULL, exdir = ".", unzip = NULL, ...)
 \item{exdir}{directory to extract to, will be created if necessary.}
 
 \item{unzip}{extraction method to use.}
+
+\item{\dots}{passed to \code{\link{unzip}}.}
 }
 \description{
 Extract files from a zip archive, retaining executable file permissions.

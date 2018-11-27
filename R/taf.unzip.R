@@ -6,6 +6,7 @@
 #' @param files files to extract, default is all files.
 #' @param exdir directory to extract to, will be created if necessary.
 #' @param unzip extraction method to use.
+#' @param \dots passed to \code{\link{unzip}}.
 #'
 #' @details
 #' The default method \code{unzip = NULL} uses the external \command{unzip}
