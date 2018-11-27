@@ -12,12 +12,12 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
-#' taf.unix()
-#' taf.windows()
+#' os.unix()
+#' os.windows()
 #'
 #' @export
 
-taf.unix <- function()
+os.unix <- function()
 {
   .Platform$OS.type == "unix"
 }

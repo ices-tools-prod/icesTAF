@@ -1,8 +1,8 @@
-#' @rdname taf.unix
+#' @rdname os.unix
 #'
 #' @export
 
-taf.windows <- function()
+os.windows <- function()
 {
   .Platform$OS.type == "windows"
 }
