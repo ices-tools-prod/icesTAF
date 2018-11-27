@@ -29,7 +29,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' exefile <- if(taf.unix()) "run" else "run.exe"
+#' exefile <- if(os.unix()) "run" else "run.exe"
 #' taf.unzip("bootstrap/software/archive.zip", files=exefile, exdir="model")
 #' }
 #' @importFrom utils unzip

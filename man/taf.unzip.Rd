@@ -36,7 +36,7 @@ all platforms, making it useful when writing platform-independent scripts.
 }
 \examples{
 \dontrun{
-exefile <- if(taf.unix()) "run" else "run.exe"
+exefile <- if(os.unix()) "run" else "run.exe"
 taf.unzip("bootstrap/software/archive.zip", files=exefile, exdir="model")
 }
 }
