@@ -5,13 +5,13 @@
 #' @param zipfile zip archive filename.
 #' @param files files to extract, default is all files.
 #' @param exdir directory to extract to, will be created if necessary.
-#' @param unzip extraction method to use (see details below).
+#' @param unzip extraction method to use, see details below.
 #' @param \dots passed to \code{\link{unzip}}.
 #'
 #' @details
 #' The default method \code{unzip = NULL} uses the external \command{unzip}
 #' program in Unix-compatible operating systems, but an internal method in
-#' aWindows. For additional information, see the \code{\link{unzip}} help page.
+#' Windows. For additional information, see the \code{\link{unzip}} help page.
 #'
 #' @note
 #' One shortcoming of the base \code{unzip} function is that the default
