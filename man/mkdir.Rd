@@ -27,9 +27,11 @@ rmdir("outer", recursive=TRUE)
 
 }
 \seealso{
-\code{\link{dir.create}} is the base function to create an empty directory.
+\code{\link{dir.create}} is the base function to create a new directory.
 
 \code{\link{rmdir}} removes an empty directory.
+
+\code{\link{clean}} can be used to remove non-empty directories.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

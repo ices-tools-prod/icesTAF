@@ -10,9 +10,10 @@
 #' scripts start by creating new empty directories.
 #'
 #' @seealso
-#' \code{\link{sourceTAF}} runs a TAF script.
+#' \code{\link{mkdir}} and \code{\link{rmdir}}  create and remove
+#' empty-directories.
 #'
-#' \code{\link{sourceAll}} runs all TAF scripts in a directory.
+#' \code{\link{sourceTAF}} and \code{\link{sourceAll}} run TAF scripts.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -23,7 +24,7 @@
 #'
 #' @export
 
-clean <- function(dirs=c("data","model","output","report"))
+clean <- function(dirs=c("data", "model", "output", "report"))
 {
   unlink(dirs, recursive=TRUE)
 }

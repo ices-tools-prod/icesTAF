@@ -36,9 +36,9 @@ rmdir("outer", recursive=TRUE)
 \code{\link{unlink}} with \code{recursive = TRUE} removes non-empty
 directories.
 
-\code{\link{mkdir}} creates an empty directory.
+\code{\link{mkdir}} creates a new directory.
 
-\code{\link{clean}} cleans TAF directories.
+\code{\link{clean}} can be used to remove non-empty directories.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
