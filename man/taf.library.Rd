@@ -4,7 +4,7 @@
 \alias{taf.library}
 \title{Enable TAF Library}
 \usage{
-taf.library()
+taf.library(quiet = FALSE)
 }
 \value{
 The names of packages currently installed in the TAF library.

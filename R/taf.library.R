@@ -46,12 +46,13 @@
 #'
 #' @export
 
-taf.library <- function()
+taf.library <- function(quiet=FALSE)
 {
   if(!dir.exists("bootstrap/library"))
   {
     mkdir("bootstrap/library")
-    message("Created empty dir 'bootstrap/library'")
+    if(!quiet)
+      message("Created empty dir 'bootstrap/library'")
   }
   .libPaths(c("bootstrap/library", .libPaths()))
   pkgs <- rownames(installed.packages(lib.loc="bootstrap/library"))
