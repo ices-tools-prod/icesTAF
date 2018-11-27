@@ -5,22 +5,23 @@
 #' @param zipfile zip archive filename.
 #' @param files files to extract, default is all files.
 #' @param exdir directory to extract to, will be created if necessary.
-#' @param unzip extraction method to use.
+#' @param unzip extraction method to use (see details below).
 #' @param \dots passed to \code{\link{unzip}}.
 #'
 #' @details
 #' The default method \code{unzip = NULL} uses the external \command{unzip}
 #' program in Unix-compatible operating systems, but an internal method in
-#' Windows. See \code{\link{unzip}} for additional information.
+#' aWindows. For additional information, see the \code{\link{unzip}} help page.
 #'
 #' @note
 #' One shortcoming of the base \code{unzip} function is that the default
 #' \code{"internal"} method resets file permissions, so Linux executables will
-#' return a \samp{Permission denied} error when run.
+#' return a \verb{'Permission denied'} error when run.
 #'
 #' This function is identical to the base \code{unzip} function, except the
-#' default value \code{unzip = NULL} chooses an appropriate extraction method on
-#' all platforms, making it useful when writing platform-independent scripts.
+#' default value \code{unzip = NULL} chooses an appropriate extraction method in
+#' all operating systems, making it useful when writing platform-independent
+#' scripts.
 #'
 #' @seealso
 #' \code{\link{unzip}} is the base function to unzip files.

@@ -13,7 +13,7 @@ taf.unzip(zipfile, files = NULL, exdir = ".", unzip = NULL, ...)
 
 \item{exdir}{directory to extract to, will be created if necessary.}
 
-\item{unzip}{extraction method to use.}
+\item{unzip}{extraction method to use (see details below).}
 
 \item{\dots}{passed to \code{\link{unzip}}.}
 }
@@ -23,16 +23,17 @@ Extract files from a zip archive, retaining executable file permissions.
 \details{
 The default method \code{unzip = NULL} uses the external \command{unzip}
 program in Unix-compatible operating systems, but an internal method in
-Windows. See \code{\link{unzip}} for additional information.
+aWindows. For additional information, see the \code{\link{unzip}} help page.
 }
 \note{
 One shortcoming of the base \code{unzip} function is that the default
 \code{"internal"} method resets file permissions, so Linux executables will
-return a \samp{Permission denied} error when run.
+return a \verb{'Permission denied'} error when run.
 
 This function is identical to the base \code{unzip} function, except the
-default value \code{unzip = NULL} chooses an appropriate extraction method on
-all platforms, making it useful when writing platform-independent scripts.
+default value \code{unzip = NULL} chooses an appropriate extraction method in
+all operating systems, making it useful when writing platform-independent
+scripts.
 }
 \examples{
 \dontrun{
