@@ -5,8 +5,7 @@
 #' @param script script filename.
 #' @param rm whether to remove all objects from the global environment before
 #'        and after the script is run.
-#' @param clean whether to remove the target directory before running the
-#'        script.
+#' @param clean whether to clean the target directory before running the script.
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
@@ -15,7 +14,7 @@
 #' sure that only files, not objects, are carried over between scripts.
 #'
 #' Likewise, the TAF server runs with \code{clean = TRUE} to make sure that the
-#' script starts by creating a new empty directory. The target directory of a
+#' script starts with a \code{\link{clean}} directory. The target directory of a
 #' TAF script has the same filename prefix as the script: \verb{data.R} creates
 #' \file{data} etc.
 #'
@@ -55,7 +54,7 @@ sourceTAF <- function(script, rm=FALSE, clean=TRUE, quiet=FALSE)
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
   if(clean && dir.exists(file_path_sans_ext(script)))
-    unlink(file_path_sans_ext(script), recursive=TRUE)
+    clean(file_path_sans_ext(script))
   if(!quiet)
     msg(script, " running...")
 
