@@ -3,7 +3,7 @@
 #' Determine whether operating system is Windows or Unix-compatible.
 #'
 #' @note
-#' This shorthand function can be useful when writing workaround solutions in
+#' These shorthand functions can be useful when writing workaround solutions in
 #' platform-independent scripts.
 #'
 #' @seealso
