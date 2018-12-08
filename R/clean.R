@@ -34,8 +34,9 @@ clean <- function(dirs=c("data", "model", "output", "report"))
 {
   if("bootstrap" %in% dirs)
   {
-    unlink(c("bootstrap/data", "bootstrap/library", "bootstrap/software"),
-           recursive=TRUE)
+    ## An odd directory called 'library:' can appear in Linux
+    unlink(c("bootstrap/data", "bootstrap/library", "bootstrap/library:",
+             "bootstrap/software"), recursive=TRUE)
     dirs <- dirs[dirs != "bootstrap"]
   }
   unlink(dirs, recursive=TRUE)
