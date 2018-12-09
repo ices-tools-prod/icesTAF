@@ -16,6 +16,10 @@ A data frame similar to \code{x}, after renaming the last column.
 Rename the last column in a data frame, by appending a \code{"+"} character.
 This is useful if the last column is a plus group.
 }
+\note{
+If the last column name already ends with a \code{"+"}, the original data
+frame is returned without modifications.
+}
 \examples{
 catage <- catage.taf
 

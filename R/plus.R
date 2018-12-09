@@ -7,6 +7,10 @@
 #'
 #' @return A data frame similar to \code{x}, after renaming the last column.
 #'
+#' @note
+#' If the last column name already ends with a \code{"+"}, the original data
+#' frame is returned without modifications.
+#'
 #' @seealso
 #' \code{\link{names}} is the underlying function to rename columns.
 #'
@@ -25,6 +29,9 @@
 
 plus <- function(x)
 {
-  names(x)[ncol(x)] <- paste0(names(x)[ncol(x)], "+")
+  lastname <- names(x)[ncol(x)]
+  lastchar <- substring(lastname, nchar(lastname))
+  if(lastchar != "+")
+    names(x)[ncol(x)] <- paste0(lastname, "+")
   x
 }
