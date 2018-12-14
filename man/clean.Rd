@@ -19,9 +19,10 @@ scripts start by creating new empty directories.
 
 If any of the \code{dirs} is \code{"bootstrap"} it is treated specially.
 Instead of completely removing the \verb{bootstrap} directory, only the
-subdirectories \verb{data}, \verb{library}, and \verb{software} are removed.
-This protects the subdirectory \verb{bootstrap/initial} and \verb{*.bib}
-metadata files from being accidentally deleted.
+subdirectories \verb{config}, \verb{data}, \verb{library}, and
+\verb{software} are removed. This protects the subdirectory
+\verb{bootstrap/initial} and \verb{*.bib} metadata files from being
+accidentally deleted.
 }
 \examples{
 \dontrun{
