@@ -52,6 +52,8 @@
 
 sourceTAF <- function(script, rm=FALSE, clean=TRUE, quiet=FALSE)
 {
+  if(file.exists(paste0(script, ".R")))
+    script <- paste0(script, ".R")
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
   if(clean && dir.exists(file_path_sans_ext(script)))
