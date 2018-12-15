@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 icesTAF 2.0-1 (2018-12-14)
 --------------------------------------------------------------------------------
-o Changed clean() so it removes 'bootstrap/config' folder.
+o Changed clean() so it cleans the 'bootstrap' folder by default.
 
 
 

@@ -4,7 +4,7 @@
 \alias{clean}
 \title{Clean TAF Directories}
 \usage{
-clean(dirs = c("data", "model", "output", "report"))
+clean(dirs = c("bootstrap", "data", "model", "output", "report"))
 }
 \arguments{
 \item{dirs}{directories to delete.}

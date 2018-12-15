@@ -31,7 +31,7 @@
 #'
 #' @export
 
-clean <- function(dirs=c("data", "model", "output", "report"))
+clean <- function(dirs=c("bootstrap", "data", "model", "output", "report"))
 {
   if("bootstrap" %in% dirs)
   {
