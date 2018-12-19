@@ -19,9 +19,13 @@ The bootstrap procedure consists of the following steps:
 \enumerate{
 \item If a directory \file{bootstrap/initial/config} contains model
 configuration files, they are copied to \file{bootstrap/config}.
-\item If a directory \file{bootstrap/initial/config} contains model
-configuration files, they are copied to \file{bootstrap/config}.
+\item If a \file{bootstrap/DATA.bib} metadata file exists, it is processed.
+\item If a \file{bootstrap/SOFTWARE.bib} metadata file exists, it is
+processed.
 }
+
+To override this default bootstrap procedure, the user can supply a custom
+bootstrap.R script that is run instead.
 }
 \examples{
 \dontrun{

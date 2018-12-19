@@ -12,9 +12,13 @@
 #' \enumerate{
 #' \item If a directory \file{bootstrap/initial/config} contains model
 #' configuration files, they are copied to \file{bootstrap/config}.
-#' \item If a directory \file{bootstrap/initial/config} contains model
-#' configuration files, they are copied to \file{bootstrap/config}.
+#' \item If a \file{bootstrap/DATA.bib} metadata file exists, it is processed.
+#' \item If a \file{bootstrap/SOFTWARE.bib} metadata file exists, it is
+#' processed.
 #' }
+#'
+#' To override this default bootstrap procedure, the user can supply a custom
+#' bootstrap.R script that is run instead.
 #'
 #' @seealso
 #' \code{\link{icesTAF-package}} gives an overview of the package.
@@ -31,63 +35,71 @@
 
 taf.bootstrap <- function()
 {
-  if(!dir.exists("bootstrap"))
-    stop("'bootstrap' directory not found")
-
-  ## 1  Create empty subdirectories
-  taf.library(quiet=TRUE)
-  setwd("bootstrap"); on.exit(setwd(".."))
-  mkdir(c("config", "data", "library", "software"))
-
-  ## 2a  Process config
-  if(dir.exists("initial/config"))
-    cp("initial/config", ".")
-
-  ## 2b  Process data
-  datasets <- if(file.exists("DATA.bib")) read.bib("DATA.bib") else list()
-  for(dat in datasets)
+  if(file.exists("bootstrap.R"))
   {
-    if(grepl("^http", dat$source))
-    {
-      download(dat$source, dir="data")
-    }
-    else
-    {
-      if(dat$source == "file")
-        dat$source <- file.path("initial/data", attr(dat,"key"))
-      cp(dat$source, "data")
-    }
+    sourceTAF("bootstrap.R")
   }
-
-  ## 2c  Process software
-  software <- if(file.exists("SOFTWARE.bib")) read.bib("SOFTWARE.bib")
-              else list()
-  for(soft in software)
+  else
   {
-    if(grepl("@", soft$source))
+    msg("Default bootstrap process running...")
+    if(!dir.exists("bootstrap"))
+      stop("'bootstrap' directory not found")
+
+    ## 1  Create empty subdirectories
+    taf.library(quiet=TRUE)
+    setwd("bootstrap"); on.exit(setwd(".."))
+    mkdir(c("config", "data", "library", "software"))
+
+    ## 2a  Process config
+    if(dir.exists("initial/config"))
+      cp("initial/config", ".")
+
+    ## 2b  Process data
+    datasets <- if(file.exists("DATA.bib")) read.bib("DATA.bib") else list()
+    for(dat in datasets)
     {
-      spec <- parse_repo_spec(soft$source)
-      url <- paste0("https://api.github.com/repos/",
-                    spec$username, "/", spec$repo, "/tarball/", spec$ref)
-      targz <- paste0(spec$repo, "_", spec$ref, ".tar.gz")
-      suppressWarnings(download(url, destfile=file.path("software", targz)))
-      install_github(soft$source, upgrade=FALSE, force=TRUE)
+      if(grepl("^http", dat$source))
+      {
+        download(dat$source, dir="data")
+      }
+      else
+      {
+        if(dat$source == "file")
+          dat$source <- file.path("initial/data", attr(dat,"key"))
+        cp(dat$source, "data")
+      }
     }
-    else if(grepl("^http", soft$source))
+
+    ## 2c  Process software
+    software <- if(file.exists("SOFTWARE.bib")) read.bib("SOFTWARE.bib")
+                else list()
+    for(soft in software)
     {
-      download(soft$source, dir="software")
+      if(grepl("@", soft$source))
+      {
+        spec <- parse_repo_spec(soft$source)
+        url <- paste0("https://api.github.com/repos/",
+                      spec$username, "/", spec$repo, "/tarball/", spec$ref)
+        targz <- paste0(spec$repo, "_", spec$ref, ".tar.gz")
+        suppressWarnings(download(url, destfile=file.path("software", targz)))
+        install_github(soft$source, upgrade=FALSE, force=TRUE)
+      }
+      else if(grepl("^http", soft$source))
+      {
+        download(soft$source, dir="software")
+      }
+      else
+      {
+        if(dat$source == "file")
+          dat$source <- file.path("initial/software", attr(dat,"key"))
+        cp(soft$source, "software")
+      }
     }
-    else
-    {
-      if(dat$source == "file")
-        dat$source <- file.path("initial/software", attr(dat,"key"))
-      cp(soft$source, "software")
-    }
+
+    ## 3  Remove empty folders
+    rmdir(c("config", "data", "library", "software"))
+    rmdir("library:", recursive=TRUE)  # this directory name can appear in Linux
+    msg("Default bootstrap process done")
+    invisible(NULL)
   }
-
-  ## 3  Remove empty folders
-  rmdir(c("config", "data", "library", "software"))
-  rmdir("library:", recursive=TRUE)  # this directory name can appear in Linux
-
-  invisible(NULL)
 }
