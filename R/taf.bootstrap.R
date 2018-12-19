@@ -41,7 +41,7 @@ taf.bootstrap <- function()
   }
   else
   {
-    msg("Default bootstrap process running...")
+    msg("Bootstrap process running...")
     if(!dir.exists("bootstrap"))
       stop("'bootstrap' directory not found")
 
@@ -99,7 +99,7 @@ taf.bootstrap <- function()
     ## 3  Remove empty folders
     rmdir(c("config", "data", "library", "software"))
     rmdir("library:", recursive=TRUE)  # this directory name can appear in Linux
-    msg("Default bootstrap process done")
+    msg("Bootstrap process done")
     invisible(NULL)
   }
 }
