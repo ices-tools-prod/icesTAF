@@ -12,8 +12,8 @@ files are also set up, if found.
 }
 \note{
 This function should be called from the top directory of a TAF analysis. It
-looks for a directory called \file{bootstrap} containing metadata and
-possibly other files.
+looks for a directory called \file{bootstrap} and prepares data files and
+software according to metadata specifications.
 
 The bootstrap procedure consists of the following steps:
 \enumerate{
@@ -24,8 +24,9 @@ configuration files, they are copied to \verb{bootstrap/config}.
 processed.
 }
 
-To override this default bootstrap procedure, the user can supply a custom
-\verb{bootstrap.R} script that is run instead.
+To override this default bootstrap procedure, the user can create a custom
+\verb{bootstrap.R} script. If this script is found, \code{taf.bootstrap} runs
+that script instead of the default bootstrap procedure.
 }
 \examples{
 \dontrun{
