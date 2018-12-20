@@ -25,7 +25,7 @@ processed.
 }
 
 To override this default bootstrap procedure, the user can supply a custom
-bootstrap.R script that is run instead.
+\verb{bootstrap.R} script that is run instead.
 }
 \examples{
 \dontrun{
