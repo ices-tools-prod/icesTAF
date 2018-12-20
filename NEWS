@@ -3,6 +3,8 @@ icesTAF 2.1-0 (2018-12-19)
 --------------------------------------------------------------------------------
 o Added function taf.bootstrap() to set up data files and software.
 
+o Added function process.bib() to read and process metadata.
+
 
 
 

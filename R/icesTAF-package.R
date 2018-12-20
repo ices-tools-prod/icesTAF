@@ -31,6 +31,7 @@
 #' }
 #' \emph{Work with metadata:}
 #' \tabular{ll}{
+#'   \code{\link{process.bib}}   \tab read and process metadata\cr
 #'   \code{\link{taf.bootstrap}} \tab set up data files and software
 #' }
 #' \emph{Other file management:}

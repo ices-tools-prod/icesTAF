@@ -12,25 +12,37 @@
 #' \enumerate{
 #' \item If a directory \verb{bootstrap/initial/config} contains model
 #' configuration files, they are copied to \verb{bootstrap/config}.
-#' \item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed.
+#' \item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed
+#' with \code{\link{process.bib}}.
 #' \item If a \verb{bootstrap/SOFTWARE.bib} metadata file exists, it is
-#' processed.
+#' processed with \code{\link{process.bib}}.
 #' }
 #'
 #' To override this default bootstrap procedure, the user can create a custom
-#' \verb{bootstrap.R} script. If this script is found, \code{taf.bootstrap} runs
-#' that script instead of the default bootstrap procedure.
+#' \verb{bootstrap.R} script. If this script is found, the \code{taf.bootstrap}
+#' function runs that script instead of the default bootstrap procedure.
+#'
+#' After the bootstrap procedure, data and software have been documented and
+#' are ready to be used in the subsequent analysis. Specifically, the procedure
+#' populates up to four new directories:
+#' \itemize{
+#' \item \verb{bootstrap/config} with model configuration files.
+#' \item \verb{bootstrap/data} with data files.
+#' \item \verb{bootstrap/library} with R packages compiled for the local
+#' platform.
+#' \item \verb{bootstrap/software} with software files, such as R packages in
+#' \verb{tar.gz} source code format.
+#' }
 #'
 #' @seealso
+#' \code{\link{process.bib}} is a helper function used to process metadata.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
 #' \dontrun{
 #' taf.bootstrap()
 #' }
-#'
-#' @importFrom remotes install_github parse_repo_spec
-#' @importFrom bibtex read.bib
 #'
 #' @export
 
@@ -42,65 +54,29 @@ taf.bootstrap <- function()
   }
   else
   {
-    msg("Bootstrap process running...")
+    msg("Bootstrap procedure running...")
     if(!dir.exists("bootstrap"))
       stop("'bootstrap' directory not found")
 
-    ## 1  Create empty subdirectories
+    ## Create empty subdirectories
     taf.library(quiet=TRUE)
     setwd("bootstrap"); on.exit(setwd(".."))
     mkdir(c("config", "data", "library", "software"))
 
-    ## 2a  Process config
+    ## 1  Process config
     if(dir.exists("initial/config"))
       cp("initial/config", ".")
 
-    ## 2b  Process data
-    datasets <- if(file.exists("DATA.bib")) read.bib("DATA.bib") else list()
-    for(dat in datasets)
-    {
-      if(grepl("^http", dat$source))
-      {
-        download(dat$source, dir="data")
-      }
-      else
-      {
-        if(dat$source == "file")
-          dat$source <- file.path("initial/data", attr(dat,"key"))
-        cp(dat$source, "data")
-      }
-    }
+    ## 2  Process data
+    process.bib("DATA.bib")
 
-    ## 2c  Process software
-    software <- if(file.exists("SOFTWARE.bib")) read.bib("SOFTWARE.bib")
-                else list()
-    for(soft in software)
-    {
-      if(grepl("@", soft$source))
-      {
-        spec <- parse_repo_spec(soft$source)
-        url <- paste0("https://api.github.com/repos/",
-                      spec$username, "/", spec$repo, "/tarball/", spec$ref)
-        targz <- paste0(spec$repo, "_", spec$ref, ".tar.gz")
-        suppressWarnings(download(url, destfile=file.path("software", targz)))
-        install_github(soft$source, upgrade=FALSE, force=TRUE)
-      }
-      else if(grepl("^http", soft$source))
-      {
-        download(soft$source, dir="software")
-      }
-      else
-      {
-        if(dat$source == "file")
-          dat$source <- file.path("initial/software", attr(dat,"key"))
-        cp(soft$source, "software")
-      }
-    }
+    ## 3  Process software
+    process.bib("SOFTWARE.bib")
 
-    ## 3  Remove empty folders
+    ## Remove empty folders
     rmdir(c("config", "data", "library", "software"))
     rmdir("library:", recursive=TRUE)  # this directory name can appear in Linux
-    msg("Bootstrap process done")
+    msg("Bootstrap procedure done")
     invisible(NULL)
   }
 }

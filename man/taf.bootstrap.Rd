@@ -19,14 +19,27 @@ The bootstrap procedure consists of the following steps:
 \enumerate{
 \item If a directory \verb{bootstrap/initial/config} contains model
 configuration files, they are copied to \verb{bootstrap/config}.
-\item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed.
+\item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed
+with \code{\link{process.bib}}.
 \item If a \verb{bootstrap/SOFTWARE.bib} metadata file exists, it is
-processed.
+processed with \code{\link{process.bib}}.
 }
 
 To override this default bootstrap procedure, the user can create a custom
-\verb{bootstrap.R} script. If this script is found, \code{taf.bootstrap} runs
-that script instead of the default bootstrap procedure.
+\verb{bootstrap.R} script. If this script is found, the \code{taf.bootstrap}
+function runs that script instead of the default bootstrap procedure.
+
+After the bootstrap procedure, data and software have been documented and
+are ready to be used in the subsequent analysis. Specifically, the procedure
+populates up to four new directories:
+\itemize{
+\item \verb{bootstrap/config} with model configuration files.
+\item \verb{bootstrap/data} with data files.
+\item \verb{bootstrap/library} with R packages compiled for the local
+platform.
+\item \verb{bootstrap/software} with software files, such as R packages in
+\verb{tar.gz} source code format.
+}
 }
 \examples{
 \dontrun{
@@ -35,5 +48,7 @@ taf.bootstrap()
 
 }
 \seealso{
+\code{\link{process.bib}} is a helper function used to process metadata.
+
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
