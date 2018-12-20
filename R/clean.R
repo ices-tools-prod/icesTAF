@@ -33,6 +33,9 @@
 
 clean <- function(dirs=c("data", "model", "output", "report"))
 {
+  ## Convert "bootstrap/" to "bootstrap", so clean("bootstrap/") doesn't go wild
+  dirs <- sub("/$", "", dirs)
+
   if("bootstrap" %in% dirs)
   {
     ## An odd directory called 'library:' can appear in Linux
@@ -40,5 +43,6 @@ clean <- function(dirs=c("data", "model", "output", "report"))
              "bootstrap/library:", "bootstrap/software"), recursive=TRUE)
     dirs <- dirs[dirs != "bootstrap"]
   }
+
   unlink(dirs, recursive=TRUE)
 }
