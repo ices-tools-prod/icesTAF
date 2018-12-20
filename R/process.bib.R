@@ -10,9 +10,9 @@
 #' used in a custom \verb{bootstrap.R} script. It should be called within the
 #' \file{bootstrap} directory that contains the metadata file.
 #'
-#' Within each metadata entry, the \emph{source} field specifies where data or
+#' Within each metadata entry, the \dfn{source} field specifies where data or
 #' software originate from. There are four types of values that can be used in
-#' the \emph{source} field:
+#' the source field:
 #' \enumerate{
 #' \item GitHub reference of the form \verb{owner/repo[/subdir]@ref},
 #' identifying a specific version of an R package.
