@@ -29,6 +29,10 @@
 #'   \code{\link{sourceAll}} \tab run all TAF scripts\cr
 #'   \code{\link{sourceTAF}} \tab run TAF script
 #' }
+#' \emph{Work with metadata:}
+#' \tabular{ll}{
+#'   \code{\link{taf.bootstrap}} \tab set up data files and software
+#' }
 #' \emph{Other file management:}
 #' \tabular{ll}{
 #'   \code{\link{clean}}        \tab clean TAF directories\cr
