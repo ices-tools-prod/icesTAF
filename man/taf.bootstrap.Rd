@@ -17,10 +17,10 @@ possibly other files.
 
 The bootstrap procedure consists of the following steps:
 \enumerate{
-\item If a directory \file{bootstrap/initial/config} contains model
-configuration files, they are copied to \file{bootstrap/config}.
-\item If a \file{bootstrap/DATA.bib} metadata file exists, it is processed.
-\item If a \file{bootstrap/SOFTWARE.bib} metadata file exists, it is
+\item If a directory \verb{bootstrap/initial/config} contains model
+configuration files, they are copied to \verb{bootstrap/config}.
+\item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed.
+\item If a \verb{bootstrap/SOFTWARE.bib} metadata file exists, it is
 processed.
 }
 
