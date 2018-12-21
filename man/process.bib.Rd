@@ -69,7 +69,7 @@ version and source may look like this,
 or this:
 \preformatted{  version = {0.5.4 components branch, committed 2018-03-12},
   source  = {fishfollower/SAM/stockassessment@25b3591},}
-For development versions like this, the version number itself may not be
+For development versions like these, the version number itself may not be
 important or accurate, but the branch name may be informative, and the
 7-character SHA reference code is a pointer to the exact version of the
 package required for the analysis.
