@@ -5,6 +5,9 @@ o Added function taf.bootstrap() to set up data files and software.
 
 o Added function process.bib() to read and process metadata.
 
+o Updated colors (taf.green, taf.orange, taf.blue, taf.dark, taf.light) to make
+  them equally intense and easy to distinguish.
+
 
 
 
