@@ -48,6 +48,6 @@ div <- function(x, cols, by=1000, grep=FALSE, ...)
 {
   if(grep)
     cols <- grep(cols, names(x), ...)
-  x[cols] <- mapply("/", x[cols], by)
+  x[cols] <- drop(mapply("/", x[cols], by))  # drop mat->vec if one column
   x
 }
