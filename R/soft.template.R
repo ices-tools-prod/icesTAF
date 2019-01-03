@@ -1,15 +1,15 @@
-soft.template <- function(package, version=NULL, source=NULL)
+soft.template <- function(package, version=NULL, source=NULL, file="")
 {
   ## 1  Bibliographic info: author, year, title, details
   bib <- as.list(toBibtex(citation(package)[1]))
   key <- sub(",$", paste0(package,","), bib[[1]])  # add package name
   bibtype <- tolower(sub("@(.*)\\{.*", "\\1", key))
   details <- switch(bibtype,
-                    article=c(bib$journal, bib$volume, bib$number, bib$pages,
-                              bib$doi),
+                    article=c(bib$journal, bib$volume, bib$number,
+                              bib$pages, bib$doi),
                     book=c(bib$edition, bib$address, bib$publisher, bib$doi),
-                    techreport=c(bib$institution, bib$edition, bib$number,
-                                 bib$note, bib$doi),
+                    techreport=c(bib$institution, bib$edition,
+                                 bib$number, bib$note, bib$doi),
                     bib$doi)
 
   ## 2  Package info: version, source
@@ -44,5 +44,15 @@ soft.template <- function(package, version=NULL, source=NULL)
   output <- c(key, fields, "}")
   class(output) <- "Bibtex"
 
-  output
+  ## 4  Export
+  ## Avoid write() when file="", to ensure quiet assignment x <- data.template()
+  if(file == "")
+  {
+    output
+  }
+  else
+  {
+    write(output, file=file)
+    invisible(output)
+  }
 }
