@@ -6,6 +6,7 @@ data.template <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
   if(length(data.files) == 0)
     stop("'data.files' is an empty vector")
 
+  ## 1  Assemble metadata
   line1 <- paste0("@Misc{", data.files, ",")
   line2 <- paste0("  originator = {", originator, "},")
   line3 <- paste0("  year       = {", year, "},")
@@ -15,11 +16,13 @@ data.template <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
   line7 <- "}"
   line8 <- ""
 
+  ## 2  Combine and format
   output <- data.frame(line1, line2, line3, line4, line5, line6, line7, line8)
   output <- c(t(output))
   output <- output[-length(output)]  # remove empty line at end
   class(output) <- "Bibtex"
 
+  ## 3  Export
   ## Avoid write() when file="", to ensure quiet assignment x <- data.template()
   if(file == "")
   {
@@ -31,6 +34,3 @@ data.template <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
     invisible(output)
   }
 }
-
-data.template("WGEF", 2017, "rjc.27.3a4d7")
-data.template("WGEF", 2017, "rjc.27.3a4d7", file="~/x.txt")
