@@ -37,7 +37,7 @@ soft.template <- function(package, version=NULL, source=NULL)
   }
   source <- paste0("  source = {", source, "},")
 
-  ## 3  Construct metadata
+  ## 3  Combine and format metadata
   fields <- c(bib$author, bib$year, bib$title, details, version, source)
   fields <- strsplit(fields, "=")  # align at equals sign
   fields <- paste0(format(sapply(fields,"[",1)), "=", sapply(fields,"[",2))
