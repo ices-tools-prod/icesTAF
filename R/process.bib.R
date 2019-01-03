@@ -15,7 +15,10 @@
 #' the source field:
 #' \enumerate{
 #' \item GitHub reference of the form \verb{owner/repo[/subdir]@ref},
-#' identifying a specific version of an R package.
+#' identifying a specific version of an R package. A fixed reference such as a
+#' tag, release, or SHA-1 hash is recommended. Branch names, such as
+#' \verb{master}, are pointers that are subject to change, and are therefore not
+#' reliable as long-term references.
 #' \item URL starting with \verb{http} or \verb{https}, identifying a file to
 #' download.
 #' \item Filename, identifying the location of a file provided by the user.
@@ -62,9 +65,9 @@
 #' \preformatted{  version = {0.5.4 components branch, committed 2018-03-12},
 #'   source  = {fishfollower/SAM/stockassessment@25b3591},}
 #' For development versions like these, the version number itself may not be
-#' important or accurate, but the branch name may be informative, and the
-#' 7-character SHA reference code is a pointer to the exact version of the
-#' package required for the analysis.
+#' important or accurate, but the branch name and commit date may be
+#' informative. The 7-character SHA reference code is a pointer to the exact
+#' version of the package required for the analysis.
 #'
 #' In summary, the metadata are similar to bibliographic entries, with the
 #' important addition of source directives that guide the bootstrap procedure to
