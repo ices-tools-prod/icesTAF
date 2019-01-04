@@ -1,9 +1,12 @@
 --------------------------------------------------------------------------------
-icesTAF 2.1-0 (2018-12-19)
+icesTAF 2.1-0 (2019-01-04)
 --------------------------------------------------------------------------------
 o Added function taf.bootstrap() to set up data files and software.
 
 o Added function process.bib() to read and process metadata.
+
+o Added functions draft.data() and draft.software() to create initial draft
+  versions of metadata files.
 
 o Updated colors (taf.green, taf.orange, taf.blue, taf.dark, taf.light) to make
   them equally intense and easy to distinguish.

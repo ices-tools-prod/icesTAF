@@ -30,8 +30,10 @@ data, methods, and results used in ICES assessments.
 }
 \emph{Work with metadata:}
 \tabular{ll}{
-  \code{\link{process.bib}}   \tab read and process metadata\cr
-  \code{\link{taf.bootstrap}} \tab set up data files and software
+  \code{\link{draft.data}}     \tab draft DATA.bib file\cr
+  \code{\link{draft.software}} \tab draft SOFTWARE.bib file\cr
+  \code{\link{process.bib}}    \tab read and process metadata\cr
+  \code{\link{taf.bootstrap}}  \tab set up data files and software
 }
 \emph{Other file management:}
 \tabular{ll}{

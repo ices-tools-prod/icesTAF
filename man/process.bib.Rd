@@ -77,6 +77,25 @@ important or accurate, but the branch name and commit date may be
 informative. The 7-character SHA reference code is a pointer to the exact
 version of the package required for the analysis.
 
+As a final metadata example, we look at a software entry that is not an R
+package. It is made available as a zip archive, containing the model source
+code (sole.tpl) and executables for different platforms (sole, sole.exe). The
+model does not have an explicit version number, so the \verb{version} field
+contains the year in which the model is used, along with the date when the
+source code was last modified:
+\preformatted{@Article{sole,
+  author  = {G. Aarts and J.J. Poos},
+  year    = {2009},
+  title   = {Comprehensive discard reconstruction and abundance estimation
+             using flexible selectivity functions},
+  journal = {ICES Journal of Marine Science},
+  volume  = {66},
+  pages   = {763-771},
+  doi     = {10.1093/icesjms/fsp033},
+  version = {2016, last modified 2016-04-27},
+  source  = {initial/software/sole.zip},
+}}
+
 In summary, the metadata are similar to bibliographic entries, with the
 important addition of source directives that guide the bootstrap procedure to
 set up data files and software.
@@ -90,6 +109,10 @@ process.bib("SOFTWARE.bib")
 }
 \seealso{
 \code{\link{taf.bootstrap}} calls \code{process.bib} to process metadata.
+
+\code{\link{draft.data}} and \code{\link{draft.software}} can be used to
+create initial draft versions of \file{DATA.bib} and \file{SOFTWARE.bib}
+metadata files.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

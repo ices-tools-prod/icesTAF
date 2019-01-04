@@ -1,3 +1,66 @@
+#' Draft DATA.bib
+#'
+#' Create an initial draft version of a \file{DATA.bib} metadata file.
+#'
+#' @param originator who prepared the data, e.g. a working group acronym.
+#' @param year year of the analysis when the data were used.
+#' @param title description of the data, including stock code or the like.
+#' @param period first and last year that the data cover, separated by a simple
+#'        dash.
+#' @param source where the data originate from. This can be a URL, filename, or
+#'        the special value \code{"file"}.
+#' @param file optional filename to save the draft metadata to a file.
+#' @param data.dir directory containing data files.
+#' @param data.files data filenames. The default is all files inside
+#'        \code{data.dir}.
+#'
+#' @details
+#' Typical usage is to specify \code{originator}, \code{year}, and \code{title},
+#' while using the default values for the other arguments. Most data files have
+#' the same originator and year, and the stock code can be entered as a title
+#' placeholder to facilitate completing the entries after creating the initial
+#' draft.
+#'
+#' The special value \verb{source = "file"} is described in the
+#' \code{\link{process.bib}} help page, along with other metadata information.
+#'
+#' The default value \code{file = ""} prints the initial draft in the console,
+#' instead of writing it to a file. The output can then be pasted into a file to
+#' edit further, without accidentally overwriting an existing metadata file.
+#'
+#' This function is intended to be called from the top directory of a TAF
+#' analysis which contains a \file{bootstrap/initial/data} directory, as
+#' reflected in the default value of \code{data.dir}.
+#'
+#' @return
+#' Object of class \verb{Bibtex} that can be copied from the console or exported
+#' to a file using \code{writeLines}.
+#'
+#' @note
+#' After creating the initial draft, the user can complete the description of
+#' each data file inside the \verb{title} field and look into each file to
+#' specify the \verb{period} that the data cover.
+#'
+#' @seealso
+#' \code{\link{draft.software}} creates an initial draft version of a
+#' \file{SOFTWARE.bib} metadata file.
+#'
+#' \code{\link{process.bib}} reads and processes metadata entries. The help page
+#' contains example metadata entries and commentary.
+#'
+#' \code{\link{icesTAF-package}} gives an overview of the package.
+#'
+#' @examples
+#' \dontrun{
+#' # Print in console
+#' draft.data("WGEF", 2015, "rjm-347d")
+#'
+#' # Export to file
+#' draft.data("WGEF", 2015, "rjm-347d", file="bootstrap/DATA-draft.bib")
+#' }
+#'
+#' @export
+
 draft.data <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
                        source="file", file="",
                        data.dir="bootstrap/initial/data",
@@ -17,20 +80,20 @@ draft.data <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
   line8 <- ""
 
   ## 2  Combine and format
-  output <- data.frame(line1, line2, line3, line4, line5, line6, line7, line8)
-  output <- c(t(output))
-  output <- output[-length(output)]  # remove empty line at end
-  class(output) <- "Bibtex"
+  out <- data.frame(line1, line2, line3, line4, line5, line6, line7, line8)
+  out <- c(t(out))
+  out <- out[-length(out)]  # remove empty line at end
+  class(out) <- "Bibtex"
 
   ## 3  Export
   ## No write() when file="", to ensure quiet assignment x <- draft.data()
   if(file == "")
   {
-    output
+    out
   }
   else
   {
-    write(output, file=file)
-    invisible(output)
+    write(out, file=file)
+    invisible(out)
   }
 }
