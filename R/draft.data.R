@@ -1,7 +1,7 @@
-data.template <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
-                          source="file", file="",
-                          data.dir="bootstrap/initial/data",
-                          data.files=dir(data.dir,recursive=TRUE))
+draft.data <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
+                       source="file", file="",
+                       data.dir="bootstrap/initial/data",
+                       data.files=dir(data.dir,recursive=TRUE))
 {
   if(length(data.files) == 0)
     stop("'data.files' is an empty vector")
@@ -23,7 +23,7 @@ data.template <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
   class(output) <- "Bibtex"
 
   ## 3  Export
-  ## Avoid write() when file="", to ensure quiet assignment x <- data.template()
+  ## No write() when file="", to ensure quiet assignment x <- draft.data()
   if(file == "")
   {
     output

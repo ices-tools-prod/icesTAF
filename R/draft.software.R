@@ -1,4 +1,4 @@
-soft.template <- function(package, version=NULL, source=NULL, file="")
+draft.software <- function(package, version=NULL, source=NULL, file="")
 {
   ## 1  Bibliographic info: author, year, title, details
   bib <- as.list(toBibtex(citation(package)[1]))
@@ -45,7 +45,7 @@ soft.template <- function(package, version=NULL, source=NULL, file="")
   class(output) <- "Bibtex"
 
   ## 4  Export
-  ## Avoid write() when file="", to ensure quiet assignment x <- data.template()
+  ## No write() when file="", to ensure quiet assignment x <- draft.software()
   if(file == "")
   {
     output
