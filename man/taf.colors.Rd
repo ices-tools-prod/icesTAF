@@ -22,13 +22,16 @@ Predefined colors for TAF plots.
 \examples{
 taf.green
 
-barplot(5:1, col=c(taf.green, taf.orange, taf.blue, taf.dark, taf.light))
+par(mfrow=c(3,1))
 
-barplot(6:1, col=c(taf.green, taf.orange, taf.blue,
-                   taf.dark, taf.light, "white"))
+barplot(5:1, main="Five",
+        col=c(taf.green, taf.orange, taf.blue, taf.dark, taf.light))
 
-barplot(7:1, col=c("black", taf.dark, taf.light,
-                   taf.green, taf.orange, taf.blue, "white"))
+barplot(6:1, main="Six", col=c(taf.green, taf.orange, taf.blue,
+                               taf.dark, taf.light, "white"))
+
+barplot(7:1, main="Seven", col=c("black", taf.dark, taf.light,
+                                 taf.green, taf.orange, taf.blue, "white"))
 }
 \seealso{
 \code{\link{icesTAF-package}} gives an overview of the package.
