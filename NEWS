@@ -14,6 +14,10 @@ o Added functions os(), os.linux() and os.macos() to detect more operating
 o Updated colors (taf.green, taf.orange, taf.blue, taf.dark, taf.light) to make
   them equally intense and easy to distinguish.
 
+o This release introduces package dependencies to parse BibTeX files (bibtex)
+  and install packages from GitHub (remotes), with further underlying package
+  dependencies.
+
 
 
 
