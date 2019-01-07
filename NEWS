@@ -8,6 +8,9 @@ o Added function process.bib() to read and process metadata.
 o Added functions draft.data() and draft.software() to create initial draft
   versions of metadata files.
 
+o Added functions os(), os.linux() and os.macos() to detect more operating
+  systems than before. Removed os.unix().
+
 o Updated colors (taf.green, taf.orange, taf.blue, taf.dark, taf.light) to make
   them equally intense and easy to distinguish.
 

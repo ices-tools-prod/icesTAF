@@ -1,32 +1,68 @@
-#' OS Family
+#' Operating System
 #'
-#' Determine whether operating system is Windows or Unix-compatible.
+#' Determine operating system name.
+#'
+#' @return
+#' \code{os} returns the name of the operating system, typically \code{"Linux"},
+#' \code{"Darwin"}, or \code{"Windows"}.
+#'
+#' \code{os.linux}, \code{os.macos}, and \code{os.windows} return \code{TRUE} or
+#' \code{FALSE}.
 #'
 #' @note
+#' The macOS operating system identifies itself as \code{"Darwin"}.
+#'
 #' These shorthand functions can be useful when writing workaround solutions in
 #' platform-independent scripts.
 #'
 #' @seealso
-#' \code{\link{.Platform}} reports the \code{OS.type} family.
+#' \code{\link{Sys.info}} is the underlying function used to extract the
+#' operating system name.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
-#' os.unix()
+#' os()
+#' os.linux()
+#' os.macos()
 #' os.windows()
+#'
+#' @aliases os.unix
 #'
 #' @export
 
-os.unix <- function()
+os <- function()
 {
-  .Platform$OS.type == "unix"
+  Sys.info()[["sysname"]]
 }
 
-#' @rdname os.unix
+#' @rdname os
+#'
+#' @export
+
+os.linux <- function()
+{
+  os() == "Linux"
+}
+
+#' @rdname os
+#'
+#' @export
+
+os.macos <- function()
+{
+  os() == "Darwin"
+}
+
+#' @rdname os
 #'
 #' @export
 
 os.windows <- function()
 {
-  .Platform$OS.type == "windows"
+  os() == "Windows"
 }
+
+#' @export
+
+os.unix <- os.linux
