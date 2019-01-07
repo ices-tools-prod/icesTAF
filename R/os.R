@@ -21,3 +21,12 @@ os.unix <- function()
 {
   .Platform$OS.type == "unix"
 }
+
+#' @rdname os.unix
+#'
+#' @export
+
+os.windows <- function()
+{
+  .Platform$OS.type == "windows"
+}
