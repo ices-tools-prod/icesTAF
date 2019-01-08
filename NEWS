@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 icesTAF 2.1-0 (2019-01-08)
 --------------------------------------------------------------------------------
-o Added function taf.bootstrap() and process.bib to set up data files and
+o Added functions taf.bootstrap() and process.bib() to set up data files and
   software.
 
 o Added functions draft.data() and draft.software() to create initial draft
