@@ -117,6 +117,7 @@ process.bib <- function(bibfile)
   dir <- if(bibfile == "DATA.bib") "data"
          else if(bibfile == "SOFTWARE.bib") "software"
          else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
+  mkdir(dir)
 
   entries <- if(file.exists(bibfile)) read.bib(bibfile) else list()
 

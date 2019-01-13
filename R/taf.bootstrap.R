@@ -58,10 +58,9 @@ taf.bootstrap <- function()
     if(!dir.exists("bootstrap"))
       stop("'bootstrap' directory not found")
 
-    ## Create empty subdirectories
+    ## Enable TAF library
     taf.library(quiet=TRUE)
     setwd("bootstrap"); on.exit(setwd(".."))
-    mkdir(c("config", "data", "library", "software"))
 
     ## 1  Process config
     if(dir.exists("initial/config"))
