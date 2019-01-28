@@ -16,7 +16,7 @@ deps(path = ".", base = FALSE, installed = TRUE, available = TRUE,
 
 \item{available}{whether to include available packages in the output.}
 
-\item{list}{whether to return packages in list format.}
+\item{list}{whether to return packages in list format, split by script.}
 }
 \value{
 Names of packages as a vector, or in list format if \code{list=TRUE}. If no

@@ -6,7 +6,7 @@
 #' @param base whether to include base packages in the output.
 #' @param installed whether to include installed packages in the output.
 #' @param available whether to include available packages in the output.
-#' @param list whether to return packages in list format.
+#' @param list whether to return packages in list format, split by script.
 #'
 #' @return
 #' Names of packages as a vector, or in list format if \code{list=TRUE}. If no
