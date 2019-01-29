@@ -63,9 +63,20 @@
 #'
 #' @export
 
-draft.software <- function(package, version=NULL, source=NULL, file="")
+draft.software <- function(package=NULL, version=NULL, source=NULL, file="")
 {
-  if(length(package) > 1)
+  if(length(package) == 0)
+  {
+    ## Software other than R package
+    out <- c("@Misc{name_of_model,",
+             "  author  = {},",
+             "  year    = {},",
+             "  title   = {},",
+             paste0("  version = {", version, "},"),
+             paste0("  source  = {", source, "},"))
+    class(out) <- "Bibtex"
+  }
+  else if(length(package) > 1)
   {
     ## Process many packages - mapply requires conversion of NULL to NA
     version <- if(is.null(version)) NA else version

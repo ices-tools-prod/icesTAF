@@ -4,7 +4,8 @@
 \alias{draft.software}
 \title{Draft SOFTWARE.bib}
 \usage{
-draft.software(package, version = NULL, source = NULL, file = "")
+draft.software(package = NULL, version = NULL, source = NULL,
+  file = "")
 }
 \arguments{
 \item{package}{name of an installed R package.}
