@@ -33,8 +33,7 @@
 #' reflected in the default value of \code{data.dir}.
 #'
 #' @return
-#' Object of class \verb{Bibtex} that can be copied from the console or exported
-#' to a file using \code{writeLines}.
+#' Object of class \verb{Bibtex}.
 #'
 #' @note
 #' After creating the initial draft, the user can complete the description of

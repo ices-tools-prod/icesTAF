@@ -30,8 +30,7 @@ the special value \code{"file"}.}
 \code{data.dir}.}
 }
 \value{
-Object of class \verb{Bibtex} that can be copied from the console or exported
-to a file using \code{writeLines}.
+Object of class \verb{Bibtex}.
 }
 \description{
 Create an initial draft version of a \file{DATA.bib} metadata file.
