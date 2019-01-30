@@ -4,9 +4,12 @@
 \alias{taf.library}
 \title{Enable TAF Library}
 \usage{
-taf.library(quiet = FALSE)
+taf.library(create = TRUE, quiet = FALSE)
 }
 \arguments{
+\item{create}{whether to create the directory \file{bootstrap/library} if it
+does not already exist.}
+
 \item{quiet}{whether to suppress messages in the case when a new directory
 \file{bootstrap/library} is created.}
 }

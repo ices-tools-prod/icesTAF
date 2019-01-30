@@ -3,6 +3,8 @@
 #' Add local TAF library \file{bootstrap/library} to the search path, where
 #' packages are stored.
 #'
+#' @param create whether to create the directory \file{bootstrap/library} if it
+#'        does not already exist.
 #' @param quiet whether to suppress messages in the case when a new directory
 #'        \file{bootstrap/library} is created.
 #'
@@ -49,15 +51,17 @@
 #'
 #' @export
 
-taf.library <- function(quiet=FALSE)
+taf.library <- function(create=TRUE, quiet=FALSE)
 {
-  if(!dir.exists("bootstrap/library"))
+  if(!dir.exists("bootstrap/library") && create)
   {
     mkdir("bootstrap/library")
     if(!quiet)
       message("Created empty dir 'bootstrap/library'")
   }
+
   .libPaths(c("bootstrap/library", .libPaths()))
   pkgs <- rownames(installed.packages(lib.loc="bootstrap/library"))
+
   invisible(pkgs)
 }

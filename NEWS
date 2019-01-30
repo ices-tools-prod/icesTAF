@@ -1,8 +1,10 @@
 --------------------------------------------------------------------------------
-icesTAF 2.1-1 (2019-01-13)
+icesTAF 2.1-1 (2019-01-30)
 --------------------------------------------------------------------------------
 o Improved process.bib() so it does not require taf.bootstrap() to create 'data'
   and 'software' directories.
+
+o Added argument 'create' to taf.library().
 
 
 
