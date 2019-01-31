@@ -4,24 +4,31 @@
 \alias{draft.software}
 \title{Draft SOFTWARE.bib}
 \usage{
-draft.software(package = NULL, version = NULL, source = NULL,
-  file = "")
+draft.software(package, author = NULL, year = NULL, title = NULL,
+  version = NULL, source = NULL, file = "")
 }
 \arguments{
-\item{package}{name of an installed R package.}
+\item{package}{name of one or more installed R packages, or files/folders
+inside \file{bootstrap/initial/software}.}
 
-\item{version}{optional string to specify details about the version, e.g.
-GitHub branch and commit date.}
+\item{author}{author(s) of the software.}
 
-\item{source}{optional string to specify where the software can be accessed.
-This can be a GitHub reference of the form
-\verb{owner/repo[/subdir]@ref}, URL, or a filename.}
+\item{year}{year when this version of the software was released, or the
+publication year of the cited manual/article/etc.}
+
+\item{title}{title or short description of the software.}
+
+\item{version}{string to specify details about the version, e.g. GitHub
+branch and commit date.}
+
+\item{source}{string to specify where the software can be accessed. This can
+be a GitHub reference of the form \verb{owner/repo[/subdir]@ref}, URL,
+or a filename.}
 
 \item{file}{optional filename to save the draft metadata to a file.}
 }
 \value{
-Object of class \verb{Bibtex} that can be copied from the console or exported
-to file using \code{writeLines}.
+Object of class \verb{Bibtex}.
 }
 \description{
 Create an initial draft version of a \file{SOFTWARE.bib} metadata file.
@@ -37,19 +44,20 @@ branch (if different from \verb{master}) and the commit date.
 
 With the default \verb{source = NULL}, the function will automatically
 suggest an appropriate source entry for CRAN and GitHub packages, but for
-other packages it is left to the user to add further information about where
-the software can be accessed.
+other R packages it is left to the user to add information about where the
+software can be accessed.
 
 The default value \code{file = ""} prints the initial draft in the console,
 instead of writing it to a file. The output can then be pasted into a file to
 edit further, without accidentally overwriting an existing metadata file.
 }
 \note{
-After creating the initial draft, the user can complete the \verb{version}
-and \verb{source} fields as required.
+After creating the initial draft, the user can complete the \verb{version},
+\verb{source}, and other fields as required.
 
-This function only handles R packages. To prepare metadata for other
-software, see the \code{\link{process.bib}} help page for an example.
+This function is especially useful for citing exact versions of R packages on
+GitHub. To prepare metadata for software other than R packages, see the
+\code{\link{process.bib}} help page for an example.
 }
 \examples{
 # Print in console

@@ -29,7 +29,8 @@ tag, release, or SHA-1 hash is recommended. Branch names, such as
 reliable as long-term references.
 \item URL starting with \verb{http} or \verb{https}, identifying a file to
 download.
-\item Filename, identifying the location of a file provided by the user.
+\item Relative path starting with \file{initial}, identifying the location of
+a file or folder provided by the user.
 \item Special value \code{file}, indicating that the metadata key points to a
 file location.
 }

@@ -2,12 +2,17 @@
 #'
 #' Create an initial draft version of a \file{SOFTWARE.bib} metadata file.
 #'
-#' @param package name of an installed R package.
-#' @param version optional string to specify details about the version, e.g.
-#'        GitHub branch and commit date.
-#' @param source optional string to specify where the software can be accessed.
-#'        This can be a GitHub reference of the form
-#'        \verb{owner/repo[/subdir]@ref}, URL, or a filename.
+#' @param package name of one or more installed R packages, or files/folders
+#'        inside \file{bootstrap/initial/software}.
+#' @param author author(s) of the software.
+#' @param year year when this version of the software was released, or the
+#'        publication year of the cited manual/article/etc.
+#' @param title title or short description of the software.
+#' @param version string to specify details about the version, e.g. GitHub
+#'        branch and commit date.
+#' @param source string to specify where the software can be accessed. This can
+#'        be a GitHub reference of the form \verb{owner/repo[/subdir]@ref}, URL,
+#'        or a filename.
 #' @param file optional filename to save the draft metadata to a file.
 #'
 #' @details
@@ -21,23 +26,23 @@
 #'
 #' With the default \verb{source = NULL}, the function will automatically
 #' suggest an appropriate source entry for CRAN and GitHub packages, but for
-#' other packages it is left to the user to add further information about where
-#' the software can be accessed.
+#' other R packages it is left to the user to add information about where the
+#' software can be accessed.
 #'
 #' The default value \code{file = ""} prints the initial draft in the console,
 #' instead of writing it to a file. The output can then be pasted into a file to
 #' edit further, without accidentally overwriting an existing metadata file.
 #'
 #' @return
-#' Object of class \verb{Bibtex} that can be copied from the console or exported
-#' to file using \code{writeLines}.
+#' Object of class \verb{Bibtex}.
 #'
 #' @note
-#' After creating the initial draft, the user can complete the \verb{version}
-#' and \verb{source} fields as required.
+#' After creating the initial draft, the user can complete the \verb{version},
+#' \verb{source}, and other fields as required.
 #'
-#' This function only handles R packages. To prepare metadata for other
-#' software, see the \code{\link{process.bib}} help page for an example.
+#' This function is especially useful for citing exact versions of R packages on
+#' GitHub. To prepare metadata for software other than R packages, see the
+#' \code{\link{process.bib}} help page for an example.
 #'
 #' @seealso
 #' \code{\link{citation}} and \code{\link{packageDescription}} are the
@@ -63,26 +68,19 @@
 #'
 #' @export
 
-draft.software <- function(package=NULL, version=NULL, source=NULL, file="")
+draft.software <- function(package, author=NULL, year=NULL, title=NULL,
+                           version=NULL, source=NULL, file="")
 {
-  if(length(package) == 0)
-  {
-    ## Software other than R package
-    out <- c("@Misc{name_of_model,",
-             "  author  = {},",
-             "  year    = {},",
-             "  title   = {},",
-             paste0("  version = {", version, "},"),
-             paste0("  source  = {", source, "},"))
-    class(out) <- "Bibtex"
-  }
-  else if(length(package) > 1)
+  if(length(package) > 1)
   {
     ## Process many packages - mapply requires conversion of NULL to NA
+    author <- if(is.null(author)) NA else author
+    year <- if(is.null(year)) NA else year
+    title <- if(is.null(title)) NA else title
     version <- if(is.null(version)) NA else version
     source <- if(is.null(source)) NA else source
-    z <- mapply(draft.software, package, version=version,
-                source=source, file="", SIMPLIFY=FALSE)
+    z <- mapply(draft.software, package=package, author=author, year=year,
+                title=title, version=version, source=source, SIMPLIFY=FALSE)
     out <- list()
     ## Add newline between entries
     for(i in seq_along(z))
@@ -94,57 +92,17 @@ draft.software <- function(package=NULL, version=NULL, source=NULL, file="")
     out <- out[-length(out)] # remove empty line at end
     class(out) <- "Bibtex"
   }
+  else if(dirname(package) == "bootstrap/initial/software")
+  {
+    out <- ds.file(package=package, author=author, year=year, title=title,
+                   version=version, source=source)
+  }
   else
   {
-    ## 1  Bibliographic info: author, year, title, details
-    bib <- as.list(toBibtex(citation(package)[1]))
-    key <- sub(",$", paste0(package,","), bib[[1]])  # add package name
-    bibtype <- tolower(sub("@(.*)\\{.*", "\\1", key))
-    details <- switch(bibtype,
-                      article=c(bib$journal, bib$volume, bib$number,
-                                bib$pages, bib$doi),
-                      book=c(bib$edition, bib$address, bib$publisher, bib$doi),
-                      inbook=c(bib$edition, bib$address, bib$publisher,
-                               bib$pages, bib$doi),
-                      techreport=c(bib$institution, bib$edition,
-                                   bib$number, bib$note, bib$doi),
-                      thesis=c(bib$type, bib$school),
-                      c(bib$edition, bib$doi))
-
-    ## 2  Package info: version, source
-    pkg <- packageDescription(package)
-    repotype <- if(isTRUE(pkg$Repository == "CRAN")) "CRAN"
-                else if(isTRUE(pkg$RemoteType == "github")) "GitHub"
-                else if(!is.null(pkg$Repository)) pkg$Repository
-                else NA_character_
-    if(is.null(version) || is.na(version))  # catch NA from mapply
-    {
-      released <- if(isTRUE(repotype == "CRAN"))
-                    paste(", released", substring(pkg$"Date/Publication",1,10))
-      version <- paste0(pkg$Version, released)
-    }
-    version <- paste0("  version = {", version, "},")
-    if(is.null(source) || is.na(source))  # catch NA from mapply
-    {
-      source <- switch(repotype,
-                       CRAN=paste0("cran/", package, "@", pkg$Version),
-                       GitHub=paste0(pkg$GithubUsername,
-                                     "/", pkg$GithubRepo,
-                                     if(!is.null(pkg$GithubSubdir))
-                                       paste0("/", pkg$GithubSubdir),
-                                     "@", substring(pkg$GithubSHA1, 1, 7)))
-    }
-    source <- paste0("  source = {", source, "},")
-
-    ## 3  Combine and format metadata
-    fields <- c(bib$author, bib$year, bib$title, details, version, source)
-    fields <- strsplit(fields, "=")  # align at equals sign
-    fields <- paste0(format(sapply(fields,"[",1)), "=", sapply(fields,"[",2))
-    out <- c(key, fields, "}")
-    class(out) <- "Bibtex"
+    out <- ds.package(package=package, author=author, year=year, title=title,
+                      version=version, source=source)
   }
 
-  ## 4  Export
   ## No write() when file="", to ensure quiet assignment x <- draft.software()
   if(file == "")
   {
