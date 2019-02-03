@@ -1,13 +1,15 @@
 --------------------------------------------------------------------------------
 icesTAF 2.1-1 (2019-01-30)
 --------------------------------------------------------------------------------
-o Improved process.bib() so it does not require taf.bootstrap() to create 'data'
-  and 'software' directories.
-
 o Added arguments 'author', 'year', and 'title' to draft.software(), and
   improved it so it also handles software other than R packages.
 
+o Added argument 'clean' to taf.bootstrap().
+
 o Added argument 'create' to taf.library().
+
+o Improved process.bib() so it does not require taf.bootstrap() to create 'data'
+  and 'software' directories.
 
 
 

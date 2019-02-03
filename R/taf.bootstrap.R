@@ -3,6 +3,10 @@
 #' Set up data files and software required for the analysis. Model configuration
 #' files are also set up, if found.
 #'
+#' @param clean whether to \code{\link{clean}} all TAF directories
+#'        (\verb{bootstrap}, \verb{data}, \verb{model}, \verb{output},
+#'        \verb{report}) before initiating the bootstrap procedure.
+#'
 #' @note
 #' This function should be called from the top directory of a TAF analysis. It
 #' looks for a directory called \file{bootstrap} and prepares data files and
@@ -46,17 +50,20 @@
 #'
 #' @export
 
-taf.bootstrap <- function()
+taf.bootstrap <- function(clean=TRUE)
 {
+  if(clean)
+    clean(c("bootstrap", "data", "model", "output", "report"))
+
   if(file.exists("bootstrap.R"))
   {
     sourceTAF("bootstrap.R")
   }
   else
   {
-    msg("Bootstrap procedure running...")
     if(!dir.exists("bootstrap"))
-      stop("'bootstrap' directory not found")
+      return(invisible(NULL))  # nothing to do
+    msg("Bootstrap procedure running...")
 
     ## Enable TAF library
     taf.library(quiet=TRUE)

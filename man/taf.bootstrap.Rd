@@ -4,7 +4,12 @@
 \alias{taf.bootstrap}
 \title{Bootstrap TAF Analysis}
 \usage{
-taf.bootstrap()
+taf.bootstrap(clean = TRUE)
+}
+\arguments{
+\item{clean}{whether to \code{\link{clean}} all TAF directories
+(\verb{bootstrap}, \verb{data}, \verb{model}, \verb{output},
+\verb{report}) before initiating the bootstrap procedure.}
 }
 \description{
 Set up data files and software required for the analysis. Model configuration
