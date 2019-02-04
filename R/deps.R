@@ -28,6 +28,7 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
+#' \dontrun{
 #' dir <- system.file(package="MASS", "scripts")
 #' script <- system.file(package="MASS", "scripts/ch08.R")
 #'
@@ -38,7 +39,6 @@
 #' deps(dir)
 #' deps(dir, list=TRUE)
 #'
-#' \dontrun{
 #' deps(dir, available=FALSE)  # dependencies that might be unavailable
 #' }
 #'
