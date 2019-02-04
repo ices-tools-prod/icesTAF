@@ -10,17 +10,16 @@ Functions to support the ICES Transparent Assessment Framework, to organize
 data, methods, and results used in ICES assessments.
 }
 \details{
-\emph{Web services:}
+\emph{Initial TAF steps:}
 \tabular{ll}{
-  \code{\link{download}} \tab download file in binary mode
+  \code{\link{draft.data}}     \tab draft DATA.bib file\cr
+  \code{\link{draft.software}} \tab draft SOFTWARE.bib file\cr
+  \code{\link{taf.bootstrap}}  \tab set up data files and software\cr
+  \code{\link{taf.skeleton}}   \tab create empty TAF template
 }
-\emph{Read and write files:}
+\emph{Running scripts:}
 \tabular{ll}{
-  \code{\link{read.taf}}  \tab read TAF table from file\cr
-  \code{\link{write.taf}} \tab write TAF table to file
-}
-\emph{Run scripts:}
-\tabular{ll}{
+  \code{\link{clean}}     \tab clean TAF directories\cr
   \code{\link{make}}      \tab run R script if needed\cr
   \code{\link{makeAll}}   \tab run all TAF scripts as needed\cr
   \code{\link{makeTAF}}   \tab run TAF script if needed\cr
@@ -28,26 +27,19 @@ data, methods, and results used in ICES assessments.
   \code{\link{sourceAll}} \tab run all TAF scripts\cr
   \code{\link{sourceTAF}} \tab run TAF script
 }
-\emph{Work with metadata:}
+\emph{File management:}
 \tabular{ll}{
-  \code{\link{draft.data}}     \tab draft DATA.bib file\cr
-  \code{\link{draft.software}} \tab draft SOFTWARE.bib file\cr
-  \code{\link{process.bib}}    \tab read and process metadata\cr
-  \code{\link{taf.bootstrap}}  \tab set up data files and software
+  \code{\link{cp}}          \tab copy files\cr
+  \code{\link{mkdir}}       \tab create directory\cr
+  \code{\link{os.linux}}    \tab operating system\cr
+  \code{\link{os.macos}}    \tab operating system\cr
+  \code{\link{os.windows}}  \tab operating system\cr
+  \code{\link{read.taf}}    \tab read TAF table from file\cr
+  \code{\link{taf.library}} \tab enable TAF library\cr
+  \code{\link{taf.unzip}}   \tab unzip file\cr
+  \code{\link{write.taf}}   \tab write TAF table to file
 }
-\emph{Other file management:}
-\tabular{ll}{
-  \code{\link{clean}}        \tab clean TAF directories\cr
-  \code{\link{cp}}           \tab copy files\cr
-  \code{\link{dos2unix}}     \tab convert line endings\cr
-  \code{\link{mkdir}}        \tab create directory\cr
-  \code{\link{rmdir}}        \tab remove directory\cr
-  \code{\link{taf.library}}  \tab enable TAF library\cr
-  \code{\link{taf.skeleton}} \tab create empty TAF template\cr
-  \code{\link{taf.unzip}}    \tab unzip file\cr
-  \code{\link{unix2dos}}     \tab convert line endings
-}
-\emph{Table tools:}
+\emph{Tables:}
 \tabular{ll}{
   \code{\link{div}}      \tab divide column values\cr
   \code{\link{flr2taf}}  \tab convert FLR to TAF\cr
@@ -59,11 +51,11 @@ data, methods, and results used in ICES assessments.
   \code{\link{tt}}       \tab transpose TAF table\cr
   \code{\link{xtab2taf}} \tab convert crosstab to TAF
 }
-\emph{Plotting tools:}
+\emph{Plots:}
 \tabular{ll}{
   \code{\link{lim}}        \tab compute axis limits\cr
   \code{\link{taf.colors}} \tab predefined colors\cr
-  \code{\link{tafpng}}     \tab open PNG graphics device
+  \code{\link{taf.png}}    \tab open PNG graphics device
 }
 \emph{Example tables:}
 \tabular{ll}{
@@ -72,13 +64,19 @@ data, methods, and results used in ICES assessments.
   \code{\link{catage.xtab}} \tab crosstab format\cr
   \code{\link{summary.taf}} \tab summary results
 }
+\emph{Administrative tools, rarely used in scripts:}
+\tabular{ll}{
+  \code{\link{dos2unix}}       \tab convert line endings\cr
+  \code{\link{enc}}            \tab file encoding\cr
+  \code{\link{latin1.to.utf8}} \tab convert file encoding\cr
+  \code{\link{process.bib}}    \tab read and process metadata\cr
+  \code{\link{rmdir}}          \tab remove empty directory\cr
+  \code{\link{unix2dos}}       \tab convert line endings
+}
 \emph{Administrative tools:}
 \tabular{ll}{
-  \code{\link{deps}}       \tab list dependencies\cr
-  \code{\link{os}}         \tab operating system\cr
-  \code{\link{os.linux}}   \tab operating system\cr
-  \code{\link{os.macos}}   \tab operating system\cr
-  \code{\link{os.windows}} \tab operating system
+  \code{\link{deps}}     \tab list dependencies\cr
+  \code{\link{download}} \tab download file in binary mode\cr
 }
 }
 \references{
