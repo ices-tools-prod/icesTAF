@@ -53,7 +53,7 @@
 
 taf.library <- function(create=TRUE, quiet=FALSE)
 {
-  if(!dir.exists("bootstrap/library") && create)
+  if(create && !dir.exists("bootstrap/library"))
   {
     mkdir("bootstrap/library")
     if(!quiet)
