@@ -12,7 +12,9 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
-#' plot(rivers, ylim=lim(rivers))
+#' plot(precip)
+#' plot(precip, ylim=lim(precip))
+#' plot(precip, ylim=lim(precip), yaxs="i")
 #'
 #' @export
 

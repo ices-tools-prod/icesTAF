@@ -19,7 +19,9 @@ Compute axis limits. The lower limit is 0 and the upper limit is determined
 by the highest data value, times a multiplier.
 }
 \examples{
-plot(rivers, ylim=lim(rivers))
+plot(precip)
+plot(precip, ylim=lim(precip))
+plot(precip, ylim=lim(precip), yaxs="i")
 
 }
 \seealso{
