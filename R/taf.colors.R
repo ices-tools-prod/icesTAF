@@ -6,7 +6,7 @@
 #'
 #' @title TAF Colors
 #'
-#' @description Predefined colors for TAF plots.
+#' @description Predefined colors that can be useful in TAF plots.
 #'
 #' @usage
 #' taf.green

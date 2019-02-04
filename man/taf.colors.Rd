@@ -17,7 +17,7 @@ taf.dark
 taf.light
 }
 \description{
-Predefined colors for TAF plots.
+Predefined colors that can be useful in TAF plots.
 }
 \examples{
 taf.green
