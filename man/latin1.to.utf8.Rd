@@ -13,12 +13,12 @@ latin1.to.utf8(file, force = FALSE)
 the file is currently \code{"latin1"} encoded. Not recommended.}
 }
 \description{
-Convert file encoding from \verb{latin1} to \verb{UTF-8}.
+Convert file encoding from \verb{"latin1"} to \verb{"UTF-8"}.
 }
 \details{
 This function should only be used on a file that is currently \code{"latin1"}
-encoded. The default behavior is to verify this using
-\code{\link{enc.latin1}}, but this check can be suppressed with
+encoded. The default behavior is to verify this with
+\code{\link{enc.latin1}}, but this check can be suppressed using
 \code{force = TRUE}.
 }
 \note{
