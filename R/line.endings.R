@@ -25,7 +25,7 @@
 line.endings <- function(file)
 {
   ## Read file as bytes
-  bytes <- readBin(file, what="raw", n=1e4)
+  bytes <- readBin(file, what="raw", n=1e4, endian="little")
   bytes <- paste(bytes, collapse=" ")
 
   ## Check if file contains CRLF (0d 0a)
