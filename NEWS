@@ -1,10 +1,13 @@
 --------------------------------------------------------------------------------
-icesTAF 2.2-0 (2019-02-04)
+icesTAF 2.2-0 (2019-02-20)
 --------------------------------------------------------------------------------
 o Added functions enc(), enc.latin1(), enc.na(), enc.unknown(), and enc.utf8()
   to examine file encoding.
 
-o Added function latin1.to.utf8() to convert file encoding.
+o Added functions latin1.to.utf8() and utf8.to.latin1() to convert file
+  encoding.
+
+o Added function line.endings() to examine line endings.
 
 o Added arguments 'author', 'year', and 'title' to draft.software(), and
   improved it so it also handles software other than R packages.

@@ -1,20 +1,13 @@
-#' Convert Latin 1 to UTF-8
+#' Convert File Encoding
 #'
-#' Convert file encoding from \verb{"latin1"} to \verb{"UTF-8"}.
+#' Convert file encoding between \verb{"latin1"} and \verb{"UTF-8"}.
 #'
-#' @param file filename of a text file, e.g. source code or data.
-#' @param force whether to perform the conversion even when it's not clear that
-#'        the file is currently \code{"latin1"} encoded. Not recommended.
-#'
-#' @details
-#' This function should only be used on a file that is currently \code{"latin1"}
-#' encoded. The default behavior is to verify this with
-#' \code{\link{enc.latin1}}, but this check can be suppressed using
-#' \code{force = TRUE}.
+#' @param file a filename.
+#' @param force whether to perform the conversion even if the current file
+#'        encoding cannot be verified with \code{\link{enc}}. Not recommended.
 #'
 #' @note
-#' For robust and efficient batch conversion of multiple files, the
-#' \command{iconv} shell command is more appropriate.
+#' Text files in TAF that have non-ASCII characters must be encoded as UTF-8.
 #'
 #' @seealso
 #' \code{\link{Encoding}} examines the encoding of a string.
@@ -25,6 +18,7 @@
 #'
 #' @examples
 #' \dontrun{
+#' utf8.to.latin1("data.txt")
 #' latin1.to.utf8("data.txt")
 #' }
 #'
