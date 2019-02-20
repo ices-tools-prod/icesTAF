@@ -25,6 +25,12 @@ encoded. The default behavior is to verify this with
 For robust and efficient batch conversion of multiple files, the
 \command{iconv} shell command is more appropriate.
 }
+\examples{
+\dontrun{
+latin1.to.utf8("data.txt")
+}
+
+}
 \seealso{
 \code{\link{Encoding}} examines the encoding of a string.
 

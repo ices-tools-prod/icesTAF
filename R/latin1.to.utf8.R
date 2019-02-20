@@ -23,18 +23,29 @@
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
+#' @examples
+#' \dontrun{
+#' latin1.to.utf8("data.txt")
+#' }
+#'
 #' @export
-
 
 latin1.to.utf8 <- function(file, force=FALSE)
 {
   if(!force && !isTRUE(enc.latin1(file)))
   {
-    warning("could not verify that the file is 'latin1' encoded, so skipped")
+    warning("could not verify that file is 'latin1' encoded, nothing done")
     return(invisible(NULL))
   }
 
+  ## Remember original line endings
+  ole <- line.endings(file)
+
+  ## Convert file encoding latin1 -> UTF-8
   txt <- readLines(file, encoding="latin1")
-  txt <- enc2utf8(txt)
-  writeLines(txt, file)
+  txt <- iconv(txt, to="UTF-8")
+  writeLines(txt, file, useBytes=TRUE)
+
+  ## Retain original line endings
+  switch(ole, Dos=unix2dos(file), Unix=dos2unix(file))
 }
