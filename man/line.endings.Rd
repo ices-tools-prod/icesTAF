@@ -10,8 +10,7 @@ line.endings(file)
 \item{file}{filename of a text file, e.g. source code or data.}
 }
 \value{
-String indicating the line endings: \code{"Dos"}, \code{"Unix"}, or
-\code{NA}.
+String indicating the line endings: \code{"Dos"} or \code{"Unix"}.
 }
 \description{
 Examine whether file has Dos or Unix line endings.

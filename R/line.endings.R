@@ -5,8 +5,7 @@
 #' @param file filename of a text file, e.g. source code or data.
 #'
 #' @return
-#' String indicating the line endings: \code{"Dos"}, \code{"Unix"}, or
-#' \code{NA}.
+#' String indicating the line endings: \code{"Dos"} or \code{"Unix"}.
 #'
 #' @seealso
 #' \code{\link{enc}} examines the encoding of a file.
@@ -25,18 +24,14 @@
 
 line.endings <- function(file)
 {
-  ## Examine file using the 'file' shell command
-  info <- try(system(paste("file", file), intern=TRUE,
-                     ignore.stderr=TRUE), silent=TRUE)
+  ## Read file as bytes
+  bytes <- readBin(file, what="raw", n=1e4)
+  bytes <- paste(bytes, collapse=" ")
 
-  ## If that didn't work, try Rtools
-  if(class(info) == "try-error")
-    info <- try(system(paste("c:/Rtools/bin/file", file), intern=TRUE,
-                       ignore.stderr=TRUE), silent=TRUE)
+  ## Check if file contains CRLF (0d 0a)
+  CRLF <- grepl("0d 0a", bytes)
 
-  ## Remember original line endings
-  out <- if(grepl(":.*CRLF",info)) "Dos"
-         else if(class(info) == "try-error") "Unknown"
-         else "Unix"
+  ## Return string
+  out <- if(CRLF) "Dos" else "Unix"
   out
 }
