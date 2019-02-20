@@ -11,14 +11,13 @@ taf.skeleton(name = "analysis", path = ".", force = FALSE)
 
 \item{path}{path to create the analysis directory in.}
 
-\item{force}{whether to overwrite an existing directory.}
+\item{force}{whether to overwrite existing scripts.}
 }
 \value{
 Full path to analysis directory.
 }
 \description{
-Create an empty template for a new TAF analysis: initial directories and R
-scripts with TAF header comments.
+Create initial directories and R scripts for a new TAF analysis.
 }
 \details{
 Use \code{name = "."} to create initial directories and scripts inside the

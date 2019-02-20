@@ -1,11 +1,10 @@
 #' TAF Skeleton
 #'
-#' Create an empty template for a new TAF analysis: initial directories and R
-#' scripts with TAF header comments.
+#' Create initial directories and R scripts for a new TAF analysis.
 #'
 #' @param name main directory name for the analysis.
 #' @param path path to create the analysis directory in.
-#' @param force whether to overwrite an existing directory.
+#' @param force whether to overwrite existing scripts.
 #'
 #' @details
 #' Use \code{name = "."} to create initial directories and scripts inside the
@@ -28,7 +27,7 @@
 taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
 {
   # only overwrite files if force = TRUE
-  safe.cat <- function(..., file = "", force = FALSE) {
+  safe.cat <- function(..., file, force) {
     if (!file.exists(file) || force) {
       cat(..., file = file)
     }
@@ -43,7 +42,8 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
   mkdir("bootstrap/initial/data")
 
   # define headers
-  template <- "## %s\n\n## Before:\n## After:\n\n"
+  template <- paste0("## %s\n\n## Before:\n## After:\n\n",
+                     "library(icesTAF)\n\nmkdir(\"%s\")\n\n")
   headers <- list(
     data = "Preprocess data, write TAF data tables",
     model = "Run analysis, write model results",
@@ -52,8 +52,8 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
 
   # create TAF scripts
   for (section in names(headers)) {
-    safe.cat(file = paste0(section, ".R"),
-             sprintf(template, headers[[section]]),
+    safe.cat(sprintf(template, headers[[section]], section),
+             file = paste0(section, ".R"),
              force = force)
   }
 
