@@ -66,7 +66,9 @@ data, methods, and results used in ICES assessments.
 }
 \emph{Administrative tools, rarely used in scripts:}
 \tabular{ll}{
+  \code{\link{deps}}           \tab list dependencies\cr
   \code{\link{dos2unix}}       \tab convert line endings\cr
+  \code{\link{download}}       \tab download file\cr
   \code{\link{enc}}            \tab file encoding\cr
   \code{\link{latin1.to.utf8}} \tab convert file encoding\cr
   \code{\link{line.endings}}   \tab examine line endings\cr
@@ -74,11 +76,6 @@ data, methods, and results used in ICES assessments.
   \code{\link{rmdir}}          \tab remove empty directory\cr
   \code{\link{unix2dos}}       \tab convert line endings\cr
   \code{\link{utf8.to.latin1}} \tab convert file encoding
-}
-\emph{Administrative tools:}
-\tabular{ll}{
-  \code{\link{deps}}     \tab list dependencies\cr
-  \code{\link{download}} \tab download file
 }
 }
 \references{
