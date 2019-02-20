@@ -1,4 +1,4 @@
-#' Download File in Binary Mode
+#' Download File
 #'
 #' Download a file in binary mode, e.g. a model executable.
 #'

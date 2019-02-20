@@ -78,7 +78,7 @@ data, methods, and results used in ICES assessments.
 \emph{Administrative tools:}
 \tabular{ll}{
   \code{\link{deps}}     \tab list dependencies\cr
-  \code{\link{download}} \tab download file in binary mode\cr
+  \code{\link{download}} \tab download file
 }
 }
 \references{

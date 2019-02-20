@@ -2,7 +2,7 @@
 % Please edit documentation in R/download.R
 \name{download}
 \alias{download}
-\title{Download File in Binary Mode}
+\title{Download File}
 \usage{
 download(url, dir = ".", mode = "wb", chmod = file_ext(url) == "",
   destfile = file.path(dir, basename(url)), quiet = TRUE, ...)
