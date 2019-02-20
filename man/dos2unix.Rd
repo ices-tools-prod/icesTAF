@@ -31,9 +31,7 @@ file.remove(file)
 
 }
 \seealso{
-\code{\link{file}} is used to open a binary connection to the text file.
-
-\code{\link{writeLines}} is used to apply CRLF or LF line endings.
+\code{\link{line.endings}} examines line endings.
 
 \code{\link{write.taf}} uses \code{unix2dos} to ensure that the resulting
 files have Dos line endings.
