@@ -62,8 +62,8 @@ enc <- function(file)
                        ignore.stderr=TRUE), silent=TRUE)
 
   ## Return latin1, UTF-8, unknown, or NA
-  out <- if(grepl("ISO-8859",info)) "latin1"
-         else if(grepl("UTF-8",info)) "UTF-8"
+  out <- if(grepl(":.*ISO-8859",info)) "latin1"
+         else if(grepl(":.*UTF-8",info)) "UTF-8"
          else if(class(info) == "try-error") NA_character_
          else "unknown"
   out
