@@ -8,7 +8,7 @@
 #' String indicating the line endings: \code{"Dos"} or \code{"Unix"}.
 #'
 #' @seealso
-#' \code{\link{enc}} examines the encoding of a file.
+#' \code{\link{file.encoding}} examines the encoding of a file.
 #'
 #' \code{\link{dos2unix}} and \code{\link{unix2dos}} convert line endings.
 #'

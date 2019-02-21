@@ -13,7 +13,8 @@ utf8.to.latin1(file, force = FALSE)
 \item{file}{a filename.}
 
 \item{force}{whether to perform the conversion even if the current file
-encoding cannot be verified with \code{\link{enc}}. Not recommended.}
+encoding cannot be verified with \code{\link{file.encoding}}. Not
+recommended.}
 }
 \description{
 Convert file encoding between \verb{"latin1"} and \verb{"UTF-8"}.
@@ -31,7 +32,7 @@ latin1.to.utf8("data.txt")
 \seealso{
 \code{\link{iconv}} converts the encoding of a string.
 
-\code{\link{enc}} examines the encoding of a file.
+\code{\link{file.encoding}} examines the encoding of a file.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

@@ -70,7 +70,7 @@
 #'   \code{\link{deps}}           \tab list dependencies\cr
 #'   \code{\link{dos2unix}}       \tab convert line endings\cr
 #'   \code{\link{download}}       \tab download file\cr
-#'   \code{\link{enc}}            \tab file encoding\cr
+#'   \code{\link{file.encoding}}  \tab examine file encoding\cr
 #'   \code{\link{latin1.to.utf8}} \tab convert file encoding\cr
 #'   \code{\link{line.endings}}   \tab examine line endings\cr
 #'   \code{\link{process.bib}}    \tab read and process metadata\cr

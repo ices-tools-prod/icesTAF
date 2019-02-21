@@ -4,7 +4,8 @@
 #'
 #' @param file a filename.
 #' @param force whether to perform the conversion even if the current file
-#'        encoding cannot be verified with \code{\link{enc}}. Not recommended.
+#'        encoding cannot be verified with \code{\link{file.encoding}}. Not
+#'        recommended.
 #'
 #' @note
 #' In TAF, text files that have non-ASCII characters must be encoded as UTF-8.
@@ -12,7 +13,7 @@
 #' @seealso
 #' \code{\link{iconv}} converts the encoding of a string.
 #'
-#' \code{\link{enc}} examines the encoding of a file.
+#' \code{\link{file.encoding}} examines the encoding of a file.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -26,7 +27,7 @@
 
 latin1.to.utf8 <- function(file, force=FALSE)
 {
-  if(!isTRUE(enc(file)=="latin1") && !force)
+  if(!isTRUE(file.encoding(file)=="latin1") && !force)
   {
     warning("could not verify that file is 'latin1' encoded, nothing done")
     return(invisible(NULL))

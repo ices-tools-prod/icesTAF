@@ -5,8 +5,7 @@
 #' @param file a filename.
 #'
 #' @return
-#' \code{enc} returns \code{"latin1"}, \code{"UTF-8"}, \code{"unknown"}, or
-#' \code{NA}.
+#' \code{"latin1"}, \code{"UTF-8"}, \code{"unknown"}, or \code{NA}.
 #'
 #' This function requires the \command{file} shell command. If the
 #' \command{file} utility is not found in the path, this function looks for it
@@ -25,19 +24,21 @@
 #' \code{\link{latin1.to.utf8}} converts files from \verb{latin1} to
 #' \verb{UTF-8} encoding.
 #'
+#' \code{\link{line.endings}} examines line endings.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
 #' \dontrun{
 #' file.base <- system.file(package="base", "DESCRIPTION")
 #' file.nlme <- system.file(package="nlme", "DESCRIPTION")
-#' enc(file.base)  # ASCII
-#' enc(file.nlme)
+#' file.encoding(file.base)  # ASCII
+#' file.encoding(file.nlme)
 #' }
 #'
 #' @export
 
-enc <- function(file)
+file.encoding <- function(file)
 {
   if(!file.exists(file))
     stop("file not found")

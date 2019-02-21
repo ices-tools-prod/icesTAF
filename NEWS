@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 icesTAF 2.2-0 (2019-02-20)
 --------------------------------------------------------------------------------
-o Added function enc() to examine file encoding. Added functions
+o Added function file.encoding() to examine file encoding. Added functions
   latin1.to.utf8() and utf8.to.latin1() to convert file encoding.
 
 o Added function line.endings() to examine line endings.
