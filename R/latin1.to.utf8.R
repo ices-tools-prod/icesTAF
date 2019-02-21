@@ -26,7 +26,7 @@
 
 latin1.to.utf8 <- function(file, force=FALSE)
 {
-  if(!force && !isTRUE(enc.latin1(file)))
+  if(!isTRUE(enc(file)=="latin1") && !force)
   {
     warning("could not verify that file is 'latin1' encoded, nothing done")
     return(invisible(NULL))

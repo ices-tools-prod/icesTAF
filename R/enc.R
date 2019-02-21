@@ -2,30 +2,22 @@
 #'
 #' Examine file encoding.
 #'
-#' @param file filename of a text file, e.g. source code or data.
+#' @param file a filename.
 #'
 #' @return
-#' \code{enc} returns \code{"latin1"}, \code{"UTF-8"}, or \code{"unknown"}.
+#' \code{enc} returns \code{"latin1"}, \code{"UTF-8"}, \code{"unknown"}, or
+#' \code{NA}.
 #'
-#' \code{enc.latin1}, \code{enc.unknown}, and \code{enc.utf8} return \code{TRUE}
-#' or \code{FALSE}.
-#'
-#' These functions require the \command{file} shell command. If the
+#' This function requires the \command{file} shell command. If the
 #' \command{file} utility is not found in the path, this function looks for it
-#' inside \file{c:/Rtools/bin}. If the required software is not installed, all
-#' the above functions return \code{NA}.
-#'
-#' \code{enc.na} returns \code{TRUE} or \code{FALSE}, indicating whether file
-#' encodings are not available because of missing software.
+#' inside \file{c:/Rtools/bin}. If the required software is not installed, this
+#' function returns \code{NA}.
 #'
 #' @note
-#' The encoding \code{"unknown"} refers to an ASCII text file or a binary file.
+#' The encoding \code{"unknown"} indicates that the file is an ASCII text file
+#' or a binary file.
 #'
-#' When examining a given file, only one of the \verb{enc.*} test functions will
-#' return \code{TRUE}, while the others return \code{FALSE} or \code{NA}.
-#'
-#' In TAF, all text files that have non-ASCII characters are required to be
-#' encoded as \code{"UTF-8"}, not \code{"latin1"}.
+#' In TAF, text files that have non-ASCII characters must be encoded as UTF-8.
 #'
 #' @seealso
 #' \code{\link{Encoding}} examines the encoding of a string.
@@ -37,12 +29,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' file <- system.file(package="nlme", "DESCRIPTION")
-#' enc(file)
-#' enc.latin1(file)
-#' enc.na(file)
-#' enc.unknown(file)
-#' enc.utf8(file)
+#' file.base <- system.file(package="base", "DESCRIPTION")
+#' file.nlme <- system.file(package="nlme", "DESCRIPTION")
+#' enc(file.base)  # ASCII
+#' enc(file.nlme)
 #' }
 #'
 #' @export
@@ -67,49 +57,4 @@ enc <- function(file)
          else if(class(info) == "try-error") NA_character_
          else "unknown"
   out
-}
-
-#' @rdname enc
-#'
-#' @export
-
-enc.latin1 <- function(file)
-{
-  if(is.na(enc(file)))
-    NA
-  else
-    enc(file) == "latin1"
-}
-
-#' @rdname enc
-#'
-#' @export
-
-enc.na <- function(file)
-{
-  is.na(enc(file))
-}
-
-#' @rdname enc
-#'
-#' @export
-
-enc.unknown <- function(file)
-{
-  if(is.na(enc(file)))
-    NA
-  else
-    enc(file) == "unknown"
-}
-
-#' @rdname enc
-#'
-#' @export
-
-enc.utf8 <- function(file)
-{
-  if(is.na(enc(file)))
-    NA
-  else
-    enc(file) == "UTF-8"
 }

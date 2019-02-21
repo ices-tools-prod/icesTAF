@@ -1,11 +1,8 @@
 --------------------------------------------------------------------------------
 icesTAF 2.2-0 (2019-02-20)
 --------------------------------------------------------------------------------
-o Added functions enc(), enc.latin1(), enc.na(), enc.unknown(), and enc.utf8()
-  to examine file encoding.
-
-o Added functions latin1.to.utf8() and utf8.to.latin1() to convert file
-  encoding.
+o Added function enc() to examine file encoding. Added functions
+  latin1.to.utf8() and utf8.to.latin1() to convert file encoding.
 
 o Added function line.endings() to examine line endings.
 
@@ -19,7 +16,8 @@ o Added argument 'create' to taf.library().
 o Improved process.bib() so it does not require taf.bootstrap() to create 'data'
   and 'software' directories.
 
-o Improved taf.skeleton() so every script includes library(icesTAF) and mkdir().
+o Improved taf.skeleton() so every script starts with library(icesTAF) and
+  mkdir() to create a working directory.
 
 
 

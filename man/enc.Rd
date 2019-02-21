@@ -2,59 +2,37 @@
 % Please edit documentation in R/enc.R
 \name{enc}
 \alias{enc}
-\alias{enc.latin1}
-\alias{enc.na}
-\alias{enc.unknown}
-\alias{enc.utf8}
 \title{File Encoding}
 \usage{
 enc(file)
-
-enc.latin1(file)
-
-enc.na(file)
-
-enc.unknown(file)
-
-enc.utf8(file)
 }
 \arguments{
-\item{file}{filename of a text file, e.g. source code or data.}
+\item{file}{a filename.}
 }
 \value{
-\code{enc} returns \code{"latin1"}, \code{"UTF-8"}, or \code{"unknown"}.
+\code{enc} returns \code{"latin1"}, \code{"UTF-8"}, \code{"unknown"}, or
+\code{NA}.
 
-\code{enc.latin1}, \code{enc.unknown}, and \code{enc.utf8} return \code{TRUE}
-or \code{FALSE}.
-
-These functions require the \command{file} shell command. If the
+This function requires the \command{file} shell command. If the
 \command{file} utility is not found in the path, this function looks for it
-inside \file{c:/Rtools/bin}. If the required software is not installed, all
-the above functions return \code{NA}.
-
-\code{enc.na} returns \code{TRUE} or \code{FALSE}, indicating whether file
-encodings are not available because of missing software.
+inside \file{c:/Rtools/bin}. If the required software is not installed, this
+function returns \code{NA}.
 }
 \description{
 Examine file encoding.
 }
 \note{
-The encoding \code{"unknown"} refers to an ASCII text file or a binary file.
+The encoding \code{"unknown"} indicates that the file is an ASCII text file
+or a binary file.
 
-When examining a given file, only one of the \verb{enc.*} test functions will
-return \code{TRUE}, while the others return \code{FALSE} or \code{NA}.
-
-In TAF, all text files that have non-ASCII characters are required to be
-encoded as \code{"UTF-8"}, not \code{"latin1"}.
+In TAF, text files that have non-ASCII characters must be encoded as UTF-8.
 }
 \examples{
 \dontrun{
-file <- system.file(package="nlme", "DESCRIPTION")
-enc(file)
-enc.latin1(file)
-enc.na(file)
-enc.unknown(file)
-enc.utf8(file)
+file.base <- system.file(package="base", "DESCRIPTION")
+file.nlme <- system.file(package="nlme", "DESCRIPTION")
+enc(file.base)  # ASCII
+enc(file.nlme)
 }
 
 }
