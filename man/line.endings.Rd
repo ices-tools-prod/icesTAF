@@ -7,7 +7,7 @@
 line.endings(file)
 }
 \arguments{
-\item{file}{filename of a text file, e.g. source code or data.}
+\item{file}{a filename.}
 }
 \value{
 String indicating the line endings: \code{"Dos"} or \code{"Unix"}.

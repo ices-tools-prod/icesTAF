@@ -2,7 +2,7 @@
 #'
 #' Examine whether file has Dos or Unix line endings.
 #'
-#' @param file filename of a text file, e.g. source code or data.
+#' @param file a filename.
 #'
 #' @return
 #' String indicating the line endings: \code{"Dos"} or \code{"Unix"}.
