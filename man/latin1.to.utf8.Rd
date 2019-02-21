@@ -19,7 +19,7 @@ encoding cannot be verified with \code{\link{enc}}. Not recommended.}
 Convert file encoding between \verb{"latin1"} and \verb{"UTF-8"}.
 }
 \note{
-Text files in TAF that have non-ASCII characters must be encoded as UTF-8.
+In TAF, text files that have non-ASCII characters must be encoded as UTF-8.
 }
 \examples{
 \dontrun{
@@ -29,7 +29,7 @@ latin1.to.utf8("data.txt")
 
 }
 \seealso{
-\code{\link{Encoding}} examines the encoding of a string.
+\code{\link{iconv}} converts the encoding of a string.
 
 \code{\link{enc}} examines the encoding of a file.
 

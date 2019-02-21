@@ -7,10 +7,10 @@
 #'        encoding cannot be verified with \code{\link{enc}}. Not recommended.
 #'
 #' @note
-#' Text files in TAF that have non-ASCII characters must be encoded as UTF-8.
+#' In TAF, text files that have non-ASCII characters must be encoded as UTF-8.
 #'
 #' @seealso
-#' \code{\link{Encoding}} examines the encoding of a string.
+#' \code{\link{iconv}} converts the encoding of a string.
 #'
 #' \code{\link{enc}} examines the encoding of a file.
 #'
