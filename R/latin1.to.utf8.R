@@ -37,7 +37,7 @@ latin1.to.utf8 <- function(file, force=FALSE)
 
   ## Convert file encoding latin1 -> UTF-8
   txt <- readLines(file, encoding="latin1")
-  txt <- iconv(txt, to="UTF-8")
+  txt <- iconv(txt, from="latin1", to="UTF-8")
   writeLines(txt, file, useBytes=TRUE)
 
   ## Retain original line endings
