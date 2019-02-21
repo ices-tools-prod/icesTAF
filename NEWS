@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 2.2-0 (2019-02-20)
+icesTAF 2.2-0 (2019-02-21)
 --------------------------------------------------------------------------------
 o Added function file.encoding() to examine file encoding. Added functions
   latin1.to.utf8() and utf8.to.latin1() to convert file encoding.
