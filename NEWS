@@ -19,6 +19,8 @@ o Added argument 'create' to taf.library().
 o Improved process.bib() so it does not require taf.bootstrap() to create 'data'
   and 'software' directories.
 
+o Improved taf.skeleton() so every script includes library(icesTAF) and mkdir().
+
 
 
 
