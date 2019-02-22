@@ -53,6 +53,6 @@ encounter problems or have suggestions for future versions.
 The current development version can be installed using:
 
 ```R
-library(devtools)
+library(remotes)
 install_github("ices-tools-prod/icesTAF")
 ```
