@@ -15,8 +15,8 @@
 #'
 #' @note
 #' One shortcoming of the base \code{unzip} function is that the default
-#' \code{"internal"} method resets file permissions, so Linux executables will
-#' return a \verb{'Permission denied'} error when run.
+#' \code{"internal"} method resets file permissions, so Linux and macOS
+#' executables will return a \verb{'Permission denied'} error when run.
 #'
 #' This function is identical to the base \code{unzip} function, except the
 #' default value \code{unzip = NULL} chooses an appropriate extraction method in
@@ -40,6 +40,6 @@
 taf.unzip <- function(zipfile, files=NULL, exdir=".", unzip=NULL, ...)
 {
   if(is.null(unzip))
-    unzip <- if(.Platform$OS.type == "unix") "unzip" else "internal"
+    unzip <- if(os.windows()) "internal" else "unzip"
   unzip(zipfile=zipfile, files=files, exdir=exdir, unzip=unzip, ...)
 }
