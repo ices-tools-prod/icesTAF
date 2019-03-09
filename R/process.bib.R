@@ -48,21 +48,22 @@
 #' \verb{source = {initial/data/PLE7DFleet_2016.txt}}.
 #'
 #' Another example metadata entry is from a \verb{SOFTWARE.bib} file:
-#' \preformatted{@Manual{icesAdvice,
-#'   author  = {Arni Magnusson and Colin Millar and Anne Cooper},
+#' \preformatted{@Manual{FLAssess,
+#'   author  = {Laurence T Kell},
 #'   year    = {2018},
-#'   title   = {icesAdvice: Functions Related to ICES Advice},
-#'   version = {2.0-0, released 2018-12-07},
-#'   source  = {cran/icesAdvice@2.0-0},
+#'   title   = {{FLAssess}: Generic classes and methods for stock assessment
+#'              models},
+#'   version = {2.6.2, released 2018-07-18},
+#'   source  = {flr/FLAssess@v2.6.2},
 #' }}
 #' This entry describes a specific version of an R package that is required for
 #' the TAF analysis. It is similar, but not identical, to the output from the R
-#' command \verb{citation("icesAdvice")}. The version field specifies the
-#' version number and release date, with a corresponding GitHub reference. When
-#' an R package is not an official release but a development version, the
-#' version and source may look like this,
-#' \preformatted{  version = {2.6.6, committed 2018-02-21},
-#'   source  = {flr/FLCore@d0333c1},}
+#' command \verb{citation("FLAssess")}. The version field specifies the version
+#' number and release date, with a corresponding GitHub reference. When an R
+#' package is not an official release but a development version, the version and
+#' source may look like this,
+#' \preformatted{  version = {2.6.3, committed 2018-10-09},
+#'   source  = {flr/FLAssess@f1e5acb},}
 #' or this:
 #' \preformatted{  version = {0.5.4 components branch, committed 2018-03-12},
 #'   source  = {fishfollower/SAM/stockassessment@25b3591},}
