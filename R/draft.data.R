@@ -4,9 +4,9 @@
 #'
 #' @param originator who prepared the data, e.g. a working group acronym.
 #' @param year year of the analysis when the data were used.
-#' @param title description of the data, including stock code or the like.
+#' @param title description of the data, including survey names or the like.
 #' @param period first and last year that the data cover, separated by a simple
-#'        dash.
+#'        dash, or a single number if the data cover only one year.
 #' @param source where the data originate from. This can be a URL, filename, or
 #'        the special value \code{"file"}.
 #' @param file optional filename to save the draft metadata to a file.
@@ -15,11 +15,10 @@
 #'        \code{data.dir}.
 #'
 #' @details
-#' Typical usage is to specify \code{originator}, \code{year}, and \code{title},
-#' while using the default values for the other arguments. Most data files have
-#' the same originator and year, and the stock code can be entered as a title
-#' placeholder to facilitate completing the entries after creating the initial
-#' draft.
+#' Typical usage is to specify \code{originator} and \code{year}, while using
+#' the default values for the other arguments. Most data files have the same
+#' originator and year, which can be specified to facilitate completing the
+#' entries after creating the initial draft.
 #'
 #' The special value \verb{source = "file"} is described in the
 #' \code{\link{process.bib}} help page, along with other metadata information.
@@ -52,10 +51,10 @@
 #' @examples
 #' \dontrun{
 #' # Print in console
-#' draft.data("WGEF", 2015, "rjm-347d")
+#' draft.data("WGEF", 2015)
 #'
 #' # Export to file
-#' draft.data("WGEF", 2015, "rjm-347d", file="bootstrap/DATA-draft.bib")
+#' draft.data("WGEF", 2015, file="bootstrap/DATA-draft.bib")
 #' }
 #'
 #' @export
