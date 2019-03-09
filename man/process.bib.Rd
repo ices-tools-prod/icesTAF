@@ -23,16 +23,16 @@ software originate from. There are four types of values that can be used in
 the source field:
 \enumerate{
 \item GitHub reference of the form \verb{owner/repo[/subdir]@ref},
-identifying a specific version of an R package. A fixed reference such as a
-tag, release, or SHA-1 hash is recommended. Branch names, such as
-\verb{master}, are pointers that are subject to change, and are therefore not
-reliable as long-term references.
+      identifying a specific version of an R package. A fixed reference such
+      as a tag, release, or SHA-1 hash is recommended. Branch names, such as
+      \verb{master}, are pointers that are subject to change, and are
+      therefore not reliable as long-term references.
 \item URL starting with \verb{http} or \verb{https}, identifying a file to
-download.
+      download.
 \item Relative path starting with \file{initial}, identifying the location of
-a file or folder provided by the user.
+      a file or folder provided by the user.
 \item Special value \code{file}, indicating that the metadata key points to a
-file location.
+      file location.
 }
 
 Consider, for example, the following metadata entry from a \verb{DATA.bib}
