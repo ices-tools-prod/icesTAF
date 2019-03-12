@@ -13,6 +13,7 @@
 #' @param data.dir directory containing data files.
 #' @param data.files data filenames. The default is all files inside
 #'        \code{data.dir}.
+#' @param ... additional arguments passed to \code{\link{write}} function.
 #'
 #' @details
 #' Typical usage is to specify \code{originator} and \code{year}, while using
@@ -48,6 +49,8 @@
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
+#' \code{\link{write}}
+#'
 #' @examples
 #' \dontrun{
 #' # Print in console
@@ -62,7 +65,7 @@
 draft.data <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
                        source="file", file="",
                        data.dir="bootstrap/initial/data",
-                       data.files=dir(data.dir,recursive=TRUE))
+                       data.files=dir(data.dir,recursive=TRUE), ...)
 {
   if(length(data.files) == 0)
     stop("'data.files' is an empty vector")
@@ -91,7 +94,7 @@ draft.data <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
   }
   else
   {
-    write(out, file=file)
+    write(out, file=file, ...)
     invisible(out)
   }
 }
