@@ -6,11 +6,13 @@
 #' \code{os} returns the name of the operating system, typically \code{"Linux"},
 #' \code{"Darwin"}, or \code{"Windows"}.
 #'
-#' \code{os.linux}, \code{os.macos}, and \code{os.windows} return \code{TRUE} or
-#' \code{FALSE}.
+#' \code{os.linux}, \code{os.macos}, \code{os.unix}, and \code{os.windows}
+#' return \code{TRUE} or \code{FALSE}.
 #'
 #' @note
 #' The macOS operating system identifies itself as \code{"Darwin"}.
+#'
+#' Both Linux and macOS are \code{os.unix}.
 #'
 #' These shorthand functions can be useful when writing workaround solutions in
 #' platform-independent scripts.
@@ -25,9 +27,8 @@
 #' os()
 #' os.linux()
 #' os.macos()
+#' os.unix()
 #' os.windows()
-#'
-#' @aliases os.unix
 #'
 #' @export
 
@@ -63,6 +64,11 @@ os.windows <- function()
   os() == "Windows"
 }
 
+#' @rdname os
+#'
 #' @export
 
-os.unix <- os.linux
+os.unix <- function()
+{
+  os.linux() || os.macos()
+}
