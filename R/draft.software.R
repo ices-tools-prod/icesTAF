@@ -61,7 +61,7 @@
 #'
 #' \dontrun{
 #' # Export to file
-#' draft.software("icesTAF", file="bootstrap/SOFTWARE-draft.bib")
+#' draft.software("icesTAF", file="bootstrap/SOFTWARE.bib")
 #' }
 #'
 #' @importFrom utils citation packageDescription toBibtex

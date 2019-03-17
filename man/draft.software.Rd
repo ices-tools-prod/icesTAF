@@ -65,7 +65,7 @@ draft.software("icesTAF")
 
 \dontrun{
 # Export to file
-draft.software("icesTAF", file="bootstrap/SOFTWARE-draft.bib")
+draft.software("icesTAF", file="bootstrap/SOFTWARE.bib")
 }
 
 }

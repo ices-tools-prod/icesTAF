@@ -54,7 +54,7 @@
 #' draft.data("WGEF", 2015)
 #'
 #' # Export to file
-#' draft.data("WGEF", 2015, file="bootstrap/DATA-draft.bib")
+#' draft.data("WGEF", 2015, file="bootstrap/DATA.bib")
 #' }
 #'
 #' @export
