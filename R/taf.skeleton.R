@@ -48,7 +48,7 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
     data = "Preprocess data, write TAF data tables",
     model = "Run analysis, write model results",
     output = "Extract results of interest, write TAF output tables",
-    report = "Prepare plots/tables for report")
+    report = "Prepare plots and tables for report")
 
   # create TAF scripts
   for (section in names(headers)) {
