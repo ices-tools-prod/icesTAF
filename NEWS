@@ -1,4 +1,14 @@
 --------------------------------------------------------------------------------
+icesTAF 2.2-1 (2019-03-20)
+--------------------------------------------------------------------------------
+o Improved os.unix() so it recognizes both Linux and macOS operating systems.
+
+o Improved write.taf() so file="" prints to screen, regardless of dir.
+
+
+
+
+--------------------------------------------------------------------------------
 icesTAF 2.2-0 (2019-02-22)
 --------------------------------------------------------------------------------
 o Added function file.encoding() to examine file encoding. Added functions
@@ -32,7 +42,7 @@ o Added functions draft.data() and draft.software() to create initial draft
   versions of metadata files.
 
 o Added functions os(), os.linux() and os.macos() to detect more operating
-  systems than before. Removed os.unix().
+  systems than before.
 
 o Updated colors (taf.green, taf.orange, taf.blue, taf.dark, taf.light) to make
   them equally intense and easy to distinguish.
