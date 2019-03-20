@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 icesTAF 2.2-1 (2019-03-20)
 --------------------------------------------------------------------------------
+o Added arguments 'config', 'data', and 'software' to taf.bootstrap().
+
 o Improved os.unix() so it recognizes both Linux and macOS operating systems.
 
 o Improved write.taf() so file="" prints to screen, regardless of dir.

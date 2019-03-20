@@ -4,12 +4,19 @@
 \alias{taf.bootstrap}
 \title{Bootstrap TAF Analysis}
 \usage{
-taf.bootstrap(clean = TRUE)
+taf.bootstrap(clean = TRUE, config = TRUE, data = TRUE,
+  software = TRUE)
 }
 \arguments{
 \item{clean}{whether to \code{\link{clean}} all TAF directories
 (\verb{bootstrap}, \verb{data}, \verb{model}, \verb{output},
 \verb{report}) before initiating the bootstrap procedure.}
+
+\item{config}{whether to process configuration files.}
+
+\item{data}{whether to process data.}
+
+\item{software}{whether to process software.}
 }
 \description{
 Set up data files and software required for the analysis. Model configuration
@@ -23,11 +30,11 @@ software according to metadata specifications.
 The bootstrap procedure consists of the following steps:
 \enumerate{
 \item If a directory \verb{bootstrap/initial/config} contains model
-configuration files, they are copied to \verb{bootstrap/config}.
+      configuration files, they are copied to \verb{bootstrap/config}.
 \item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed
-with \code{\link{process.bib}}.
+      with \code{\link{process.bib}}.
 \item If a \verb{bootstrap/SOFTWARE.bib} metadata file exists, it is
-processed with \code{\link{process.bib}}.
+      processed with \code{\link{process.bib}}.
 }
 
 To override this default bootstrap procedure, the user can create a custom
@@ -41,9 +48,9 @@ populates up to four new directories:
 \item \verb{bootstrap/config} with model configuration files.
 \item \verb{bootstrap/data} with data files.
 \item \verb{bootstrap/library} with R packages compiled for the local
-platform.
+      platform.
 \item \verb{bootstrap/software} with software files, such as R packages in
-\verb{tar.gz} source code format.
+      \verb{tar.gz} source code format.
 }
 }
 \examples{

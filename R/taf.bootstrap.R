@@ -6,6 +6,9 @@
 #' @param clean whether to \code{\link{clean}} all TAF directories
 #'        (\verb{bootstrap}, \verb{data}, \verb{model}, \verb{output},
 #'        \verb{report}) before initiating the bootstrap procedure.
+#' @param config whether to process configuration files.
+#' @param data whether to process data.
+#' @param software whether to process software.
 #'
 #' @note
 #' This function should be called from the top directory of a TAF analysis. It
@@ -15,11 +18,11 @@
 #' The bootstrap procedure consists of the following steps:
 #' \enumerate{
 #' \item If a directory \verb{bootstrap/initial/config} contains model
-#' configuration files, they are copied to \verb{bootstrap/config}.
+#'       configuration files, they are copied to \verb{bootstrap/config}.
 #' \item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed
-#' with \code{\link{process.bib}}.
+#'       with \code{\link{process.bib}}.
 #' \item If a \verb{bootstrap/SOFTWARE.bib} metadata file exists, it is
-#' processed with \code{\link{process.bib}}.
+#'       processed with \code{\link{process.bib}}.
 #' }
 #'
 #' To override this default bootstrap procedure, the user can create a custom
@@ -33,9 +36,9 @@
 #' \item \verb{bootstrap/config} with model configuration files.
 #' \item \verb{bootstrap/data} with data files.
 #' \item \verb{bootstrap/library} with R packages compiled for the local
-#' platform.
+#'       platform.
 #' \item \verb{bootstrap/software} with software files, such as R packages in
-#' \verb{tar.gz} source code format.
+#'       \verb{tar.gz} source code format.
 #' }
 #'
 #' @seealso
@@ -50,7 +53,7 @@
 #'
 #' @export
 
-taf.bootstrap <- function(clean=TRUE)
+taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
 {
   if(clean)
     clean(c("bootstrap", "data", "model", "output", "report"))
@@ -70,14 +73,16 @@ taf.bootstrap <- function(clean=TRUE)
     setwd("bootstrap"); on.exit(setwd(".."))
 
     ## 1  Process config
-    if(dir.exists("initial/config"))
+    if(config && dir.exists("initial/config"))
       cp("initial/config", ".")
 
     ## 2  Process data
-    process.bib("DATA.bib")
+    if(data)
+      process.bib("DATA.bib")
 
     ## 3  Process software
-    process.bib("SOFTWARE.bib")
+    if(software)
+      process.bib("SOFTWARE.bib")
 
     ## Remove empty folders
     rmdir(c("config", "data", "library", "software"))
