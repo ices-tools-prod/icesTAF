@@ -1,9 +1,8 @@
 #' PNG Device
 #'
-#' Open PNG graphics device to create an image file inside the TAF \verb{report}
-#' folder.
+#' Open PNG graphics device to export a plot into the TAF \verb{report} folder.
 #'
-#' @param filename image filename.
+#' @param filename plot filename.
 #' @param width image width.
 #' @param height image height.
 #' @param pointsize text size.
@@ -31,9 +30,14 @@
 #' files in scripts, these objects should be explicitly printed (see examples
 #' below).
 #'
+#' The \code{pointsize} argument only affects base plots. To change the text
+#' size of a lattice plot, the \code{zoom} function can be helpful.
+#'
 #' @seealso
 #' \code{\link{png}} is the underlying function used to open a PNG graphics
 #' device.
+#'
+#' \code{\link{zoom}} changes text size in a lattice plot.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -45,12 +49,12 @@
 #'
 #' library(lattice)
 #' taf.png("mytrellis")
-#' print(xyplot(1~1))
+#' zoom(xyplot(1~1))
 #' dev.off()
 #'
 #' library(ggplot2)
 #' taf.png("myggplot")
-#' print(qplot(1))
+#' print(qplot(1, 1))
 #' dev.off()
 #' }
 #'

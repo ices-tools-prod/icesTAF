@@ -8,7 +8,7 @@
 taf.png(filename, width = 800, height = 600, pointsize = 22, ...)
 }
 \arguments{
-\item{filename}{image filename.}
+\item{filename}{plot filename.}
 
 \item{width}{image width.}
 
@@ -19,8 +19,7 @@ taf.png(filename, width = 800, height = 600, pointsize = 22, ...)
 \item{\dots}{passed to \code{png}.}
 }
 \description{
-Open PNG graphics device to create an image file inside the TAF \verb{report}
-folder.
+Open PNG graphics device to export a plot into the TAF \verb{report} folder.
 }
 \details{
 The \code{filename} can be passed without the preceding
@@ -43,6 +42,9 @@ to
 To successfully export \verb{trellis} and \verb{ggplot} objects to image
 files in scripts, these objects should be explicitly printed (see examples
 below).
+
+The \code{pointsize} argument only affects base plots. To change the text
+size of a lattice plot, the \code{zoom} function can be helpful.
 }
 \examples{
 \dontrun{
@@ -52,12 +54,12 @@ dev.off()
 
 library(lattice)
 taf.png("mytrellis")
-print(xyplot(1~1))
+zoom(xyplot(1~1))
 dev.off()
 
 library(ggplot2)
 taf.png("myggplot")
-print(qplot(1))
+print(qplot(1, 1))
 dev.off()
 }
 
@@ -65,6 +67,8 @@ dev.off()
 \seealso{
 \code{\link{png}} is the underlying function used to open a PNG graphics
 device.
+
+\code{\link{zoom}} changes text size in a lattice plot.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

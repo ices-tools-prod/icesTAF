@@ -56,7 +56,8 @@
 #' \tabular{ll}{
 #'   \code{\link{lim}}        \tab compute axis limits\cr
 #'   \code{\link{taf.colors}} \tab predefined colors\cr
-#'   \code{\link{taf.png}}    \tab open PNG graphics device
+#'   \code{\link{taf.png}}    \tab open PNG graphics device\cr
+#'   \code{\link{zoom}}       \tab change lattice text size
 #' }
 #' \emph{Example tables:}
 #' \tabular{ll}{
