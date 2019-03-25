@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
-icesTAF 2.2-1 (2019-03-20)
+icesTAF 2.3-0 (2019-03-25)
 --------------------------------------------------------------------------------
+o Added function zoom() to change text size in a lattice plot.
+
 o Added arguments 'config', 'data', and 'software' to taf.bootstrap().
 
 o Improved os.unix() so it recognizes both Linux and macOS operating systems.
