@@ -32,6 +32,8 @@ tt(catage.taf, "Custom")
 
 }
 \seealso{
+\code{\link{t}} transposes a matrix.
+
 \code{\link{catage.taf}} describes the TAF format.
 
 \code{\link{taf2xtab}} converts a TAF table to crosstab format, without
