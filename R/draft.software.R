@@ -14,6 +14,7 @@
 #'        be a GitHub reference of the form \verb{owner/repo[/subdir]@ref}, URL,
 #'        or a filename.
 #' @param file optional filename to save the draft metadata to a file.
+#' @param append whether to append metadata entries to an existing file.
 #'
 #' @details
 #' Typical usage is to specify \code{package}, while using the default values
@@ -69,7 +70,7 @@
 #' @export
 
 draft.software <- function(package, author=NULL, year=NULL, title=NULL,
-                           version=NULL, source=NULL, file="")
+                           version=NULL, source=NULL, file="", append=FALSE)
 {
   if(length(package) > 1)
   {
@@ -110,7 +111,9 @@ draft.software <- function(package, author=NULL, year=NULL, title=NULL,
   }
   else
   {
-    write(out, file=file)
+    if(append)
+      write("", file=file, append=TRUE)  # empty line separator
+    write(out, file=file, append=append)
     invisible(out)
   }
 }

@@ -4,9 +4,10 @@
 \alias{draft.data}
 \title{Draft DATA.bib}
 \usage{
-draft.data(originator = NULL, year = NULL, title = NULL, period = NULL,
-  source = "file", file = "", data.dir = "bootstrap/initial/data",
-  data.files = dir(data.dir, recursive = TRUE), ...)
+draft.data(originator = NULL, year = NULL, title = NULL,
+  period = NULL, source = "file", file = "",
+  data.dir = "bootstrap/initial/data", data.files = dir(data.dir,
+  recursive = TRUE), append = FALSE)
 }
 \arguments{
 \item{originator}{who prepared the data, e.g. a working group acronym.}
@@ -28,7 +29,7 @@ the special value \code{"file"}.}
 \item{data.files}{data filenames. The default is all files inside
 \code{data.dir}.}
 
-\item{...}{additional arguments passed to \code{\link{write}} function.}
+\item{append}{whether to append metadata entries to an existing file.}
 }
 \value{
 Object of class \verb{Bibtex}.
@@ -76,6 +77,4 @@ draft.data("WGEF", 2015, file="bootstrap/DATA.bib")
 contains example metadata entries and commentary.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
-
-\code{\link{write}}
 }

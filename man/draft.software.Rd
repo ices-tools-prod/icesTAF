@@ -5,7 +5,7 @@
 \title{Draft SOFTWARE.bib}
 \usage{
 draft.software(package, author = NULL, year = NULL, title = NULL,
-  version = NULL, source = NULL, file = "")
+  version = NULL, source = NULL, file = "", append = FALSE)
 }
 \arguments{
 \item{package}{name of one or more installed R packages, or files/folders
@@ -26,6 +26,8 @@ be a GitHub reference of the form \verb{owner/repo[/subdir]@ref}, URL,
 or a filename.}
 
 \item{file}{optional filename to save the draft metadata to a file.}
+
+\item{append}{whether to append metadata entries to an existing file.}
 }
 \value{
 Object of class \verb{Bibtex}.
