@@ -7,7 +7,9 @@
 #'        current year.
 #' @param title description of the data, including survey names or the like.
 #' @param period first and last year that the data cover, separated by a simple
-#'        dash, or a single number if the data cover only one year.
+#'        dash, or a single number if the data cover only one year. If the data
+#'        do not cover specific years, this metadata field can be suppressed
+#'        using \code{period = FALSE}.
 #' @param source where the data originate from. This can be a URL, filename, or
 #'        the special value \code{"file"}.
 #' @param file optional filename to save the draft metadata to a file.
@@ -82,6 +84,8 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
   ## 2  Combine and format
   out <- data.frame(line1, line2, line3, line4, line5, line6, line7, line8)
   out <- c(t(out))
+  if(isFALSE(period))
+    out <- out[substr(out,3,8) != "period"]  # remove 'period' line if FALSE
   out <- out[-length(out)]  # remove empty line at end
   class(out) <- "Bibtex"
 

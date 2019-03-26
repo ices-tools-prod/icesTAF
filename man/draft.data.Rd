@@ -18,7 +18,9 @@ current year.}
 \item{title}{description of the data, including survey names or the like.}
 
 \item{period}{first and last year that the data cover, separated by a simple
-dash, or a single number if the data cover only one year.}
+dash, or a single number if the data cover only one year. If the data
+do not cover specific years, this metadata field can be suppressed
+using \code{period = FALSE}.}
 
 \item{source}{where the data originate from. This can be a URL, filename, or
 the special value \code{"file"}.}
