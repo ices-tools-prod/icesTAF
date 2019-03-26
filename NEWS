@@ -8,6 +8,8 @@ o Added arguments 'config', 'data', and 'software' to taf.bootstrap().
 o Added argument 'append' to draft.data() and draft.software(). Code contributed
   by Alexandros Kokkalis.
 
+o Improved draft.data() so the default value of 'year' is today's year.
+
 o Improved os.unix() so it recognizes both Linux and macOS operating systems.
 
 o Improved write.taf() so file="" prints to screen, regardless of dir.

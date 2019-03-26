@@ -3,7 +3,8 @@
 #' Create an initial draft version of a \file{DATA.bib} metadata file.
 #'
 #' @param originator who prepared the data, e.g. a working group acronym.
-#' @param year year of the analysis when the data were used.
+#' @param year year of the analysis when the data were used. The default is the
+#'        current year.
 #' @param title description of the data, including survey names or the like.
 #' @param period first and last year that the data cover, separated by a simple
 #'        dash, or a single number if the data cover only one year.
@@ -16,10 +17,10 @@
 #' @param append whether to append metadata entries to an existing file.
 #'
 #' @details
-#' Typical usage is to specify \code{originator} and \code{year}, while using
-#' the default values for the other arguments. Most data files have the same
-#' originator and year, which can be specified to facilitate completing the
-#' entries after creating the initial draft.
+#' Typical usage is to specify \code{originator}, while using the default values
+#' for the other arguments. Most data files have the same originator, which can
+#' be specified to facilitate completing the entries after creating the initial
+#' draft.
 #'
 #' The special value \verb{source = "file"} is described in the
 #' \code{\link{process.bib}} help page, along with other metadata information.
@@ -60,8 +61,8 @@
 #'
 #' @export
 
-draft.data <- function(originator=NULL, year=NULL, title=NULL, period=NULL,
-                       source="file", file="",
+draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
+                       title=NULL, period=NULL, source="file", file="",
                        data.dir="bootstrap/initial/data",
                        data.files=dir(data.dir,recursive=TRUE), append=FALSE)
 {
