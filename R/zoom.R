@@ -59,8 +59,8 @@ zoom <- function(obj, cex=1.8, cex.main=1.3*cex, cex.lab=1.1*cex, cex.axis=cex,
     obj$main$cex <- cex.main
     obj$xlab$cex <- cex.lab
     obj$ylab$cex <- cex.lab
-    obj$y.scales$cex <- cex.axis
-    obj$x.scales$cex <- cex.axis
+    obj$x.scales$cex <- rep(cex.axis, length(obj$x.scales$cex))
+    obj$y.scales$cex <- rep(cex.axis, length(obj$y.scales$cex))
     obj$par.strip.text$cex <- cex.strip
     obj$par.settings$superpose.symbol$cex <- cex.symbol
     obj$sub$cex <- cex.sub
