@@ -44,7 +44,7 @@ file.encoding <- function(file)
     stop("file not found")
 
   ## Examine file using the 'file' shell command
-  info <- try(system(paste("file", file), intern=TRUE,
+  info <- try(system(paste("file", shQuote(file)), intern=TRUE,
                      ignore.stderr=TRUE), silent=TRUE)
 
   ## If that didn't work, try Rtools
