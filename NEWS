@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
-icesTAF 2.3-0 (2019-03-26)
+icesTAF 2.3-0 (2019-03-30)
 --------------------------------------------------------------------------------
+o Added function sourceDir() to read all *.R files from a directory.
+
 o Added function zoom() to change text size in a lattice plot.
 
 o Added arguments 'config', 'data', and 'software' to taf.bootstrap().
@@ -10,6 +12,8 @@ o Added argument 'append' to draft.data() and draft.software(). Code contributed
 
 o Improved draft.data() so the default value of 'year' is the current year and
   user can pass period=FALSE.
+
+o Improved file.encoding() so it handles spaces in filenames.
 
 o Improved os.unix() so it recognizes both Linux and macOS operating systems.
 
