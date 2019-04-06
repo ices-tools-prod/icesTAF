@@ -4,10 +4,12 @@
 \alias{xtab2taf}
 \title{Convert Crosstab Table to TAF Format}
 \usage{
-xtab2taf(x)
+xtab2taf(x, colname = "Year")
 }
 \arguments{
 \item{x}{a data frame in crosstab format.}
+
+\item{colname}{name for first column.}
 }
 \value{
 A data frame in TAF format.
@@ -16,7 +18,7 @@ A data frame in TAF format.
 Convert a table from crosstab format to TAF format.
 }
 \note{
-TAF stores tables as data frames with a year column, as seen in stock
+TAF stores tables as data frames, usually with a year column as seen in stock
 assessment reports. The crosstab format can be more convenient for analysis
 and producing plots.
 }
