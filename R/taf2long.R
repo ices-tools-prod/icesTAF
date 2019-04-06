@@ -8,7 +8,7 @@
 #' @return A data frame with three columns.
 #'
 #' @note
-#' TAF stores tables as data frames with a year column, as seen in stock
+#' TAF stores tables as data frames, usually with a year column as seen in stock
 #' assessment reports. The long format is more convenient for analysis and
 #' producing plots.
 #'

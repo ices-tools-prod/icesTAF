@@ -16,7 +16,7 @@ A data frame in TAF format.
 Convert a table from long format to TAF format.
 }
 \note{
-TAF stores tables as data frames with a year column, as seen in stock
+TAF stores tables as data frames, usually with a year column as seen in stock
 assessment reports. The long format is more convenient for analysis and
 producing plots.
 }

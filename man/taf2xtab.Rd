@@ -16,7 +16,7 @@ A data frame with years as row names.
 Convert a table from TAF format to crosstab format.
 }
 \note{
-TAF stores tables as data frames with a year column, as seen in stock
+TAF stores tables as data frames, usually with a year column as seen in stock
 assessment reports. The crosstab format can be more convenient for analysis
 and producing plots.
 }
