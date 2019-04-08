@@ -117,15 +117,18 @@
 
 process.bib <- function(bibfile)
 {
-  dir <- if(bibfile == "DATA.bib") "data"
-         else if(bibfile == "SOFTWARE.bib") "software"
-         else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
-  mkdir(dir)
+  type <- if(bibfile == "DATA.bib") "data"
+          else if(bibfile == "SOFTWARE.bib") "software"
+          else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
 
   entries <- if(file.exists(bibfile)) read.bib(bibfile) else list()
 
   for(bib in entries)
   {
+    ## Prepare dir
+    dir <- if(is.null(bib$bundle)) type else file.path(type, bib$bundle)
+    mkdir(dir)
+
     ## If source contains multiple files then split into vector
     bib$source <- trimws(unlist(strsplit(bib$source, "\\n")))
     bib$source <- sub(",$", "", bib$source)  # remove trailing comma

@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 2.3-0 (2019-03-30)
+icesTAF 2.3-0 (2019-04-08)
 --------------------------------------------------------------------------------
 o Added function sourceDir() to read all *.R files from a directory.
 
@@ -10,12 +10,17 @@ o Added arguments 'config', 'data', and 'software' to taf.bootstrap().
 o Added argument 'append' to draft.data() and draft.software(). Code contributed
   by Alexandros Kokkalis.
 
+o Added argument 'colname' to xtab2taf().
+
 o Improved draft.data() so the default value of 'year' is the current year and
   user can pass period=FALSE.
 
 o Improved file.encoding() so it handles spaces in filenames.
 
 o Improved os.unix() so it recognizes both Linux and macOS operating systems.
+
+o Improved process.bib() so it supports 'bundle' field and multiple filenames in
+  'source' field, separated by newlines.
 
 o Improved write.taf() so file="" prints to screen, regardless of dir.
 
