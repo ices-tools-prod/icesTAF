@@ -33,7 +33,7 @@
 #' @export
 
 sourceDir <- function(dir, pattern="\\.[r|R]$", all.files=FALSE,
-                      recursive=FALSE, quiet=FALSE, ...)
+                      recursive=FALSE, quiet=TRUE, ...)
 {
   files <- if(!dir.exists(dir[1])) dir
            else dir(dir, full.names=TRUE, pattern=pattern,
