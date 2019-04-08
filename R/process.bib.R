@@ -126,8 +126,12 @@ process.bib <- function(bibfile)
 
   for(bib in entries)
   {
+    ## If source contains multiple files then split into vector
+    bib$source <- trimws(unlist(strsplit(bib$source, "\\n")))
+    bib$source <- sub(",$", "", bib$source)  # remove trailing comma
+
     ## R package on GitHub
-    if(grepl("@", bib$source))
+    if(grepl("@", bib$source[1]))
     {
       spec <- parse_repo_spec(bib$source)
       url <- paste0("https://api.github.com/repos/",
@@ -137,17 +141,17 @@ process.bib <- function(bibfile)
       install_github(bib$source, upgrade=FALSE, force=TRUE)
     }
     ## File to download
-    else if(grepl("^http", bib$source))
+    else if(grepl("^http", bib$source[1]))
     {
-      download(bib$source, dir=dir)
+      sapply(bib$source, download, dir=dir)
     }
     ## File to copy
     else
     {
       ## Shorthand notation: source = {file} means key is a filename
-      if(bib$source == "file")
-        bib$source <- file.path("initial", dir, attr(bib,"key"))
-      cp(bib$source, dir)
+      if(bib$source[1] == "file")
+        bib$source[1] <- file.path("initial", dir, attr(bib,"key"))
+      sapply(bib$source, cp, to=dir)
     }
   }
 }
