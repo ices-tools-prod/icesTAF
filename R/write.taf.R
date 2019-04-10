@@ -81,6 +81,8 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
   }
   if(is.null(x))
     stop("x should be a data frame, not NULL")
+  if(any(duplicated(names(x))))
+    stop("column names must be unique")
 
   ## 3  Prepare file path
   if(is.null(file))
