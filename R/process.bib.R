@@ -133,6 +133,9 @@ process.bib <- function(bibfile)
     bib$source <- trimws(unlist(strsplit(bib$source, "\\n")))
     bib$source <- sub(",$", "", bib$source)  # remove trailing comma
 
+    ## Add prefix
+    bib$source <- paste0(bib$prefix, bib$source)
+
     ## R package on GitHub
     if(grepl("@", bib$source[1]))
     {
