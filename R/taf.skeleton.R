@@ -2,13 +2,9 @@
 #'
 #' Create initial directories and R scripts for a new TAF analysis.
 #'
-#' @param name main directory name for the analysis.
-#' @param path path to create the analysis directory in.
+#' @param path where to create initial directories and R scripts. The default is
+#'        the current working directory.
 #' @param force whether to overwrite existing scripts.
-#'
-#' @details
-#' Use \code{name = "."} to create initial directories and scripts inside the
-#' current working directory.
 #'
 #' @return Full path to analysis directory.
 #'
@@ -19,12 +15,13 @@
 #'
 #' @examples
 #' \dontrun{
+#' setwd("my_taf_analysis")
 #' taf.skeleton()
 #' }
 #'
 #' @export
 
-taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
+taf.skeleton <- function(path = ".", force = FALSE)
 {
   # only overwrite files if force = TRUE
   safe.cat <- function(..., file, force) {
@@ -34,8 +31,8 @@ taf.skeleton <- function(name = "analysis", path = ".", force = FALSE)
   }
 
   # create analysis directory
-  mkdir(file.path(path, name))
-  owd <- setwd(file.path(path, name))
+  mkdir(path)
+  owd <- setwd(path)
   on.exit(setwd(owd))
 
   # create initial directories

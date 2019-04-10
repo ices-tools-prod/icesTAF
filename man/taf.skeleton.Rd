@@ -4,12 +4,11 @@
 \alias{taf.skeleton}
 \title{TAF Skeleton}
 \usage{
-taf.skeleton(name = "analysis", path = ".", force = FALSE)
+taf.skeleton(path = ".", force = FALSE)
 }
 \arguments{
-\item{name}{main directory name for the analysis.}
-
-\item{path}{path to create the analysis directory in.}
+\item{path}{where to create initial directories and R scripts. The default is
+the current working directory.}
 
 \item{force}{whether to overwrite existing scripts.}
 }
@@ -19,12 +18,9 @@ Full path to analysis directory.
 \description{
 Create initial directories and R scripts for a new TAF analysis.
 }
-\details{
-Use \code{name = "."} to create initial directories and scripts inside the
-current working directory.
-}
 \examples{
 \dontrun{
+setwd("my_taf_analysis")
 taf.skeleton()
 }
 
