@@ -140,8 +140,11 @@ process.bib <- function(bibfile)
       url <- paste0("https://api.github.com/repos/",
                     spec$username, "/", spec$repo, "/tarball/", spec$ref)
       targz <- paste0(spec$repo, "_", spec$ref, ".tar.gz")
-      suppressWarnings(download(url, destfile=file.path(dir, targz)))
-      install_github(bib$source, upgrade=FALSE, force=TRUE)
+      if(!file.exists(file.path(dir, targz)))
+        suppressWarnings(download(url, destfile=file.path(dir, targz)))
+      mkdir("bootstrap/library")
+      install_github(bib$source, lib="bootstrap/library",
+                     dependencies=FALSE, upgrade=FALSE)
     }
     ## File to download
     else if(grepl("^http", bib$source[1]))
