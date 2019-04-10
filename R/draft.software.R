@@ -10,9 +10,9 @@
 #' @param title title or short description of the software.
 #' @param version string to specify details about the version, e.g. GitHub
 #'        branch and commit date.
-#' @param source string to specify where the software can be accessed. This can
-#'        be a GitHub reference of the form \verb{owner/repo[/subdir]@ref}, URL,
-#'        or a filename.
+#' @param source string to specify where the software are copied/downloaded
+#'        from. This can be a GitHub reference of the form
+#'        \verb{owner/repo[/subdir]@ref}, URL, or a filename.
 #' @param file optional filename to save the draft metadata to a file.
 #' @param append whether to append metadata entries to an existing file.
 #'

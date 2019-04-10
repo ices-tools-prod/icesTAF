@@ -21,9 +21,9 @@ publication year of the cited manual/article/etc.}
 \item{version}{string to specify details about the version, e.g. GitHub
 branch and commit date.}
 
-\item{source}{string to specify where the software can be accessed. This can
-be a GitHub reference of the form \verb{owner/repo[/subdir]@ref}, URL,
-or a filename.}
+\item{source}{string to specify where the software are copied/downloaded
+from. This can be a GitHub reference of the form
+\verb{owner/repo[/subdir]@ref}, URL, or a filename.}
 
 \item{file}{optional filename to save the draft metadata to a file.}
 
