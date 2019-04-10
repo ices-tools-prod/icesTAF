@@ -68,8 +68,7 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
       return(invisible(NULL))  # nothing to do
     msg("Bootstrap procedure running...")
 
-    ## Enable TAF library
-    taf.library(quiet=TRUE)
+    ## Work inside bootstrap
     setwd("bootstrap"); on.exit(setwd(".."))
 
     ## 1  Process config

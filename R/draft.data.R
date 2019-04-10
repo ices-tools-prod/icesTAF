@@ -6,12 +6,13 @@
 #' @param year year of the analysis when the data were used. The default is the
 #'        current year.
 #' @param title description of the data, including survey names or the like.
-#' @param period first and last year that the data cover, separated by a simple
-#'        dash, or a single number if the data cover only one year. If the data
-#'        do not cover specific years, this metadata field can be suppressed
-#'        using \code{period = FALSE}.
-#' @param source where the data originate from. This can be a URL, filename, or
-#'        the special value \code{"file"}.
+#' @param period a string of the form \code{"1990-2000"}, indicating the first
+#'        and last year that the data cover, separated by a simple dash.
+#'        Alternatively, a single number if the data cover only one year. If the
+#'        data do not cover specific years, this metadata field can be
+#'        suppressed using \code{period = FALSE}.
+#' @param source where the data are copied/downloaded from. This can be a URL,
+#'        filename, or the special value \code{"file"}.
 #' @param file optional filename to save the draft metadata to a file.
 #' @param data.dir directory containing data files.
 #' @param data.files data filenames. The default is all files inside
@@ -44,6 +45,8 @@
 #' specify the \verb{period} that the data cover.
 #'
 #' @seealso
+#' \code{\link{period}} pastes two years to form a \code{period} string.
+#'
 #' \code{\link{draft.software}} creates an initial draft version of a
 #' \file{SOFTWARE.bib} metadata file.
 #'

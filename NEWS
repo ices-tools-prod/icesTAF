@@ -1,4 +1,17 @@
 --------------------------------------------------------------------------------
+icesTAF 3.0-0 (2019-04-10)
+--------------------------------------------------------------------------------
+o Added function period() to paste period string for DATA.bib entries.
+
+o Removed argument 'name' from taf.skeleton(). The default behavior is now to
+  create initial directories and scripts in the current working directory.
+
+o Changed write.taf() so it gives an error if column names are duplicated.
+
+
+
+
+--------------------------------------------------------------------------------
 icesTAF 2.3-0 (2019-04-08)
 --------------------------------------------------------------------------------
 o Added function sourceDir() to read all *.R files from a directory.

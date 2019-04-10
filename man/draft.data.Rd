@@ -17,13 +17,14 @@ current year.}
 
 \item{title}{description of the data, including survey names or the like.}
 
-\item{period}{first and last year that the data cover, separated by a simple
-dash, or a single number if the data cover only one year. If the data
-do not cover specific years, this metadata field can be suppressed
-using \code{period = FALSE}.}
+\item{period}{a string of the form \code{"1990-2000"}, indicating the first
+and last year that the data cover, separated by a simple dash.
+Alternatively, a single number if the data cover only one year. If the
+data do not cover specific years, this metadata field can be
+suppressed using \code{period = FALSE}.}
 
-\item{source}{where the data originate from. This can be a URL, filename, or
-the special value \code{"file"}.}
+\item{source}{where the data are copied/downloaded from. This can be a URL,
+filename, or the special value \code{"file"}.}
 
 \item{file}{optional filename to save the draft metadata to a file.}
 
@@ -73,6 +74,8 @@ draft.data("WGEF", 2015, file="bootstrap/DATA.bib")
 
 }
 \seealso{
+\code{\link{period}} pastes two years to form a \code{period} string.
+
 \code{\link{draft.software}} creates an initial draft version of a
 \file{SOFTWARE.bib} metadata file.
 

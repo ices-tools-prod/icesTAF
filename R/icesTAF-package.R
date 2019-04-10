@@ -15,6 +15,7 @@
 #' \tabular{ll}{
 #'   \code{\link{draft.data}}     \tab draft DATA.bib file\cr
 #'   \code{\link{draft.software}} \tab draft SOFTWARE.bib file\cr
+#'   \code{\link{period}}         \tab paste period string for DATA.bib\cr
 #'   \code{\link{taf.bootstrap}}  \tab set up data files and software\cr
 #'   \code{\link{taf.skeleton}}   \tab create empty TAF template
 #' }
