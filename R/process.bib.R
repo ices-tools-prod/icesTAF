@@ -147,8 +147,8 @@ process.bib <- function(bibfile)
       targz <- paste0(spec$repo, "_", spec$ref, ".tar.gz")
       if(!file.exists(file.path(dir, targz)))
         suppressWarnings(download(url, destfile=file.path(dir, targz)))
-      mkdir("bootstrap/library")
-      install_github(bib$source, lib="bootstrap/library",
+      mkdir("library")
+      install_github(bib$source, lib="library",
                      dependencies=FALSE, upgrade=FALSE)
     }
     ## File to download
