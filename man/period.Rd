@@ -7,8 +7,7 @@
 period(x, y = NULL)
 }
 \arguments{
-\item{x}{the first year, a vector of years, or a data frame containing
-a \code{Year} column.}
+\item{x}{the first year, vector of years, matrix, or data frame.}
 
 \item{y}{the last year, if \code{x} is only the first year.}
 }
@@ -19,17 +18,25 @@ A string of the form \code{"1990-2000"}.
 Paste two years to form a \code{period} string.
 }
 \details{
-If \code{x} is a vector or a data frame, the lowest and highest years are
-used, and \code{y} is ignored.
+If \code{x} is a vector or a data frame, then the lowest and highest years
+are used, and \code{y} is ignored.
+
+If \code{x} is a matrix or data frame, this function looks for years in the
+first column. If the values of the first column do not look like years (four
+digits), then it looks for years in the row names.
 }
 \note{
 This function can be useful when working with \code{\link{draft.data}}.
 }
 \examples{
 period(1963, 1970)
+period(c(1963, 1970))
+period(1963:1970)
+
 period(range(catage.taf$Year))
 period(catage.taf$Year)
 period(catage.taf)
+period(catage.xtab)
 
 }
 \seealso{
