@@ -1,5 +1,7 @@
 ## ds = draft.software helper function
 
+#' @importFrom utils citation packageDescription toBibtex
+
 ds.package <- function(package, author, year, title, version, source)
 {
   ## 1  Bibliographic info: author, year, title, details

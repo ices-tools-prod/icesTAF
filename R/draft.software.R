@@ -65,8 +65,6 @@
 #' draft.software("icesTAF", file="bootstrap/SOFTWARE.bib")
 #' }
 #'
-#' @importFrom utils citation packageDescription toBibtex
-#'
 #' @export
 
 draft.software <- function(package, author=NULL, year=NULL, title=NULL,
