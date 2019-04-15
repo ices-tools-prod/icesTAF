@@ -1,12 +1,15 @@
 --------------------------------------------------------------------------------
-icesTAF 3.0-0 (2019-04-10)
+icesTAF 3.0-0 (2019-04-15)
 --------------------------------------------------------------------------------
 o Added function period() to paste period string for DATA.bib entries.
 
 o Removed argument 'name' from taf.skeleton(). The default behavior is now to
   create initial directories and scripts in the current working directory.
 
-o Changed write.taf() so it gives an error if column names are duplicated.
+o Changed taf.library() so it loads a package instead of changing the library
+  path.
+
+o Changed write.taf() so it returns an error if column names are duplicated.
 
 
 

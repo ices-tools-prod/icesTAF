@@ -44,6 +44,8 @@
 #' @seealso
 #' \code{\link{process.bib}} is a helper function used to process metadata.
 #'
+#' \code{\link{taf.library}} loads a package from \verb{bootstrap/library}.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples

@@ -2,58 +2,44 @@
 % Please edit documentation in R/taf.library.R
 \name{taf.library}
 \alias{taf.library}
-\title{Enable TAF Library}
+\title{TAF Library}
 \usage{
-taf.library(create = TRUE, quiet = FALSE)
+taf.library(package, messages = FALSE, warnings = FALSE)
 }
 \arguments{
-\item{create}{whether to create the directory \file{bootstrap/library} if it
-does not already exist.}
+\item{package}{name of a package found in \verb{bootstrap/library}.}
 
-\item{quiet}{whether to suppress messages in the case when a new directory
-\file{bootstrap/library} is created.}
+\item{messages}{whether to show messages when package loads.}
+
+\item{warnings}{whether to show warnings when package loads.}
 }
 \value{
 The names of packages currently installed in the TAF library.
 }
 \description{
-Add local TAF library \file{bootstrap/library} to the search path, where
-packages are stored.
+Load package from local TAF library.
 }
 \note{
-This function inserts the directory entry \code{"bootstrap/library"} in front
-of the existing library search path. The directory is created, if it does not
-already exist.
-
-The purpose of the TAF library is to retain R packages used in a TAF
-analysis that are not archived on CRAN, to support long-term
-reproducibility of TAF analyses.
+The purpose of the TAF library is to retain R packages that are not commonly
+used (and not on CRAN), to support long-term reproducibility of TAF analyses.
 }
 \examples{
 \dontrun{
 
-# Enable TAF library
+# Show packages in TAF library
 taf.library()
 
-# Show updated path
-.libPaths()
-
-# Show packages in TAF library
-print(taf.library())
-
 # Load packages
-library(this)
-library(that)
-
-# BibTeX references
-library(bibtex)
-write.bib(taf.library())
+taf.library(this)
+taf.library(that)
 }
 
 }
 \seealso{
-\code{\link{.libPaths}} is the underlying base function to get/set the
-library search path.
+\code{\link{library}} is the underlying base function to load a package.
+
+\code{\link{taf.bootstrap}} is the procedure to install packages into a local
+TAF library, via the \file{SOFTWARE.bib} metadata file.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
