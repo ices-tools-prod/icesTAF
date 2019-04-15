@@ -112,8 +112,8 @@
 #' process.bib("SOFTWARE.bib")
 #' }
 #'
-#' @importFrom remotes install_github parse_repo_spec
 #' @importFrom bibtex read.bib
+#' @importFrom remotes install_github parse_repo_spec
 #'
 #' @export
 
@@ -138,7 +138,7 @@ process.bib <- function(bibfile)
     ## Add prefix
     bib$source <- paste0(bib$prefix, bib$source)
 
-    ## R package on GitHub
+    ## Case 1: R package on GitHub
     if(grepl("@", bib$source[1]))
     {
       spec <- parse_repo_spec(bib$source)
@@ -148,15 +148,25 @@ process.bib <- function(bibfile)
       if(!file.exists(file.path(dir, targz)))
         suppressWarnings(download(url, destfile=file.path(dir, targz)))
       mkdir("library")
-      install_github(bib$source, lib="library",
-                     dependencies=FALSE, upgrade=FALSE)
+      ## Need to check manually and force=TRUE, since the install_github()
+      ## built-in checks get confused if package is installed in another library
+      if(already.in.taf.library(spec))
+      {
+        message("Skipping install of '", spec$repo, "', version '",
+                spec$ref, "' is already in the local TAF library.")
+      }
+      else
+      {
+        install_github(bib$source, lib="library", dependencies=FALSE,
+                       upgrade=FALSE, force=TRUE)
+      }
     }
-    ## File to download
+    ## Case 2: File to download
     else if(grepl("^http", bib$source[1]))
     {
       sapply(bib$source, download, dir=dir)
     }
-    ## File to copy
+    ## Case 3: File to copy
     else
     {
       ## Shorthand notation: source = {file} means key is a filename
@@ -165,4 +175,19 @@ process.bib <- function(bibfile)
       sapply(bib$source, cp, to=dir)
     }
   }
+}
+
+## Check whether requested package is already installed in the TAF library
+
+#' @importFrom utils installed.packages packageDescription
+
+already.in.taf.library <- function(spec)
+{
+  pkg <- spec$repo
+  sha.bib <- spec$ref
+  sha.inst <- if(pkg %in% row.names(installed.packages("library")))
+                packageDescription(pkg, "library")$RemoteSha else NULL
+  sha.inst <- substring(sha.inst, 1, nchar(sha.bib))
+  out <- identical(sha.bib, sha.inst)
+  out
 }
