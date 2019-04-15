@@ -152,8 +152,10 @@ process.bib <- function(bibfile)
       ## built-in checks get confused if package is installed in another library
       if(already.in.taf.library(spec))
       {
-        message("Skipping install of '", spec$repo, "', version '",
-                spec$ref, "' is already in the local TAF library.")
+        pkg <- basename(file.path(spec$repo, spec$subdir))
+        message("Skipping install of '", pkg, "'.")
+        message("  Version '", spec$ref,
+                "' is already in the local TAF library.")
       }
       else
       {
@@ -183,7 +185,7 @@ process.bib <- function(bibfile)
 
 already.in.taf.library <- function(spec)
 {
-  pkg <- spec$repo
+  pkg <- basename(file.path(spec$repo, spec$subdir))
   sha.bib <- spec$ref
   sha.inst <- if(pkg %in% row.names(installed.packages("library")))
                 packageDescription(pkg, "library")$RemoteSha else NULL
