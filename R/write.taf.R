@@ -29,6 +29,9 @@
 #' The resulting CSV file has Dos line endings, as specified in the RFC 4180
 #' standard (IETF 2005).
 #'
+#' This function gives a warning when column names are duplicated, unless the
+#' target directory name is \verb{report}.
+#'
 #' @references
 #' IETF (2005) Common format and Mime type for Comma-Separated Values (CSV)
 #' files. \href{https://tools.ietf.org/html/rfc4180}{\emph{IETF RFC} 4180}.
@@ -81,8 +84,6 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
   }
   if(is.null(x))
     stop("x should be a data frame, not NULL")
-  if(any(duplicated(names(x))))
-    stop("column names must be unique")
 
   ## 3  Prepare file path
   if(is.null(file))
@@ -96,6 +97,8 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
     file <- file.path(sub("[/\\]+$","",dir), file)  # remove trailing slash
 
   ## 4  Export
+  if(any(duplicated(names(x))) && dirname(file)!="report")
+    warning("duplicated column names")
   write.csv(x, file=file, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
   if(file != "")

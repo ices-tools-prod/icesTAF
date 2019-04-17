@@ -9,7 +9,7 @@ o Removed argument 'name' from taf.skeleton(). The default behavior is now to
 o Changed taf.library() so it loads a package instead of changing the library
   path.
 
-o Changed write.taf() so it returns an error if column names are duplicated.
+o Changed write.taf() so it gives a warning if column names are duplicated.
 
 
 
