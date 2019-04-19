@@ -5,7 +5,7 @@
 \alias{tafpng}
 \title{PNG Device}
 \usage{
-taf.png(filename, width = 800, height = 600, pointsize = 22, ...)
+taf.png(filename, width = 1600, height = 1200, pointsize = 32, ...)
 }
 \arguments{
 \item{filename}{plot filename.}

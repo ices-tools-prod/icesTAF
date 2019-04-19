@@ -4,13 +4,13 @@
 #'
 #' @param obj a lattice plot of class \code{"trellis"}.
 #' @param cex text size multiplier.
-#' @param cex.main size of main title (default is \code{1.3 * cex}).
-#' @param cex.lab size of axis labels (default is \code{1.1 * cex}).
+#' @param cex.main size of main title (default is \code{2.7 * cex}).
+#' @param cex.lab size of axis labels (default is \code{1.2 * cex}).
 #' @param cex.axis size of tick labels (default is \code{cex}).
 #' @param cex.strip size of strip labels (default is \code{cex}).
 #' @param cex.symbol size of text inside plot (default is \code{cex}).
-#' @param cex.sub size of subtitle (default is \code{0.7 * cex}).
-#' @param cex.legend size of legend labels (default is \code{0.7 * cex}).
+#' @param cex.sub size of subtitle (default is \code{0.9 * cex}).
+#' @param cex.legend size of legend labels (default is \code{0.9 * cex}).
 #'
 #' @return The same lattice object, but with altered text size.
 #'
@@ -35,7 +35,7 @@
 #'
 #' xyplot(1~1)
 #' zoom(xyplot(1~1))
-#' zoom(xyplot(1~1), cex=1)
+#' zoom(xyplot(1~1), cex=1, cex.axis=0.8)
 #'
 #' \dontrun{
 #' taf.png("myplot")
@@ -49,13 +49,13 @@
 #'
 #' @export
 
-zoom <- function(obj, cex=1.8, cex.main=1.3*cex, cex.lab=1.1*cex, cex.axis=cex,
-                 cex.strip=cex, cex.symbol=cex, cex.sub=0.7*cex,
-                 cex.legend=0.7*cex)
+zoom <- function(obj, cex=2.7, cex.main=1.2*cex, cex.lab=cex, cex.axis=cex,
+                 cex.strip=cex, cex.symbol=cex, cex.sub=0.9*cex,
+                 cex.legend=0.9*cex)
 {
-  if(class(obj) != "trellis")
-    stop("'obj' must be a trellis object")
   suppressWarnings({
+    if(class(obj) != "trellis")
+      stop("'obj' must be a trellis object")
     obj$main$cex <- cex.main
     obj$xlab$cex <- cex.lab
     obj$ylab$cex <- cex.lab

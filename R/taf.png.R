@@ -64,7 +64,7 @@
 #'
 #' @export
 
-taf.png <- function(filename, width=800, height=600, pointsize=22, ...)
+taf.png <- function(filename, width=1600, height=1200, pointsize=32, ...)
 {
   if(!grepl("/",filename) && !grepl("report$",getwd()) && dir.exists("report"))
     filename <- file.path("report", filename)

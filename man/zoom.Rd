@@ -4,18 +4,18 @@
 \alias{zoom}
 \title{Zoom}
 \usage{
-zoom(obj, cex = 1.8, cex.main = 1.3 * cex, cex.lab = 1.1 * cex,
-  cex.axis = cex, cex.strip = cex, cex.symbol = cex, cex.sub = 0.7
-  * cex, cex.legend = 0.7 * cex)
+zoom(obj, cex = 2.7, cex.main = 1.2 * cex, cex.lab = cex,
+  cex.axis = cex, cex.strip = cex, cex.symbol = cex, cex.sub = 0.9
+  * cex, cex.legend = 0.9 * cex)
 }
 \arguments{
 \item{obj}{a lattice plot of class \code{"trellis"}.}
 
 \item{cex}{text size multiplier.}
 
-\item{cex.main}{size of main title (default is \code{1.3 * cex}).}
+\item{cex.main}{size of main title (default is \code{2.7 * cex}).}
 
-\item{cex.lab}{size of axis labels (default is \code{1.1 * cex}).}
+\item{cex.lab}{size of axis labels (default is \code{1.2 * cex}).}
 
 \item{cex.axis}{size of tick labels (default is \code{cex}).}
 
@@ -23,9 +23,9 @@ zoom(obj, cex = 1.8, cex.main = 1.3 * cex, cex.lab = 1.1 * cex,
 
 \item{cex.symbol}{size of text inside plot (default is \code{cex}).}
 
-\item{cex.sub}{size of subtitle (default is \code{0.7 * cex}).}
+\item{cex.sub}{size of subtitle (default is \code{0.9 * cex}).}
 
-\item{cex.legend}{size of legend labels (default is \code{0.7 * cex}).}
+\item{cex.legend}{size of legend labels (default is \code{0.9 * cex}).}
 }
 \value{
 The same lattice object, but with altered text size.
@@ -46,7 +46,7 @@ library(lattice)
 
 xyplot(1~1)
 zoom(xyplot(1~1))
-zoom(xyplot(1~1), cex=1)
+zoom(xyplot(1~1), cex=1, cex.axis=0.8)
 
 \dontrun{
 taf.png("myplot")
