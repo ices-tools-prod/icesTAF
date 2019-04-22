@@ -2,15 +2,16 @@
 #'
 #' Change text size in a lattice plot.
 #'
-#' @param obj a lattice plot of class \code{"trellis"}.
-#' @param cex text size multiplier.
-#' @param cex.main size of main title (default is \code{2.7 * cex}).
-#' @param cex.lab size of axis labels (default is \code{1.2 * cex}).
-#' @param cex.axis size of tick labels (default is \code{cex}).
-#' @param cex.strip size of strip labels (default is \code{cex}).
-#' @param cex.symbol size of text inside plot (default is \code{cex}).
-#' @param cex.sub size of subtitle (default is \code{0.9 * cex}).
-#' @param cex.legend size of legend labels (default is \code{0.9 * cex}).
+#' @param x a lattice plot of class \code{"trellis"}.
+#' @param size text size multiplier.
+#' @param main size of main title (default is \code{2.7 * size}).
+#' @param lab size of axis labels (default is \code{1.2 * size}).
+#' @param axis size of tick labels (default is \code{size}).
+#' @param strip size of strip labels (default is \code{size}).
+#' @param symbol size of text inside plot (default is \code{size}).
+#' @param sub size of subtitle (default is \code{0.9 * size}).
+#' @param legend size of legend labels (default is \code{0.9 * size}).
+#' @param \dots further arguments, currently ignored.
 #'
 #' @return The same lattice object, but with altered text size.
 #'
@@ -35,7 +36,7 @@
 #'
 #' xyplot(1~1)
 #' zoom(xyplot(1~1))
-#' zoom(xyplot(1~1), cex=1, cex.axis=0.8)
+#' zoom(xyplot(1~1), size=1, axis=0.8)
 #'
 #' \dontrun{
 #' taf.png("myplot")
@@ -49,23 +50,30 @@
 #'
 #' @export
 
-zoom <- function(obj, cex=2.7, cex.main=1.2*cex, cex.lab=cex, cex.axis=cex,
-                 cex.strip=cex, cex.symbol=cex, cex.sub=0.9*cex,
-                 cex.legend=0.9*cex)
+zoom <- function(x, ...)
+{
+  UseMethod("zoom")
+}
+
+#' @rdname zoom
+#' @export
+#' @export zoom.trellis
+
+zoom.trellis <- function(x, size=2.7, main=1.2*size, lab=size, axis=size,
+                         strip=size, symbol=size, sub=0.9*size, legend=0.9*size,
+                         ...)
 {
   suppressWarnings({
-    if(class(obj) != "trellis")
-      stop("'obj' must be a trellis object")
-    obj$main$cex <- cex.main
-    obj$xlab$cex <- cex.lab
-    obj$ylab$cex <- cex.lab
-    obj$x.scales$cex <- rep(cex.axis, length(obj$x.scales$cex))
-    obj$y.scales$cex <- rep(cex.axis, length(obj$y.scales$cex))
-    obj$par.strip.text$cex <- cex.strip
-    obj$par.settings$superpose.symbol$cex <- cex.symbol
-    obj$sub$cex <- cex.sub
-    if(!is.null(obj$legend))
-      obj$legend$right$args$cex <- cex.legend
+    x$main$cex <- main
+    x$xlab$cex <- lab
+    x$ylab$cex <- lab
+    x$x.scales$cex <- rep(axis, length(x$x.scales$cex))
+    x$y.scales$cex <- rep(axis, length(x$y.scales$cex))
+    x$par.strip.text$cex <- strip
+    x$par.settings$superpose.symbol$cex <- symbol
+    x$sub$cex <- sub
+    if(!is.null(x$legend))
+      x$legend$right$args$cex <- legend
   })
-  print(obj)
+  print(x)
 }

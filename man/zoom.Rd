@@ -2,30 +2,35 @@
 % Please edit documentation in R/zoom.R
 \name{zoom}
 \alias{zoom}
+\alias{zoom.trellis}
 \title{Zoom}
 \usage{
-zoom(obj, cex = 2.7, cex.main = 1.2 * cex, cex.lab = cex,
-  cex.axis = cex, cex.strip = cex, cex.symbol = cex, cex.sub = 0.9
-  * cex, cex.legend = 0.9 * cex)
+zoom(x, ...)
+
+\method{zoom}{trellis}(x, size = 2.7, main = 1.2 * size, lab = size,
+  axis = size, strip = size, symbol = size, sub = 0.9 * size,
+  legend = 0.9 * size, ...)
 }
 \arguments{
-\item{obj}{a lattice plot of class \code{"trellis"}.}
+\item{x}{a lattice plot of class \code{"trellis"}.}
 
-\item{cex}{text size multiplier.}
+\item{\dots}{further arguments, currently ignored.}
 
-\item{cex.main}{size of main title (default is \code{2.7 * cex}).}
+\item{size}{text size multiplier.}
 
-\item{cex.lab}{size of axis labels (default is \code{1.2 * cex}).}
+\item{main}{size of main title (default is \code{2.7 * size}).}
 
-\item{cex.axis}{size of tick labels (default is \code{cex}).}
+\item{lab}{size of axis labels (default is \code{1.2 * size}).}
 
-\item{cex.strip}{size of strip labels (default is \code{cex}).}
+\item{axis}{size of tick labels (default is \code{size}).}
 
-\item{cex.symbol}{size of text inside plot (default is \code{cex}).}
+\item{strip}{size of strip labels (default is \code{size}).}
 
-\item{cex.sub}{size of subtitle (default is \code{0.9 * cex}).}
+\item{symbol}{size of text inside plot (default is \code{size}).}
 
-\item{cex.legend}{size of legend labels (default is \code{0.9 * cex}).}
+\item{sub}{size of subtitle (default is \code{0.9 * size}).}
+
+\item{legend}{size of legend labels (default is \code{0.9 * size}).}
 }
 \value{
 The same lattice object, but with altered text size.
@@ -46,7 +51,7 @@ library(lattice)
 
 xyplot(1~1)
 zoom(xyplot(1~1))
-zoom(xyplot(1~1), cex=1, cex.axis=0.8)
+zoom(xyplot(1~1), size=1, axis=0.8)
 
 \dontrun{
 taf.png("myplot")
