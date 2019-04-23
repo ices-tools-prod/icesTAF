@@ -8,10 +8,15 @@
 #' @param lab size of axis labels (default is \code{size}).
 #' @param axis size of tick labels (default is \code{size}).
 #' @param strip size of strip labels (default is \code{size}).
-#' @param symbol size of text inside plot (default is \code{size}).
 #' @param sub size of subtitle (default is \code{0.9 * size}).
 #' @param legend size of legend labels (default is \code{0.9 * size}).
+#' @param splom size of scatterplot matrix diagonal labels (default is
+#'        \code{0.9 * size}).
 #' @param \dots further arguments, currently ignored.
+#'
+#' @details
+#' Pass \code{NULL} for any argument to avoid changing the size of that text
+#' component.
 #'
 #' @return The same lattice object, but with altered text size.
 #'
@@ -37,6 +42,7 @@
 #' xyplot(1~1)
 #' zoom(xyplot(1~1))
 #' zoom(xyplot(1~1), size=1, axis=0.8)
+#' zoom(xyplot(1~1), lab=NULL, axis=NULL)
 #'
 #' \dontrun{
 #' taf.png("myplot")
@@ -60,20 +66,30 @@ zoom <- function(x, ...)
 #' @export zoom.trellis
 
 zoom.trellis <- function(x, size=2.7, main=1.2*size, lab=size, axis=size,
-                         strip=size, symbol=size, sub=0.9*size, legend=0.9*size,
-                         ...)
+                         strip=size, sub=0.9*size, legend=0.9*size,
+                         splom=0.9*size, ...)
 {
   suppressWarnings({
-    x$main$cex <- main
-    x$xlab$cex <- lab
-    x$ylab$cex <- lab
-    x$x.scales$cex <- rep(axis, length(x$x.scales$cex))
-    x$y.scales$cex <- rep(axis, length(x$y.scales$cex))
-    x$par.strip.text$cex <- strip
-    x$par.settings$superpose.symbol$cex <- symbol
-    x$sub$cex <- sub
-    if(!is.null(x$legend))
-      x$legend$right$args$cex <- legend
+    if(!is.null(main)) x$main$cex <- main
+    if(!is.null(lab)) x$xlab$cex <- lab
+    if(!is.null(lab)) x$ylab$cex <- lab
+    if(!is.null(axis)) x$x.scales$cex <- rep(axis, length(x$x.scales$cex))
+    if(!is.null(axis)) x$y.scales$cex <- rep(axis, length(x$y.scales$cex))
+    if(!is.null(strip)) x$par.strip.text$cex <- strip
+    if(!is.null(sub)) x$sub$cex <- sub
+
+    ## If a particular plot is problematic, user can always pass legend=NULL
+    ## and tweak legend outside of the zoom() function
+    if(!is.null(legend) && !is.null(x$legend))
+    {
+      side <- names(x$legend)[1]
+      x$legend[[side]]$args$cex <- legend
+      x$legend[[side]]$args$key$cex <- legend
+      x$legend[[side]]$args$key$cex.title <- legend
+      x$legend[[side]]$args$key$text$cex <- legend
+    }
+
+    if(!is.null(splom)) x$panel.args.common$varname.cex <- splom
   })
   print(x)
 }

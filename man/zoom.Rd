@@ -8,8 +8,8 @@
 zoom(x, ...)
 
 \method{zoom}{trellis}(x, size = 2.7, main = 1.2 * size, lab = size,
-  axis = size, strip = size, symbol = size, sub = 0.9 * size,
-  legend = 0.9 * size, ...)
+  axis = size, strip = size, sub = 0.9 * size, legend = 0.9 * size,
+  splom = 0.9 * size, ...)
 }
 \arguments{
 \item{x}{a lattice plot of class \code{"trellis"}.}
@@ -26,17 +26,22 @@ zoom(x, ...)
 
 \item{strip}{size of strip labels (default is \code{size}).}
 
-\item{symbol}{size of text inside plot (default is \code{size}).}
-
 \item{sub}{size of subtitle (default is \code{0.9 * size}).}
 
 \item{legend}{size of legend labels (default is \code{0.9 * size}).}
+
+\item{splom}{size of scatterplot matrix diagonal labels (default is
+\code{0.9 * size}).}
 }
 \value{
 The same lattice object, but with altered text size.
 }
 \description{
 Change text size in a lattice plot.
+}
+\details{
+Pass \code{NULL} for any argument to avoid changing the size of that text
+component.
 }
 \note{
 The default values result in lattice plots that have similar text size as
@@ -52,6 +57,7 @@ library(lattice)
 xyplot(1~1)
 zoom(xyplot(1~1))
 zoom(xyplot(1~1), size=1, axis=0.8)
+zoom(xyplot(1~1), lab=NULL, axis=NULL)
 
 \dontrun{
 taf.png("myplot")
