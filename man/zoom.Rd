@@ -18,9 +18,9 @@ zoom(x, ...)
 
 \item{size}{text size multiplier.}
 
-\item{main}{size of main title (default is \code{2.7 * size}).}
+\item{main}{size of main title (default is \code{1.2 * size}).}
 
-\item{lab}{size of axis labels (default is \code{1.2 * size}).}
+\item{lab}{size of axis labels (default is \code{size}).}
 
 \item{axis}{size of tick labels (default is \code{size}).}
 

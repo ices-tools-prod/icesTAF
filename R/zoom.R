@@ -4,8 +4,8 @@
 #'
 #' @param x a lattice plot of class \code{"trellis"}.
 #' @param size text size multiplier.
-#' @param main size of main title (default is \code{2.7 * size}).
-#' @param lab size of axis labels (default is \code{1.2 * size}).
+#' @param main size of main title (default is \code{1.2 * size}).
+#' @param lab size of axis labels (default is \code{size}).
 #' @param axis size of tick labels (default is \code{size}).
 #' @param strip size of strip labels (default is \code{size}).
 #' @param symbol size of text inside plot (default is \code{size}).
