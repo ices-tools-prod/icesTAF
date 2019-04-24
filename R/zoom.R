@@ -18,6 +18,11 @@
 #' Pass \code{NULL} for any argument to avoid changing the size of that text
 #' component.
 #'
+#' The \code{legend} component of a lattice plot can be somewhat fickle, as the
+#' object structure varies between plots. One solution is to pass
+#' \code{legend = NULL} and tweak the legend before or after calling the
+#' \code{zoom} function.
+#'
 #' @return The same lattice object, but with altered text size.
 #'
 #' @note
@@ -78,14 +83,13 @@ zoom.trellis <- function(x, size=2.7, main=1.2*size, lab=size, axis=size,
     if(!is.null(strip)) x$par.strip.text$cex <- strip
     if(!is.null(sub)) x$sub$cex <- sub
 
-    ## If a particular plot is problematic, user can always pass legend=NULL
-    ## and tweak legend outside of the zoom() function
     if(!is.null(legend) && !is.null(x$legend))
     {
+      x$legend[[side]]$args$key$cex.title <- legend
       side <- names(x$legend)[1]
+      ## Sometimes cex, key$cex, or key$text$cex ... just set them all
       x$legend[[side]]$args$cex <- legend
       x$legend[[side]]$args$key$cex <- legend
-      x$legend[[side]]$args$key$cex.title <- legend
       x$legend[[side]]$args$key$text$cex <- legend
     }
 

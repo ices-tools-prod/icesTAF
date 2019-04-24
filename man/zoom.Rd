@@ -42,6 +42,11 @@ Change text size in a lattice plot.
 \details{
 Pass \code{NULL} for any argument to avoid changing the size of that text
 component.
+
+The \code{legend} component of a lattice plot can be somewhat fickle, as the
+object structure varies between plots. One solution is to pass
+\code{legend = NULL} and tweak the legend before or after calling the
+\code{zoom} function.
 }
 \note{
 The default values result in lattice plots that have similar text size as
