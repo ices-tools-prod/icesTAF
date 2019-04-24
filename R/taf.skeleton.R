@@ -15,7 +15,6 @@
 #'
 #' @examples
 #' \dontrun{
-#' setwd("my_taf_analysis")
 #' taf.skeleton()
 #' }
 #'

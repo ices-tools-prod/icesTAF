@@ -20,7 +20,6 @@ Create initial directories and R scripts for a new TAF analysis.
 }
 \examples{
 \dontrun{
-setwd("my_taf_analysis")
 taf.skeleton()
 }
 
