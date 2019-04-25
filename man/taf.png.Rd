@@ -57,12 +57,12 @@ library(lattice)
 taf.png("mytrellis")
 zoom(xyplot(1~1))
 dev.off()
-}
 
 library(ggplot2)
 taf.png("myggplot")
 qplot(1, 1)
 dev.off()
+}
 
 }
 \seealso{
