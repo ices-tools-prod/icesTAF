@@ -31,16 +31,17 @@
 #' }
 #' \emph{File management:}
 #' \tabular{ll}{
-#'   \code{\link{cp}}          \tab copy files\cr
-#'   \code{\link{mkdir}}       \tab create directory\cr
-#'   \code{\link{os.linux}}    \tab operating system\cr
-#'   \code{\link{os.macos}}    \tab operating system\cr
-#'   \code{\link{os.windows}}  \tab operating system\cr
-#'   \code{\link{read.taf}}    \tab read TAF table from file\cr
-#'   \code{\link{sourceDir}}   \tab read all \code{*.R} files\cr
-#'   \code{\link{taf.library}} \tab load package from TAF library\cr
-#'   \code{\link{taf.unzip}}   \tab unzip file\cr
-#'   \code{\link{write.taf}}   \tab write TAF table to file
+#'   \code{\link{convert.spaces}} \tab convert spaces\cr
+#'   \code{\link{cp}}             \tab copy files\cr
+#'   \code{\link{mkdir}}          \tab create directory\cr
+#'   \code{\link{os.linux}}       \tab operating system\cr
+#'   \code{\link{os.macos}}       \tab operating system\cr
+#'   \code{\link{os.windows}}     \tab operating system\cr
+#'   \code{\link{read.taf}}       \tab read TAF table from file\cr
+#'   \code{\link{sourceDir}}      \tab read all \code{*.R} files\cr
+#'   \code{\link{taf.library}}    \tab load package from TAF library\cr
+#'   \code{\link{taf.unzip}}      \tab unzip file\cr
+#'   \code{\link{write.taf}}      \tab write TAF table to file
 #' }
 #' \emph{Tables:}
 #' \tabular{ll}{
