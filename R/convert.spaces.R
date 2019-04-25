@@ -31,11 +31,11 @@ convert.spaces <- function(file, sep="_")
   from <- sort(unique(c(Sys.glob(file), file[!grepl("\\*", file)])))
   from <- grep(" ", from, value=TRUE)
 
-  if(length(from) == 0)
-    return(invisible(NULL))
-
   to <- chartr(" ", sep, from)
-  out <- mapply(file.rename, from, to)
+
+  out <- suppressWarnings(mapply(file.rename, from, to))
+  if(length(out) == 0)
+    out <- NULL
 
   invisible(out)
 }
