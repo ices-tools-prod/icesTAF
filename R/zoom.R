@@ -67,6 +67,9 @@ zoom <- function(x, ...)
 }
 
 #' @rdname zoom
+#'
+#' @importFrom lattice xyplot
+#'
 #' @export
 #' @export zoom.trellis
 
