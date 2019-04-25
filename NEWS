@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 3.0-0 (2019-04-15)
+icesTAF 3.0-0 (2019-04-25)
 --------------------------------------------------------------------------------
 o Added function period() to paste period string for DATA.bib entries.
 
@@ -8,6 +8,9 @@ o Removed argument 'name' from taf.skeleton(). The default behavior is now to
 
 o Changed taf.library() so it loads a package instead of changing the library
   path.
+
+o Changed default size of taf.png(). Changed text size in zoom() accordingly and
+  renamed arguments. The zoom() function is now generic.
 
 o Changed write.taf() so it gives a warning if column names are duplicated.
 
