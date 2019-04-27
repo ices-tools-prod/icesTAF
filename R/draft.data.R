@@ -87,7 +87,7 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
   ## 2  Combine and format
   out <- data.frame(line1, line2, line3, line4, line5, line6, line7, line8)
   out <- c(t(out))
-  if(isFALSE(period))
+  if(identical(period, FALSE))
     out <- out[substr(out,3,8) != "period"]  # remove 'period' line if FALSE
   out <- out[-length(out)]  # remove empty line at end
   class(out) <- "Bibtex"
