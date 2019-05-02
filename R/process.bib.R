@@ -140,6 +140,9 @@ process.bib <- function(bibfile)
           else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
 
   entries <- if(file.exists(bibfile)) read.bib(bibfile) else list()
+  dups <- anyDuplicated(names(entries))
+  if(dups)
+    stop("Duplicated key: '", names(entries)[dups], "'")
 
   for(bib in entries)
   {
