@@ -6,6 +6,8 @@ o Added function convert.spaces() to convert spaces in filenames.
 o Improved draft.data() so it works in R versions older than 3.5. Code
   contributed by Alexandros Kokkalis.
 
+o Changed process.bib() so it supports 'dir' field instead of 'bundle'.
+
 
 
 

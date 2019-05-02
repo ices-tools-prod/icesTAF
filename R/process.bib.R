@@ -128,7 +128,7 @@ process.bib <- function(bibfile)
   for(bib in entries)
   {
     ## Prepare dir
-    dir <- if(is.null(bib$bundle)) type else file.path(type, bib$bundle)
+    dir <- if(is.null(bib$dir)) type else file.path(type, bib$dir)
     mkdir(dir)
 
     ## If source contains multiple files then split into vector
