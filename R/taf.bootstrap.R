@@ -3,9 +3,8 @@
 #' Set up data files and software required for the analysis. Model configuration
 #' files are also set up, if found.
 #'
-#' @param clean whether to \code{\link{clean}} all TAF directories
-#'        (\verb{bootstrap}, \verb{data}, \verb{model}, \verb{output},
-#'        \verb{report}) before initiating the bootstrap procedure.
+#' @param clean whether to \code{\link{clean}} directories during the bootstrap
+#'        procedure.
 #' @param config whether to process configuration files.
 #' @param data whether to process data.
 #' @param software whether to process software.
@@ -58,7 +57,7 @@
 taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
 {
   if(clean)
-    clean(c("bootstrap", "data", "model", "output", "report"))
+    clean()
 
   if(file.exists("bootstrap.R"))
   {
@@ -75,15 +74,27 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
 
     ## 1  Process config
     if(config && dir.exists("initial/config"))
+    {
+      if(clean)
+        clean("config")
       cp("initial/config", ".")
+    }
 
     ## 2  Process data
     if(data)
+    {
+      if(clean)
+        clean("data")
       process.bib("DATA.bib")
+    }
 
     ## 3  Process software
     if(software)
+    {
+      if(clean)
+        clean(c("library", "software"))
       process.bib("SOFTWARE.bib")
+    }
 
     ## Remove empty folders
     rmdir(c("config", "data", "library", "software"))

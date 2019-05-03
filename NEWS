@@ -3,6 +3,9 @@ icesTAF 3.1-0 (2019-04-25)
 --------------------------------------------------------------------------------
 o Added function convert.spaces() to convert spaces in filenames.
 
+o Improved taf.bootstrap() so it doesn't clean the corresponding bootstrap
+  directories when arguments 'config', 'data', or 'software' are FALSE.
+
 o Improved draft.data() so it works in R versions older than 3.5. Code
   contributed by Alexandros Kokkalis.
 
@@ -26,6 +29,9 @@ o Changed default size of taf.png(). Changed text size in zoom() accordingly and
   renamed arguments. The zoom() function is now generic.
 
 o Changed write.taf() so it gives a warning if column names are duplicated.
+
+o Improved process.bib() so it doesn't install a package that is already
+  installed.
 
 
 

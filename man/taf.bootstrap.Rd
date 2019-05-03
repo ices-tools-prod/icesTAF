@@ -8,9 +8,8 @@ taf.bootstrap(clean = TRUE, config = TRUE, data = TRUE,
   software = TRUE)
 }
 \arguments{
-\item{clean}{whether to \code{\link{clean}} all TAF directories
-(\verb{bootstrap}, \verb{data}, \verb{model}, \verb{output},
-\verb{report}) before initiating the bootstrap procedure.}
+\item{clean}{whether to \code{\link{clean}} directories during the bootstrap
+procedure.}
 
 \item{config}{whether to process configuration files.}
 
