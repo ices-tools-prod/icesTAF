@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 icesTAF 3.1-0 (2019-04-25)
 --------------------------------------------------------------------------------
+o Added function sam2taf() to convert SAM tables to TAF format.
+
 o Added function convert.spaces() to convert spaces in filenames.
 
 o Improved taf.bootstrap() so it doesn't clean the corresponding bootstrap
