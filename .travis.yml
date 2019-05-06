@@ -1,2 +1,3 @@
 language: r
 cache: packages
+r_packages: icesAdvice
