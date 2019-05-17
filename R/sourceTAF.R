@@ -25,9 +25,8 @@
 #'
 #' @note
 #' Commands within a script (such as \code{setwd}) may change the working
-#' directory, but \code{sourceTAF} guarantees that after running a script, the
-#' working directory reported by \code{getwd()} is the same before and after
-#' running a script.
+#' directory, but \code{sourceTAF} guarantees that the working directory
+#' reported by \code{getwd()} is the same before and after running a script.
 #'
 #' @seealso
 #' \code{\link{source}} is the base function to run R scripts.
@@ -61,9 +60,9 @@ sourceTAF <- function(script, rm=FALSE, clean=TRUE, quiet=FALSE)
   if(!quiet)
     msg(script, " running...")
 
-  owd <- setwd(dirname(script))
-  on.exit(setwd(owd))
-  result <- try(source(basename(script)))
+  owd <- getwd()
+  on.exit(setwd(owd))  # ensure getwd() is same before and after script
+  result <- try(source(script))
   ok <- class(result) != "try-error"
   if(!quiet)
     msg("  ", script, if(ok) " done" else " failed")

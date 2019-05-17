@@ -36,9 +36,8 @@ etc.
 }
 \note{
 Commands within a script (such as \code{setwd}) may change the working
-directory, but \code{sourceTAF} guarantees that after running a script, the
-working directory reported by \code{getwd()} is the same before and after
-running a script.
+directory, but \code{sourceTAF} guarantees that the working directory
+reported by \code{getwd()} is the same before and after running a script.
 }
 \examples{
 \dontrun{
