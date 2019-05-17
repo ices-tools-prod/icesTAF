@@ -59,6 +59,10 @@ are four types of values that can be used in the source field:
       therefore not reliable as long-term references.
 \item URL starting with \verb{http} or \verb{https}, identifying a file to
       download.
+\item R script to run, resulting in one or more files created inside the
+      \verb{bootstrap/data} subdirectory. This script must reside in the
+      \verb{bootstrap} directory, the same location as the \verb{DATA.bib}
+      file.
 \item Relative path starting with \file{initial}, identifying the location of
       a file or folder provided by the user.
 \item Special value \code{file}, indicating that the metadata key points to a

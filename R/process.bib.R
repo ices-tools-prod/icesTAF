@@ -51,6 +51,10 @@
 #'       therefore not reliable as long-term references.
 #' \item URL starting with \verb{http} or \verb{https}, identifying a file to
 #'       download.
+#' \item R script to run, resulting in one or more files created inside the
+#'       \verb{bootstrap/data} subdirectory. This script must reside in the
+#'       \verb{bootstrap} directory, the same location as the \verb{DATA.bib}
+#'       file.
 #' \item Relative path starting with \file{initial}, identifying the location of
 #'       a file or folder provided by the user.
 #' \item Special value \code{file}, indicating that the metadata key points to a
@@ -130,6 +134,7 @@
 #'
 #' @importFrom bibtex read.bib
 #' @importFrom remotes install_github parse_repo_spec
+#' @importFrom tools file_ext
 #'
 #' @export
 
@@ -187,7 +192,14 @@ process.bib <- function(bibfile)
     {
       sapply(bib$source, download, dir=dir)
     }
-    ## Case 3: File to copy
+    ## Case 3: R script in bootstrap directory
+    else if(dirname(bib$source[1])=="." && file_ext(bib$source[1]) == "R")
+    {
+      if(type != "data")
+        stop("scripts to run are only allowed in DATA.bib")
+      source(bib$source)
+    }
+    ## Case 4: File to copy
     else
     {
       ## Shorthand notation: source = {file} means key is a filename
