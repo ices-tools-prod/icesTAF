@@ -36,10 +36,6 @@ The bootstrap procedure consists of the following steps:
       processed with \code{\link{process.bib}}.
 }
 
-To override this default bootstrap procedure, the user can create a custom
-\verb{bootstrap.R} script. If this script is found, the \code{taf.bootstrap}
-function runs that script instead of the default bootstrap procedure.
-
 After the bootstrap procedure, data and software have been documented and
 are ready to be used in the subsequent analysis. Specifically, the procedure
 populates up to four new directories:

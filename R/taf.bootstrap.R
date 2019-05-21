@@ -24,10 +24,6 @@
 #'       processed with \code{\link{process.bib}}.
 #' }
 #'
-#' To override this default bootstrap procedure, the user can create a custom
-#' \verb{bootstrap.R} script. If this script is found, the \code{taf.bootstrap}
-#' function runs that script instead of the default bootstrap procedure.
-#'
 #' After the bootstrap procedure, data and software have been documented and
 #' are ready to be used in the subsequent analysis. Specifically, the procedure
 #' populates up to four new directories:
@@ -59,47 +55,40 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
   if(clean)
     clean()
 
-  if(file.exists("bootstrap.R"))
+  if(!dir.exists("bootstrap"))
+    return(invisible(NULL))  # nothing to do
+  msg("Bootstrap procedure running...")
+
+  ## Work inside bootstrap
+  setwd("bootstrap"); on.exit(setwd(".."))
+
+  ## 1  Process config
+  if(config && dir.exists("initial/config"))
   {
-    sourceTAF("bootstrap.R")
+    if(clean)
+      clean("config")
+    cp("initial/config", ".")
   }
-  else
+
+  ## 2  Process data
+  if(data)
   {
-    if(!dir.exists("bootstrap"))
-      return(invisible(NULL))  # nothing to do
-    msg("Bootstrap procedure running...")
-
-    ## Work inside bootstrap
-    setwd("bootstrap"); on.exit(setwd(".."))
-
-    ## 1  Process config
-    if(config && dir.exists("initial/config"))
-    {
-      if(clean)
-        clean("config")
-      cp("initial/config", ".")
-    }
-
-    ## 2  Process data
-    if(data)
-    {
-      if(clean)
-        clean("data")
-      process.bib("DATA.bib")
-    }
-
-    ## 3  Process software
-    if(software)
-    {
-      if(clean)
-        clean(c("library", "software"))
-      process.bib("SOFTWARE.bib")
-    }
-
-    ## Remove empty folders
-    rmdir(c("config", "data", "library", "software"))
-    rmdir("library:", recursive=TRUE)  # this directory name can appear in Linux
-    msg("Bootstrap procedure done")
-    invisible(NULL)
+    if(clean)
+      clean("data")
+    process.bib("DATA.bib")
   }
+
+  ## 3  Process software
+  if(software)
+  {
+    if(clean)
+      clean(c("library", "software"))
+    process.bib("SOFTWARE.bib")
+  }
+
+  ## Remove empty folders
+  rmdir(c("config", "data", "library", "software"))
+  rmdir("library:", recursive=TRUE)  # this directory name can appear in Linux
+  msg("Bootstrap procedure done")
+  invisible(NULL)
 }
