@@ -151,16 +151,18 @@ process.bib <- function(bibfile)
 
   for(bib in entries)
   {
-    ## Prepare dir
-    dir <- if(is.null(bib$dir)) type else file.path(type, bib$dir)
-    mkdir(dir)
-
     ## If source contains multiple files then split into vector
     bib$source <- trimws(unlist(strsplit(bib$source, "\\n")))
     bib$source <- sub(",$", "", bib$source)  # remove trailing comma
 
     ## Add prefix
     bib$source <- paste0(bib$prefix, bib$source)
+
+    ## Prepare dir
+    if(length(bib$source) > 1)
+      bib$dir <- attr(bib,"key")
+    dir <- if(is.null(bib$dir)) type else file.path(type, bib$dir)
+    mkdir(dir)
 
     ## Case 1: R package on GitHub
     if(grepl("@", bib$source[1]))
