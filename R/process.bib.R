@@ -153,7 +153,8 @@ process.bib <- function(bibfile)
   {
     ## If source contains multiple files then split into vector
     bib$source <- trimws(unlist(strsplit(bib$source, "\\n")))
-    bib$source <- sub(",$", "", bib$source)  # remove trailing comma
+    bib$source <- sub(",$", "", bib$source)     # remove trailing comma
+    bib$source <- bib$source[bib$source != ""]  # remove empty strings
 
     ## Add prefix
     bib$source <- paste0(bib$prefix, bib$source)
