@@ -132,8 +132,6 @@
 #' create initial draft versions of \file{DATA.bib} and \file{SOFTWARE.bib}
 #' metadata files.
 #'
-#' \code{\link{period}} pastes two years to form a \code{period} string.
-#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
