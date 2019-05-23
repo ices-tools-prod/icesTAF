@@ -161,10 +161,12 @@ process.bib <- function(bibfile)
     ## Add prefix
     bib$source <- paste0(bib$prefix, bib$source)
 
-    ## Prepare dir
-    if(length(bib$source) > 1)
-      bib$dir <- key
-    dir <- if(is.null(bib$dir)) type else file.path(type, bib$dir)
+    ## Prepare dir, where bib$dir starts as: TRUE, FALSE, string, or NULL
+    bib$dir <- as.logical(bib$dir)  # is now TRUE, FALSE, NA, or logical(0)
+    if(identical(bib$dir, NA))
+      stop("parsing entry '", key, "' - dir should be TRUE or unspecified")
+    dir <- if(identical(bib$dir,TRUE) || length(bib$source)>1)
+             file.path(type, key) else type
     mkdir(dir)
 
     ## Case 1: R package on GitHub
