@@ -151,6 +151,8 @@ process.bib <- function(bibfile)
 
   for(bib in entries)
   {
+    key <- attr(bib, "key")
+
     ## If source contains multiple files then split into vector
     bib$source <- trimws(unlist(strsplit(bib$source, "\\n")))
     bib$source <- sub(",$", "", bib$source)     # remove trailing comma
@@ -161,7 +163,7 @@ process.bib <- function(bibfile)
 
     ## Prepare dir
     if(length(bib$source) > 1)
-      bib$dir <- attr(bib,"key")
+      bib$dir <- key
     dir <- if(is.null(bib$dir)) type else file.path(type, bib$dir)
     mkdir(dir)
 
@@ -207,7 +209,7 @@ process.bib <- function(bibfile)
     {
       ## Shorthand notation: source = {file} means key is a filename
       if(bib$source[1] == "file")
-        bib$source[1] <- file.path("initial", dir, attr(bib,"key"))
+        bib$source[1] <- file.path("initial", dir, key)
       sapply(bib$source, cp, to=dir)
     }
   }
