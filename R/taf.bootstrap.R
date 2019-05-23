@@ -8,6 +8,7 @@
 #' @param config whether to process configuration files.
 #' @param data whether to process data.
 #' @param software whether to process software.
+#' @param quiet whether to suppress messages reporting progress.
 #'
 #' @note
 #' This function should be called from the top directory of a TAF analysis. It
@@ -50,14 +51,16 @@
 #'
 #' @export
 
-taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
+taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE,
+                          quiet=FALSE)
 {
   if(clean)
     clean()
 
   if(!dir.exists("bootstrap"))
     return(invisible(NULL))  # nothing to do
-  msg("Bootstrap procedure running...")
+  if(!quiet)
+    msg("Bootstrap procedure running...")
 
   ## Work inside bootstrap
   setwd("bootstrap"); on.exit(setwd(".."))
@@ -65,6 +68,8 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
   ## 1  Process config
   if(config && dir.exists("initial/config"))
   {
+    if(!quiet)
+      message("Processing config")
     if(clean)
       clean("config")
     cp("initial/config", ".")
@@ -73,6 +78,8 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
   ## 2  Process data
   if(data)
   {
+    if(!quiet)
+      message("Processing DATA.bib")
     if(clean)
       clean("data")
     process.bib("DATA.bib")
@@ -81,6 +88,8 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
   ## 3  Process software
   if(software)
   {
+    if(!quiet)
+      message("Processing SOFTWARE.bib")
     if(clean)
       clean(c("library", "software"))
     process.bib("SOFTWARE.bib")
@@ -89,6 +98,9 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE)
   ## Remove empty folders
   rmdir(c("config", "data", "library", "software"))
   rmdir("library:", recursive=TRUE)  # this directory name can appear in Linux
-  msg("Bootstrap procedure done")
+
+  if(!quiet)
+    msg("Bootstrap procedure done")
+
   invisible(NULL)
 }

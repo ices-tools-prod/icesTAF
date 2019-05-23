@@ -5,7 +5,7 @@
 \title{Bootstrap TAF Analysis}
 \usage{
 taf.bootstrap(clean = TRUE, config = TRUE, data = TRUE,
-  software = TRUE)
+  software = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{clean}{whether to \code{\link{clean}} directories during the bootstrap
@@ -16,6 +16,8 @@ procedure.}
 \item{data}{whether to process data.}
 
 \item{software}{whether to process software.}
+
+\item{quiet}{whether to suppress messages reporting progress.}
 }
 \description{
 Set up data files and software required for the analysis. Model configuration
