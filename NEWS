@@ -1,15 +1,17 @@
 --------------------------------------------------------------------------------
-icesTAF 3.1-0 (2019-04-25)
+icesTAF 3.1-0 (2019-05-24)
 --------------------------------------------------------------------------------
 o Added function convert.spaces() to convert spaces in filenames.
 
 o Added function sam2taf() to convert SAM tables to TAF format.
 
+o Added argument 'quiet' to taf.bootstrap().
+
 o Improved draft.data() so it works in R versions older than 3.5. Code
   contributed by Alexandros Kokkalis.
 
-o Improved process.bib() so it runs script if 'source' is {filename.R}. Renamed
-  'bundle' field to 'dir'.
+o Improved process.bib() so it supports source={script} and dir={TRUE}. Removed
+  'bundle' field.
 
 o Improved taf.bootstrap() so it doesn't clean the corresponding bootstrap
   directories when arguments 'config', 'data', or 'software' are FALSE. Dropped

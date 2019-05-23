@@ -51,7 +51,7 @@
 #' \item URL starting with \verb{http} or \verb{https}, identifying a file to
 #'       download.
 #' \item Relative path starting with \file{initial}, identifying the location of
-#'       a file or folder provided by the user.
+#'       a file or directory provided by the user.
 #' \item Special value \code{file}, indicating that the metadata key points to a
 #'       file location.
 #' \item Special value \code{script}, indicating that an R script should be run
@@ -94,8 +94,8 @@
 #' package. It is made available as a directory \file{sole} containing the model
 #' source code (\verb{sole.tpl}) and executables for different platforms
 #' (\verb{sole}, \verb{sole.exe}). The model does not have an explicit version
-#' number, so the \verb{version} field contains the year in which the model is
-#' used, along with the date when the source code was last modified:
+#' number, so the version field contains the year in which the model is used,
+#' along with the date when the source code was last modified:
 #'
 #' \preformatted{@Article{sole,
 #'   author  = {G. Aarts and J.J. Poos},
@@ -109,6 +109,17 @@
 #'   version = {2016, last modified 2016-04-27},
 #'   source  = {initial/software/sole},
 #' }}
+#'
+#' The source field can specify multiple URLs to download, separated by
+#' newlines. To shorten the source entries, the \dfn{prefix} field can be useful
+#' to specify a prefix that is common for all source entries.
+#'
+#' The \dfn{dir} field is optional and creates a directory to place files in. If
+#' the dir field is used, it can only have the value \verb{dir = {TRUE}} and the
+#' resulting directory will be named after the metadata key. The dir field is
+#' mainly useful when two or more data files that need to be downloaded have the
+#' same name. It is implied and not necessary to set \verb{dir = TRUE} when
+#' \verb{source = {script}} or when the source field specifies multiple URLs.
 #'
 #' In summary, the metadata are similar to bibliographic entries, with the
 #' important addition of source directives that guide the bootstrap procedure to
