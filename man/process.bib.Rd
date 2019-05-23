@@ -14,9 +14,8 @@ process.bib(bibfile)
 Read and process metadata entries in a \verb{*.bib} file.
 }
 \note{
-This is a helper function for \code{\link{taf.bootstrap}} and can also be
-used in a custom \verb{bootstrap.R} script. It should be called within the
-\file{bootstrap} directory that contains the metadata file.
+This is a helper function for \code{\link{taf.bootstrap}}. It is called
+within the \file{bootstrap} directory that contains the metadata file.
 
 A metadata file contains one or more entries that use a general BibTeX
 format:
@@ -59,14 +58,14 @@ are four types of values that can be used in the source field:
       therefore not reliable as long-term references.
 \item URL starting with \verb{http} or \verb{https}, identifying a file to
       download.
-\item R script to run, resulting in one or more files created inside the
-      \verb{bootstrap/data} subdirectory. This script must reside in the
-      \verb{bootstrap} directory, the same location as the \verb{DATA.bib}
-      file.
 \item Relative path starting with \file{initial}, identifying the location of
       a file or folder provided by the user.
 \item Special value \code{file}, indicating that the metadata key points to a
       file location.
+\item Special value \code{script}, indicating that an R script should be run
+      to fetch data files from a web service. The metadata key is used both
+      to identify the script \file{bootstrap/\emph{key}.R} and target
+      directory \file{bootstrap/data/\emph{key}}.
 }
 
 Another example metadata entry is from a \verb{SOFTWARE.bib} file:

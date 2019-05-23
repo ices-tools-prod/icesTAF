@@ -6,9 +6,8 @@
 #'        \code{"SOFTWARE.bib"}.
 #'
 #' @note
-#' This is a helper function for \code{\link{taf.bootstrap}} and can also be
-#' used in a custom \verb{bootstrap.R} script. It should be called within the
-#' \file{bootstrap} directory that contains the metadata file.
+#' This is a helper function for \code{\link{taf.bootstrap}}. It is called
+#' within the \file{bootstrap} directory that contains the metadata file.
 #'
 #' A metadata file contains one or more entries that use a general BibTeX
 #' format:
@@ -51,14 +50,14 @@
 #'       therefore not reliable as long-term references.
 #' \item URL starting with \verb{http} or \verb{https}, identifying a file to
 #'       download.
-#' \item R script to run, resulting in one or more files created inside the
-#'       \verb{bootstrap/data} subdirectory. This script must reside in the
-#'       \verb{bootstrap} directory, the same location as the \verb{DATA.bib}
-#'       file.
 #' \item Relative path starting with \file{initial}, identifying the location of
 #'       a file or folder provided by the user.
 #' \item Special value \code{file}, indicating that the metadata key points to a
 #'       file location.
+#' \item Special value \code{script}, indicating that an R script should be run
+#'       to fetch data files from a web service. The metadata key is used both
+#'       to identify the script \file{bootstrap/\emph{key}.R} and target
+#'       directory \file{bootstrap/data/\emph{key}}.
 #' }
 #'
 #' Another example metadata entry is from a \verb{SOFTWARE.bib} file:
@@ -134,7 +133,7 @@
 #'
 #' @importFrom bibtex read.bib
 #' @importFrom remotes install_github parse_repo_spec
-#' @importFrom tools file_ext
+#' @importFrom tools file_ext file_path_as_absolute
 #'
 #' @export
 
@@ -165,9 +164,11 @@ process.bib <- function(bibfile)
     bib$dir <- as.logical(bib$dir)  # is now TRUE, FALSE, NA, or logical(0)
     if(identical(bib$dir, NA))
       stop("parsing entry '", key, "' - dir should be TRUE or unspecified")
-    dir <- if(identical(bib$dir,TRUE) || length(bib$source)>1)
+    dir <- if(identical(bib$dir, TRUE) ||
+              length(bib$source) > 1 ||
+              bib$source[1] == "script")
              file.path(type, key) else type
-    mkdir(dir)
+    mkdir(dir)  # target directory
 
     ## Case 1: R package on GitHub
     if(grepl("@", bib$source[1]))
@@ -200,11 +201,12 @@ process.bib <- function(bibfile)
       sapply(bib$source, download, dir=dir)
     }
     ## Case 3: R script in bootstrap directory
-    else if(dirname(bib$source[1])=="." && file_ext(bib$source[1]) == "R")
+    else if(bib$source[1] == "script")
     {
-      if(type != "data")
-        stop("scripts to run are only allowed in DATA.bib")
-      source(bib$source)
+      script <- file_path_as_absolute(paste0(key, ".R"))
+      owd <- setwd(dir)
+      source(script)
+      setwd(owd)
     }
     ## Case 4: File to copy
     else
