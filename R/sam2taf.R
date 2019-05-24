@@ -29,16 +29,13 @@
 #' @seealso
 #' \code{\link{summary.taf}} describes the TAF format.
 #'
-#' \code{\link[stockassessment]{catchtable}},
-#' \code{\link[stockassessment]{fbartable}},
-#' \code{\link[stockassessment]{rectable}},
-#' \code{\link[stockassessment]{ssbtable}}, and
-#' \code{\link[stockassessment]{tsbtable}} return matrices with SAM estimates
-#' and confidence limits.
+#' \code{catchtable}, \code{fbartable}, \code{rectable}, \code{ssbtable}, and
+#' \code{tsbtable} (in the \pkg{stockassessment} package) return matrices with
+#' SAM estimates and confidence limits.
 #'
-#' The \code{\link[stockassessment:summary.sam]{summary}} method produces a
-#' summary SAM table with some key quantities of interest, containing duplicated
-#' column names (\verb{Low}, \verb{High}) and rounded values.
+#' The \code{summary} method for \code{sam} objects produces a summary table
+#' with some key quantities of interest, containing duplicated column names
+#' (\verb{Low}, \verb{High}) and rounded values.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
