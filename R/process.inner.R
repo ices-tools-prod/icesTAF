@@ -3,9 +3,11 @@
 #' @importFrom remotes install_github parse_repo_spec
 #' @importFrom tools file_path_as_absolute
 
-process.inner <- function(bib, dir)
+process.inner <- function(bib, dir, quiet)
 {
   key <- attr(bib, "key")
+  if(!quiet)
+    message("* ", key)
 
   ## Case 1: R package on GitHub
   if(grepl("@", bib$source[1]))

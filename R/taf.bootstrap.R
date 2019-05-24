@@ -82,7 +82,7 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE,
       message("Processing DATA.bib")
     if(clean)
       clean("data")
-    process.bib("DATA.bib")
+    process.bib("DATA.bib", quiet=quiet)
   }
 
   ## 3  Process software
@@ -92,7 +92,7 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE,
       message("Processing SOFTWARE.bib")
     if(clean)
       clean(c("library", "software"))
-    process.bib("SOFTWARE.bib")
+    process.bib("SOFTWARE.bib", quiet=quiet)
   }
 
   ## Remove empty folders

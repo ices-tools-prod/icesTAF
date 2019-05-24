@@ -4,6 +4,7 @@
 #'
 #' @param bibfile metadata file to process, either \code{"DATA.bib"} or
 #'        \code{"SOFTWARE.bib"}.
+#' @param quiet whether to suppress messages reporting progress.
 #'
 #' @note
 #' This is a helper function for \code{\link{taf.bootstrap}}. It is called
@@ -144,7 +145,7 @@
 #'
 #' @export
 
-process.bib <- function(bibfile)
+process.bib <- function(bibfile, quiet=FALSE)
 {
   type <- if(bibfile == "DATA.bib") "data"
           else if(bibfile == "SOFTWARE.bib") "software"
@@ -177,6 +178,6 @@ process.bib <- function(bibfile)
              file.path(type, key) else type
     mkdir(dir)  # target directory
 
-    process.inner(bib, dir)
+    process.inner(bib, dir, quiet)
   }
 }

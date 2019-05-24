@@ -4,11 +4,13 @@
 \alias{process.bib}
 \title{Process Metadata}
 \usage{
-process.bib(bibfile)
+process.bib(bibfile, quiet = FALSE)
 }
 \arguments{
 \item{bibfile}{metadata file to process, either \code{"DATA.bib"} or
 \code{"SOFTWARE.bib"}.}
+
+\item{quiet}{whether to suppress messages reporting progress.}
 }
 \description{
 Read and process metadata entries in a \verb{*.bib} file.
