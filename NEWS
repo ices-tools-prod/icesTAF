@@ -8,14 +8,13 @@ o Added function sam2taf() to convert SAM tables to TAF format.
 o Added argument 'quiet' to process.bib() and support for source={script} and
   dir={TRUE}. Removed 'bundle' field.
 
-o Added argument 'quiet' to taf.bootstrap().
+o Added argument 'quiet' to taf.bootstrap(). Improved taf.bootstrap() so it
+  doesn't clean the corresponding bootstrap directories when arguments 'config',
+  'data', or 'software' are FALSE. Dropped support for custom bootstrap.R
+  script, superseded by source={script}.
 
 o Improved draft.data() so it works in R versions older than 3.5. Code
   contributed by Alexandros Kokkalis.
-
-o Improved taf.bootstrap() so it doesn't clean the corresponding bootstrap
-  directories when arguments 'config', 'data', or 'software' are FALSE. Dropped
-  support for custom bootstrap.R script.
 
 o Changed sourceTAF() so working directory is not changed before script is run.
 
