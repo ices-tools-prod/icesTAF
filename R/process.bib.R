@@ -180,18 +180,3 @@ process.bib <- function(bibfile)
     process.inner(bib, dir)
   }
 }
-
-## Check whether requested package is already installed in the TAF library
-
-#' @importFrom utils installed.packages packageDescription
-
-already.in.taf.library <- function(spec)
-{
-  pkg <- basename(file.path(spec$repo, spec$subdir))
-  sha.bib <- spec$ref
-  sha.inst <- if(pkg %in% row.names(installed.packages("library")))
-                packageDescription(pkg, "library")$RemoteSha else NULL
-  sha.inst <- substring(sha.inst, 1, nchar(sha.bib))
-  out <- identical(sha.bib, sha.inst)
-  out
-}
