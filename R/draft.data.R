@@ -69,7 +69,7 @@
 draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
                        title=NULL, period=NULL, source="file", file="",
                        data.dir="bootstrap/initial/data",
-                       data.files=dir(data.dir,recursive=TRUE), append=FALSE)
+                       data.files=dir(data.dir), append=FALSE)
 {
   if(length(data.files) == 0)
     stop("'data.files' is an empty vector")
