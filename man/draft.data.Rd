@@ -25,7 +25,9 @@ suppressed using \code{period = FALSE}.}
 \item{source}{where the data are copied/downloaded from. This can be a URL,
 filename, or the special value \code{"file"}.}
 
-\item{file}{optional filename to save the draft metadata to a file.}
+\item{file}{optional filename to save the draft metadata to a file. The value
+\code{file = TRUE} is interpreted as
+\code{file = "bootstrap/DATA.bib"}.}
 
 \item{append}{whether to append metadata entries to an existing file.}
 }
@@ -63,6 +65,8 @@ draft.data("WGEF", 2015)
 
 # Export to file
 draft.data("WGEF", 2015, file="bootstrap/DATA.bib")
+# or equivalently
+draft.data("WGEF", 2015, file=TRUE)
 }
 
 }

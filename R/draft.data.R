@@ -13,7 +13,9 @@
 #'        suppressed using \code{period = FALSE}.
 #' @param source where the data are copied/downloaded from. This can be a URL,
 #'        filename, or the special value \code{"file"}.
-#' @param file optional filename to save the draft metadata to a file.
+#' @param file optional filename to save the draft metadata to a file. The value
+#'        \code{file = TRUE} is interpreted as
+#'        \code{file = "bootstrap/DATA.bib"}.
 #' @param append whether to append metadata entries to an existing file.
 #'
 #' @details
@@ -58,6 +60,8 @@
 #'
 #' # Export to file
 #' draft.data("WGEF", 2015, file="bootstrap/DATA.bib")
+#' # or equivalently
+#' draft.data("WGEF", 2015, file=TRUE)
 #' }
 #'
 #' @export
@@ -97,6 +101,8 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
   }
   else
   {
+    if(identical(file, TRUE))
+      file <- "bootstrap/DATA.bib"
     if(append)
       write("", file=file, append=TRUE)  # empty line separator
     write(out, file=file, append=append)
