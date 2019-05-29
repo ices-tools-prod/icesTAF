@@ -6,8 +6,7 @@
 \usage{
 draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
   title = NULL, period = NULL, source = "file", file = "",
-  data.dir = "bootstrap/initial/data", data.files = dir(data.dir,
-  recursive = TRUE), append = FALSE)
+  append = FALSE)
 }
 \arguments{
 \item{originator}{who prepared the data, e.g. a working group acronym.}
@@ -27,11 +26,6 @@ suppressed using \code{period = FALSE}.}
 filename, or the special value \code{"file"}.}
 
 \item{file}{optional filename to save the draft metadata to a file.}
-
-\item{data.dir}{directory containing data files.}
-
-\item{data.files}{data filenames. The default is all files inside
-\code{data.dir}.}
 
 \item{append}{whether to append metadata entries to an existing file.}
 }
@@ -55,8 +49,7 @@ instead of writing it to a file. The output can then be pasted into a file to
 edit further, without accidentally overwriting an existing metadata file.
 
 This function is intended to be called from the top directory of a TAF
-analysis which contains a \file{bootstrap/initial/data} directory, as
-reflected in the default value of \code{data.dir}.
+analysis which contains a \file{bootstrap/initial/data} directory.
 }
 \note{
 After creating the initial draft, the user can complete the description of

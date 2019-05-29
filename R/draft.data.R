@@ -14,9 +14,6 @@
 #' @param source where the data are copied/downloaded from. This can be a URL,
 #'        filename, or the special value \code{"file"}.
 #' @param file optional filename to save the draft metadata to a file.
-#' @param data.dir directory containing data files.
-#' @param data.files data filenames. The default is all files inside
-#'        \code{data.dir}.
 #' @param append whether to append metadata entries to an existing file.
 #'
 #' @details
@@ -33,8 +30,7 @@
 #' edit further, without accidentally overwriting an existing metadata file.
 #'
 #' This function is intended to be called from the top directory of a TAF
-#' analysis which contains a \file{bootstrap/initial/data} directory, as
-#' reflected in the default value of \code{data.dir}.
+#' analysis which contains a \file{bootstrap/initial/data} directory.
 #'
 #' @return
 #' Object of class \verb{Bibtex}.
@@ -68,11 +64,12 @@
 
 draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
                        title=NULL, period=NULL, source="file", file="",
-                       data.dir="bootstrap/initial/data",
-                       data.files=dir(data.dir), append=FALSE)
+                       append=FALSE)
 {
+  data.files <- dir("bootstrap/initial/data")
+
   if(length(data.files) == 0)
-    stop("'data.files' is an empty vector")
+    stop("no data files found in 'bootstrap/initial/data'")
 
   ## 1  Assemble metadata
   line1 <- paste0("@Misc{", data.files, ",")
