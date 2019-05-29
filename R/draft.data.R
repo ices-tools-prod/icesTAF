@@ -14,8 +14,7 @@
 #' @param source where the data are copied/downloaded from. This can be a URL,
 #'        filename, or the special value \code{"file"}.
 #' @param file optional filename to save the draft metadata to a file. The value
-#'        \code{file = TRUE} is interpreted as
-#'        \code{file = "bootstrap/DATA.bib"}.
+#'        \code{TRUE} can be used as shorthand for \code{"bootstrap/DATA.bib"}.
 #' @param append whether to append metadata entries to an existing file.
 #'
 #' @details
@@ -31,15 +30,16 @@
 #' instead of writing it to a file. The output can then be pasted into a file to
 #' edit further, without accidentally overwriting an existing metadata file.
 #'
-#' This function is intended to be called from the top directory of a TAF
-#' analysis which contains a \file{bootstrap/initial/data} directory.
-#'
 #' @return
 #' Object of class \verb{Bibtex}.
 #'
 #' @note
+#' This function is intended to be called from the top directory of a TAF
+#' analysis. It looks for data files inside \file{bootstrap/initial/data} and
+#' data scripts inside \file{bootstrap}.
+#'
 #' After creating the initial draft, the user can complete the description of
-#' each data file inside the \verb{title} field and look into each file to
+#' each data entry inside the \verb{title} field and look into each file to
 #' specify the \verb{period} that the data cover.
 #'
 #' @seealso
@@ -67,16 +67,21 @@
 #' @export
 
 draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
-                       title=NULL, period=NULL, source="file", file="",
+                       title=NULL, period=NULL, source=NULL, file="",
                        append=FALSE)
 {
   data.files <- dir("bootstrap/initial/data")
-
-  if(length(data.files) == 0)
-    stop("no data files found in 'bootstrap/initial/data'")
+  source.files <- file_path_sans_ext(dir("bootstrap", pattern="\\.R$"))
+  entries <- c(data.files, source.files)
+  if(length(entries) == 0)
+    stop("no data (bootstrap/initial/data/*) ",
+         "or source files (bootstrap/*.R) found")
+  if(is.null(source))
+    source <- rep(c("file","source"),
+                  c(length(data.files),length(source.files)))
 
   ## 1  Assemble metadata
-  line1 <- paste0("@Misc{", data.files, ",")
+  line1 <- paste0("@Misc{", entries, ",")
   line2 <- paste0("  originator = {", originator, "},")
   line3 <- paste0("  year       = {", year, "},")
   line4 <- paste0("  title      = {", title, "},")
@@ -94,6 +99,10 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
   class(out) <- "Bibtex"
 
   ## 3  Export
+  if(identical(file, TRUE))
+    file <- "bootstrap/DATA.bib"
+  if(identical(file, FALSE))
+    file <- ""
   ## No write() when file="", to ensure quiet assignment x <- draft.data()
   if(file == "")
   {
@@ -101,8 +110,6 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
   }
   else
   {
-    if(identical(file, TRUE))
-      file <- "bootstrap/DATA.bib"
     if(append)
       write("", file=file, append=TRUE)  # empty line separator
     write(out, file=file, append=append)

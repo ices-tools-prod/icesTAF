@@ -1,7 +1,9 @@
 --------------------------------------------------------------------------------
 icesTAF 3.1-2 (2019-05-29)
 --------------------------------------------------------------------------------
-o Removed arguments 'data.dir' and 'data.files' from draft.data().
+o Improved draft.data() so it detects bootstrap/*.R scripts and file=TRUE can be
+  used as shorthand for file="bootstrap/DATA.bib". Removed arguments 'data.dir'
+  and 'data.files'.
 
 
 

@@ -5,7 +5,7 @@
 \title{Draft DATA.bib}
 \usage{
 draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
-  title = NULL, period = NULL, source = "file", file = "",
+  title = NULL, period = NULL, source = NULL, file = "",
   append = FALSE)
 }
 \arguments{
@@ -26,8 +26,7 @@ suppressed using \code{period = FALSE}.}
 filename, or the special value \code{"file"}.}
 
 \item{file}{optional filename to save the draft metadata to a file. The value
-\code{file = TRUE} is interpreted as
-\code{file = "bootstrap/DATA.bib"}.}
+\code{TRUE} can be used as shorthand for \code{"bootstrap/DATA.bib"}.}
 
 \item{append}{whether to append metadata entries to an existing file.}
 }
@@ -49,13 +48,14 @@ The special value \verb{source = "file"} is described in the
 The default value \code{file = ""} prints the initial draft in the console,
 instead of writing it to a file. The output can then be pasted into a file to
 edit further, without accidentally overwriting an existing metadata file.
-
-This function is intended to be called from the top directory of a TAF
-analysis which contains a \file{bootstrap/initial/data} directory.
 }
 \note{
+This function is intended to be called from the top directory of a TAF
+analysis. It looks for data files inside \file{bootstrap/initial/data} and
+data scripts inside \file{bootstrap}.
+
 After creating the initial draft, the user can complete the description of
-each data file inside the \verb{title} field and look into each file to
+each data entry inside the \verb{title} field and look into each file to
 specify the \verb{period} that the data cover.
 }
 \examples{
