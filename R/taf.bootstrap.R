@@ -76,7 +76,7 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE,
   }
 
   ## 2  Process data
-  if(data)
+  if(data && file.exists("DATA.bib"))
   {
     if(!quiet)
       message("Processing DATA.bib")
@@ -86,7 +86,7 @@ taf.bootstrap <- function(clean=TRUE, config=TRUE, data=TRUE, software=TRUE,
   }
 
   ## 3  Process software
-  if(software)
+  if(software && file.exists("SOFTWARE.bib"))
   {
     if(!quiet)
       message("Processing SOFTWARE.bib")
