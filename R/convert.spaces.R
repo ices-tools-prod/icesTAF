@@ -29,9 +29,10 @@ convert.spaces <- function(file, sep="_")
   ## Include both glob matches and filenames without asterisk,
   ## in case some filenames without asterisk are not found
   from <- sort(unique(c(Sys.glob(file), file[!grepl("\\*", file)])))
-  from <- grep(" ", from, value=TRUE)
+  ## If file is "A B/x y.txt" then convert to "A B/x_y.txt"
+  from <- from[grep(" ", basename(from))]
 
-  to <- chartr(" ", sep, from)
+  to <- file.path(dirname(from), gsub(" ", sep, basename(from)))
 
   out <- suppressWarnings(mapply(file.rename, from, to))
   if(length(out) == 0)
