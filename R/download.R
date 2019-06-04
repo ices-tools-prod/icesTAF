@@ -24,8 +24,9 @@
 #' writing to the file system.
 #'
 #' @note
-#' If \code{destfile} contains spaces or \file{\%20} sequences, these are
-#' converted to underscores.
+#' If \code{destfile} contains a question mark it is removed from the
+#' \code{destfile} filename. Similarly, if \code{destfile} contains spaces or
+#' \file{\%20} sequences, those are converted to underscores.
 #'
 #' @seealso
 #' \code{\link{read.taf}} reads a TAF table into a data frame.
@@ -47,8 +48,9 @@
 download <- function(url, dir=".", mode="wb", chmod=file_ext(url)=="",
                      destfile=file.path(dir,basename(url)), quiet=TRUE, ...)
 {
+  destfile <- gsub("\\?.*", "", destfile)   # file.dat?tail -> file.dat
   download.file(url=url, destfile=destfile, mode=mode, quiet=quiet, ...)
-  convert.spaces(destfile)
+  convert.spaces(destfile)  # my%20script.R -> my_script.R
   if(chmod)
     Sys.chmod(destfile)
 }
