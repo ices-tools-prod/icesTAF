@@ -38,6 +38,10 @@ files. Data files in CSV or other text format can also be read directly into
 memory using \code{read.table}, \code{read.taf} or similar functions, without
 writing to the file system.
 }
+\note{
+If \code{destfile} contains spaces or \file{\%20} sequences, these are
+converted to underscores.
+}
 \examples{
 \dontrun{
 url <- paste0("https://github.com/ices-taf/2015_had-iceg/raw/master/",
