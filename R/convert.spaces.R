@@ -6,6 +6,10 @@
 #'        \code{"dir/*"}.
 #' @param sep character to use instead of spaces.
 #'
+#' @note
+#' This function treats \file{\%20} in filenames as a space and converts to
+#' \code{sep}.
+#'
 #' @return \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 #'
 #' @seealso
@@ -30,9 +34,9 @@ convert.spaces <- function(file, sep="_")
   ## in case some filenames without asterisk are not found
   from <- sort(unique(c(Sys.glob(file), file[!grepl("\\*", file)])))
   ## If file is "A B/x y.txt" then convert to "A B/x_y.txt"
-  from <- from[grep(" ", basename(from))]
+  from <- from[grep(" |%20", basename(from))]
 
-  to <- file.path(dirname(from), gsub(" ", sep, basename(from)))
+  to <- file.path(dirname(from), gsub(" |%20", sep, basename(from)))
 
   out <- suppressWarnings(mapply(file.rename, from, to))
   if(length(out) == 0)

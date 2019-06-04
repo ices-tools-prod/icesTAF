@@ -18,6 +18,10 @@ convert.spaces(file, sep = "_")
 \description{
 Convert spaces in filenames.
 }
+\note{
+This function treats \file{\%20} in filenames as a space and converts to
+\code{sep}.
+}
 \examples{
 \dontrun{
 write(pi, "A B.txt")
