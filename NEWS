@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
-icesTAF 3.2-0 (2019-06-06)
+icesTAF 3.1-2 (2019-06-06)
 --------------------------------------------------------------------------------
-o Added argument 'recon' to make().
+o Added arguments 'force' and 'recon' to make().
 
 o Added argument 'clean' to process.bib().
 

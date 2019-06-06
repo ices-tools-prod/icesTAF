@@ -5,7 +5,7 @@
 \title{Run R Script If Needed}
 \usage{
 make(recipe, prereq, target, include = TRUE, engine = source,
-  debug = FALSE, recon = FALSE, ...)
+  debug = FALSE, force = FALSE, recon = FALSE, ...)
 }
 \arguments{
 \item{recipe}{script filename.}
@@ -23,6 +23,8 @@ prerequisite file.}
 
 \item{debug}{whether to show a diagnostic table of files and time last
 modified.}
+
+\item{force}{whether to run the R script unconditionally.}
 
 \item{recon}{whether to return \code{TRUE} or \code{FALSE}, without actually
 running the R script.}
