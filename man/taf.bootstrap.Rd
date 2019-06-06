@@ -4,16 +4,16 @@
 \alias{taf.bootstrap}
 \title{Bootstrap TAF Analysis}
 \usage{
-taf.bootstrap(clean = TRUE, data = TRUE, software = TRUE,
+taf.bootstrap(data = TRUE, software = TRUE, clean = TRUE,
   quiet = FALSE)
 }
 \arguments{
+\item{data}{whether to process \verb{DATA.bib}.}
+
+\item{software}{whether to process \verb{SOFTWARE.bib}.}
+
 \item{clean}{whether to \code{\link{clean}} directories during the bootstrap
 procedure.}
-
-\item{data}{whether to process data files.}
-
-\item{software}{whether to process software.}
 
 \item{quiet}{whether to suppress messages reporting progress.}
 }
@@ -21,7 +21,15 @@ procedure.}
 Logical vector indicating which metadata files were processed.
 }
 \description{
-Set up data files and software required for the analysis.
+Process metadata files \file{DATA.bib} and \file{SOFTWARE.bib} to set up data
+files and  software required for the analysis.
+}
+\details{
+The default \code{clean = TRUE} cleans (1) \verb{bootstrap/data} if
+\verb{DATA.bib} is processed, (2) \verb{bootstrap/library} and
+\verb{bootstrap/software} if \verb{SOFTWARE.bib} is processed, and (3) top
+directories \verb{data}, \verb{model}, \verb{output}, and \verb{report} if
+either \verb{DATA.bib} or \verb{SOFTWARE.bib} is processed.
 }
 \note{
 This function should be called from the top directory of a TAF analysis. It

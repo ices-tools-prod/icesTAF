@@ -1,12 +1,20 @@
 #' Bootstrap TAF Analysis
 #'
-#' Set up data files and software required for the analysis.
+#' Process metadata files \file{DATA.bib} and \file{SOFTWARE.bib} to set up data
+#' files and  software required for the analysis.
 #'
+#' @param data whether to process \verb{DATA.bib}.
+#' @param software whether to process \verb{SOFTWARE.bib}.
 #' @param clean whether to \code{\link{clean}} directories during the bootstrap
 #'        procedure.
-#' @param data whether to process data files.
-#' @param software whether to process software.
 #' @param quiet whether to suppress messages reporting progress.
+#'
+#' @details
+#' The default \code{clean = TRUE} cleans (1) \verb{bootstrap/data} if
+#' \verb{DATA.bib} is processed, (2) \verb{bootstrap/library} and
+#' \verb{bootstrap/software} if \verb{SOFTWARE.bib} is processed, and (3) top
+#' directories \verb{data}, \verb{model}, \verb{output}, and \verb{report} if
+#' either \verb{DATA.bib} or \verb{SOFTWARE.bib} is processed.
 #'
 #' @return Logical vector indicating which metadata files were processed.
 #'
@@ -51,7 +59,8 @@
 #'
 #' @export
 
-taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
+taf.bootstrap <- function(data=TRUE, software=TRUE,
+                          clean=TRUE, quiet=FALSE)
 {
   if(!dir.exists("bootstrap"))
     return(invisible(NULL))  # nothing to do
@@ -67,14 +76,16 @@ taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
   if(data && file.exists("DATA.bib"))
   {
     out["DATA.bib"] <- process.bib("DATA.bib", clean=clean, quiet=quiet)
-    clean(c("../data", "../model", "../output", "../report"))
+    if(out["DATA.bib"])
+      clean(c("../data", "../model", "../output", "../report"))
   }
 
   ## 2  Process software
   if(software && file.exists("SOFTWARE.bib"))
   {
     out["SOFTWARE.bib"] <- process.bib("SOFTWARE.bib", clean=clean, quiet=quiet)
-    clean(c("../data", "../model", "../output", "../report"))
+    if(out["SOFTWARE.bib"])
+      clean(c("../data", "../model", "../output", "../report"))
   }
 
   ## Remove empty folders
