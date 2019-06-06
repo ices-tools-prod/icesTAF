@@ -17,6 +17,9 @@ procedure.}
 
 \item{quiet}{whether to suppress messages reporting progress.}
 }
+\value{
+Logical vector indicating which metadata files were processed.
+}
 \description{
 Set up data files and software required for the analysis.
 }

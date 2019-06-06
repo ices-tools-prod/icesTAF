@@ -8,6 +8,8 @@
 #' @param software whether to process software.
 #' @param quiet whether to suppress messages reporting progress.
 #'
+#' @return Logical vector indicating which metadata files were processed.
+#'
 #' @note
 #' This function should be called from the top directory of a TAF analysis. It
 #' looks for a directory called \file{bootstrap} and prepares data files and
@@ -62,13 +64,15 @@ taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
   ## Work inside bootstrap
   setwd("bootstrap"); on.exit(setwd(".."))
 
+  out <- c(DATA.bib=FALSE, SOFTWARE.bib=FALSE)
+
   ## 1  Process data
   if(data && file.exists("DATA.bib"))
-    process.bib("DATA.bib", clean=clean, quiet=quiet)
+    out["DATA.bib"] <- process.bib("DATA.bib", clean=clean, quiet=quiet)
 
   ## 2  Process software
   if(software && file.exists("SOFTWARE.bib"))
-    process.bib("SOFTWARE.bib", clean=clean, quiet=quiet)
+    out["SOFTWARE.bib"] <- process.bib("SOFTWARE.bib", clean=clean, quiet=quiet)
 
   ## Remove empty folders
   rmdir(c("data", "library", "software"), recursive=TRUE)
@@ -77,5 +81,5 @@ taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
   if(!quiet)
     msg("Bootstrap procedure done")
 
-  invisible(NULL)
+  invisible(out)
 }
