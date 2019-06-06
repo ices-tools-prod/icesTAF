@@ -5,7 +5,7 @@
 \title{Run R Script If Needed}
 \usage{
 make(recipe, prereq, target, include = TRUE, engine = source,
-  debug = FALSE, ...)
+  debug = FALSE, recon = FALSE, ...)
 }
 \arguments{
 \item{recipe}{script filename.}
@@ -23,6 +23,9 @@ prerequisite file.}
 
 \item{debug}{whether to show a diagnostic table of files and time last
 modified.}
+
+\item{recon}{whether to return \code{TRUE} or \code{FALSE}, without actually
+running the R script.}
 
 \item{\dots}{passed to \code{engine}.}
 }
