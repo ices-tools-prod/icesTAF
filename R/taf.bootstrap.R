@@ -65,8 +65,6 @@ taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
   ## 1  Process data
   if(data && file.exists("DATA.bib"))
   {
-    if(!quiet)
-      message("Processing DATA.bib")
     if(clean)
       clean("data")
     process.bib("DATA.bib", quiet=quiet)
@@ -75,8 +73,6 @@ taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
   ## 2  Process software
   if(software && file.exists("SOFTWARE.bib"))
   {
-    if(!quiet)
-      message("Processing SOFTWARE.bib")
     if(clean)
       clean(c("library", "software"))
     process.bib("SOFTWARE.bib", quiet=quiet)

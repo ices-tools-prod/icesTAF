@@ -158,6 +158,8 @@
 
 process.bib <- function(bibfile, quiet=FALSE)
 {
+  if(!quiet)
+    message("Processing ", bibfile)
   type <- if(bibfile == "DATA.bib") "data"
           else if(bibfile == "SOFTWARE.bib") "software"
           else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
