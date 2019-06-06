@@ -7,7 +7,10 @@
 #' @param software whether to process \verb{SOFTWARE.bib}.
 #' @param clean whether to \code{\link{clean}} directories during the bootstrap
 #'        procedure.
+#' @param force whether to process \verb{DATA.bib} and \verb{SOFTWARE.bib}
+#'        unconditionally.
 #' @param quiet whether to suppress messages reporting progress.
+#' @param \dots passed to \code{\link{make}}, e.g. \code{debug = TRUE}.
 #'
 #' @details
 #' The default \code{clean = TRUE} cleans (1) \verb{bootstrap/data} if
@@ -15,6 +18,10 @@
 #' \verb{bootstrap/software} if \verb{SOFTWARE.bib} is processed, and (3) top
 #' directories \verb{data}, \verb{model}, \verb{output}, and \verb{report} if
 #' either \verb{DATA.bib} or \verb{SOFTWARE.bib} is processed.
+#'
+#' The default \code{force = FALSE} only processes \verb{DATA.bib} when it is
+#' newer than the \verb{bootstrap/data} directory, and \verb{SOFTWARE.bib} when
+#' it is newer than the \verb{bootstrap/software} directory.
 #'
 #' @return Logical vector indicating which metadata files were processed.
 #'
@@ -60,7 +67,7 @@
 #' @export
 
 taf.bootstrap <- function(data=TRUE, software=TRUE,
-                          clean=TRUE, quiet=FALSE)
+                          clean=TRUE, force=FALSE, quiet=FALSE, ...)
 {
   if(!dir.exists("bootstrap"))
     return(invisible(NULL))  # nothing to do
@@ -75,7 +82,9 @@ taf.bootstrap <- function(data=TRUE, software=TRUE,
   ## 1  Process data
   if(data && file.exists("DATA.bib"))
   {
-    out["DATA.bib"] <- process.bib("DATA.bib", clean=clean, quiet=quiet)
+    out["DATA.bib"] <-
+      make("DATA.bib", NULL, "data", engine=process.bib,
+           clean=clean, force=force, quiet=quiet, ...)
     if(out["DATA.bib"])
       clean(c("../data", "../model", "../output", "../report"))
   }
@@ -83,7 +92,9 @@ taf.bootstrap <- function(data=TRUE, software=TRUE,
   ## 2  Process software
   if(software && file.exists("SOFTWARE.bib"))
   {
-    out["SOFTWARE.bib"] <- process.bib("SOFTWARE.bib", clean=clean, quiet=quiet)
+    out["SOFTWARE.bib"] <-
+      make("SOFTWARE.bib", NULL, "software", engine=process.bib,
+           clean=clean, force=force, quiet=quiet, ...)
     if(out["SOFTWARE.bib"])
       clean(c("../data", "../model", "../output", "../report"))
   }

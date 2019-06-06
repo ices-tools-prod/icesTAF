@@ -6,7 +6,8 @@ o Added arguments 'force' and 'recon' to make().
 o Added argument 'clean' to process.bib().
 
 o Changed taf.bootstrap() so model settings and configuration files are
-  processed as a SOFTWARE.bib entry. Removed 'config' argument.
+  processed as a SOFTWARE.bib entry. Added 'force' argument and removed 'config'
+  argument.
 
 o Improved convert.spaces() so it allows 'sep' to be any number of characters,
   treats %20 as space, and allows spaces in parent directories.

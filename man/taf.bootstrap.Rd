@@ -5,7 +5,7 @@
 \title{Bootstrap TAF Analysis}
 \usage{
 taf.bootstrap(data = TRUE, software = TRUE, clean = TRUE,
-  quiet = FALSE)
+  force = FALSE, quiet = FALSE, ...)
 }
 \arguments{
 \item{data}{whether to process \verb{DATA.bib}.}
@@ -15,7 +15,12 @@ taf.bootstrap(data = TRUE, software = TRUE, clean = TRUE,
 \item{clean}{whether to \code{\link{clean}} directories during the bootstrap
 procedure.}
 
+\item{force}{whether to process \verb{DATA.bib} and \verb{SOFTWARE.bib}
+unconditionally.}
+
 \item{quiet}{whether to suppress messages reporting progress.}
+
+\item{\dots}{passed to \code{\link{make}}, e.g. \code{debug = TRUE}.}
 }
 \value{
 Logical vector indicating which metadata files were processed.
@@ -30,6 +35,10 @@ The default \code{clean = TRUE} cleans (1) \verb{bootstrap/data} if
 \verb{bootstrap/software} if \verb{SOFTWARE.bib} is processed, and (3) top
 directories \verb{data}, \verb{model}, \verb{output}, and \verb{report} if
 either \verb{DATA.bib} or \verb{SOFTWARE.bib} is processed.
+
+The default \code{force = FALSE} only processes \verb{DATA.bib} when it is
+newer than the \verb{bootstrap/data} directory, and \verb{SOFTWARE.bib} when
+it is newer than the \verb{bootstrap/software} directory.
 }
 \note{
 This function should be called from the top directory of a TAF analysis. It
