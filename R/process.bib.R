@@ -4,7 +4,17 @@
 #'
 #' @param bibfile metadata file to process, either \code{"DATA.bib"} or
 #'        \code{"SOFTWARE.bib"}.
+#' @param clean whether to \code{\link{clean}} directories.
 #' @param quiet whether to suppress messages reporting progress.
+#'
+#' @details
+#' If \code{bibfile = "DATA.bib"} and \code{clean = TRUE}, then the
+#' \file{bootstrap/data} directory is cleaned before processing metadata
+#' entries.
+#'
+#' If \code{bibfile = "SOFTWARE.bib"} and \code{clean = TRUE}, then the
+#' \file{bootstrap/library} and \file{bootstrap/software} directories are
+#' cleaned before processing metadata entries.
 #'
 #' @note
 #' This is a helper function for \code{\link{taf.bootstrap}}. It is called
@@ -156,13 +166,18 @@
 #'
 #' @export
 
-process.bib <- function(bibfile, quiet=FALSE)
+process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
 {
   if(!quiet)
     message("Processing ", bibfile)
   type <- if(bibfile == "DATA.bib") "data"
           else if(bibfile == "SOFTWARE.bib") "software"
           else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
+
+  if(clean && type=="data")
+    clean("data")
+  if(clean && type=="software")
+    clean(c("library", "software"))
 
   entries <- if(file.exists(bibfile)) read.bib(bibfile) else list()
   dups <- anyDuplicated(names(entries))

@@ -64,19 +64,11 @@ taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
 
   ## 1  Process data
   if(data && file.exists("DATA.bib"))
-  {
-    if(clean)
-      clean("data")
-    process.bib("DATA.bib", quiet=quiet)
-  }
+    process.bib("DATA.bib", clean=clean, quiet=quiet)
 
   ## 2  Process software
   if(software && file.exists("SOFTWARE.bib"))
-  {
-    if(clean)
-      clean(c("library", "software"))
-    process.bib("SOFTWARE.bib", quiet=quiet)
-  }
+    process.bib("SOFTWARE.bib", clean=clean, quiet=quiet)
 
   ## Remove empty folders
   rmdir(c("data", "library", "software"), recursive=TRUE)

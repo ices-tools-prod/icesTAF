@@ -4,16 +4,27 @@
 \alias{process.bib}
 \title{Process Metadata}
 \usage{
-process.bib(bibfile, quiet = FALSE)
+process.bib(bibfile, clean = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{bibfile}{metadata file to process, either \code{"DATA.bib"} or
 \code{"SOFTWARE.bib"}.}
 
+\item{clean}{whether to \code{\link{clean}} directories.}
+
 \item{quiet}{whether to suppress messages reporting progress.}
 }
 \description{
 Read and process metadata entries in a \verb{*.bib} file.
+}
+\details{
+If \code{bibfile = "DATA.bib"} and \code{clean = TRUE}, then the
+\file{bootstrap/data} directory is cleaned before processing metadata
+entries.
+
+If \code{bibfile = "SOFTWARE.bib"} and \code{clean = TRUE}, then the
+\file{bootstrap/library} and \file{bootstrap/software} directories are
+cleaned before processing metadata entries.
 }
 \note{
 This is a helper function for \code{\link{taf.bootstrap}}. It is called

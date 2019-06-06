@@ -3,6 +3,8 @@ icesTAF 3.2-0 (2019-06-06)
 --------------------------------------------------------------------------------
 o Added argument 'recon' to make().
 
+o Added argument 'clean' to process.bib().
+
 o Changed taf.bootstrap() so model settings and configuration files are
   processed as a SOFTWARE.bib entry. Removed 'config' argument.
 
