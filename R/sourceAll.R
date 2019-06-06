@@ -31,9 +31,9 @@ sourceAll <- function(...)
   scripts <- c("data.R", "model.R", "output.R", "report.R")
   scripts <- scripts[file.exists(scripts)]
 
-  ok <- sapply(scripts, sourceTAF, ...)
-  if(length(ok) == 0)
-    ok <- logical(0)
+  out <- sapply(scripts, sourceTAF, ...)
+  if(length(out) == 0)
+    out <- logical(0)
 
-  invisible(ok)
+  invisible(out)
 }

@@ -63,12 +63,12 @@ sourceTAF <- function(script, rm=FALSE, clean=TRUE, quiet=FALSE)
   owd <- getwd()
   on.exit(setwd(owd))  # ensure getwd() is same before and after script
   result <- try(source(script))
-  ok <- class(result) != "try-error"
+  out <- class(result) != "try-error"
   if(!quiet)
-    msg("  ", script, if(ok) " done" else " failed")
+    msg("  ", script, if(out) " done" else " failed")
 
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
 
-  invisible(ok)
+  invisible(out)
 }
