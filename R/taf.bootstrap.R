@@ -53,9 +53,6 @@
 
 taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
 {
-  if(clean)
-    clean()
-
   if(!dir.exists("bootstrap"))
     return(invisible(NULL))  # nothing to do
   if(!quiet)
@@ -68,11 +65,17 @@ taf.bootstrap <- function(clean=TRUE, data=TRUE, software=TRUE, quiet=FALSE)
 
   ## 1  Process data
   if(data && file.exists("DATA.bib"))
+  {
     out["DATA.bib"] <- process.bib("DATA.bib", clean=clean, quiet=quiet)
+    clean(c("../data", "../model", "../output", "../report"))
+  }
 
   ## 2  Process software
   if(software && file.exists("SOFTWARE.bib"))
+  {
     out["SOFTWARE.bib"] <- process.bib("SOFTWARE.bib", clean=clean, quiet=quiet)
+    clean(c("../data", "../model", "../output", "../report"))
+  }
 
   ## Remove empty folders
   rmdir(c("data", "library", "software"), recursive=TRUE)
