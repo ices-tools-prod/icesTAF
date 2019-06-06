@@ -23,6 +23,8 @@
 #' similar to the \code{source} functions, except they avoid repeating tasks
 #' that have already been run.
 #'
+#' \code{\link{makeBoot}} runs TAF bootstrap as needed.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
@@ -36,18 +38,18 @@ makeTAF <- function(script, ...)
 {
   script <- basename(script)
   out <- switch(script,
-                "data.R"=make("data.R",
-                              dir(pattern="^data_.*\\.R$"),
-                              "data", engine=sourceTAF, ...),
-                "model.R"=make("model.R",
-                               c("data",dir(pattern="^model_.*\\.R$")),
-                               "model", engine=sourceTAF, ...),
-                "output.R"=make("output.R",
-                                c("model",dir(pattern="^output_.*\\.R$")),
-                                "output", engine=sourceTAF, ...),
-                "report.R"=make("report.R",
-                                c("output",dir(pattern="^report_.*\\.R$")),
-                                "report", engine=sourceTAF, ...),
+                data.R=make("data.R",
+                            dir(pattern="^data_.*\\.R$"),
+                            "data", engine=sourceTAF, ...),
+                model.R=make("model.R",
+                             c("data",dir(pattern="^model_.*\\.R$")),
+                             "model", engine=sourceTAF, ...),
+                output.R=make("output.R",
+                              c("model",dir(pattern="^output_.*\\.R$")),
+                              "output", engine=sourceTAF, ...),
+                report.R=make("report.R",
+                              c("output",dir(pattern="^report_.*\\.R$")),
+                              "report", engine=sourceTAF, ...),
                 FALSE)
   invisible(out)
 }
