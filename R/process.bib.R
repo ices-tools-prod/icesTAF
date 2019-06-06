@@ -16,6 +16,8 @@
 #' \file{bootstrap/library} and \file{bootstrap/software} directories are
 #' cleaned before processing metadata entries.
 #'
+#' @return \code{TRUE} for success.
+#'
 #' @note
 #' This is a helper function for \code{\link{taf.bootstrap}}. It is called
 #' within the \file{bootstrap} directory that contains the metadata file.
@@ -208,4 +210,6 @@ process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
 
     process.inner(bib, dir, quiet)
   }
+
+  invisible(TRUE)
 }

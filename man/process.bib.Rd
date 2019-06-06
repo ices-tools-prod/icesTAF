@@ -14,6 +14,9 @@ process.bib(bibfile, clean = TRUE, quiet = FALSE)
 
 \item{quiet}{whether to suppress messages reporting progress.}
 }
+\value{
+\code{TRUE} for success.
+}
 \description{
 Read and process metadata entries in a \verb{*.bib} file.
 }
