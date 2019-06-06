@@ -122,6 +122,17 @@
 #' same name. It is implied and not necessary to set \verb{dir = TRUE} when
 #' \verb{source = {script}} or when the source field specifies multiple URLs.
 #'
+#' Model settings can be stored in a file or folder inside
+#' \verb{bootstrap/initial/software} and included as a simple
+#' \verb{SOFTWARE.bib} entry, for example:
+#'
+#' \preformatted{@Misc{config,
+#'   author = {HAWG},
+#'   year   = {2019},
+#'   title  = {Model settings},
+#'   source = {file},
+#' }}
+#'
 #' In summary, the metadata are similar to bibliographic entries, with the
 #' important addition of source directives that guide the bootstrap procedure to
 #' set up data files and software.
