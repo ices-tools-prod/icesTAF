@@ -1,23 +1,23 @@
 --------------------------------------------------------------------------------
 icesTAF 3.1-2 (2019-06-06)
 --------------------------------------------------------------------------------
-o Added arguments 'force' and 'recon' to make().
-
-o Added argument 'clean' to process.bib().
-
 o Changed taf.bootstrap() so model settings and configuration files are
   processed as a SOFTWARE.bib entry. Added 'force' argument and removed 'config'
   argument.
+
+o Improved draft.data() so it detects bootstrap/*.R scripts and file=TRUE can be
+  used as shorthand for file="bootstrap/DATA.bib". Removed arguments 'data.dir'
+  and 'data.files'.
+
+o Added arguments 'force' and 'recon' to make().
+
+o Added argument 'clean' to process.bib().
 
 o Improved convert.spaces() so it allows 'sep' to be any number of characters,
   treats %20 as space, and allows spaces in parent directories.
 
 o Improved download() so it shaves off ?tail from the end of 'destfile', and
   converts spaces and %20 to underscores.
-
-o Improved draft.data() so it detects bootstrap/*.R scripts and file=TRUE can be
-  used as shorthand for file="bootstrap/DATA.bib". Removed arguments 'data.dir'
-  and 'data.files'.
 
 
 
