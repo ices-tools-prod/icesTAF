@@ -23,8 +23,6 @@
 #' similar to the \code{source} functions, except they avoid repeating tasks
 #' that have already been run.
 #'
-#' \code{\link{makeBoot}} runs TAF bootstrap as needed.
-#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
