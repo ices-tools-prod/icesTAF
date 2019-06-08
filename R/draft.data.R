@@ -16,6 +16,10 @@
 #' @param file optional filename to save the draft metadata to a file. The value
 #'        \code{TRUE} can be used as shorthand for \code{"bootstrap/DATA.bib"}.
 #' @param append whether to append metadata entries to an existing file.
+#' @param data.files data files to consider. The default is all folders and
+#'        files inside \verb{bootstrap/initial/data}.
+#' @param source.files source files to consider. The default is all \verb{*.R}
+#'        files in the \verb{bootstrap} folder.
 #'
 #' @details
 #' Typical usage is to specify \code{originator}, while using the default values
@@ -68,10 +72,10 @@
 
 draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
                        title=NULL, period=NULL, source=NULL, file="",
-                       append=FALSE)
+                       append=FALSE, data.files=dir("bootstrap/initial/data"),
+                       source.files=dir("bootstrap",pattern="\\.R$"))
 {
-  data.files <- dir("bootstrap/initial/data")
-  source.files <- file_path_sans_ext(dir("bootstrap", pattern="\\.R$"))
+  source.files <- file_path_sans_ext(source.files)
   entries <- c(data.files, source.files)
   if(length(entries) == 0)
     stop("no data (bootstrap/initial/data/*) ",

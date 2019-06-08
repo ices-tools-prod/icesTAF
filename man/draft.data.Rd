@@ -6,7 +6,8 @@
 \usage{
 draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
   title = NULL, period = NULL, source = NULL, file = "",
-  append = FALSE)
+  append = FALSE, data.files = dir("bootstrap/initial/data"),
+  source.files = dir("bootstrap", pattern = "\\\\.R$"))
 }
 \arguments{
 \item{originator}{who prepared the data, e.g. a working group acronym.}
@@ -29,6 +30,12 @@ filename, or the special value \code{"file"}.}
 \code{TRUE} can be used as shorthand for \code{"bootstrap/DATA.bib"}.}
 
 \item{append}{whether to append metadata entries to an existing file.}
+
+\item{data.files}{data files to consider. The default is all folders and
+files inside \verb{bootstrap/initial/data}.}
+
+\item{source.files}{source files to consider. The default is all \verb{*.R}
+files in the \verb{bootstrap} folder.}
 }
 \value{
 Object of class \verb{Bibtex}.
