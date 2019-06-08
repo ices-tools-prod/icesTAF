@@ -88,8 +88,8 @@ zoom.trellis <- function(x, size=2.7, main=1.2*size, lab=size, axis=size,
 
     if(!is.null(legend) && !is.null(x$legend))
     {
-      x$legend[[side]]$args$key$cex.title <- legend
       side <- names(x$legend)[1]
+      x$legend[[side]]$args$key$cex.title <- legend
       ## Sometimes cex, key$cex, or key$text$cex ... just set them all
       x$legend[[side]]$args$cex <- legend
       x$legend[[side]]$args$key$cex <- legend
