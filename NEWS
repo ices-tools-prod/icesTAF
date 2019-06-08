@@ -9,6 +9,9 @@ o Improved draft.data() so it detects bootstrap/*.R scripts and file=TRUE can be
   used as shorthand for file="bootstrap/DATA.bib". Removed arguments 'data.dir'
   and 'data.files'.
 
+o Improved draft.software() so file=TRUE can be used as shorthand for
+  file="bootstrap/SOFTWARE.bib".
+
 o Added arguments 'force' and 'recon' to make().
 
 o Added argument 'clean' to process.bib().

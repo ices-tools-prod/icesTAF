@@ -25,7 +25,9 @@ branch and commit date.}
 from. This can be a GitHub reference of the form
 \verb{owner/repo[/subdir]@ref}, URL, or a filename.}
 
-\item{file}{optional filename to save the draft metadata to a file.}
+\item{file}{optional filename to save the draft metadata to a file. The value
+\code{TRUE} can be used as shorthand for
+\code{"bootstrap/SOFTWARE.bib"}.}
 
 \item{append}{whether to append metadata entries to an existing file.}
 }

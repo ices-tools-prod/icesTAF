@@ -13,7 +13,9 @@
 #' @param source string to specify where the software are copied/downloaded
 #'        from. This can be a GitHub reference of the form
 #'        \verb{owner/repo[/subdir]@ref}, URL, or a filename.
-#' @param file optional filename to save the draft metadata to a file.
+#' @param file optional filename to save the draft metadata to a file. The value
+#'        \code{TRUE} can be used as shorthand for
+#'        \code{"bootstrap/SOFTWARE.bib"}.
 #' @param append whether to append metadata entries to an existing file.
 #'
 #' @details
@@ -102,6 +104,11 @@ draft.software <- function(package, author=NULL, year=NULL, title=NULL,
                       version=version, source=source)
   }
 
+  ## Export
+  if(identical(file, TRUE))
+    file <- "bootstrap/SOFTWARE.bib"
+  if(identical(file, FALSE))
+    file <- ""
   ## No write() when file="", to ensure quiet assignment x <- draft.software()
   if(file == "")
   {
