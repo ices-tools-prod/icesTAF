@@ -7,10 +7,10 @@ o Improved taf.bootstrap() so it only processes DATA.bib and SOFTWARE.bib when
 
 o Improved draft.data() so it detects bootstrap/*.R scripts as source files to
   consider. Added argument 'source.files' and removed argument 'data.dir'. Added
-  support for using file=TRUE as as shorthand for file="bootstrap/DATA.bib".
+  support for using file=TRUE as shorthand for file="bootstrap/DATA.bib".
 
-o Improved draft.software() so file=TRUE can be used as shorthand for
-  file="bootstrap/SOFTWARE.bib".
+o Improved draft.software() so it looks for packages in bootstrap/library. Added
+  support for using file=TRUE as shorthand for file="bootstrap/SOFTWARE.bib".
 
 o Added arguments 'force' and 'recon' to make().
 
