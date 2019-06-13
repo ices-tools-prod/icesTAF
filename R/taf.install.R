@@ -1,7 +1,9 @@
 #' @importFrom remotes install_github parse_repo_spec
 
-taf.install <- function(repo)
+taf.install <- function(repo, wd=".")
 {
+  owd <- setwd(wd); on.exit(setwd(owd))
+  mkdir(c("library", "software"))
   spec <- parse_repo_spec(repo)
   url <- paste0("https://api.github.com/repos/",
                 spec$username, "/", spec$repo, "/tarball/", spec$ref)
