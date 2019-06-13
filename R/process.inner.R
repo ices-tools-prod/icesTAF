@@ -25,9 +25,8 @@ process.inner <- function(bib, dir, quiet)
   else if(bib$source[1] == "script")
   {
     script <- file_path_as_absolute(paste0(key, ".R"))
-    owd <- setwd(dir)
+    owd <- setwd(dir); on.exit(setwd(owd))
     source(script)
-    setwd(owd)
   }
 
   ## Case 4: File to copy
