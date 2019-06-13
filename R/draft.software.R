@@ -2,8 +2,8 @@
 #'
 #' Create an initial draft version of a \file{SOFTWARE.bib} metadata file.
 #'
-#' @param package name of one or more installed R packages, or files/folders
-#'        inside \file{bootstrap/initial/software}.
+#' @param package name of one or more R packages, or files/folders inside
+#'        \file{bootstrap/initial/software}.
 #' @param author author(s) of the software.
 #' @param year year when this version of the software was released, or the
 #'        publication year of the cited manual/article/etc.
@@ -21,6 +21,10 @@
 #' @details
 #' Typical usage is to specify \code{package}, while using the default values
 #' for the other arguments.
+#'
+#' If \code{package} is an R package, it can either be a package that is already
+#' installed (\code{"icesAdvice"}) or a GitHub reference
+#' (\code{"ices-tools-prod/icesAdvice@4271797"}).
 #'
 #' With the default \verb{version = NULL}, the function will automatically
 #' suggest an appropriate version entry for CRAN packages, but for GitHub
@@ -67,6 +71,8 @@
 #' draft.software("icesTAF", file="bootstrap/SOFTWARE.bib")
 #' }
 #'
+#' @importFrom remotes parse_repo_spec
+#'
 #' @export
 
 draft.software <- function(package, author=NULL, year=NULL, title=NULL,
@@ -93,11 +99,23 @@ draft.software <- function(package, author=NULL, year=NULL, title=NULL,
     out <- out[-length(out)] # remove empty line at end
     class(out) <- "Bibtex"
   }
+  ## 1  GitHub repo
+  else if(grepl("@", package))
+  {
+    taf.install(package, "bootstrap")
+    spec <- parse_repo_spec(package)
+    package <- if(spec$subdir=="") spec$repo else spec$subdir
+    ## Pass source=NULL, to get a GitHub reference instead of trunk name
+    out <- ds.package(package=package, author=author, year=year, title=title,
+                      version=version, source=NULL)
+  }
+  ## 2  Bootstrap folder or file
   else if(dirname(package) == "bootstrap/initial/software")
   {
     out <- ds.file(package=package, author=author, year=year, title=title,
                    version=version, source=source)
   }
+  ## 3  Installed package
   else
   {
     out <- ds.package(package=package, author=author, year=year, title=title,

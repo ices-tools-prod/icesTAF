@@ -8,8 +8,8 @@ draft.software(package, author = NULL, year = NULL, title = NULL,
   version = NULL, source = NULL, file = "", append = FALSE)
 }
 \arguments{
-\item{package}{name of one or more installed R packages, or files/folders
-inside \file{bootstrap/initial/software}.}
+\item{package}{name of one or more R packages, or files/folders inside
+\file{bootstrap/initial/software}.}
 
 \item{author}{author(s) of the software.}
 
@@ -40,6 +40,10 @@ Create an initial draft version of a \file{SOFTWARE.bib} metadata file.
 \details{
 Typical usage is to specify \code{package}, while using the default values
 for the other arguments.
+
+If \code{package} is an R package, it can either be a package that is already
+installed (\code{"icesAdvice"}) or a GitHub reference
+(\code{"ices-tools-prod/icesAdvice@4271797"}).
 
 With the default \verb{version = NULL}, the function will automatically
 suggest an appropriate version entry for CRAN packages, but for GitHub
