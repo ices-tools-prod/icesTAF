@@ -37,8 +37,10 @@ directories \verb{data}, \verb{model}, \verb{output}, and \verb{report} if
 either \verb{DATA.bib} or \verb{SOFTWARE.bib} is processed.
 
 The default \code{force = FALSE} only processes \verb{DATA.bib} when it is
-newer than the \verb{bootstrap/data} directory, and \verb{SOFTWARE.bib} when
-it is newer than the \verb{bootstrap/software} directory.
+newer than the \verb{bootstrap/data} directory, or if underlying
+\verb{bootstrap/*.R} data scripts have changed. Similarly,
+\code{force = FALSE} only processes \verb{SOFTWARE.bib} when it is newer than
+the \verb{bootstrap/software} directory.
 }
 \note{
 This function should be called from the top directory of a TAF analysis. It
@@ -55,7 +57,7 @@ The bootstrap procedure consists of the following steps:
 
 After the bootstrap procedure, data and software have been documented and
 are ready to be used in the subsequent analysis. Specifically, the procedure
-populates up to four new directories:
+populates up to three new directories:
 \itemize{
 \item \verb{bootstrap/data} with data files.
 \item \verb{bootstrap/library} with R packages compiled for the local

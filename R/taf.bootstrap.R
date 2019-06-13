@@ -20,8 +20,10 @@
 #' either \verb{DATA.bib} or \verb{SOFTWARE.bib} is processed.
 #'
 #' The default \code{force = FALSE} only processes \verb{DATA.bib} when it is
-#' newer than the \verb{bootstrap/data} directory, and \verb{SOFTWARE.bib} when
-#' it is newer than the \verb{bootstrap/software} directory.
+#' newer than the \verb{bootstrap/data} directory, or if underlying
+#' \verb{bootstrap/*.R} data scripts have changed. Similarly,
+#' \code{force = FALSE} only processes \verb{SOFTWARE.bib} when it is newer than
+#' the \verb{bootstrap/software} directory.
 #'
 #' @return Logical vector indicating which metadata files were processed.
 #'
@@ -40,7 +42,7 @@
 #'
 #' After the bootstrap procedure, data and software have been documented and
 #' are ready to be used in the subsequent analysis. Specifically, the procedure
-#' populates up to four new directories:
+#' populates up to three new directories:
 #' \itemize{
 #' \item \verb{bootstrap/data} with data files.
 #' \item \verb{bootstrap/library} with R packages compiled for the local
@@ -83,7 +85,7 @@ taf.bootstrap <- function(data=TRUE, software=TRUE,
   if(data && file.exists("DATA.bib"))
   {
     out["DATA.bib"] <-
-      make("DATA.bib", NULL, "data", engine=process.bib,
+      make("DATA.bib", dir(pattern="\\.R$"), "data", engine=process.bib,
            clean=clean, force=force, quiet=quiet, ...)
     if(out["DATA.bib"])
       clean(c("../data", "../model", "../output", "../report"))
