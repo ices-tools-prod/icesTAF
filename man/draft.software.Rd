@@ -68,8 +68,10 @@ GitHub. To prepare metadata for software other than R packages, see the
 \code{\link{process.bib}} help page for an example.
 }
 \examples{
+\donttest{
 # Print in console
 draft.software("icesTAF")
+}
 
 \dontrun{
 # Export to file

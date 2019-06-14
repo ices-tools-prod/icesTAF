@@ -400,15 +400,6 @@ Type 'q()' to quit R.
 > 
 > ### ** Examples
 > 
-> # Print in console
-> draft.software("icesTAF")
-@Manual{icesTAF,
-  author  = {Arni Magnusson and Colin Millar},
-  year    = {2019},
-  title   = {icesTAF: Functions to Support the ICES Transparent Assessment Framework},
-  version = {3.1-2},
-  source  = {},
-}
 > 
 > ## Not run: 
 > ##D # Export to file
@@ -669,7 +660,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > msg("script.R running...")
-[14:09:21] script.R running...
+[14:59:46] script.R running...
 > 
 > 
 > 
@@ -1359,7 +1350,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.383 0.018 0.407 0 0 
+Time elapsed:  0.363 0.019 0.38 0 0 
 > grDevices::dev.off()
 null device 
           1 

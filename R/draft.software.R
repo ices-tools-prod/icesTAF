@@ -63,8 +63,10 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
+#' \donttest{
 #' # Print in console
 #' draft.software("icesTAF")
+#' }
 #'
 #' \dontrun{
 #' # Export to file
