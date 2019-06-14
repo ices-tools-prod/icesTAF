@@ -1,10 +1,10 @@
 --------------------------------------------------------------------------------
 icesTAF 3.1-2 (2019-06-06)
 --------------------------------------------------------------------------------
-o Improved taf.bootstrap() so it only processes DATA.bib and SOFTWARE.bib when
+o Improved taf.bootstrap() so it only processes SOFTWARE.bib and DATA.bib when
   they (or underlying bootstrap/*.R data scripts) have changed. Added argument
-  'force' and removed argument 'config'. Model configuration files can be
-  processed as a SOFTWARE.bib entry.
+  'force' and removed argument 'config'. SOFTWARE.bib is now processed before
+  DATA.bib. Model configuration files can be processed as a SOFTWARE.bib entry.
 
 o Improved draft.data() so it detects bootstrap/*.R scripts as source files to
   consider. Added argument 'source.files' and removed argument 'data.dir'. Added

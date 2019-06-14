@@ -2,19 +2,19 @@
 #'
 #' Read and process metadata entries in a \verb{*.bib} file.
 #'
-#' @param bibfile metadata file to process, either \code{"DATA.bib"} or
-#'        \code{"SOFTWARE.bib"}.
+#' @param bibfile metadata file to process, either \code{"SOFTWARE.bib"} or
+#'        \code{"DATA.bib"}.
 #' @param clean whether to \code{\link{clean}} directories.
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
-#' If \code{bibfile = "DATA.bib"} and \code{clean = TRUE}, then the
-#' \file{bootstrap/data} directory is cleaned before processing metadata
-#' entries.
-#'
 #' If \code{bibfile = "SOFTWARE.bib"} and \code{clean = TRUE}, then the
 #' \file{bootstrap/library} and \file{bootstrap/software} directories are
 #' cleaned before processing metadata entries.
+#'
+#' If \code{bibfile = "DATA.bib"} and \code{clean = TRUE}, then the
+#' \file{bootstrap/data} directory is cleaned before processing metadata
+#' entries.
 #'
 #' @return \code{TRUE} for success.
 #'

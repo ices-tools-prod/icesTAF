@@ -1,29 +1,29 @@
 #' Bootstrap TAF Analysis
 #'
-#' Process metadata files \file{DATA.bib} and \file{SOFTWARE.bib} to set up data
-#' files and  software required for the analysis.
+#' Process metadata files \file{SOFTWARE.bib} and \file{DATA.bib} to set up
+#' software and data files required for the analysis.
 #'
-#' @param data whether to process \verb{DATA.bib}.
 #' @param software whether to process \verb{SOFTWARE.bib}.
+#' @param data whether to process \verb{DATA.bib}.
 #' @param clean whether to \code{\link{clean}} directories during the bootstrap
 #'        procedure.
-#' @param force whether to process \verb{DATA.bib} and \verb{SOFTWARE.bib}
+#' @param force whether to process \verb{SOFTWARE.bib} and \verb{DATA.bib}
 #'        unconditionally.
 #' @param quiet whether to suppress messages reporting progress.
 #' @param \dots passed to \code{\link{make}}, e.g. \code{debug = TRUE}.
 #'
 #' @details
-#' The default \code{clean = TRUE} cleans (1) \verb{bootstrap/data} if
-#' \verb{DATA.bib} is processed, (2) \verb{bootstrap/library} and
-#' \verb{bootstrap/software} if \verb{SOFTWARE.bib} is processed, and (3) top
+#' The default \code{clean = TRUE} cleans (1) \verb{bootstrap/library} and
+#' \verb{bootstrap/software} if \verb{SOFTWARE.bib} is processed, (2)
+#' \verb{bootstrap/data} if \verb{DATA.bib} is processed, and (3) top
 #' directories \verb{data}, \verb{model}, \verb{output}, and \verb{report} if
-#' either \verb{DATA.bib} or \verb{SOFTWARE.bib} is processed.
+#' either \verb{SOFTWARE.bib} or \verb{DATA.bib} is processed.
 #'
-#' The default \code{force = FALSE} only processes \verb{DATA.bib} when it is
-#' newer than the \verb{bootstrap/data} directory, or if underlying
-#' \verb{bootstrap/*.R} data scripts have changed. Similarly,
-#' \code{force = FALSE} only processes \verb{SOFTWARE.bib} when it is newer than
-#' the \verb{bootstrap/software} directory.
+#' The default \code{force = FALSE} only processes \verb{SOFTWARE.bib} when it
+#' is newer than the \verb{bootstrap/software} directory. Similarly,
+#' \code{force = FALSE} only processes \verb{DATA.bib} when it is newer than the
+#' \verb{bootstrap/data} directory, or if underlying \verb{bootstrap/*.R} data
+#' scripts have changed.
 #'
 #' @return Logical vector indicating which metadata files were processed.
 #'
@@ -34,13 +34,13 @@
 #'
 #' The bootstrap procedure consists of the following steps:
 #' \enumerate{
-#' \item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed
-#'       with \code{\link{process.bib}}.
 #' \item If a \verb{bootstrap/SOFTWARE.bib} metadata file exists, it is
 #'       processed with \code{\link{process.bib}}.
+#' \item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed
+#'       with \code{\link{process.bib}}.
 #' }
 #'
-#' After the bootstrap procedure, data and software have been documented and
+#' After the bootstrap procedure, software and data have been documented and
 #' are ready to be used in the subsequent analysis. Specifically, the procedure
 #' populates up to three new directories:
 #' \itemize{
@@ -68,7 +68,7 @@
 #'
 #' @export
 
-taf.bootstrap <- function(data=TRUE, software=TRUE,
+taf.bootstrap <- function(software=TRUE, data=TRUE,
                           clean=TRUE, force=FALSE, quiet=FALSE, ...)
 {
   if(!dir.exists("bootstrap"))
@@ -79,25 +79,25 @@ taf.bootstrap <- function(data=TRUE, software=TRUE,
   ## Work inside bootstrap
   setwd("bootstrap"); on.exit(setwd(".."))
 
-  out <- c(DATA.bib=FALSE, SOFTWARE.bib=FALSE)
+  out <- c(SOFTWARE.bib=FALSE, DATA.bib=FALSE)
 
-  ## 1  Process data
-  if(data && file.exists("DATA.bib"))
-  {
-    out["DATA.bib"] <-
-      make("DATA.bib", dir(pattern="\\.R$"), "data", engine=process.bib,
-           clean=clean, force=force, quiet=quiet, ...)
-    if(out["DATA.bib"])
-      clean(c("../data", "../model", "../output", "../report"))
-  }
-
-  ## 2  Process software
+  ## 1  Process software
   if(software && file.exists("SOFTWARE.bib"))
   {
     out["SOFTWARE.bib"] <-
       make("SOFTWARE.bib", NULL, "software", engine=process.bib,
            clean=clean, force=force, quiet=quiet, ...)
     if(out["SOFTWARE.bib"])
+      clean(c("../data", "../model", "../output", "../report"))
+  }
+
+  ## 2  Process data
+  if(data && file.exists("DATA.bib"))
+  {
+    out["DATA.bib"] <-
+      make("DATA.bib", dir(pattern="\\.R$"), "data", engine=process.bib,
+           clean=clean, force=force, quiet=quiet, ...)
+    if(out["DATA.bib"])
       clean(c("../data", "../model", "../output", "../report"))
   }
 
