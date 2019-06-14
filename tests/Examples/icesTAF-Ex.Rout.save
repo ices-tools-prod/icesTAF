@@ -381,6 +381,8 @@ Type 'q()' to quit R.
 > ##D 
 > ##D # Export to file
 > ##D draft.data("WGEF", 2015, file="bootstrap/DATA.bib")
+> ##D # or equivalently
+> ##D draft.data("WGEF", 2015, file=TRUE)
 > ## End(Not run)
 > 
 > 
@@ -404,7 +406,7 @@ Type 'q()' to quit R.
   author  = {Arni Magnusson and Colin Millar},
   year    = {2019},
   title   = {icesTAF: Functions to Support the ICES Transparent Assessment Framework},
-  version = {3.1-1},
+  version = {3.1-2},
   source  = {},
 }
 > 
@@ -667,7 +669,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > msg("script.R running...")
-[13:36:10] script.R running...
+[14:09:21] script.R running...
 > 
 > 
 > 
@@ -1357,7 +1359,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.354 0.02 0.374 0 0 
+Time elapsed:  0.383 0.018 0.407 0 0 
 > grDevices::dev.off()
 null device 
           1 
