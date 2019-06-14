@@ -26,6 +26,8 @@ o Improved download() so it shaves off ?tail from the end of 'destfile', and
 
 o Improved zoom() so it handles legend text size.
 
+o Added automated checks in tests/Examples.
+
 
 
 
