@@ -47,7 +47,7 @@ already.in.taf.library <- function(spec)
 # get_remote_sha("ices-tools-prod", "icesTAF", "3.1-1")
 # get_remote_sha("ices-tools-prod", "icesTAF", "577347aa6ee63add3720c3b27e582ee37fc8f92d")
 
-get_remote_sha <- function(username, repo, ref, use_curl = FALSE) {
+get_remote_sha <- function(username, repo, ref) {
   # form api url to get latest commit
   url <-
     paste(
@@ -55,23 +55,13 @@ get_remote_sha <- function(username, repo, ref, use_curl = FALSE) {
       "commits", utils::URLencode(ref, reserved = TRUE),
       sep = "/")
 
-  if (use_curl) {
-    # set up curl
-    h <- curl::new_handle()
-    headers <- c(Accept = "application/vnd.github.v3.sha")
-    curl::handle_setheaders(h, .list = headers)
-    # preform fetch
-    res <- curl::curl_fetch_memory(url, handle = h)
-    # return content
-    rawToChar(res$content)
-  } else {
-    tmp <- tempfile()
-    on.exit(unlink(tmp), add = TRUE)
-    # download json contents to temporary file
-    download.file(url, tmp, quiet = TRUE)
-    # parse json - jsonlite comes with remotes anyway
-    res <- jsonlite::read_json(tmp)
-    # return sha
-    res$sha
-  }
+  tmp <- tempfile()
+  on.exit(unlink(tmp), add = TRUE)
+  # download json contents to temporary file
+  download.file(url, tmp, quiet = TRUE)
+  # parse json - jsonlite comes with remotes anyway
+  res <- jsonlite::read_json(tmp)
+  # return sha
+  res$sha
+
 }
