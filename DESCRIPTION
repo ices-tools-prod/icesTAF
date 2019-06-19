@@ -6,7 +6,8 @@ Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="arni.magnus
              person("Colin", "Millar", role="aut"),
              person("Alexandros", "Kokkalis", role="ctb"))
 Imports: grDevices, lattice, stats, tools, utils,
-  bibtex, remotes
+  bibtex, remotes, jsonlite
+Suggests: curl
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework
   <http://taf.ices.dk> to organize data, methods, and results used in ICES
