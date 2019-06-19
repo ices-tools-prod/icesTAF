@@ -34,7 +34,7 @@ taf.install <- function(repo, wd=".")
 already.in.taf.library <- function(spec)
 {
   pkg <- basename(file.path(spec$repo, spec$subdir))
-  sha.bib <- spec$ref
+  sha.bib <- get_remote_sha(spec$username, spec$repo, spec$ref)
   sha.inst <- if(pkg %in% row.names(installed.packages("library")))
                 packageDescription(pkg, "library")$RemoteSha else NULL
   sha.inst <- substring(sha.inst, 1, nchar(sha.bib))
