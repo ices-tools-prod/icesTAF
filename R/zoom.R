@@ -57,7 +57,7 @@
 #' taf.png("mytrellis")
 #' zoom(xyplot(1~1))
 #' dev.off()
-#'}
+#' }
 #'
 #' @export
 
