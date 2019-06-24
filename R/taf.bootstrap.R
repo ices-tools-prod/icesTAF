@@ -95,8 +95,9 @@ taf.bootstrap <- function(software=TRUE, data=TRUE,
   if(data && file.exists("DATA.bib"))
   {
     out["DATA.bib"] <-
-      make("DATA.bib", dir(pattern="\\.R$"), "data", engine=process.bib,
-           clean=clean, force=force, quiet=quiet, ...)
+      make("DATA.bib", c(dir(pattern="\\.R$"), dir("initial/data",full=TRUE)),
+           "data", engine=process.bib, clean=clean, force=force, quiet=quiet,
+           ...)
     if(out["DATA.bib"])
       clean(c("../data", "../model", "../output", "../report"))
   }
