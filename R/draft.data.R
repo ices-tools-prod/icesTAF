@@ -81,7 +81,7 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
     stop("no data (bootstrap/initial/data/*) ",
          "or source files (bootstrap/*.R) found")
   if(is.null(source))
-    source <- rep(c("file","source"),
+    source <- rep(c("file","script"),
                   c(length(data.files),length(source.files)))
 
   ## 1  Assemble metadata
