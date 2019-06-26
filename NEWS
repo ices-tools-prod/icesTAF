@@ -19,7 +19,8 @@ o Improved draft.software() so it first looks for packages in bootstrap/library.
 
 o Added arguments 'force' and 'recon' to make().
 
-o Added argument 'clean' to process.bib().
+o Added argument 'clean' to process.bib(). Renamed argument 'data.source' to
+  'data.scripts'.
 
 o Improved convert.spaces() so it allows 'sep' to be any number of characters,
   treats %20 as space, and allows spaces in parent directories.

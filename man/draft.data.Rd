@@ -7,7 +7,7 @@
 draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
   title = NULL, period = NULL, source = NULL, file = "",
   append = FALSE, data.files = dir("bootstrap/initial/data"),
-  source.files = dir("bootstrap", pattern = "\\\\.R$"))
+  data.scripts = dir("bootstrap", pattern = "\\\\.R$"))
 }
 \arguments{
 \item{originator}{who prepared the data, e.g. a working group acronym.}
@@ -34,7 +34,7 @@ filename, or the special value \code{"file"}.}
 \item{data.files}{data files to consider. The default is all folders and
 files inside \verb{bootstrap/initial/data}.}
 
-\item{source.files}{source files to consider. The default is all \verb{*.R}
+\item{data.scripts}{data scripts to consider. The default is all \verb{*.R}
 files in the \verb{bootstrap} folder.}
 }
 \value{

@@ -18,7 +18,7 @@
 #' @param append whether to append metadata entries to an existing file.
 #' @param data.files data files to consider. The default is all folders and
 #'        files inside \verb{bootstrap/initial/data}.
-#' @param source.files source files to consider. The default is all \verb{*.R}
+#' @param data.scripts data scripts to consider. The default is all \verb{*.R}
 #'        files in the \verb{bootstrap} folder.
 #'
 #' @details
@@ -73,16 +73,16 @@
 draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
                        title=NULL, period=NULL, source=NULL, file="",
                        append=FALSE, data.files=dir("bootstrap/initial/data"),
-                       source.files=dir("bootstrap",pattern="\\.R$"))
+                       data.scripts=dir("bootstrap",pattern="\\.R$"))
 {
-  source.files <- file_path_sans_ext(source.files)
-  entries <- c(data.files, source.files)
+  data.scripts <- file_path_sans_ext(data.scripts)
+  entries <- c(data.files, data.scripts)
   if(length(entries) == 0)
     stop("no data (bootstrap/initial/data/*) ",
-         "or source files (bootstrap/*.R) found")
+         "or data scripts (bootstrap/*.R) found")
   if(is.null(source))
     source <- rep(c("file","script"),
-                  c(length(data.files),length(source.files)))
+                  c(length(data.files),length(data.scripts)))
 
   ## 1  Assemble metadata
   line1 <- paste0("@Misc{", entries, ",")
