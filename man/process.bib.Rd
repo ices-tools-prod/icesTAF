@@ -78,9 +78,9 @@ are four types of values that can be used in the source field:
       a file or directory provided by the user.
 \item Special value \code{file}, indicating that the metadata key points to a
       file location.
-\item Special value \code{script}, indicating that an R script should be run
-      to fetch data files from a web service. The metadata key is used both
-      to identify the script \file{bootstrap/\emph{key}.R} and target
+\item Special value \code{script}, indicating that a data script should be
+      run to fetch data files from a web service. The metadata key is used
+      both to identify the script \file{bootstrap/\emph{key}.R} and target
       directory \file{bootstrap/data/\emph{key}}.
 }
 
