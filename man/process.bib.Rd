@@ -84,7 +84,19 @@ are four types of values that can be used in the source field:
       directory \file{bootstrap/data/\emph{key}}.
 }
 
+Model settings can be stored in a file or folder inside
+\verb{bootstrap/initial/data} and included as a simple \verb{DATA.bib} entry,
+for example:
+
+\preformatted{@Misc{config,
+  originator = {HAWG},
+  year       = {2019},
+  title      = {Model settings},
+  source     = {file},
+}}
+
 Another example metadata entry is from a \verb{SOFTWARE.bib} file:
+
 \preformatted{@Manual{FLAssess,
   author  = {Laurence T Kell},
   year    = {2018},
@@ -144,17 +156,6 @@ resulting directory will be named after the metadata key. The dir field is
 mainly useful when two or more data files that need to be downloaded have the
 same name. It is implied and not necessary to set \verb{dir = TRUE} when
 \verb{source = {script}} or when the source field specifies multiple URLs.
-
-Model settings can be stored in a file or folder inside
-\verb{bootstrap/initial/software} and included as a simple
-\verb{SOFTWARE.bib} entry, for example:
-
-\preformatted{@Misc{config,
-  author = {HAWG},
-  year   = {2019},
-  title  = {Model settings},
-  source = {file},
-}}
 
 In summary, the metadata are similar to bibliographic entries, with the
 important addition of source directives that guide the bootstrap procedure to

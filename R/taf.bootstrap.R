@@ -51,8 +51,8 @@
 #'       \verb{tar.gz} source code format.
 #' }
 #'
-#' Model settings and configuration files can be set up within
-#' \verb{SOFTWARE.bib}, see \code{\link{process.bib}}.
+#' Model settings and configuration files can be set up within \verb{DATA.bib},
+#' see \code{\link{process.bib}}.
 #'
 #' @seealso
 #' \code{\link{process.bib}} is a helper function used to process metadata.

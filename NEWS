@@ -2,7 +2,7 @@
 icesTAF 4.0-0 (2019-06-18)
 --------------------------------------------------------------------------------
 o Changed taf.bootstrap() so bootstrap/initial/config is no longer processed.
-  Instead, model configuration files can be processed as a SOFTWARE.bib entry.
+  Instead, model configuration files can be processed as a DATA.bib entry.
   Removed argument 'config'.
 
 o Improved taf.bootstrap() so it only processes SOFTWARE.bib and DATA.bib when
