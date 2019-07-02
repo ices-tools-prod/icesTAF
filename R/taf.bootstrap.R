@@ -81,6 +81,16 @@ taf.bootstrap <- function(software=TRUE, data=TRUE,
 
   out <- c(SOFTWARE.bib=FALSE, DATA.bib=FALSE)
 
+  ## 0  Process config
+  if(config && dir.exists("initial/config"))
+  {
+    if(clean)
+      clean("config")
+    warning("'bootstrap/initial/config' is deprecated.\n",
+            "Use DATA.bib entry instead.")
+    cp("initial/config", ".")
+  }
+
   ## 1  Process software
   if(software && file.exists("SOFTWARE.bib"))
   {
