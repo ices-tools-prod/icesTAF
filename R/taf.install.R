@@ -34,10 +34,34 @@ taf.install <- function(repo, wd=".")
 already.in.taf.library <- function(spec)
 {
   pkg <- basename(file.path(spec$repo, spec$subdir))
-  sha.bib <- spec$ref
+  sha.bib <- get_remote_sha(spec$username, spec$repo, spec$ref)
   sha.inst <- if(pkg %in% row.names(installed.packages("library")))
                 packageDescription(pkg, "library")$RemoteSha else NULL
   sha.inst <- substring(sha.inst, 1, nchar(sha.bib))
   out <- identical(sha.bib, sha.inst)
   out
+}
+
+## get the sha code of the remote for a give reference
+
+#' @importFrom jsonlite read_json
+#' @importFrom utils URLencode download.file
+
+# internal use examples:
+# icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF", "master")
+# icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF", "3.1-1")
+# icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF", "577347aa6ee63add3720c3b27e582ee37fc8f92d")
+get_remote_sha <- function(username, repo, ref) {
+  # github api url to get head commit at a reference
+  url <-
+    paste(
+      "https://api.github.com/repos", username, repo,
+      "commits", URLencode(ref, reserved = TRUE),
+      sep = "/")
+  # download json contents to temporary file
+  tmp <- tempfile()
+  on.exit(unlink(tmp), add = TRUE)
+  download.file(url, tmp, quiet = TRUE)
+  res <- read_json(tmp)
+  res$sha
 }
