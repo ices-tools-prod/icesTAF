@@ -1,13 +1,9 @@
 --------------------------------------------------------------------------------
 icesTAF 4.0-0 (2019-06-18)
 --------------------------------------------------------------------------------
-o Changed taf.bootstrap() so bootstrap/initial/config is no longer processed.
+o Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
   Instead, model configuration files can be processed as a DATA.bib entry.
-  Removed argument 'config'.
-
-o Improved taf.bootstrap() so it only processes SOFTWARE.bib and DATA.bib when
-  they (or underlying bootstrap/*.R data scripts) have changed. Added argument
-  'force'. SOFTWARE.bib is now processed before DATA.bib.
+  Removed argument 'config'. SOFTWARE.bib is now processed before DATA.bib.
 
 o Improved draft.data() so it detects bootstrap/*.R scripts as source files to
   consider. Added argument 'source.files' and removed argument 'data.dir'. Added
