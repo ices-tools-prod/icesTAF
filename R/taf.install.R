@@ -42,26 +42,25 @@ already.in.taf.library <- function(spec)
   out
 }
 
-## get the sha code of the remote for a give reference
+## Get the SHA code of the remote for a given reference
 
 #' @importFrom jsonlite read_json
 #' @importFrom utils URLencode download.file
 
-# internal use examples:
-# icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF", "master")
-# icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF", "3.1-1")
-# icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF", "577347aa6ee63add3720c3b27e582ee37fc8f92d")
-get_remote_sha <- function(username, repo, ref) {
-  # github api url to get head commit at a reference
-  url <-
-    paste(
-      "https://api.github.com/repos", username, repo,
-      "commits", URLencode(ref, reserved = TRUE),
-      sep = "/")
-  # download json contents to temporary file
+## Internal use examples:
+## icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF", "master")
+## icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF", "3.1-1")
+## icesTAF:::get_remote_sha("ices-tools-prod", "icesTAF",
+
+get_remote_sha <- function(username, repo, ref)
+{
+  ## GitHub API URL to get head commit at a reference
+  url <- paste("https://api.github.com/repos", username, repo, "commits",
+               URLencode(ref, reserved=TRUE), sep="/")
+  ## Download JSON contents to temporary file
   tmp <- tempfile()
-  on.exit(unlink(tmp), add = TRUE)
-  download.file(url, tmp, quiet = TRUE)
+  on.exit(unlink(tmp), add=TRUE)
+  download.file(url, tmp, quiet=TRUE)
   res <- read_json(tmp)
   res$sha
 }
