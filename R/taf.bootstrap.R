@@ -72,7 +72,7 @@ taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, quiet=FALSE)
   out <- c(SOFTWARE.bib=FALSE, DATA.bib=FALSE)
 
   ## 0  Process config
-  if(config && dir.exists("initial/config"))
+  if(dir.exists("initial/config"))
   {
     if(clean)
       clean("config")
