@@ -37,10 +37,13 @@
 
 taf.library <- function(package, messages=FALSE, warnings=FALSE)
 {
-  if(basename(getwd()) == "bootstrap")  # taf.library() from bootstrap script
+  ## If taf.library() is called from bootstrap data script, the working
+  ## directory is root/bootstrap/data/scriptname. Change to root temporarily.
+  if(basename(dirname(dirname(getwd()))) == "bootstrap")
   {
-    setwd(".."); on.exit(setwd("bootstrap"))
+    owd <- setwd("../../.."); on.exit(setwd(owd))
   }
+
   if(!dir.exists("bootstrap/library"))
     stop("directory 'bootstrap/library' not found")
 

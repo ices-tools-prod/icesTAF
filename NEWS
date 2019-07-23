@@ -13,6 +13,8 @@ o Improved draft.software() so it first looks for packages in bootstrap/library.
   Added support for package="owner/repo@ref" to install package on the fly.
   Added support for file=TRUE as shorthand for file="bootstrap/SOFTWARE.bib".
 
+o Improved taf.library() so it works from a bootstrap data script.
+
 o Added arguments 'force' and 'recon' to make().
 
 o Added argument 'clean' to process.bib(). Renamed argument 'data.source' to
