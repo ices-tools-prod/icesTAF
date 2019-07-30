@@ -1,29 +1,22 @@
-#' @importFrom remotes install_github parse_repo_spec
+#' @importFrom tools file_path_sans_ext
+#' @importFrom utils install.packages
 
-taf.install <- function(repo, wd=".")
+taf.install <- function(targz, wd=".")
 {
+  ## Current working directory is bootstrap
+  ## targz has the form software/pkg_sha.tar.gz
   owd <- setwd(wd); on.exit(setwd(owd))
-  mkdir(c("library", "software"))
-  spec <- parse_repo_spec(repo)
-  url <- paste0("https://api.github.com/repos/",
-                spec$username, "/", spec$repo, "/tarball/", spec$ref)
-  targz <- paste0(spec$repo, "_", spec$ref, ".tar.gz")
-  if(!file.exists(file.path("software", targz)))
-    suppressWarnings(download(url, destfile=file.path("software", targz)))
   mkdir("library")
-  ## Need to check manually and force=TRUE, since the install_github()
-  ## built-in checks get confused if package is installed in another library
-  if(already.in.taf.library(spec))
+  if(already.in.taf.library(targz))
   {
-    pkg <- basename(file.path(spec$repo, spec$subdir))
+    pkg <- sub(".*/(.*)_.*", "\\1", targz)     # software/pkg_sha.tar.gz -> pkg
+    sha <- sub(".*_(.*?)\\..*", "\\1", targz)  # software/pkg_sha.tar.gz -> sha
     message("Skipping install of '", pkg, "'.")
-    message("  Version '", spec$ref,
-            "' is already in the local TAF library.")
+    message("  Version '", sha, "' is already in the local TAF library.")
   }
   else
   {
-    install_github(repo, lib="library", dependencies=FALSE,
-                   upgrade=FALSE, force=TRUE)
+    install.packages(targz, lib="library")
   }
 }
 
@@ -31,15 +24,15 @@ taf.install <- function(repo, wd=".")
 
 #' @importFrom utils installed.packages packageDescription
 
-already.in.taf.library <- function(spec)
+already.in.taf.library <- function(targz)
 {
-  pkg <- basename(file.path(spec$repo, spec$subdir))
-  sha.bib <- get_remote_sha(spec$username, spec$repo, spec$ref)
+  pkg <- sub(".*/(.*)_.*", "\\1", targz)
+  sha.tar <- sub(".*_(.*?)\\..*", "\\1", targz)
+
   sha.inst <- if(pkg %in% row.names(installed.packages("library")))
                 packageDescription(pkg, "library")$RemoteSha else NULL
-  sha.inst <- substring(sha.inst, 1, nchar(sha.bib))
-  out <- identical(sha.bib, sha.inst)
-  out
+  sha.inst <- substring(sha.inst, 1, nchar(sha.tar))
+  identical(sha.tar, sha.inst)
 }
 
 ## Get the SHA code of the remote for a given reference
