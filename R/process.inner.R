@@ -12,15 +12,7 @@ process.inner <- function(bib, dir, quiet)
   ## Case 1: R package on GitHub
   if(grepl("@", bib$source[1]))
   {
-    mkdir("software")
-    spec <- parse_repo_spec(bib$source)
-    sha <- get_remote_sha(spec$username, spec$repo, spec$ref)  # branch -> sha
-    spec$ref <- substring(sha, 1, 7)
-    url <- paste0("https://api.github.com/repos/",
-                  spec$username, "/", spec$repo, "/tarball/", spec$ref)
-    targz <- paste0(spec$repo, "_", spec$ref, ".tar.gz")
-    if(!file.exists(file.path("software", targz)))
-      suppressWarnings(download(url, destfile=file.path("software", targz)))
+    download.github(bib$source, "software")
   }
 
   ## Case 2: File to download

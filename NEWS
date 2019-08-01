@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
-icesTAF 4.0-0 (2019-06-18)
+icesTAF 3.2-0 (2019-08-01)
 --------------------------------------------------------------------------------
+o Added function download.github() to download GitHub repository.
+
 o Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
   Instead, model configuration files can be processed as a DATA.bib entry.
   Removed argument 'config'. SOFTWARE.bib is now processed before DATA.bib.

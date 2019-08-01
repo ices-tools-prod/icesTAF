@@ -1,5 +1,5 @@
 
-R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
+R version 3.6.1 (2019-07-05) -- "Action of the Toes"
 Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -364,6 +364,25 @@ Type 'q()' to quit R.
 > 
 > 
 > cleanEx()
+> nameEx("download.github")
+> ### * download.github
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: download.github
+> ### Title: Download a repository from GitHub in 'tar.gz' format.
+> ### Aliases: download.github
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D download.github("ices-tools-prod/icesTAF@2.0-0")
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
 > nameEx("draft.data")
 > ### * draft.data
 > 
@@ -660,7 +679,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > msg("script.R running...")
-[14:59:46] script.R running...
+[13:20:25] script.R running...
 > 
 > 
 > 
@@ -1350,7 +1369,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.363 0.019 0.38 0 0 
+Time elapsed:  0.395 0.018 0.413 0 0 
 > grDevices::dev.off()
 null device 
           1 
