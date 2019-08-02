@@ -370,7 +370,7 @@ Type 'q()' to quit R.
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: download.github
-> ### Title: Download a repository from GitHub in 'tar.gz' format.
+> ### Title: Download GitHub Repository
 > ### Aliases: download.github
 > 
 > ### ** Examples
@@ -679,7 +679,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > msg("script.R running...")
-[13:20:25] script.R running...
+[12:03:42] script.R running...
 > 
 > 
 > 
@@ -1369,7 +1369,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.395 0.018 0.413 0 0 
+Time elapsed:  0.389 0.024 0.413 0 0 
 > grDevices::dev.off()
 null device 
           1 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/download.github.R
 \name{download.github}
 \alias{download.github}
-\title{Download a repository from GitHub in \file{tar.gz} format.}
+\title{Download GitHub Repository}
 \usage{
 download.github(repo, dir = ".")
 }
