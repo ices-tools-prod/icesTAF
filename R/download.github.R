@@ -47,7 +47,7 @@ download.github <- function(repo, dir=".")
   {
     repdir <- basename(untar(targz, list=TRUE)[1])  # top directory inside targz
     subdir <- spec$subdir
-    untar(targz, file.path(repdir, subdir))         # extract subdir
+    untar(targz, file.path(repdir, subdir)) # extract subdir
     file.remove(targz)
     ## Move bootstrap/software/repdir/subdir to bootstrap/software/subdir
     cp(file.path(repdir, subdir), ".", move=TRUE)
