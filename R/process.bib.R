@@ -178,9 +178,17 @@ process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
           else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
 
   if(clean && type=="data")
+  {
     clean("data")
+    if(!quiet)
+      message("  cleaned 'bootstrap/data'")
+  }
   if(clean && type=="software")
+  {
     clean(c("library", "software"))
+    if(!quiet)
+      message("  cleaned 'bootstrap/library' and 'bootstrap/software'")
+  }
 
   entries <- if(file.exists(bibfile)) read.bib(bibfile) else list()
   dups <- anyDuplicated(names(entries))
