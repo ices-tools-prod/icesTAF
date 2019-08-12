@@ -1,6 +1,7 @@
 --------------------------------------------------------------------------------
 icesTAF 3.2-0 (2019-08-01)
 --------------------------------------------------------------------------------
+
 o Added function download.github() to download GitHub repository.
 
 o Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
@@ -8,7 +9,7 @@ o Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
   Removed argument 'config'. SOFTWARE.bib is now processed before DATA.bib.
 
 o Improved draft.data() so it detects bootstrap/*.R scripts as source files to
-  consider. Added argument 'source.files' and removed argument 'data.dir'. Added
+  consider. Added argument 'data.scripts' and removed argument 'data.dir'. Added
   support for file=TRUE as shorthand for file="bootstrap/DATA.bib".
 
 o Improved draft.software() so it first looks for packages in bootstrap/library.
