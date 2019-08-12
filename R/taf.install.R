@@ -7,16 +7,26 @@ taf.install <- function(targz, wd=".")
   ## targz has the form software/pkg_sha.tar.gz
   owd <- setwd(wd); on.exit(setwd(owd))
   mkdir("library")
+
+  pkg <- sub(".*/(.*)_.*", "\\1", targz)     # software/pkg_sha.tar.gz -> pkg
+  sha <- sub(".*_(.*?)\\..*", "\\1", targz)  # software/pkg_sha.tar.gz -> sha
+
   if(already.in.taf.library(targz))
   {
-    pkg <- sub(".*/(.*)_.*", "\\1", targz)     # software/pkg_sha.tar.gz -> pkg
-    sha <- sub(".*_(.*?)\\..*", "\\1", targz)  # software/pkg_sha.tar.gz -> sha
     message("Skipping install of '", pkg, "'.")
     message("  Version '", sha, "' is already in the local TAF library.")
   }
   else
   {
     install.packages(targz, lib="library")
+    ## Store RemoteSha in DESCRIPTION
+    desc <- read.dcf(file.path("library", pkg, "DESCRIPTION"), all=TRUE)
+    desc$RemoteSha <- sha
+    write.dcf(desc, file.path("library", pkg, "DESCRIPTION"))
+    ## Store RemoteSha in package.rds
+    meta <- readRDS(file.path("library", pkg, "Meta/package.rds"))
+    meta$DESCRIPTION["RemoteSha"] <- sha
+    saveRDS(meta, file.path("library", pkg, "Meta/package.rds"))
   }
 }
 
