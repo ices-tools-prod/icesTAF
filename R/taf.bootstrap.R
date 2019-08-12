@@ -85,16 +85,12 @@ taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, quiet=FALSE)
   if(software && file.exists("SOFTWARE.bib"))
   {
     out["SOFTWARE.bib"] <- process.bib("SOFTWARE.bib", clean=clean, quiet=quiet)
-    if(out["SOFTWARE.bib"])
-      clean(c("../data", "../model", "../output", "../report"))
   }
 
   ## 2  Process data
   if(data && file.exists("DATA.bib"))
   {
     out["DATA.bib"] <- process.bib("DATA.bib", clean=clean, quiet=quiet)
-    if(out["DATA.bib"])
-      clean(c("../data", "../model", "../output", "../report"))
   }
 
   ## Remove empty folders
