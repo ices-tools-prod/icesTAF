@@ -30,5 +30,7 @@ download.github("ices-tools-prod/icesTAF@2.0-0")
 \seealso{
 \code{\link{download}} downloads a file.
 
+\code{\link{untar}} extracts a \verb{tar.gz} archive.
+
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

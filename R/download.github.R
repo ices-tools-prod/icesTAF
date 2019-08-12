@@ -15,6 +15,8 @@
 #' @seealso
 #' \code{\link{download}} downloads a file.
 #'
+#' \code{\link{untar}} extracts a \verb{tar.gz} archive.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
@@ -31,6 +33,9 @@ download.github <- function(repo, dir=".")
 {
   mkdir(dir)  # bootstrap/software
   owd <- setwd(dir); on.exit(setwd(owd))
+
+  if(!grepl("@", repo))
+    repo <- paste0(repo, "@master")
 
   ## 1  Download
   spec <- parse_repo_spec(repo)
