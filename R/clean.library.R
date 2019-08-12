@@ -8,6 +8,11 @@ clean.library <- function()
 {
   lib.entries <- dir("library")
 
+  ## For each package, we select between three cases:
+  ## 1 Installed package matches SOFTWARE.bib - do nothing
+  ## 2 Installed package is not the version listed in SOFTWARE.bib - remove
+  ## 3 Installed package is not listed in SOFTWARE.bib - remove
+
   for(lib in lib.entries)
   {
     ## Read sha.lib, the SHA for an installed package
@@ -23,10 +28,10 @@ clean.library <- function()
     }
     else
     {
-      sha.bib <- "Not listed in SOFTWARE.bib"
+      sha.bib <- "Not listed"
     }
 
-    ## If installed package is either old or not requested, we remove it
+    ## If installed package is either a mismatch or not listed, we remove it
     if(sha.lib != sha.bib)
       unlink(file.path("library", lib), recursive=TRUE)
   }
