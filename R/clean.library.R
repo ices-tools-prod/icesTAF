@@ -12,6 +12,7 @@ clean.library <- function()
   ## 3 Installed package is not listed in SOFTWARE.bib - remove
 
   installed <- dir("library")
+
   for(pkg in installed)
   {
     ## Read sha.inst, the SHA for an installed package
@@ -34,4 +35,6 @@ clean.library <- function()
     if(sha.inst != sha.bib)
       unlink(file.path("library", pkg), recursive=TRUE)
   }
+
+  rmdir("library")
 }
