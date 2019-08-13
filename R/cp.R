@@ -45,11 +45,17 @@
 #'
 #' @export
 
-cp <- function(from, to, move=FALSE)
+cp <- function(from, to, move=FALSE, quiet=TRUE)
 {
   ## Include both glob matches and filenames without asterisk,
   ## in case some filenames without asterisk are not found
   from <- sort(unique(c(Sys.glob(from), from[!grepl("\\*", from)])))
+
+  if(!quiet)
+  {
+    message(if(move) "Moving files:" else "Copying files:")
+    message("  ", paste(from, to, sep=" -> ", collapse="\n  "))
+  }
 
   if(move)
   {

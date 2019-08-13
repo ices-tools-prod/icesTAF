@@ -4,7 +4,7 @@
 \alias{cp}
 \title{Copy Files}
 \usage{
-cp(from, to, move = FALSE)
+cp(from, to, move = FALSE, quiet = TRUE)
 }
 \arguments{
 \item{from}{source filenames, e.g. \code{*.csv}.}

@@ -18,6 +18,8 @@ o Improved draft.software() so it first looks for packages in bootstrap/library.
 
 o Improved taf.library() so it works from a bootstrap data script.
 
+o Added argument 'quiet' to cp().
+
 o Added arguments 'force' and 'recon' to make().
 
 o Added argument 'clean' to process.bib(). Renamed argument 'data.source' to
