@@ -1,7 +1,7 @@
 #' @importFrom tools file_path_sans_ext
 #' @importFrom utils install.packages
 
-taf.install <- function(targz, wd=".")
+taf.install <- function(targz, wd=".", quiet=FALSE)
 {
   ## Current working directory is bootstrap
   ## targz has the form software/pkg_sha.tar.gz
@@ -11,14 +11,14 @@ taf.install <- function(targz, wd=".")
   pkg <- sub(".*/(.*)_.*", "\\1", targz)     # software/pkg_sha.tar.gz -> pkg
   sha <- sub(".*_(.*?)\\..*", "\\1", targz)  # software/pkg_sha.tar.gz -> sha
 
-  if(already.in.taf.library(targz))
+  if(already.in.taf.library(targz) && !quiet)
   {
     message("Skipping install of '", pkg, "'.")
     message("  Version '", sha, "' is already in the local TAF library.")
   }
   else
   {
-    install.packages(targz, lib="library")
+    install.packages(targz, lib="library", repos=NULL, quiet=quiet)
     ## Store RemoteSha in DESCRIPTION
     desc <- read.dcf(file.path("library", pkg, "DESCRIPTION"), all=TRUE)
     desc$RemoteSha <- sha
