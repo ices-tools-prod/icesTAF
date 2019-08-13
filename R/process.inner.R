@@ -12,13 +12,13 @@ process.inner <- function(bib, dir, quiet)
   ## Case 1: R package on GitHub
   if(grepl("@", bib$source[1]))
   {
-    download.github(bib$source, "software")
+    download.github(bib$source, "software", quiet=quiet)
   }
 
   ## Case 2: File to download
   else if(grepl("^http", bib$source[1]))
   {
-    sapply(bib$source, download, dir=dir)
+    sapply(bib$source, download, dir=dir, quiet=quiet)
   }
 
   ## Case 3: R script in bootstrap directory
