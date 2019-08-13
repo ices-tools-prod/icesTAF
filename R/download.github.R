@@ -29,7 +29,7 @@
 #'
 #' @export
 
-download.github <- function(repo, dir=".")
+download.github <- function(repo, dir=".", quiet=TRUE)
 {
   mkdir(dir)  # bootstrap/software
   owd <- setwd(dir); on.exit(setwd(owd))
@@ -45,7 +45,7 @@ download.github <- function(repo, dir=".")
                 spec$username, "/", spec$repo, "/tarball/", spec$ref)
   targz <- paste0(spec$repo, "_", sha, ".tar.gz")  # repo_sha.tar.gz
   if(!file.exists(targz))
-    suppressWarnings(download(url, destfile=targz))
+    suppressWarnings(download(url, destfile=targz, quiet=quiet))
 
   ## 2  Handle subdir
   if(spec$subdir != "")

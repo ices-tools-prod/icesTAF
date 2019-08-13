@@ -4,7 +4,7 @@
 \alias{download.github}
 \title{Download GitHub Repository}
 \usage{
-download.github(repo, dir = ".")
+download.github(repo, dir = ".", quiet = TRUE)
 }
 \arguments{
 \item{repo}{GitHub reference of the form \verb{owner/repo[/subdir]@ref}.}
