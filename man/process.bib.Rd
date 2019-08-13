@@ -122,7 +122,7 @@ or this:
   source  = {fishfollower/SAM/stockassessment@25b3591},}
 
 For development versions like these, the version number itself may not be
-important or accurate, but the branch name and commit date may be
+important or accurate, but the branch name and commit date can be
 informative. The 7-character SHA reference code is a pointer to the exact
 version of the package required for the analysis.
 
