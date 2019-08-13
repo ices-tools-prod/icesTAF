@@ -32,14 +32,14 @@ taf.install <- function(targz, wd=".")
 
 ## Check whether requested package is already installed in the TAF library
 
-#' @importFrom utils installed.packages packageDescription
+#' @importFrom utils packageDescription
 
 already.in.taf.library <- function(targz)
 {
   pkg <- sub(".*/(.*)_.*", "\\1", targz)
   sha.tar <- sub(".*_(.*?)\\..*", "\\1", targz)
 
-  sha.inst <- if(pkg %in% row.names(installed.packages("library")))
+  sha.inst <- if(pkg %in% dir("library"))
                 packageDescription(pkg, "library")$RemoteSha else NULL
   sha.inst <- substring(sha.inst, 1, nchar(sha.tar))
   identical(sha.tar, sha.inst)
