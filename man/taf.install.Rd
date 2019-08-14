@@ -19,7 +19,7 @@ Install packages in \file{tar.gz} format in local TAF library.
 \details{
 If \verb{targz = NULL}, all packages found in \verb{bootstrap/software} are
 installed, as long as they have filenames of the form
-\file{package_sha.tar.gz} containing a 7-character SHA reference code.
+\verb{package_sha.tar.gz} containing a 7-character SHA reference code.
 
 The default behavior of \code{taf.install} is to install packages in
 alphabetical order. When the installation order matters because of
@@ -47,8 +47,11 @@ taf.install()
 }
 \seealso{
 \code{\link{taf.bootstrap}} calls \code{\link{download.github}} and
-\code{\link{taf.install}} to download and install R packages, via
+\code{taf.install} to download and install R packages, via
 \code{\link{process.bib}}.
+
+\code{\link{clean.library}} selectively removes packages from the local TAF
+library.
 
 \code{\link{install.packages}} is the underlying base function to install a
 package.

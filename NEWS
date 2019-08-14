@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 icesTAF 3.2-0 (2019-08-01)
 --------------------------------------------------------------------------------
+o Added function clean.library() to clean TAF library.
+
 o Added function download.github() to download GitHub repository.
 
 o Added function taf.install() to install a package in the local TAF library.

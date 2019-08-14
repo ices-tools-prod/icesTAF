@@ -2,6 +2,7 @@
 
 S3method(zoom,trellis)
 export(clean)
+export(clean.library)
 export(convert.spaces)
 export(cp)
 export(deps)

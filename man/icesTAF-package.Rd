@@ -71,6 +71,7 @@ data, methods, and results used in ICES assessments.
 }
 \emph{Administrative tools, rarely used in scripts:}
 \tabular{ll}{
+  \code{\link{clean.library}}   \tab clean TAF library\cr
   \code{\link{deps}}            \tab list dependencies\cr
   \code{\link{dos2unix}}        \tab convert line endings\cr
   \code{\link{download}}        \tab download file\cr
