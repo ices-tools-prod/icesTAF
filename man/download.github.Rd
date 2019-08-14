@@ -25,7 +25,11 @@ used to fetch data files from a web service (see \code{\link{process.bib}}).
 }
 \examples{
 \dontrun{
+# Specify release tag
 download.github("ices-tools-prod/icesTAF@2.0-0")
+
+# Specify SHA reference code
+download.github("ices-tools-prod/icesTAF@d5a8947")
 }
 
 }

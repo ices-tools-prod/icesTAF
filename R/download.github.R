@@ -27,7 +27,11 @@
 #'
 #' @examples
 #' \dontrun{
+#' # Specify release tag
 #' download.github("ices-tools-prod/icesTAF@2.0-0")
+#'
+#' # Specify SHA reference code
+#' download.github("ices-tools-prod/icesTAF@d5a8947")
 #' }
 #'
 #' @importFrom remotes parse_repo_spec
