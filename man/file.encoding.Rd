@@ -14,7 +14,7 @@ file.encoding(file)
 
 This function requires the \command{file} shell command. If the
 \command{file} utility is not found in the path, this function looks for it
-inside \file{c:/Rtools/bin}. If the required software is not installed, this
+inside \verb{c:/Rtools/bin}. If the required software is not installed, this
 function returns \code{NA}.
 }
 \description{

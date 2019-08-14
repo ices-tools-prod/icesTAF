@@ -9,7 +9,7 @@ draft.software(package, author = NULL, year = NULL, title = NULL,
 }
 \arguments{
 \item{package}{name of one or more R packages, or files/folders inside
-\file{bootstrap/initial/software}.}
+\verb{bootstrap/initial/software}.}
 
 \item{author}{author(s) of the software.}
 
@@ -84,7 +84,7 @@ draft.software("icesTAF", file="bootstrap/SOFTWARE.bib")
 underlying functions to access information about installed R packages.
 
 \code{\link{draft.data}} creates an initial draft version of a
-\file{DATA.bib} metadata file.
+\verb{DATA.bib} metadata file.
 
 \code{\link{process.bib}} reads and processes metadata entries.
 

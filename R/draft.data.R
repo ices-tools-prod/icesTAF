@@ -39,8 +39,8 @@
 #'
 #' @note
 #' This function is intended to be called from the top directory of a TAF
-#' analysis. It looks for data files inside \file{bootstrap/initial/data} and
-#' data scripts inside \file{bootstrap}.
+#' analysis. It looks for data files inside \verb{bootstrap/initial/data} folder
+#' and data scripts inside \verb{bootstrap}.
 #'
 #' After creating the initial draft, the user can complete the description of
 #' each data entry inside the \verb{title} field and look into each file to
@@ -50,7 +50,7 @@
 #' \code{\link{period}} pastes two years to form a \code{period} string.
 #'
 #' \code{\link{draft.software}} creates an initial draft version of a
-#' \file{SOFTWARE.bib} metadata file.
+#' \verb{SOFTWARE.bib} metadata file.
 #'
 #' \code{\link{process.bib}} reads and processes metadata entries. The help page
 #' contains example metadata entries and commentary.

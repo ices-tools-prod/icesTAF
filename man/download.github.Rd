@@ -19,7 +19,7 @@ Download a repository from GitHub in \file{tar.gz} format.
 \note{
 In general, TAF scripts do not access the internet using
 \code{download.github} or similar functions. Instead, data and software are
-declared in \file{DATA.bib} and \file{SOFTWARE.bib} and then downloaded using
+declared in \verb{DATA.bib} and \verb{SOFTWARE.bib} and then downloaded using
 \code{\link{taf.bootstrap}}. The exception is when a bootstrap data script is
 used to fetch data files from a web service (see \code{\link{process.bib}}).
 }
@@ -41,7 +41,7 @@ and data repositories, via \code{\link{process.bib}}.
 
 \code{\link{untar}} extracts a \verb{tar.gz} archive.
 
-\code{\link{taf.install}} installs a package in \file{tar.gz} format.
+\code{\link{taf.install}} installs a package in \verb{tar.gz} format.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

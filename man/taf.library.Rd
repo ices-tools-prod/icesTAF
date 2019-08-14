@@ -39,7 +39,7 @@ taf.library(that)
 \code{\link{library}} is the underlying base function to load a package.
 
 \code{\link{taf.bootstrap}} is the procedure to install packages into a local
-TAF library, via the \file{SOFTWARE.bib} metadata file.
+TAF library, via the \verb{SOFTWARE.bib} metadata file.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
