@@ -16,7 +16,7 @@ sourceDir(dir, pattern = "\\\\.[r|R]$", all.files = FALSE,
 
 \item{recursive}{passed to \code{dir} when selecting files.}
 
-\item{quiet}{whether to suppress showing names of sourced files.}
+\item{quiet}{whether to suppress messages.}
 
 \item{\dots}{passed to \code{source} when sourcing files.}
 }

@@ -12,6 +12,8 @@ cp(from, to, move = FALSE, quiet = TRUE)
 \item{to}{destination filenames, or directory.}
 
 \item{move}{whether to move instead of copy.}
+
+\item{quiet}{whether to suppress messages.}
 }
 \value{
 \code{TRUE} for success, \code{FALSE} for failure, invisibly.

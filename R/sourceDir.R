@@ -6,7 +6,7 @@
 #' @param pattern passed to \code{\link{dir}} when selecting files.
 #' @param all.files passed to \code{dir} when selecting files.
 #' @param recursive passed to \code{dir} when selecting files.
-#' @param quiet whether to suppress showing names of sourced files.
+#' @param quiet whether to suppress messages.
 #' @param \dots passed to \code{source} when sourcing files.
 #'
 #' @details

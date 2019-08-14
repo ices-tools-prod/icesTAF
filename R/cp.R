@@ -6,6 +6,7 @@
 #' @param from source filenames, e.g. \code{*.csv}.
 #' @param to destination filenames, or directory.
 #' @param move whether to move instead of copy.
+#' @param quiet whether to suppress messages.
 #'
 #' @return \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 #'
