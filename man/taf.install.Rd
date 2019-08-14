@@ -4,34 +4,51 @@
 \alias{taf.install}
 \title{TAF Install}
 \usage{
-taf.install(targz, lib = "bootstrap/library", quiet = FALSE)
+taf.install(targz = NULL, lib = "bootstrap/library", quiet = FALSE)
 }
 \arguments{
-\item{targz}{package filename, see example.}
+\item{targz}{a package filename, vector of filenames, or \code{NULL}.}
 
 \item{lib}{location of local TAF library.}
 
 \item{quiet}{whether to suppress messages.}
 }
 \description{
-Install package in \file{tar.gz} format in local TAF library.
+Install packages in \file{tar.gz} format in local TAF library.
+}
+\details{
+If \verb{targz = NULL}, all packages found in \verb{bootstrap/software} are
+installed, as long as they have filenames of the form
+\file{package_sha.tar.gz} containing a 7-character SHA reference code.
+
+The default behavior of \code{taf.install} is to install packages in
+alphabetical order. When the installation order matters because of
+dependencies, the user can specify a vector of package filenames to install.
 }
 \note{
+The \code{taf.bootstrap} procedure downloads and installs R packages, without
+requiring the user to run \code{taf.install}. The main reason for a TAF user
+to run \code{taf.install} directly is to initialize and run a TAF analysis
+without running the bootstrap procedure, e.g. to avoid updating the
+underlying datasets and software.
+
 After installing the package, this function writes the remote SHA reference
 code into the package files \verb{DESCRIPTION} and \verb{Meta/package.rds}.
 }
 \examples{
 \dontrun{
+# Install one package
 taf.install("bootstrap/software/FLAssess_f1e5acb.tar.gz")
+
+# Install all packages found in bootstrap/software
+taf.install()
 }
 
 }
 \seealso{
-\code{\link{taf.bootstrap}} calls \code{taf.install} to install R packages,
-via \code{\link{process.bib}}.
-
-\code{\link{download.github}} downloads a GitHub repository, for example a
-package.
+\code{\link{taf.bootstrap}} calls \code{\link{download.github}} and
+\code{\link{taf.install}} to download and install R packages, via
+\code{\link{process.bib}}.
 
 \code{\link{install.packages}} is the underlying base function to install a
 package.

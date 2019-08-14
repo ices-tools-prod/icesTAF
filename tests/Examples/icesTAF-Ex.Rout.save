@@ -376,7 +376,11 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > ## Not run: 
+> ##D # Specify release tag
 > ##D download.github("ices-tools-prod/icesTAF@2.0-0")
+> ##D 
+> ##D # Specify SHA reference code
+> ##D download.github("ices-tools-prod/icesTAF@d5a8947")
 > ## End(Not run)
 > 
 > 
@@ -679,7 +683,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > msg("script.R running...")
-[10:48:50] script.R running...
+[13:23:23] script.R running...
 > 
 > 
 > 
@@ -1079,7 +1083,11 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > ## Not run: 
+> ##D # Install one package
 > ##D taf.install("bootstrap/software/FLAssess_f1e5acb.tar.gz")
+> ##D 
+> ##D # Install all packages found in bootstrap/software
+> ##D taf.install()
 > ## End(Not run)
 > 
 > 
@@ -1388,7 +1396,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.392 0.016 0.408 0 0 
+Time elapsed:  0.387 0.023 0.411 0 0 
 > grDevices::dev.off()
 null device 
           1 

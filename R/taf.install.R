@@ -1,21 +1,34 @@
 #' TAF Install
 #'
-#' Install package in \file{tar.gz} format in local TAF library.
+#' Install packages in \file{tar.gz} format in local TAF library.
 #'
-#' @param targz package filename, see example.
+#' @param targz a package filename, vector of filenames, or \code{NULL}.
 #' @param lib location of local TAF library.
 #' @param quiet whether to suppress messages.
 #'
+#' @details
+#' If \verb{targz = NULL}, all packages found in \verb{bootstrap/software} are
+#' installed, as long as they have filenames of the form
+#' \file{package_sha.tar.gz} containing a 7-character SHA reference code.
+#'
+#' The default behavior of \code{taf.install} is to install packages in
+#' alphabetical order. When the installation order matters because of
+#' dependencies, the user can specify a vector of package filenames to install.
+#'
 #' @note
+#' The \code{taf.bootstrap} procedure downloads and installs R packages, without
+#' requiring the user to run \code{taf.install}. The main reason for a TAF user
+#' to run \code{taf.install} directly is to initialize and run a TAF analysis
+#' without running the bootstrap procedure, e.g. to avoid updating the
+#' underlying datasets and software.
+#'
 #' After installing the package, this function writes the remote SHA reference
 #' code into the package files \verb{DESCRIPTION} and \verb{Meta/package.rds}.
 #'
 #' @seealso
-#' \code{\link{taf.bootstrap}} calls \code{taf.install} to install R packages,
-#' via \code{\link{process.bib}}.
-#'
-#' \code{\link{download.github}} downloads a GitHub repository, for example a
-#' package.
+#' \code{\link{taf.bootstrap}} calls \code{\link{download.github}} and
+#' \code{\link{taf.install}} to download and install R packages, via
+#' \code{\link{process.bib}}.
 #'
 #' \code{\link{install.packages}} is the underlying base function to install a
 #' package.
@@ -24,7 +37,11 @@
 #'
 #' @examples
 #' \dontrun{
+#' # Install one package
 #' taf.install("bootstrap/software/FLAssess_f1e5acb.tar.gz")
+#'
+#' # Install all packages found in bootstrap/software
+#' taf.install()
 #' }
 #'
 #' @importFrom tools file_path_sans_ext
@@ -32,29 +49,36 @@
 #'
 #' @export
 
-taf.install <- function(targz, lib="bootstrap/library", quiet=FALSE)
+taf.install <- function(targz=NULL, lib="bootstrap/library", quiet=FALSE)
 {
+  if(is.null(targz))
+    targz <- dir("bootstrap/software", pattern="_[0-9a-f]{7}\\.tar\\.gz",
+                 full.names=TRUE)
+
   mkdir(lib)
 
-  pkg <- sub(".*/(.*)_.*", "\\1", targz)     # path/pkg_sha.tar.gz -> pkg
-  sha <- sub(".*_(.*?)\\..*", "\\1", targz)  # path/pkg_sha.tar.gz -> sha
+  for(tgz in targz)
+  {
+    pkg <- sub(".*/(.*)_.*", "\\1", tgz)     # path/pkg_sha.tar.gz -> pkg
+    sha <- sub(".*_(.*?)\\..*", "\\1", tgz)  # path/pkg_sha.tar.gz -> sha
 
-  if(already.in.taf.library(targz,lib) && !quiet)
-  {
-    message("Skipping install of '", pkg, "'.")
-    message("  Version '", sha, "' is already in ", lib, ".")
-  }
-  else
-  {
-    install.packages(targz, lib=lib, repos=NULL, quiet=quiet)
-    ## Store RemoteSha in DESCRIPTION
-    desc <- read.dcf(file.path(lib, pkg, "DESCRIPTION"), all=TRUE)
-    desc$RemoteSha <- sha
-    write.dcf(desc, file.path(lib, pkg, "DESCRIPTION"))
-    ## Store RemoteSha in package.rds
-    meta <- readRDS(file.path(lib, pkg, "Meta/package.rds"))
-    meta$DESCRIPTION["RemoteSha"] <- sha
-    saveRDS(meta, file.path(lib, pkg, "Meta/package.rds"))
+    if(already.in.taf.library(tgz,lib) && !quiet)
+    {
+      message("Skipping install of '", pkg, "'.")
+      message("  Version '", sha, "' is already in ", lib, ".")
+    }
+    else
+    {
+      install.packages(tgz, lib=lib, repos=NULL, quiet=quiet)
+      ## Store RemoteSha in DESCRIPTION
+      desc <- read.dcf(file.path(lib, pkg, "DESCRIPTION"), all=TRUE)
+      desc$RemoteSha <- sha
+      write.dcf(desc, file.path(lib, pkg, "DESCRIPTION"))
+      ## Store RemoteSha in package.rds
+      meta <- readRDS(file.path(lib, pkg, "Meta/package.rds"))
+      meta$DESCRIPTION["RemoteSha"] <- sha
+      saveRDS(meta, file.path(lib, pkg, "Meta/package.rds"))
+    }
   }
 }
 
