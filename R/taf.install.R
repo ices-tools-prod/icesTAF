@@ -1,32 +1,60 @@
+#' TAF Install
+#'
+#' Install package in \file{tar.gz} format in local TAF library.
+#'
+#' @param targz package filename, see example.
+#' @param lib location of local TAF library.
+#' @param quiet whether to suppress messages.
+#'
+#' @note
+#' After installing the package, this function writes the remote SHA reference
+#' code into the package files \verb{DESCRIPTION} and \verb{Meta/package.rds}.
+#'
+#' @seealso
+#' \code{\link{taf.bootstrap}} calls \code{taf.install} to install R packages,
+#' via \code{\link{process.bib}}.
+#'
+#' \code{\link{download.github}} downloads a GitHub repository, for example a
+#' package.
+#'
+#' \code{\link{install.packages}} is the underlying base function to install a
+#' package.
+#'
+#' \code{\link{icesTAF-package}} gives an overview of the package.
+#'
+#' @examples
+#' \dontrun{
+#' taf.install("bootstrap/software/FLAssess_f1e5acb.tar.gz")
+#' }
+#'
 #' @importFrom tools file_path_sans_ext
 #' @importFrom utils install.packages
+#'
+#' @export
 
-taf.install <- function(targz, wd=".", quiet=FALSE)
+taf.install <- function(targz, lib="bootstrap/library", quiet=FALSE)
 {
-  ## Current working directory is bootstrap
-  ## targz has the form software/pkg_sha.tar.gz
-  owd <- setwd(wd); on.exit(setwd(owd))
-  mkdir("library")
+  mkdir(lib)
 
-  pkg <- sub(".*/(.*)_.*", "\\1", targz)     # software/pkg_sha.tar.gz -> pkg
-  sha <- sub(".*_(.*?)\\..*", "\\1", targz)  # software/pkg_sha.tar.gz -> sha
+  pkg <- sub(".*/(.*)_.*", "\\1", targz)     # path/pkg_sha.tar.gz -> pkg
+  sha <- sub(".*_(.*?)\\..*", "\\1", targz)  # path/pkg_sha.tar.gz -> sha
 
-  if(already.in.taf.library(targz) && !quiet)
+  if(already.in.taf.library(targz,lib) && !quiet)
   {
     message("Skipping install of '", pkg, "'.")
-    message("  Version '", sha, "' is already in the local TAF library.")
+    message("  Version '", sha, "' is already in ", lib, ".")
   }
   else
   {
-    install.packages(targz, lib="library", repos=NULL, quiet=quiet)
+    install.packages(targz, lib=lib, repos=NULL, quiet=quiet)
     ## Store RemoteSha in DESCRIPTION
-    desc <- read.dcf(file.path("library", pkg, "DESCRIPTION"), all=TRUE)
+    desc <- read.dcf(file.path(lib, pkg, "DESCRIPTION"), all=TRUE)
     desc$RemoteSha <- sha
-    write.dcf(desc, file.path("library", pkg, "DESCRIPTION"))
+    write.dcf(desc, file.path(lib, pkg, "DESCRIPTION"))
     ## Store RemoteSha in package.rds
-    meta <- readRDS(file.path("library", pkg, "Meta/package.rds"))
+    meta <- readRDS(file.path(lib, pkg, "Meta/package.rds"))
     meta$DESCRIPTION["RemoteSha"] <- sha
-    saveRDS(meta, file.path("library", pkg, "Meta/package.rds"))
+    saveRDS(meta, file.path(lib, pkg, "Meta/package.rds"))
   }
 }
 
@@ -34,13 +62,13 @@ taf.install <- function(targz, wd=".", quiet=FALSE)
 
 #' @importFrom utils packageDescription
 
-already.in.taf.library <- function(targz)
+already.in.taf.library <- function(targz, lib)
 {
   pkg <- sub(".*/(.*)_.*", "\\1", targz)
   sha.tar <- sub(".*_(.*?)\\..*", "\\1", targz)
 
-  sha.inst <- if(pkg %in% dir("library"))
-                packageDescription(pkg, "library")$RemoteSha else NULL
+  sha.inst <- if(pkg %in% dir(lib))
+                packageDescription(pkg, lib.loc=lib)$RemoteSha else NULL
   sha.inst <- substring(sha.inst, 1, nchar(sha.tar))
   identical(sha.tar, sha.inst)
 }

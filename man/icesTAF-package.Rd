@@ -80,6 +80,7 @@ data, methods, and results used in ICES assessments.
   \code{\link{line.endings}}    \tab examine line endings\cr
   \code{\link{process.bib}}     \tab read and process metadata\cr
   \code{\link{rmdir}}           \tab remove empty directory\cr
+  \code{\link{taf.install}}     \tab install package in TAF library\cr
   \code{\link{unix2dos}}        \tab convert line endings\cr
   \code{\link{utf8.to.latin1}}  \tab convert file encoding
 }

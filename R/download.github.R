@@ -4,6 +4,7 @@
 #'
 #' @param repo GitHub reference of the form \verb{owner/repo[/subdir]@ref}.
 #' @param dir directory to download to.
+#' @param quiet whether to suppress messages.
 #'
 #' @note
 #' In general, TAF scripts do not access the internet using
@@ -13,9 +14,14 @@
 #' used to fetch data files from a web service (see \code{\link{process.bib}}).
 #'
 #' @seealso
+#' \code{\link{taf.bootstrap}} calls \code{download.github} to fetch software
+#' and data repositories, via \code{\link{process.bib}}.
+#'
 #' \code{\link{download}} downloads a file.
 #'
 #' \code{\link{untar}} extracts a \verb{tar.gz} archive.
+#'
+#' \code{\link{taf.install}} installs a package in \file{tar.gz} format.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'

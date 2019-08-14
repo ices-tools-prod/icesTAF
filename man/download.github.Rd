@@ -10,6 +10,8 @@ download.github(repo, dir = ".", quiet = TRUE)
 \item{repo}{GitHub reference of the form \verb{owner/repo[/subdir]@ref}.}
 
 \item{dir}{directory to download to.}
+
+\item{quiet}{whether to suppress messages.}
 }
 \description{
 Download a repository from GitHub in \file{tar.gz} format.
@@ -28,9 +30,14 @@ download.github("ices-tools-prod/icesTAF@2.0-0")
 
 }
 \seealso{
+\code{\link{taf.bootstrap}} calls \code{download.github} to fetch software
+and data repositories, via \code{\link{process.bib}}.
+
 \code{\link{download}} downloads a file.
 
 \code{\link{untar}} extracts a \verb{tar.gz} archive.
+
+\code{\link{taf.install}} installs a package in \file{tar.gz} format.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

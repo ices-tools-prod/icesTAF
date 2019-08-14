@@ -1,8 +1,9 @@
 --------------------------------------------------------------------------------
 icesTAF 3.2-0 (2019-08-01)
 --------------------------------------------------------------------------------
-
 o Added function download.github() to download GitHub repository.
+
+o Added function taf.install() to install a package in the local TAF library.
 
 o Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
   Instead, model configuration files can be processed as a DATA.bib entry.

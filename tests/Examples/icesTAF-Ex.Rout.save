@@ -679,7 +679,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > msg("script.R running...")
-[12:03:42] script.R running...
+[10:48:50] script.R running...
 > 
 > 
 > 
@@ -1067,6 +1067,25 @@ Type 'q()' to quit R.
 > 
 > graphics::par(get("par.postscript", pos = 'CheckExEnv'))
 > cleanEx()
+> nameEx("taf.install")
+> ### * taf.install
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: taf.install
+> ### Title: TAF Install
+> ### Aliases: taf.install
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D taf.install("bootstrap/software/FLAssess_f1e5acb.tar.gz")
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
 > nameEx("taf.library")
 > ### * taf.library
 > 
@@ -1369,7 +1388,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.389 0.024 0.413 0 0 
+Time elapsed:  0.392 0.016 0.408 0 0 
 > grDevices::dev.off()
 null device 
           1 
