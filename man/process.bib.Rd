@@ -126,6 +126,10 @@ important or accurate, but the branch name and commit date can be
 informative. The 7-character SHA reference code is a pointer to the exact
 version of the package required for the analysis.
 
+If software entry \emph{A} depends on entry \emph{B}, then \emph{B} should be
+listed before \emph{A} in \verb{SOFTWARE.bib}, so they are installed in the
+right order.
+
 As a final metadata example, we look at a software entry that is not an R
 package. It is made available as a directory \file{sole} containing the model
 source code (\verb{sole.tpl}) and executables for different platforms
