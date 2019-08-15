@@ -1,7 +1,7 @@
 #' Clean TAF Directories
 #'
-#' Remove TAF directories: \verb{data}, \verb{model}, \verb{output},
-#' \verb{report}.
+#' Remove working TAF directories (\verb{data}, \verb{model}, \verb{output},
+#' \verb{report}), \verb{bootstrap}, or other directories.
 #'
 #' @param dirs directories to delete.
 #'
@@ -11,11 +11,18 @@
 #'
 #' If any of the \code{dirs} is \code{"bootstrap"} it is treated specially.
 #' Instead of completely removing the \verb{bootstrap} directory, only the
-#' subdirectories \verb{data}, \verb{library}, and \verb{software} are removed.
-#' This protects the subdirectory \verb{bootstrap/initial} and \verb{*.bib}
-#' metadata files from being accidentally deleted.
+#' subdirectories \verb{data} and \verb{software} are removed, while
+#' \code{clean.library} is used to clean the \verb{library} subdirectory. This
+#' protects the subdirectory \verb{bootstrap/initial} and \verb{*.bib} metadata
+#' files from being accidentally deleted.
+#'
+#' An explicit \code{clean("bootstrap/library")} removes that directory
+#' completely.
 #'
 #' @seealso
+#' \code{\link{clean.library}} selectively removes packages from
+#' \verb{bootstrap/library}.
+#'
 #' \code{\link{mkdir}} and \code{\link{rmdir}} create and remove empty
 #' directories.
 #'
@@ -38,8 +45,9 @@ clean <- function(dirs=c("data", "model", "output", "report"))
   if("bootstrap" %in% dirs)
   {
     ## An odd directory called 'library:' can appear in Linux
-    unlink(c("bootstrap/data", "bootstrap/library", "bootstrap/library:",
-             "bootstrap/software"), recursive=TRUE)
+    unlink(c("bootstrap/data", "bootstrap/library:", "bootstrap/software"),
+           recursive=TRUE)
+    clean.library("bootstrap/library")
     dirs <- dirs[dirs != "bootstrap"]
   }
 

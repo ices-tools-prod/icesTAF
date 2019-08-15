@@ -8,9 +8,9 @@
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
-#' If \code{bibfile = "SOFTWARE.bib"} and \code{clean = TRUE}, then the
-#' \file{bootstrap/library} and \file{bootstrap/software} directories are
-#' cleaned before processing metadata entries.
+#' If \code{bibfile = "SOFTWARE.bib"} and \code{clean = TRUE}, then
+#' \file{bootstrap/software} is removed and \file{bootstrap/library} is cleaned
+#' with \code{\link{clean.library}} before processing metadata entries.
 #'
 #' If \code{bibfile = "DATA.bib"} and \code{clean = TRUE}, then the
 #' \file{bootstrap/data} directory is cleaned before processing metadata
@@ -189,9 +189,10 @@ process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
   }
   if(clean && type=="software")
   {
-    clean(c("library", "software"))
+    clean("software")
+    clean.library("library")
     if(!quiet)
-      message("  cleaned 'bootstrap/library' and 'bootstrap/software'")
+      message("  cleaned 'bootstrap/software' and 'bootstrap/library'")
   }
 
   entries <- if(file.exists(bibfile)) read.bib(bibfile) else list()

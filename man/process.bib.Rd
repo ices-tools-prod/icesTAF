@@ -21,9 +21,9 @@ process.bib(bibfile, clean = TRUE, quiet = FALSE)
 Read and process metadata entries in a \verb{*.bib} file.
 }
 \details{
-If \code{bibfile = "SOFTWARE.bib"} and \code{clean = TRUE}, then the
-\file{bootstrap/library} and \file{bootstrap/software} directories are
-cleaned before processing metadata entries.
+If \code{bibfile = "SOFTWARE.bib"} and \code{clean = TRUE}, then
+\file{bootstrap/software} is removed and \file{bootstrap/library} is cleaned
+with \code{\link{clean.library}} before processing metadata entries.
 
 If \code{bibfile = "DATA.bib"} and \code{clean = TRUE}, then the
 \file{bootstrap/data} directory is cleaned before processing metadata
