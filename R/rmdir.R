@@ -5,8 +5,7 @@
 #' @param path a directory name.
 #' @param recursive whether to remove empty subdirectories as well.
 #'
-#' @return
-#' \code{TRUE} for success, \code{FALSE} for failure, invisibly.
+#' @return \code{TRUE} for success, \code{FALSE} for failure, invisibly.
 #'
 #' @note
 #' The base function \code{unlink(dir, recursive=FALSE)} does not remove empty

@@ -4,8 +4,7 @@
 #'
 #' @param file a filename.
 #'
-#' @return
-#' \code{"latin1"}, \code{"UTF-8"}, \code{"unknown"}, or \code{NA}.
+#' @return \code{"latin1"}, \code{"UTF-8"}, \code{"unknown"}, or \code{NA}.
 #'
 #' This function requires the \command{file} shell command. If the
 #' \command{file} utility is not found in the path, this function looks for it

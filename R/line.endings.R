@@ -4,8 +4,7 @@
 #'
 #' @param file a filename.
 #'
-#' @return
-#' String indicating the line endings: \code{"Dos"} or \code{"Unix"}.
+#' @return String indicating the line endings: \code{"Dos"} or \code{"Unix"}.
 #'
 #' @seealso
 #' \code{\link{file.encoding}} examines the encoding of a file.

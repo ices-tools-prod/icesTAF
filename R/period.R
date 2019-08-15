@@ -13,11 +13,9 @@
 #' first column. If the values of the first column do not look like years (four
 #' digits), then it looks for years in the row names.
 #'
-#' @return
-#' A string of the form \code{"1990-2000"}.
+#' @return A string of the form \code{"1990-2000"}.
 #'
-#' @note
-#' This function can be useful when working with \code{\link{draft.data}}.
+#' @note This function can be useful when working with \code{\link{draft.data}}.
 #'
 #' @seealso
 #' \code{\link{paste}} is the underlying function to paste strings.
