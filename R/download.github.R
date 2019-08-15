@@ -6,6 +6,8 @@
 #' @param dir directory to download to.
 #' @param quiet whether to suppress messages.
 #'
+#' @return Name of downloaded \verb{tar.gz} file.
+#'
 #' @note
 #' In general, TAF scripts do not access the internet using
 #' \code{download.github} or similar functions. Instead, data and software are
@@ -68,8 +70,10 @@ download.github <- function(repo, dir=".", quiet=TRUE)
     cp(file.path(repdir, subdir), ".", move=TRUE)
     rmdir(repdir)
     ## Compress subdir as subdir_sha.tar.gz
-    subtargz <- paste0(subdir, "_", sha, ".tar.gz")
-    tar(subtargz, subdir, compression="gzip")
+    targz <- paste0(subdir, "_", sha, ".tar.gz")
+    tar(targz, subdir, compression="gzip")
     unlink(subdir, recursive=TRUE, force=TRUE)
   }
+
+  invisible(targz)
 }

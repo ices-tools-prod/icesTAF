@@ -13,6 +13,9 @@ download.github(repo, dir = ".", quiet = TRUE)
 
 \item{quiet}{whether to suppress messages.}
 }
+\value{
+Name of downloaded \verb{tar.gz} file.
+}
 \description{
 Download a repository from GitHub in \file{tar.gz} format.
 }
