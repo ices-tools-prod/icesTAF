@@ -12,7 +12,8 @@ process.inner <- function(bib, dir, quiet)
   ## Case 1: R package on GitHub
   if(grepl("@", bib$source[1]))
   {
-    download.github(bib$source, "software", quiet=quiet)
+    targz <- download.github(bib$source, "software", quiet=quiet)
+    taf.install(file.path("software",targz), lib="library", quiet=quiet)
   }
 
   ## Case 2: File to download
