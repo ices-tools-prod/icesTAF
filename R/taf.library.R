@@ -44,8 +44,8 @@ taf.library <- function(package, messages=FALSE, warnings=FALSE)
     owd <- setwd("../../.."); on.exit(setwd(owd))
   }
 
-  ## if(!dir.exists("bootstrap/library"))
-  ##   stop("directory 'bootstrap/library' not found")
+  if(!dir.exists("bootstrap/library"))
+    stop("directory 'bootstrap/library' not found")
 
   installed <- dir("bootstrap/library")
   if(missing(package))
