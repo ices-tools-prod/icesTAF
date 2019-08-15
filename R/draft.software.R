@@ -69,7 +69,7 @@
 #'
 #' \dontrun{
 #' # Export to file
-#' draft.software("icesTAF", file="bootstrap/SOFTWARE.bib")
+#' draft.software("icesTAF", file=TRUE)
 #' }
 #'
 #' @importFrom remotes parse_repo_spec

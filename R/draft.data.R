@@ -62,8 +62,6 @@
 #' draft.data("WGEF", 2015)
 #'
 #' # Export to file
-#' draft.data("WGEF", 2015, file="bootstrap/DATA.bib")
-#' # or equivalently
 #' draft.data("WGEF", 2015, file=TRUE)
 #' }
 #'
