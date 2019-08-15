@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 3.2-0 (2019-08-01)
+icesTAF 3.2-0 (2019-08-15)
 --------------------------------------------------------------------------------
 o Added function clean.library() to clean TAF library.
 
@@ -10,6 +10,8 @@ o Added function taf.install() to install a package in the local TAF library.
 o Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
   Instead, model configuration files can be processed as a DATA.bib entry.
   Removed argument 'config'. SOFTWARE.bib is now processed before DATA.bib.
+
+o Changed clean() so it uses clean.library() to clean bootstrap/library.
 
 o Improved draft.data() so it detects bootstrap/*.R scripts as source files to
   consider. Added argument 'data.scripts' and removed argument 'data.dir'. Added
@@ -35,8 +37,6 @@ o Improved download() so it shaves off ?tail from the end of 'destfile', and
   converts spaces and %20 to underscores.
 
 o Improved zoom() so it handles legend text size.
-
-o Added automated checks in tests/Examples.
 
 
 
