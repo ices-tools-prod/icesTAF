@@ -5,8 +5,9 @@
 \title{Draft DATA.bib}
 \usage{
 draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
-  title = NULL, period = NULL, source = NULL, file = "",
-  append = FALSE, data.files = dir("bootstrap/initial/data"),
+  title = NULL, period = NULL, access = "Public", source = NULL,
+  file = "", append = FALSE,
+  data.files = dir("bootstrap/initial/data"),
   data.scripts = dir("bootstrap", pattern = "\\\\.R$"))
 }
 \arguments{
@@ -23,8 +24,12 @@ Alternatively, a single number if the data cover only one year. If the
 data do not cover specific years, this metadata field can be
 suppressed using \code{period = FALSE}.}
 
+\item{access}{data access code: \code{"OSPAR"}, \code{"Public"}, or
+\code{"Restricted"}.}
+
 \item{source}{where the data are copied/downloaded from. This can be a URL,
-filename, or the special value \code{"file"}.}
+filename, special value \code{"file"}, or special value
+\code{"script"}.}
 
 \item{file}{optional filename to save the draft metadata to a file. The value
 \code{TRUE} can be used as shorthand for \code{"bootstrap/DATA.bib"}.}
@@ -49,8 +54,11 @@ for the other arguments. Most data files have the same originator, which can
 be specified to facilitate completing the entries after creating the initial
 draft.
 
-The special value \verb{source = "file"} is described in the
-\code{\link{process.bib}} help page, along with other metadata information.
+The data access codes come from \url{https://vocab.ices.dk/?ref=1435}.
+
+The special values \verb{source = "file"} and \verb{source = "script"} are
+described in the \code{\link{process.bib}} help page, along with other
+metadata information.
 
 The default value \code{file = ""} prints the initial draft in the console,
 instead of writing it to a file. The output can then be pasted into a file to

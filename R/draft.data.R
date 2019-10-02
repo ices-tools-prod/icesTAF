@@ -11,8 +11,11 @@
 #'        Alternatively, a single number if the data cover only one year. If the
 #'        data do not cover specific years, this metadata field can be
 #'        suppressed using \code{period = FALSE}.
+#' @param access data access code: \code{"OSPAR"}, \code{"Public"}, or
+#'        \code{"Restricted"}.
 #' @param source where the data are copied/downloaded from. This can be a URL,
-#'        filename, or the special value \code{"file"}.
+#'        filename, special value \code{"file"}, or special value
+#'        \code{"script"}.
 #' @param file optional filename to save the draft metadata to a file. The value
 #'        \code{TRUE} can be used as shorthand for \code{"bootstrap/DATA.bib"}.
 #' @param append whether to append metadata entries to an existing file.
@@ -27,8 +30,11 @@
 #' be specified to facilitate completing the entries after creating the initial
 #' draft.
 #'
-#' The special value \verb{source = "file"} is described in the
-#' \code{\link{process.bib}} help page, along with other metadata information.
+#' The data access codes come from \url{https://vocab.ices.dk/?ref=1435}.
+#'
+#' The special values \verb{source = "file"} and \verb{source = "script"} are
+#' described in the \code{\link{process.bib}} help page, along with other
+#' metadata information.
 #'
 #' The default value \code{file = ""} prints the initial draft in the console,
 #' instead of writing it to a file. The output can then be pasted into a file to
@@ -68,10 +74,16 @@
 #' @export
 
 draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
-                       title=NULL, period=NULL, source=NULL, file="",
-                       append=FALSE, data.files=dir("bootstrap/initial/data"),
+                       title=NULL, period=NULL, access="Public", source=NULL,
+                       file="", append=FALSE,
+                       data.files=dir("bootstrap/initial/data"),
                        data.scripts=dir("bootstrap",pattern="\\.R$"))
 {
+  access.vocab <- c("OSPAR", "Public", "Restricted")  # vocab.ices.dk/?ref=1435
+  if(!is.character(access) || !all(as.character(access) %in% access.vocab))
+    stop("'access' values must be \"",
+         paste(access.vocab, collapse="\", \""), "\"")
+
   data.scripts <- file_path_sans_ext(data.scripts)
   entries <- c(data.files, data.scripts)
   if(length(entries) == 0)
@@ -87,12 +99,14 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
   line3 <- paste0("  year       = {", year, "},")
   line4 <- paste0("  title      = {", title, "},")
   line5 <- paste0("  period     = {", period, "},")
-  line6 <- paste0("  source     = {", source, "},")
-  line7 <- "}"
-  line8 <- ""
+  line6 <- paste0("  access     = {", access, "},")
+  line7 <- paste0("  source     = {", source, "},")
+  line8 <- "}"
+  line9 <- ""
 
   ## 2  Combine and format
-  out <- data.frame(line1, line2, line3, line4, line5, line6, line7, line8)
+  out <- data.frame(line1, line2, line3, line4, line5, line6, line7, line8,
+                    line9)
   out <- c(t(out))
   if(identical(period, FALSE))
     out <- out[substr(out,3,8) != "period"]  # remove 'period' line if FALSE

@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 3.2-0 (2019-08-15)
+icesTAF 3.2-0 (2019-10-02)
 --------------------------------------------------------------------------------
 o Added function clean.library() to clean TAF library.
 
@@ -14,8 +14,9 @@ o Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
 o Changed clean() so it uses clean.library() to clean bootstrap/library.
 
 o Improved draft.data() so it detects bootstrap/*.R scripts as source files to
-  consider. Added argument 'data.scripts' and removed argument 'data.dir'. Added
-  support for file=TRUE as shorthand for file="bootstrap/DATA.bib".
+  consider. Added arguments 'access' and 'data.scripts'. Removed argument
+  'data.dir'. Added support for file=TRUE as shorthand for
+  file="bootstrap/DATA.bib".
 
 o Improved draft.software() so it first looks for packages in bootstrap/library.
   Added support for package="owner/repo@ref" to install package on the fly.

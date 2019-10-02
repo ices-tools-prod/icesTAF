@@ -38,15 +38,18 @@
 #'   year       = {2016},
 #'   title      = {Survey indices: UK_BTS, FR_GFS, IN_YFS},
 #'   period     = {1987-2015},
+#'   access     = {Public},
 #'   source     = {file},
 #' }}
 #'
 #' Here, a data file is described using the \verb{@Misc} entry type and the
 #' string following the entry type is called a \dfn{key}. The next fields state
-#' that this file was prepared by the North Sea working group in 2016 and it
-#' contains survey indices from 1987 to 2015. It is not necessary to specify the
-#' stock name, since that will be automatically recorded on the TAF server. The
-#' special value \verb{source = {file}} means that the key, in this case
+#' that this file was prepared by the North Sea working group in 2016, it
+#' contains survey indices from 1987 to 2015, and access to this file is public.
+#' It is not necessary to specify the stock name, since that will be
+#' automatically recorded on the TAF server.
+#'
+#' The special value \verb{source = {file}} means that the key, in this case
 #' \verb{PLE7DFleet_2016.txt}, is the name of the file located inside
 #' \verb{bootstrap/initial/data}. This \verb{file} shorthand notation is
 #' equivalent to specifying the relative path:
