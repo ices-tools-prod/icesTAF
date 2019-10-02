@@ -49,30 +49,44 @@ download.github <- function(repo, dir=".", quiet=TRUE)
   if(!grepl("@", repo))
     repo <- paste0(repo, "@master")
 
-  ## 1  Download
+  ## 1  Parse repo string
   spec <- parse_repo_spec(repo)
   sha <- get_remote_sha(spec$username, spec$repo, spec$ref)  # branch -> sha
   sha <- substring(sha, 1, 7)
   url <- paste0("https://api.github.com/repos/",
                 spec$username, "/", spec$repo, "/tarball/", spec$ref)
   targz <- paste0(spec$repo, "_", sha, ".tar.gz")  # repo_sha.tar.gz
-  if(!file.exists(targz))
+  subdir <- spec$subdir
+  subtargz <- paste0(subdir, "_", sha, ".tar.gz")  # subdir_sha.tar.gz
+
+  ## 2  Download
+  if(subdir=="" && file.exists(targz) && !quiet)
+  {
+    message("Skipping download of '", targz, "'.")
+    message("  Version '", sha, "' is already in ", dir)
+  }
+  if(subdir!="" && file.exists(subtargz) && !quiet)
+  {
+    message("Skipping download of '", subtargz, "'.")
+    message("  Version '", sha, "' is already in ", dir)
+  }
+  if(subdir=="" && !file.exists(targz) || subdir!="" && !file.exists(subtargz))
     suppressWarnings(download(url, destfile=targz, quiet=quiet))
 
-  ## 2  Handle subdir
-  if(spec$subdir != "")
+  ## 4  Extract subdir from bigger repo
+  if(subdir != "")
   {
     repdir <- basename(untar(targz, list=TRUE)[1])  # top directory inside targz
     subdir <- spec$subdir
     untar(targz, file.path(repdir, subdir)) # extract subdir
     file.remove(targz)
     ## Move bootstrap/software/repdir/subdir to bootstrap/software/subdir
-    cp(file.path(repdir, subdir), ".", move=TRUE)
+    file.rename(file.path(repdir, subdir), subdir)
     rmdir(repdir)
     ## Compress subdir as subdir_sha.tar.gz
-    targz <- paste0(subdir, "_", sha, ".tar.gz")
-    tar(targz, subdir, compression="gzip")
+    tar(subtargz, subdir, compression="gzip")
     unlink(subdir, recursive=TRUE, force=TRUE)
+    targz <- subtargz  # function returns this
   }
 
   invisible(targz)
