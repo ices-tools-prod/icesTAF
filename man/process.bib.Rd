@@ -63,8 +63,8 @@ special value \verb{source = {file}} means that the key, in this case
 equivalent to specifying the relative path:
 \verb{source = {initial/data/PLE7DFleet_2016.txt}}.
 
-The \dfn{source} field specifies where data or software originate from. There
-are four types of values that can be used in the source field:
+The \dfn{source} field specifies where data or software originate from. The
+following types of values can be used in the source field:
 
 \enumerate{
 \item GitHub reference of the form \verb{owner/repo[/subdir]@ref},
