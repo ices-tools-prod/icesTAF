@@ -102,7 +102,6 @@ already.in.taf.library <- function(targz, lib)
 
 ## Get the SHA code of the remote for a given reference
 
-#' @importFrom jsonlite read_json
 #' @importFrom utils URLencode download.file
 
 ## Internal use examples:
@@ -115,10 +114,8 @@ get_remote_sha <- function(username, repo, ref)
   ## GitHub API URL to get head commit at a reference
   url <- paste("https://api.github.com/repos", username, repo, "commits",
                URLencode(ref, reserved=TRUE), sep="/")
-  ## Download JSON contents to temporary file
-  tmp <- tempfile()
-  on.exit(unlink(tmp), add=TRUE)
-  download.file(url, tmp, quiet=TRUE)
-  res <- read_json(tmp)
-  res$sha
+  ## Read and extract SHA code
+  sha <- readLines(url, n=2)[2]
+  sha <- sub("  \"sha\": \"(.*)\",", "\\1", sha)
+  sha
 }
