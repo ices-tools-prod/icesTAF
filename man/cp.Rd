@@ -27,9 +27,9 @@ To prevent accidental loss of files, two safeguards are enforced when
 \code{move = TRUE}:
 \enumerate{
 \item When moving files, the \code{to} argument must either have a filename
-extension or be an existing directory.
+      extension or be an existing directory.
 \item When moving many files to one destination, the \code{to} argument must
-be an existing directory.
+      be an existing directory.
 }
 If these conditions do not hold, no files are changed and an error is
 returned.
