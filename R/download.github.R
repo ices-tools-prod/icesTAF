@@ -73,20 +73,23 @@ download.github <- function(repo, dir=".", quiet=TRUE)
   if(subdir=="" && !file.exists(targz) || subdir!="" && !file.exists(subtargz))
     suppressWarnings(download(url, destfile=targz, quiet=quiet))
 
-  ## 4  Extract subdir from bigger repo
+  ## 3  Extract subdir from bigger repo
   if(subdir != "")
   {
-    repdir <- basename(untar(targz, list=TRUE)[1])  # top directory inside targz
-    subdir <- spec$subdir
-    untar(targz, file.path(repdir, subdir)) # extract subdir
-    file.remove(targz)
-    ## Move bootstrap/software/repdir/subdir to bootstrap/software/subdir
-    file.rename(file.path(repdir, subdir), subdir)
-    rmdir(repdir)
-    ## Compress subdir as subdir_sha.tar.gz
-    tar(subtargz, subdir, compression="gzip")
-    unlink(subdir, recursive=TRUE, force=TRUE)
-    targz <- subtargz  # function returns this
+    repdir <- sub("/.*", "", untar(targz,list=TRUE)[1])  # top dir inside targz
+    subdir <- spec$subdir  # sometimes the repo and subdir have the same name
+    if(repdir != subdir)   # if repdir == subdir, then we have already
+    {                      # downloaded this package and extracted the subdir
+      untar(targz, file.path(repdir, subdir)) # extract subdir
+      file.remove(targz)
+      ## Move bootstrap/software/repdir/subdir to bootstrap/software/subdir
+      file.rename(file.path(repdir, subdir), subdir)
+      rmdir(repdir)
+      ## Compress subdir as subdir_sha.tar.gz
+      tar(subtargz, subdir, compression="gzip")
+      unlink(subdir, recursive=TRUE, force=TRUE)
+      targz <- subtargz  # function returns this
+    }
   }
 
   invisible(targz)
