@@ -192,10 +192,8 @@ process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
   }
   if(clean && type=="software")
   {
-    clean("software")
-    clean.library("library")
-    if(!quiet)
-      message("  cleaned 'bootstrap/software' and 'bootstrap/library'")
+    clean.software("software", quiet=quiet)
+    clean.library("library", quiet=quiet)
   }
 
   entries <- if(file.exists(bibfile)) read.bib(bibfile) else list()
