@@ -5,7 +5,7 @@
 \title{Bootstrap TAF Analysis}
 \usage{
 taf.bootstrap(software = TRUE, data = TRUE, clean = TRUE,
-  quiet = FALSE)
+  quiet = FALSE, force = FALSE)
 }
 \arguments{
 \item{software}{whether to process \verb{SOFTWARE.bib}.}
@@ -16,6 +16,10 @@ taf.bootstrap(software = TRUE, data = TRUE, clean = TRUE,
 procedure.}
 
 \item{quiet}{whether to suppress messages reporting progress.}
+
+\item{force}{whether to remove existing \verb{bootstrap/data},
+\verb{bootstrap/library}, and \verb{bootstrap/software} directories
+before the bootstrap procedure.}
 }
 \value{
 Logical vector indicating which metadata files were processed.
@@ -25,11 +29,12 @@ Process metadata files \file{SOFTWARE.bib} and \file{DATA.bib} to set up
 software and data files required for the analysis.
 }
 \details{
-The default \code{clean = TRUE} cleans (1) \verb{bootstrap/library} and
-\verb{bootstrap/software} if \verb{SOFTWARE.bib} is processed, (2)
-\verb{bootstrap/data} if \verb{DATA.bib} is processed, and (3) top
-directories \verb{data}, \verb{model}, \verb{output}, and \verb{report} if
-either \verb{SOFTWARE.bib} or \verb{DATA.bib} is processed.
+If \code{clean = TRUE} then:
+\enumerate{
+\item \code{clean.software()} and \code{clean.library()} are run if
+      \file{SOFTWARE.bib} is processed.
+\item \file{bootstrap/data} is removed if \file{DATA.bib} is processed.
+}
 }
 \note{
 This function should be called from the top directory of a TAF analysis. It

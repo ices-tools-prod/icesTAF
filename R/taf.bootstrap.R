@@ -8,13 +8,17 @@
 #' @param clean whether to \code{\link{clean}} directories during the bootstrap
 #'        procedure.
 #' @param quiet whether to suppress messages reporting progress.
+#' @param force whether to remove existing \verb{bootstrap/data},
+#'        \verb{bootstrap/library}, and \verb{bootstrap/software} directories
+#'        before the bootstrap procedure.
 #'
 #' @details
-#' The default \code{clean = TRUE} cleans (1) \verb{bootstrap/library} and
-#' \verb{bootstrap/software} if \verb{SOFTWARE.bib} is processed, (2)
-#' \verb{bootstrap/data} if \verb{DATA.bib} is processed, and (3) top
-#' directories \verb{data}, \verb{model}, \verb{output}, and \verb{report} if
-#' either \verb{SOFTWARE.bib} or \verb{DATA.bib} is processed.
+#' If \code{clean = TRUE} then:
+#' \enumerate{
+#' \item \code{clean.software()} and \code{clean.library()} are run if
+#'       \file{SOFTWARE.bib} is processed.
+#' \item \file{bootstrap/data} is removed if \file{DATA.bib} is processed.
+#' }
 #'
 #' @return Logical vector indicating which metadata files were processed.
 #'
@@ -59,12 +63,16 @@
 #'
 #' @export
 
-taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, quiet=FALSE)
+taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, quiet=FALSE,
+                          force=FALSE)
 {
   if(!dir.exists("bootstrap"))
     return(invisible(NULL))  # nothing to do
   if(!quiet)
     msg("Bootstrap procedure running...")
+
+  if(force)
+    clean(c("bootstrap/software", "bootstrap/library", "bootstrap/data"))
 
   ## Work inside bootstrap
   setwd("bootstrap"); on.exit(setwd(".."))
