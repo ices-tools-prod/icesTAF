@@ -3,14 +3,15 @@
 #' Selectively remove packages from the local TAF library if not listed in
 #' \verb{SOFTWARE.bib}.
 #'
-#' @param lib location of local TAF library.
+#' @param folder location of local TAF library.
+#' @param quiet whether to suppress messages about removed packages.
 #'
 #' @note
 #' For each package, the cleaning procedure selects between three cases:
 #' \enumerate{
 #' \item Installed package matches \verb{SOFTWARE.bib} - do nothing.
 #' \item Installed package is not the version listed in \verb{SOFTWARE.bib} -
-#' remove.
+#'       remove.
 #' \item Installed package is not listed in \verb{SOFTWARE.bib} - remove.
 #' }
 #'
@@ -20,11 +21,16 @@
 #' different versions of software without modifying the \verb{SOFTWARE.bib}
 #' file.
 #'
+#' The command \code{clean("bootstrap/library")} removes that directory
+#' completely.
+#'
 #' @seealso
 #' \code{\link{taf.bootstrap}} calls \code{clean.library} as a part of the
 #' default bootstrap procedure.
 #'
 #' \code{\link{taf.install}} installs a package in the local TAF library.
+#'
+#' \code{\link{clean.software}} cleans the local TAF software folder.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -34,16 +40,16 @@
 #'
 #' @export
 
-clean.library <- function(lib="bootstrap/library")
+clean.library <- function(folder="bootstrap/library", quiet=FALSE)
 {
-  installed <- dir(lib)
+  installed <- dir(folder)
 
   for(pkg in installed)
   {
     ## Read sha.inst, the SHA for an installed package
-    sha.inst <- packageDescription(pkg, lib.loc=lib)$RemoteSha
+    sha.inst <- packageDescription(pkg, lib.loc=folder)$RemoteSha
     ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
-    bib <- read.bib(file.path(lib, "../SOFTWARE.bib"))
+    bib <- read.bib(file.path(folder, "../SOFTWARE.bib"))
     if(pkg %in% names(bib))
     {
       repo <- bib[pkg]$source
@@ -58,8 +64,12 @@ clean.library <- function(lib="bootstrap/library")
 
     ## If installed package is either a mismatch or not listed, then remove it
     if(sha.inst != sha.bib)
-      unlink(file.path(lib, pkg), recursive=TRUE)
+    {
+      unlink(file.path(folder, pkg), recursive=TRUE)
+      if(!quiet)
+        message("  cleaned ", file.path(folder, pkg))
+    }
   }
 
-  rmdir(lib)
+  rmdir(folder)
 }

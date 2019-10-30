@@ -4,10 +4,12 @@
 \alias{clean.library}
 \title{Clean TAF Library}
 \usage{
-clean.library(lib = "bootstrap/library")
+clean.library(folder = "bootstrap/library", quiet = FALSE)
 }
 \arguments{
-\item{lib}{location of local TAF library.}
+\item{folder}{location of local TAF library.}
+
+\item{quiet}{whether to suppress messages about removed packages.}
 }
 \description{
 Selectively remove packages from the local TAF library if not listed in
@@ -18,7 +20,7 @@ For each package, the cleaning procedure selects between three cases:
 \enumerate{
 \item Installed package matches \verb{SOFTWARE.bib} - do nothing.
 \item Installed package is not the version listed in \verb{SOFTWARE.bib} -
-remove.
+      remove.
 \item Installed package is not listed in \verb{SOFTWARE.bib} - remove.
 }
 
@@ -27,12 +29,17 @@ the user to run \code{clean.library}. The main reason for a TAF user to run
 \code{clean.library} directly is to experiment with installing and removing
 different versions of software without modifying the \verb{SOFTWARE.bib}
 file.
+
+The command \code{clean("bootstrap/library")} removes that directory
+completely.
 }
 \seealso{
 \code{\link{taf.bootstrap}} calls \code{clean.library} as a part of the
 default bootstrap procedure.
 
 \code{\link{taf.install}} installs a package in the local TAF library.
+
+\code{\link{clean.software}} cleans the local TAF software folder.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
