@@ -96,9 +96,17 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
   if(!is.null(dir) && file!="")
     file <- file.path(sub("[/\\]+$","",dir), file)  # remove trailing slash
 
-  ## 4  Export
+  ## 4  Check column names and data entries
   if(any(duplicated(names(x))) && dirname(file)!="report")
     warning("duplicated column names")
+  comma <- sapply(x, grepl, pattern=",")
+  if(!quote && any(comma))
+  {
+    row <- which(apply(comma, 1, any))[1]
+    stop("unexpected comma in row ", row, ", consider quote=TRUE")
+  }
+
+  ## 5  Export
   write.csv(x, file=file, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
   if(file != "")

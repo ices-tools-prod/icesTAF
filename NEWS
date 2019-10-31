@@ -25,6 +25,8 @@ o Improved draft.software() so it first looks for packages in bootstrap/library.
 
 o Improved taf.library() so it works from a bootstrap data script.
 
+o Changed write.taf() so it gives an error if data frame contains commas.
+
 o Added argument 'quiet' to cp().
 
 o Added arguments 'force' and 'recon' to make().
