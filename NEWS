@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 3.2-0 (2019-10-30)
+icesTAF 3.2-0 (2019-11-01)
 --------------------------------------------------------------------------------
 o Added functions clean.library() and clean.software() to selectively clean TAF
   library and software folders.
@@ -25,7 +25,7 @@ o Improved draft.software() so it first looks for packages in bootstrap/library.
 
 o Improved taf.library() so it works from a bootstrap data script.
 
-o Changed write.taf() so it gives an error if data frame contains commas.
+o Improved write.taf() so it gives an error if data frame contains comma.
 
 o Added argument 'quiet' to cp().
 
