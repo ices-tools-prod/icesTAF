@@ -7,7 +7,7 @@
 ## icesTAF:::get.remote.sha("ices-tools-prod", "icesTAF", "3.1-1")
 ## icesTAF:::get.remote.sha("ices-tools-prod", "icesTAF",
 
-get_remote_sha <- function(username, repo, ref, seven=TRUE)
+get.remote.sha <- function(username, repo, ref, seven=TRUE)
 {
   ## GitHub API URL to get head commit at a reference
   url <- paste("https://api.github.com/repos", username, repo, "commits",

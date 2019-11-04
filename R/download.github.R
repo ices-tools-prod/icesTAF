@@ -51,8 +51,7 @@ download.github <- function(repo, dir=".", quiet=TRUE)
 
   ## 1  Parse repo string
   spec <- parse_repo_spec(repo)
-  sha <- get_remote_sha(spec$username, spec$repo, spec$ref)  # branch -> sha
-  sha <- substring(sha, 1, 7)
+  sha <- get.remote.sha(spec$username, spec$repo, spec$ref)  # branch -> sha
   url <- paste0("https://api.github.com/repos/",
                 spec$username, "/", spec$repo, "/tarball/", spec$ref)
   targz <- paste0(spec$repo, "_", sha, ".tar.gz")  # repo_sha.tar.gz
