@@ -25,8 +25,8 @@
 #' completely.
 #'
 #' @seealso
-#' \code{\link{taf.bootstrap}} calls \code{clean.library} as a part of the
-#' default bootstrap procedure.
+#' \code{\link{taf.bootstrap}} calls \code{clean.library} as part of the default
+#' bootstrap procedure.
 #'
 #' \code{\link{taf.install}} installs a package in the local TAF library.
 #'
@@ -44,30 +44,37 @@ clean.library <- function(folder="bootstrap/library", quiet=FALSE)
 {
   installed <- dir(folder)
 
-  for(pkg in installed)
+  if(!file.exists("../SOFTWARE.bib"))
   {
-    ## Read sha.inst, the SHA for an installed package
-    sha.inst <- packageDescription(pkg, lib.loc=folder)$RemoteSha
-    ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
+    unlink("bootstrap/library", recursive=TRUE)
+  }
+  else
+  {
     bib <- read.bib(file.path(folder, "../SOFTWARE.bib"))
-    if(pkg %in% names(bib))
-    {
-      repo <- bib[pkg]$source
-      spec <- parse_repo_spec(repo)
-      sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
-      sha.bib <- substring(sha.bib, 1, 7)
-    }
-    else
-    {
-      sha.bib <- "Not listed"
-    }
 
-    ## If installed package is either a mismatch or not listed, then remove it
-    if(sha.inst != sha.bib)
+    for(pkg in installed)
     {
-      unlink(file.path(folder, pkg), recursive=TRUE)
-      if(!quiet)
-        message("  cleaned ", file.path(folder, pkg))
+      ## Read sha.inst, the SHA for an installed package
+      sha.inst <- packageDescription(pkg, lib.loc=folder)$RemoteSha
+      ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
+      if(pkg %in% names(bib))
+      {
+        repo <- bib[pkg]$source
+        spec <- parse_repo_spec(repo)
+        sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
+      }
+      else
+      {
+        sha.bib <- "Not listed"
+      }
+
+      ## If installed package is either a mismatch or not listed, then remove it
+      if(sha.inst != sha.bib)
+      {
+        unlink(file.path(folder, pkg), recursive=TRUE)
+        if(!quiet)
+          message("  cleaned ", file.path(folder, pkg))
+      }
     }
   }
 

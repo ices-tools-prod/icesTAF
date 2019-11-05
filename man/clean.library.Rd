@@ -34,8 +34,8 @@ The command \code{clean("bootstrap/library")} removes that directory
 completely.
 }
 \seealso{
-\code{\link{taf.bootstrap}} calls \code{clean.library} as a part of the
-default bootstrap procedure.
+\code{\link{taf.bootstrap}} calls \code{clean.library} as part of the default
+bootstrap procedure.
 
 \code{\link{taf.install}} installs a package in the local TAF library.
 

@@ -35,8 +35,10 @@ The command \code{clean("bootstrap/software")} removes that directory
 completely.
 }
 \seealso{
-\code{\link{taf.bootstrap}} calls \code{clean.software} as a part of the
+\code{\link{taf.bootstrap}} calls \code{clean.software} as part of the
 default bootstrap procedure.
+
+\code{\link{download.github}} downloads a GitHub repository.
 
 \code{\link{clean.library}} cleans the local TAF library.
 

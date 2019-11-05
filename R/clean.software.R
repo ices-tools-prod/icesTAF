@@ -26,8 +26,10 @@
 #' completely.
 #'
 #' @seealso
-#' \code{\link{taf.bootstrap}} calls \code{clean.software} as a part of the
+#' \code{\link{taf.bootstrap}} calls \code{clean.software} as part of the
 #' default bootstrap procedure.
+#'
+#' \code{\link{download.github}} downloads a GitHub repository.
 #'
 #' \code{\link{clean.library}} cleans the local TAF library.
 #'
@@ -42,31 +44,38 @@ clean.software <- function(folder="bootstrap/software", quiet=FALSE)
 {
   software.files <- dir(folder, full.names=TRUE)
 
-  for(file in software.files)
+  if(!file.exists("../SOFTWARE.bib"))
   {
-    ## Read sha.file, the SHA for a software file
-    pkg <- sub(".*/(.*)_.*", "\\1", file)          # path/pkg_sha.tar.gz -> pkg
-    sha.file <- sub(".*_(.*?)\\..*", "\\1", file)  # path/pkg_sha.tar.gz -> sha
-    ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
+    unlink("bootstrap/software", recursive=TRUE)
+  }
+  else
+  {
     bib <- read.bib(file.path(folder, "../SOFTWARE.bib"))
-    if(pkg %in% names(bib))
-    {
-      repo <- bib[pkg]$source
-      spec <- parse_repo_spec(repo)
-      sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
-      sha.bib <- substring(sha.bib, 1, 7)
-    }
-    else
-    {
-      sha.bib <- "Not listed"
-    }
 
-    ## If software file is either a mismatch or not listed, then remove it
-    if(sha.file != sha.bib)
+    for(file in software.files)
     {
-      unlink(file.path(folder, pkg), recursive=TRUE)
-      if(!quiet)
-        message("  cleaned ", file.path(folder, pkg))
+      ## Read sha.file, the SHA for a software file
+      pkg <- sub(".*/(.*)_.*", "\\1", file)          # path/pkg_sha.tar.gz -> pkg
+      sha.file <- sub(".*_(.*?)\\..*", "\\1", file)  # path/pkg_sha.tar.gz -> sha
+      ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
+      if(pkg %in% names(bib))
+      {
+        repo <- bib[pkg]$source
+        spec <- parse_repo_spec(repo)
+        sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
+      }
+      else
+      {
+        sha.bib <- "Not listed"
+      }
+
+      ## If software file is either a mismatch or not listed, then remove it
+      if(sha.file != sha.bib)
+      {
+        unlink(file.path(folder, pkg), recursive=TRUE)
+        if(!quiet)
+          message("  cleaned ", file.path(folder, pkg))
+      }
     }
   }
 

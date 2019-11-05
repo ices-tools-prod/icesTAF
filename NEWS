@@ -3,6 +3,9 @@ icesTAF 3.3-0 (2019-11-05)
 --------------------------------------------------------------------------------
 o Added function get.remote.sha() to look up a SHA reference code on GitHub.
 
+o Improved clean.library() and clean.software() to exit gracefully when
+  SOFTWARE.bib file does not exist.
+
 o Changed download.github() so the default is quite=FALSE.
 
 
