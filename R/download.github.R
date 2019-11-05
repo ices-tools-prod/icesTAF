@@ -41,7 +41,7 @@
 #'
 #' @export
 
-download.github <- function(repo, dir=".", quiet=TRUE)
+download.github <- function(repo, dir=".", quiet=FALSE)
 {
   mkdir(dir)  # bootstrap/software
   owd <- setwd(dir); on.exit(setwd(owd))
