@@ -1,10 +1,18 @@
 --------------------------------------------------------------------------------
+icesTAF 3.3-0 (2019-11-05)
+--------------------------------------------------------------------------------
+o Added function get.remote.sha() to look up a SHA reference code on GitHub.
+
+
+
+
+--------------------------------------------------------------------------------
 icesTAF 3.2-0 (2019-11-01)
 --------------------------------------------------------------------------------
-o Added functions clean.library() and clean.software() to selectively clean TAF
-  library and software folders.
+o Added functions clean.library() and clean.software() to selectively clean the
+  TAF library and software folders.
 
-o Added function download.github() to download GitHub repository.
+o Added function download.github() to download a GitHub repository.
 
 o Added function taf.install() to install a package in the local TAF library.
 

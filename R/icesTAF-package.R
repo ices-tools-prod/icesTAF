@@ -79,6 +79,7 @@
 #'   \code{\link{download}}        \tab download file\cr
 #'   \code{\link{download.github}} \tab download repository\cr
 #'   \code{\link{file.encoding}}   \tab examine file encoding\cr
+#'   \code{\link{get.remote.sha}}  \tab look up SHA code\cr
 #'   \code{\link{latin1.to.utf8}}  \tab convert file encoding\cr
 #'   \code{\link{line.endings}}    \tab examine line endings\cr
 #'   \code{\link{process.bib}}     \tab read and process metadata\cr
