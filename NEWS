@@ -3,8 +3,8 @@ icesTAF 3.3-0 (2019-11-05)
 --------------------------------------------------------------------------------
 o Added function get.remote.sha() to look up a SHA reference code on GitHub.
 
-o Improved clean.library() and clean.software() to exit gracefully when
-  SOFTWARE.bib file does not exist.
+o Improved clean.library() and clean.software() to remove bootstrap/library and
+  bootstrap/software when SOFTWARE.bib file does not exist.
 
 o Changed download.github() so the default is quite=FALSE.
 
@@ -73,9 +73,9 @@ o Added argument 'quiet' to process.bib() and support for source={script} and
   dir={TRUE}. Removed 'bundle' field.
 
 o Added argument 'quiet' to taf.bootstrap(). Improved taf.bootstrap() so it
-  doesn't clean the corresponding bootstrap directories when arguments 'config',
-  'data', or 'software' are FALSE. Dropped support for custom bootstrap.R
-  script, superseded by source={script}.
+  doesn't clean the corresponding bootstrap subdirectories when arguments
+  'config', 'data', or 'software' are FALSE. Dropped support for custom
+  bootstrap.R script, superseded by source={script}.
 
 o Improved draft.data() so it works in R versions older than 3.5. Code
   contributed by Alexandros Kokkalis.
@@ -155,7 +155,7 @@ o Added argument 'clean' to taf.bootstrap().
 o Added argument 'create' to taf.library().
 
 o Improved process.bib() so it does not require taf.bootstrap() to create 'data'
-  and 'software' directories.
+  and 'software' subdirectories.
 
 o Improved taf.skeleton() so every script starts with library(icesTAF) and
   mkdir() to create a working directory.
