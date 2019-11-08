@@ -518,6 +518,7 @@ Type 'q()' to quit R.
 > ## Not run: 
 > ##D get.remote.sha("ices-tools-prod", "icesTAF", "master")
 > ##D get.remote.sha("ices-tools-prod", "icesTAF", "3.0-0")
+> ##D get.remote.sha("ices-tools-prod", "icesTAF", "3.0-0", seven=FALSE)
 > ## End(Not run)
 > 
 > 
@@ -701,7 +702,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > msg("script.R running...")
-[13:51:47] script.R running...
+[15:22:16] script.R running...
 > 
 > 
 > 
@@ -1414,7 +1415,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.343 0.02 0.365 0 0 
+Time elapsed:  0.376 0.019 0.398 0 0 
 > grDevices::dev.off()
 null device 
           1 
