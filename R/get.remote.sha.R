@@ -20,6 +20,7 @@
 #' \dontrun{
 #' get.remote.sha("ices-tools-prod", "icesTAF", "master")
 #' get.remote.sha("ices-tools-prod", "icesTAF", "3.0-0")
+#' get.remote.sha("ices-tools-prod", "icesTAF", "3.0-0", seven=FALSE)
 #' }
 #'
 #' @importFrom utils URLencode
