@@ -30,10 +30,14 @@ get.remote.sha <- function(owner, repo, ref, seven=TRUE)
 {
   ## GitHub API URL to get head commit at a reference
   url <- paste("https://api.github.com/repos", owner, repo, "commits",
-               URLencode(ref,reserved=TRUE), sep="/")
+               URLencode(ref, reserved=TRUE), sep="/")
+
   ## Read and extract SHA code
-  sha <- readLines(url, n=2)[2]
-  sha <- sub("  \"sha\": \"(.*)\",", "\\1", sha)
+  sha <- readLines(url, warn=FALSE)  # one line in Windows, many lines in Linux
+  sha <- paste(sha, collapse="")     # format as one line
+  sha <- gsub(" ", "", sha)          # with no spaces
+  sha <- sub("\\{\"sha\":\"(.*?)\".*", "\\1", sha)  # extract SHA code
+
   ## Truncate to seven characters
   if(seven)
     sha <- substring(sha, 1, 7)

@@ -1,12 +1,13 @@
 --------------------------------------------------------------------------------
-icesTAF 3.3-0 (2019-11-05)
+icesTAF 3.3-0 (2019-11-08)
 --------------------------------------------------------------------------------
 o Added function get.remote.sha() to look up a SHA reference code on GitHub.
+  Fixed a bug introduced in 3.2-0.
 
 o Improved clean.library() and clean.software() to remove bootstrap/library and
   bootstrap/software when SOFTWARE.bib file does not exist.
 
-o Changed download.github() so the default is quite=FALSE.
+o Changed download.github() so the default is quiet=FALSE.
 
 
 
