@@ -1,7 +1,8 @@
-## process.bib helper function
-
-#' @importFrom remotes parse_repo_spec
+#' @rdname icesTAF-internal
+#'
 #' @importFrom tools file_path_as_absolute
+#'
+#' @export
 
 process.inner <- function(bib, dir, quiet)
 {

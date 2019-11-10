@@ -1,4 +1,8 @@
-## ds = draft.software helper function
+#' @rdname icesTAF-internal
+#'
+#' @importFrom tools file_path_sans_ext
+#'
+#' @export
 
 ds.file <- function(package, author, year, title, version, source)
 {
