@@ -4,6 +4,8 @@
 #'
 #' @export
 
+## process.bib helper function
+
 process.inner <- function(bib, dir, quiet)
 {
   key <- attr(bib, "key")

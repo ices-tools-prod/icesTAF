@@ -4,6 +4,8 @@
 #'
 #' @export
 
+## ds = draft.software helper function
+
 ds.file <- function(package, author, year, title, version, source)
 {
   key <- file_path_sans_ext(basename(package), compression=TRUE)

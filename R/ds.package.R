@@ -4,6 +4,8 @@
 #'
 #' @export
 
+## ds = draft.software helper function
+
 ds.package <- function(package, author, year, title, version, source)
 {
   ## 1  Bibliographic info: author, year, title, details
