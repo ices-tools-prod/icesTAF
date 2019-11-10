@@ -88,9 +88,13 @@ taf.install <- function(targz=NULL, lib="bootstrap/library", quiet=FALSE)
   }
 }
 
-## Check whether requested package is already installed in the TAF library
-
+#' @rdname icesTAF-internal
+#'
 #' @importFrom utils packageDescription
+#'
+#' @export
+
+## Check whether requested package is already installed in the TAF library
 
 already.in.taf.library <- function(targz, lib)
 {
