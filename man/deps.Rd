@@ -4,8 +4,13 @@
 \alias{deps}
 \title{List Dependencies}
 \usage{
-deps(path = ".", base = FALSE, installed = TRUE, available = TRUE,
-  list = FALSE)
+deps(
+  path = ".",
+  base = FALSE,
+  installed = TRUE,
+  available = TRUE,
+  list = FALSE
+)
 }
 \arguments{
 \item{path}{a directory or file containing R scripts.}

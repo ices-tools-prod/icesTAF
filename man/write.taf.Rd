@@ -4,8 +4,16 @@
 \alias{write.taf}
 \title{Write TAF Table to File}
 \usage{
-write.taf(x, file = NULL, dir = NULL, quote = FALSE,
-  row.names = FALSE, fileEncoding = "UTF-8", underscore = TRUE, ...)
+write.taf(
+  x,
+  file = NULL,
+  dir = NULL,
+  quote = FALSE,
+  row.names = FALSE,
+  fileEncoding = "UTF-8",
+  underscore = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{a data frame in TAF format.}

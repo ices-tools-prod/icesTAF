@@ -4,8 +4,13 @@
 \alias{taf.bootstrap}
 \title{Bootstrap TAF Analysis}
 \usage{
-taf.bootstrap(software = TRUE, data = TRUE, clean = TRUE,
-  quiet = FALSE, force = FALSE)
+taf.bootstrap(
+  software = TRUE,
+  data = TRUE,
+  clean = TRUE,
+  quiet = FALSE,
+  force = FALSE
+)
 }
 \arguments{
 \item{software}{whether to process \verb{SOFTWARE.bib}.}

@@ -4,8 +4,13 @@
 \alias{read.taf}
 \title{Read TAF Table from File}
 \usage{
-read.taf(file, check.names = FALSE, stringsAsFactors = FALSE,
-  fileEncoding = "UTF-8", ...)
+read.taf(
+  file,
+  check.names = FALSE,
+  stringsAsFactors = FALSE,
+  fileEncoding = "UTF-8",
+  ...
+)
 }
 \arguments{
 \item{file}{a filename.}

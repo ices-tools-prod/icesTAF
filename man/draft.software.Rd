@@ -4,8 +4,16 @@
 \alias{draft.software}
 \title{Draft SOFTWARE.bib}
 \usage{
-draft.software(package, author = NULL, year = NULL, title = NULL,
-  version = NULL, source = NULL, file = "", append = FALSE)
+draft.software(
+  package,
+  author = NULL,
+  year = NULL,
+  title = NULL,
+  version = NULL,
+  source = NULL,
+  file = "",
+  append = FALSE
+)
 }
 \arguments{
 \item{package}{name of one or more R packages, or files/folders inside

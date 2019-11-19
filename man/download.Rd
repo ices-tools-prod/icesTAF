@@ -4,8 +4,15 @@
 \alias{download}
 \title{Download File}
 \usage{
-download(url, dir = ".", mode = "wb", chmod = file_ext(url) == "",
-  destfile = file.path(dir, basename(url)), quiet = TRUE, ...)
+download(
+  url,
+  dir = ".",
+  mode = "wb",
+  chmod = file_ext(url) == "",
+  destfile = file.path(dir, basename(url)),
+  quiet = TRUE,
+  ...
+)
 }
 \arguments{
 \item{url}{URL of file to download.}
