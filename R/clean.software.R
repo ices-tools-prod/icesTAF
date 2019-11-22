@@ -36,7 +36,6 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @importFrom bibtex read.bib
-#' @importFrom remotes parse_repo_spec
 #'
 #' @export
 
@@ -61,7 +60,7 @@ clean.software <- function(folder="bootstrap/software", quiet=FALSE)
       if(pkg %in% names(bib))
       {
         repo <- bib[pkg]$source
-        spec <- parse_repo_spec(repo)
+        spec <- parse.repo(repo)
         sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
       }
       else

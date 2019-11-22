@@ -36,7 +36,6 @@
 #' download.github("ices-tools-prod/icesTAF@d5a8947")
 #' }
 #'
-#' @importFrom remotes parse_repo_spec
 #' @importFrom utils tar untar
 #'
 #' @export
@@ -50,7 +49,7 @@ download.github <- function(repo, dir=".", quiet=FALSE)
     repo <- paste0(repo, "@master")
 
   ## 1  Parse repo string
-  spec <- parse_repo_spec(repo)
+  spec <- parse.repo(repo)
   sha <- get.remote.sha(spec$username, spec$repo, spec$ref)  # branch -> sha
   url <- paste0("https://api.github.com/repos/",
                 spec$username, "/", spec$repo, "/tarball/", spec$ref)

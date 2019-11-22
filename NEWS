@@ -10,6 +10,8 @@ o Improved clean.library() and clean.software() to remove bootstrap/library and
 o Improved download.github() to handle packages that are nested inside a
   repository. Set default to quiet=FALSE.
 
+o Removed 'remotes' package dependency.
+
 
 
 
@@ -59,7 +61,7 @@ o Improved download() so it shaves off ?tail from the end of 'destfile', and
 
 o Improved zoom() so it handles legend text size.
 
-o Removed jsonlite package dependency.
+o Removed 'jsonlite' package dependency.
 
 
 
