@@ -4,14 +4,8 @@
 \alias{sourceDir}
 \title{Source Directory}
 \usage{
-sourceDir(
-  dir,
-  pattern = "\\\\.[r|R]$",
-  all.files = FALSE,
-  recursive = FALSE,
-  quiet = TRUE,
-  ...
-)
+sourceDir(dir, pattern = "\\\\.[r|R]$", all.files = FALSE,
+  recursive = FALSE, quiet = TRUE, ...)
 }
 \arguments{
 \item{dir}{a directory containing R source files.}

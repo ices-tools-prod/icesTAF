@@ -7,18 +7,9 @@
 \usage{
 zoom(x, ...)
 
-\method{zoom}{trellis}(
-  x,
-  size = 2.7,
-  main = 1.2 * size,
-  lab = size,
-  axis = size,
-  strip = size,
-  sub = 0.9 * size,
-  legend = 0.9 * size,
-  splom = 0.9 * size,
-  ...
-)
+\method{zoom}{trellis}(x, size = 2.7, main = 1.2 * size, lab = size,
+  axis = size, strip = size, sub = 0.9 * size, legend = 0.9 * size,
+  splom = 0.9 * size, ...)
 }
 \arguments{
 \item{x}{a lattice plot of class \code{"trellis"}.}

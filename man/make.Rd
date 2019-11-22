@@ -4,17 +4,8 @@
 \alias{make}
 \title{Run R Script If Needed}
 \usage{
-make(
-  recipe,
-  prereq,
-  target,
-  include = TRUE,
-  engine = source,
-  debug = FALSE,
-  force = FALSE,
-  recon = FALSE,
-  ...
-)
+make(recipe, prereq, target, include = TRUE, engine = source,
+  debug = FALSE, force = FALSE, recon = FALSE, ...)
 }
 \arguments{
 \item{recipe}{script filename.}
