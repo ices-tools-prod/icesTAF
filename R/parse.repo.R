@@ -15,7 +15,7 @@ parse.repo <- function(repo)
   subdir <- if(length(x) == 2) "" else x[2]
 
   repo <- unlist(strsplit(repo.ref, "@"))[1]
-  ref <- unlist(strsplit(repo.ref, "@"))[2]
+  ref <- if(grepl("@", repo.ref)) unlist(strsplit(repo.ref, "@"))[2] else ""
 
   list(username=username, repo=repo, subdir=subdir, ref=ref)
 }
