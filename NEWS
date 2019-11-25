@@ -10,6 +10,8 @@ o Improved clean.library() and clean.software() to remove bootstrap/library and
 o Improved download.github() to handle packages that are nested inside a
   repository. Set default to quiet=FALSE.
 
+o Changed write.taf() so it no longer converts line endings.
+
 o Removed 'remotes' package dependency.
 
 

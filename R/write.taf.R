@@ -109,6 +109,4 @@ write.taf <- function(x, file=NULL, dir=NULL, quote=FALSE, row.names=FALSE,
   ## 5  Export
   write.csv(x, file=file, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
-  if(file != "")
-    unix2dos(file)
 }
