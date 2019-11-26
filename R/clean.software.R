@@ -43,9 +43,9 @@ clean.software <- function(folder="bootstrap/software", quiet=FALSE)
 {
   software.files <- dir(folder, full.names=TRUE)
 
-  if(!file.exists("../SOFTWARE.bib"))
+  if(!file.exists(file.path(folder, "../SOFTWARE.bib")))
   {
-    unlink("bootstrap/software", recursive=TRUE)
+    unlink(folder, recursive=TRUE)
   }
   else
   {

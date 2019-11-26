@@ -43,9 +43,9 @@ clean.library <- function(folder="bootstrap/library", quiet=FALSE)
 {
   installed <- dir(folder)
 
-  if(!file.exists("../SOFTWARE.bib"))
+  if(!file.exists(file.path(folder, "../SOFTWARE.bib")))
   {
-    unlink("bootstrap/library", recursive=TRUE)
+    unlink(folder, recursive=TRUE)
   }
   else
   {
