@@ -5,7 +5,9 @@ o Added function get.remote.sha() to look up a SHA reference code on GitHub.
   Fixed a bug introduced in 3.2-0.
 
 o Improved clean.library() and clean.software() to remove bootstrap/library and
-  bootstrap/software when SOFTWARE.bib file does not exist.
+  bootstrap/software when SOFTWARE.bib file does not exist. Improved
+  clean.software() to remove software file when version does not match
+  SOFTWARE.bib.
 
 o Improved download.github() to handle packages that are nested inside a
   repository. Set default to quiet=FALSE.

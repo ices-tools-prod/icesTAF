@@ -71,9 +71,9 @@ clean.software <- function(folder="bootstrap/software", quiet=FALSE)
       ## If software file is either a mismatch or not listed, then remove it
       if(sha.file != sha.bib)
       {
-        unlink(file.path(folder, pkg), recursive=TRUE)
+        file.remove(file)
         if(!quiet)
-          message("  cleaned ", file.path(folder, pkg))
+          message("  cleaned ", file)
       }
     }
   }
