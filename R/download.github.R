@@ -65,7 +65,6 @@ download.github <- function(repo, dir=".", quiet=FALSE)
       message("Skipping download of '", targz, "'.")
       message("  Version '", sha, "' is already in ", dir)
     }
-    value <- NULL
   }
   else if(subdir!="" && file.exists(subtargz))  # subdir, subtargz exists
   {
@@ -74,21 +73,15 @@ download.github <- function(repo, dir=".", quiet=FALSE)
       message("Skipping download of '", subtargz, "'.")
       message("  Version '", sha, "' is already in ", dir)
     }
-    value <- NULL
   }
   else
   {
     suppressWarnings(download(url, destfile=targz, quiet=quiet))
-    if(subdir == "")
-    {
-      value <- targz
-    }
-    else
-    {
+    if(subdir != "")
       extract.subdir(targz, subtargz, subdir)
-      value <- subtargz
-    }
   }
+
+  value <- if(subdir == "") targz else subtargz
 
   invisible(value)
 }
