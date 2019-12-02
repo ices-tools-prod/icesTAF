@@ -69,7 +69,7 @@ taf.install <- function(targz=NULL, lib="bootstrap/library", quiet=FALSE)
     {
       if(!quiet)
       {
-        message("Skipping install of '", pkg, "'.")
+        message("Skipping install of '", basename(tgz), "'.")
         message("  Version '", sha, "' is already in ", lib, ".")
       }
     }
