@@ -37,11 +37,13 @@ These shorthand functions can be useful when writing workaround solutions in
 platform-independent scripts.
 }
 \examples{
+\donttest{
 os()
 os.linux()
 os.macos()
 os.unix()
 os.windows()
+}
 
 }
 \seealso{

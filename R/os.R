@@ -24,11 +24,13 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
+#' \donttest{
 #' os()
 #' os.linux()
 #' os.macos()
 #' os.unix()
 #' os.windows()
+#' }
 #'
 #' @export
 

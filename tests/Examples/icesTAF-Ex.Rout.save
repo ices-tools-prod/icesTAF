@@ -719,16 +719,6 @@ Type 'q()' to quit R.
 > 
 > ### ** Examples
 > 
-> os()
-[1] "Linux"
-> os.linux()
-[1] TRUE
-> os.macos()
-[1] FALSE
-> os.unix()
-[1] TRUE
-> os.windows()
-[1] FALSE
 > 
 > 
 > 
