@@ -79,7 +79,7 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
                        data.files=dir("bootstrap/initial/data"),
                        data.scripts=dir("bootstrap",pattern="\\.R$"))
 {
-  access.vocab <- c("OSPAR", "Public", "Restricted")  # vocab.ices.dk/?ref=1435
+  ## icesTAF:::access.vocab is a string vector of allowed 'access' values
   if(!is.character(access) || !all(as.character(access) %in% access.vocab))
     stop("'access' values must be \"",
          paste(access.vocab, collapse="\", \""), "\"")

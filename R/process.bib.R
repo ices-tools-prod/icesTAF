@@ -205,11 +205,19 @@ process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
   for(bib in entries)
   {
     key <- attr(bib, "key")
+    if(!quiet)
+      message("* ", key)
 
     ## If source contains multiple files then split into vector
     bib$source <- trimws(unlist(strsplit(bib$source, "\\n")))
     bib$source <- sub(",$", "", bib$source)     # remove trailing comma
     bib$source <- bib$source[bib$source != ""]  # remove empty strings
+
+    ## icesTAF:::access.vocab is a string vector of allowed 'access' values
+    access <- bib$access
+    if(!is.character(access) || !all(as.character(access) %in% access.vocab))
+      stop("'access' values must be \"",
+           paste(access.vocab, collapse="\", \""), "\"")
 
     ## Add prefix
     bib$source <- paste0(bib$prefix, bib$source)
