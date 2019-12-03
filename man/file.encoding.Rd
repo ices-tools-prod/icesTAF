@@ -24,7 +24,10 @@ Examine file encoding.
 The encoding \code{"unknown"} indicates that the file is an ASCII text file
 or a binary file.
 
-In TAF, text files that have non-ASCII characters must be encoded as UTF-8.
+In TAF, text files that have non-ASCII characters should be encoded as UTF-8.
+
+If this function fails in Windows, the \code{guess_encoding} function in the
+\pkg{readr} package may help.
 }
 \examples{
 \dontrun{
