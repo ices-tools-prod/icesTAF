@@ -1,15 +1,15 @@
 [![Build Status](https://travis-ci.org/ices-tools-prod/icesTAF.svg?branch=master)](https://travis-ci.org/ices-tools-prod/icesTAF)
-[![CRAN Status](http://r-pkg.org/badges/version/icesTAF)](https://cran.r-project.org/package=icesTAF)
-[![CRAN Monthly](http://cranlogs.r-pkg.org/badges/icesTAF)](https://cran.r-project.org/package=icesTAF)
-[![CRAN Total](http://cranlogs.r-pkg.org/badges/grand-total/icesTAF)](https://cran.r-project.org/package=icesTAF)
+[![CRAN Status](https://r-pkg.org/badges/version/icesTAF)](https://cran.r-project.org/package=icesTAF)
+[![CRAN Monthly](https://cranlogs.r-pkg.org/badges/icesTAF)](https://cran.r-project.org/package=icesTAF)
+[![CRAN Total](https://cranlogs.r-pkg.org/badges/grand-total/icesTAF)](https://cran.r-project.org/package=icesTAF)
 
-[<img align="right" alt="ICES Logo" width="17%" height="17%" src="http://ices.dk/_layouts/15/1033/images/icesimg/iceslogo.png">](http://ices.dk)
+[<img align="right" alt="ICES Logo" width="17%" height="17%" src="https://ices.dk/_layouts/15/1033/images/icesimg/iceslogo.png">](https://ices.dk)
 
 icesTAF
 =======
 
-icesTAF provides functions to support the [ICES](http://ices.dk)
-[Transparent Assessment Framework](http://taf.ices.dk) to organize data,
+icesTAF provides functions to support the [ICES](https://ices.dk)
+[Transparent Assessment Framework](https://taf.ices.dk) to organize data,
 methods, and results used in ICES assessments.
 
 icesTAF is implemented as an [R](https://www.r-project.org) package and
@@ -38,7 +38,7 @@ References
 ----------
 
 ICES Transparent Assessment Framework:
-http://taf.ices.dk
+https://taf.ices.dk
 
 Development
 -----------
