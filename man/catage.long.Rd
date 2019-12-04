@@ -13,8 +13,8 @@
 \source{
 ICES (2016) Report of the working group on the assessment of demersal stocks
 in the North Sea and Skagerrak (WGNSSK).
-\href{http://ices.dk/sites/pub/Publication\%20Reports/Expert\%20Group\%20Report/acom/2016/WGNSSK/01\%20WGNSSK\%20report\%202016.pdf}{\emph{ICES
-CM 2016/ACOM:14}}, p. 656.
+\href{https://doi.org/10.17895/ices.pub.5329}{\emph{ICES CM 2016/ACOM:14}},
+p. 673.
 }
 \usage{
 catage.long

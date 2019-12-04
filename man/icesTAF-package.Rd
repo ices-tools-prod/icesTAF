@@ -89,7 +89,7 @@ data, methods, and results used in ICES assessments.
 }
 }
 \references{
-ICES Transparent Assessment Framework: \url{http://taf.ices.dk}.
+ICES Transparent Assessment Framework: \url{https://taf.ices.dk}.
 
 To explore example TAF stock assessments, see the introductory
 \href{https://www.youtube.com/watch?v=FweJbr9hfdY}{video} and
