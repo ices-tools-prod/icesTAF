@@ -4,7 +4,7 @@
 #'
 #' @export
 
-## process.bib helper function
+## Helper function for process.bib
 
 process.inner <- function(bib, dir, quiet)
 {

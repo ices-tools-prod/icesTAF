@@ -4,7 +4,7 @@
 #'
 #' @export
 
-## ds = draft.software helper function
+## Helper function for draft.software
 
 ds.package <- function(package, author, year, title, version, source)
 {

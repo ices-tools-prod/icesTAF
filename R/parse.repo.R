@@ -4,7 +4,7 @@
 #'
 #' @export
 
-## split repo string
+## Split repo string, without depending on 'remotes' package
 
 parse.repo <- function(repo)
 {
