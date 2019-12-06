@@ -1,10 +1,11 @@
 Package: icesTAF
 Version: 3.3-1
-Date: 2019-12-03
+Date: 2019-12-06
 Title: Functions to Support the ICES Transparent Assessment Framework
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="arni.magnusson@ices.dk"),
              person("Colin", "Millar", role="aut"),
-             person("Alexandros", "Kokkalis", role="ctb"))
+             person("Alexandros", "Kokkalis", role="ctb"),
+             person("Ibrahim", "Umar", role="ctb"))
 Imports: grDevices, lattice, stats, tools, utils,
   bibtex
 LazyData: yes

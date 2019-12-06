@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
-icesTAF 3.3-1 (2019-12-03)
+icesTAF 3.3-1 (2019-12-06)
 --------------------------------------------------------------------------------
+o Improved handling of SOFTWARE.bib GitHub entries that have owner/repo/subdir.
+
 o Improved process.bib() so it verifies that 'access' values match the allowed
   values.
 
