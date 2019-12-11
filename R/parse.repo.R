@@ -8,14 +8,15 @@
 
 parse.repo <- function(repo)
 {
+  ## 1  Read ref, then remove @reference tail
+  ref <- if(grepl("@",repo)) unlist(strsplit(repo,"@"))[2] else ""
+  repo <- sub("@.*", "", repo)
+
+  ## 2  Read username, repo, subdir
   x <- unlist(strsplit(repo, "/"))
-
-  username <- head(x, 1)
-  repo.ref <- tail(x, 1)
-  subdir <- if(length(x) == 2) "" else unlist(strsplit(x[3], "@"))[1]
-
-  repo <- if(length(x) == 2) unlist(strsplit(repo.ref, "@"))[1] else x[2]
-  ref <- if(grepl("@", repo.ref)) unlist(strsplit(repo.ref, "@"))[2] else ""
+  username <- x[1]
+  repo <- x[2]
+  subdir <- if(length(x) > 2) paste(x[-c(1,2)],collapse="/") else ""
 
   list(username=username, repo=repo, subdir=subdir, ref=ref)
 }
