@@ -213,11 +213,15 @@ process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
     bib$source <- sub(",$", "", bib$source)     # remove trailing comma
     bib$source <- bib$source[bib$source != ""]  # remove empty strings
 
-    ## icesTAF:::access.vocab is a string vector of allowed 'access' values
+    ## Check if access matches allowed values
     access <- bib$access
-    if(!is.character(access) || !all(as.character(access) %in% access.vocab))
-      stop("'access' values must be \"",
-           paste(access.vocab, collapse="\", \""), "\"")
+    if(!is.null(access))
+    {
+      ## icesTAF:::access.vocab is a string vector of allowed 'access' values
+      if(!is.character(access) || !(access %in% access.vocab))
+        stop("'access' values must be \"",
+             paste(access.vocab, collapse="\", \""), "\"")
+    }
 
     ## Add prefix
     bib$source <- paste0(bib$prefix, bib$source)
