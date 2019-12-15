@@ -112,10 +112,9 @@ Another example metadata entry is from a \verb{SOFTWARE.bib} file:
 
 This entry describes a specific version of an R package that is required for
 the TAF analysis. It is similar, but not identical, to the output from the R
-command \verb{citation("FLAssess")}. The version field specifies the version
-number and release date, with a corresponding GitHub reference. When an R
-package is not an official release but a development version, the version and
-source may look like this,
+command \verb{citation("FLAssess")}. The \dfn{version} field specifies the
+version number and release date. When an R package is not an official release
+but a development version, the version and source may look like this,
 
 \preformatted{  version = {2.6.3, committed 2018-10-09},
   source  = {flr/FLAssess@f1e5acb},}
