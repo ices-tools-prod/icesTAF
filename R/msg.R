@@ -13,7 +13,9 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
+#' \donttest{
 #' msg("script.R running...")
+#' }
 #'
 #' @export
 

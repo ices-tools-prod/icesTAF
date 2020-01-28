@@ -13,7 +13,9 @@ msg(...)
 Show a message, as well as the current time.
 }
 \examples{
+\donttest{
 msg("script.R running...")
+}
 
 }
 \seealso{
