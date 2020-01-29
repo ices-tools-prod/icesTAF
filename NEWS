@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 icesTAF 3.3-3 (2020-01-29)
 --------------------------------------------------------------------------------
-o Documentation of metadata (DATA.bib and SOFTWARE.bib) entries moved from
+o Moved documentation of metadata (DATA.bib and SOFTWARE.bib) entries from
   process.bib() help page to https://github.com/ices-taf/doc/wiki/Bib-entries.
 
 
