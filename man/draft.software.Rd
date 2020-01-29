@@ -65,7 +65,8 @@ After creating the initial draft, the user can complete the \verb{version},
 
 This function is especially useful for citing exact versions of R packages on
 GitHub. To prepare metadata for software other than R packages, see the
-\code{\link{process.bib}} help page for an example.
+\href{https://github.com/ices-taf/doc/wiki/Bib-entries}{TAF Wiki} for an
+example.
 }
 \examples{
 \donttest{

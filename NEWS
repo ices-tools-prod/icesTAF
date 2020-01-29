@@ -1,4 +1,13 @@
 --------------------------------------------------------------------------------
+icesTAF 3.3-3 (2020-01-29)
+--------------------------------------------------------------------------------
+o Documentation of metadata (DATA.bib and SOFTWARE.bib) entries moved from
+  process.bib() help page to https://github.com/ices-taf/doc/wiki/Bib-entries.
+
+
+
+
+--------------------------------------------------------------------------------
 icesTAF 3.3-2 (2020-01-07)
 --------------------------------------------------------------------------------
 o Improved process.bib() so it allows 'access' to be undefined.

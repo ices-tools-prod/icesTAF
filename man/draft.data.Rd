@@ -56,8 +56,9 @@ draft.
 The data access codes come from \url{https://vocab.ices.dk/?ref=1435}.
 
 The special values \verb{source = "file"} and \verb{source = "script"} are
-described in the \code{\link{process.bib}} help page, along with other
-metadata information.
+described on the
+\href{https://github.com/ices-taf/doc/wiki/Bib-entries}{TAF Wiki}, along with
+other metadata information.
 
 The default value \code{file = ""} prints the initial draft in the console,
 instead of writing it to a file. The output can then be pasted into a file to
@@ -88,8 +89,7 @@ draft.data("WGEF", 2015, file=TRUE)
 \code{\link{draft.software}} creates an initial draft version of a
 \verb{SOFTWARE.bib} metadata file.
 
-\code{\link{process.bib}} reads and processes metadata entries. The help page
-contains example metadata entries and commentary.
+\code{\link{process.bib}} reads and processes metadata entries.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

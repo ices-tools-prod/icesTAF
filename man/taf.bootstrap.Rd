@@ -61,7 +61,7 @@ populates up to three new directories:
 }
 
 Model settings and configuration files can be set up within \verb{DATA.bib},
-see \code{\link{process.bib}}.
+see \href{https://github.com/ices-taf/doc/wiki/Bib-entries}{TAF Wiki}.
 }
 \examples{
 \dontrun{
