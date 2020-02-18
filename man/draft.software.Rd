@@ -8,8 +8,8 @@ draft.software(package, author = NULL, year = NULL, title = NULL,
   version = NULL, source = NULL, file = "", append = FALSE)
 }
 \arguments{
-\item{package}{name of one or more R packages, or files/folders inside
-\verb{bootstrap/initial/software}.}
+\item{package}{name of one or more R packages, or files/folders starting with
+the path \verb{bootstrap/initial/software}.}
 
 \item{author}{author(s) of the software.}
 
