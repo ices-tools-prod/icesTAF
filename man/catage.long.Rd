@@ -4,12 +4,14 @@
 \name{catage.long}
 \alias{catage.long}
 \title{Catch at Age in Long Format}
-\format{Data frame containing three columns:
+\format{
+Data frame containing three columns:
 \tabular{ll}{
   \code{Year}  \tab year\cr
   \code{Age}   \tab age\cr
   \code{Catch} \tab catch (millions of individuals)
-}}
+}
+}
 \source{
 ICES (2016) Report of the working group on the assessment of demersal stocks
 in the North Sea and Skagerrak (WGNSSK).

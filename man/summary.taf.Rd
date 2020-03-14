@@ -4,7 +4,8 @@
 \name{summary.taf}
 \alias{summary.taf}
 \title{Summary Results in TAF Format}
-\format{Data frame containing 16 columns:
+\format{
+Data frame containing 16 columns:
 \tabular{ll}{
   \code{Year}        \tab year\cr
   \code{Rec}         \tab recruitment, numbers at age 1 in this year
@@ -24,7 +25,8 @@
   \code{Fbar}        \tab average fishing mortality (ages 2-4)\cr
   \code{Fbar_lo}     \tab lower 95\% confidence limit\cr
   \code{Fbar_hi}     \tab upper 95\% confidence limit
-}}
+}
+}
 \source{
 ICES (2016) Report of the working group on the assessment of demersal stocks
 in the North Sea and Skagerrak (WGNSSK).

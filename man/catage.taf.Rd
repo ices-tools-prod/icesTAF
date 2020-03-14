@@ -4,14 +4,16 @@
 \name{catage.taf}
 \alias{catage.taf}
 \title{Catch at Age in TAF Format}
-\format{Data frame containing five columns:
+\format{
+Data frame containing five columns:
 \tabular{ll}{
   \code{Year} \tab year\cr
   \code{1}    \tab number of one-year-olds in the catch (millions)\cr
   \code{2}    \tab number of two-year-olds in the catch (millions)\cr
   \code{3}    \tab number of three-year-olds in the catch (millions)\cr
   \code{4}    \tab number of four-year-olds in the catch (millions)
-}}
+}
+}
 \source{
 ICES (2016) Report of the working group on the assessment of demersal stocks
 in the North Sea and Skagerrak (WGNSSK).

@@ -4,13 +4,15 @@
 \name{catage.xtab}
 \alias{catage.xtab}
 \title{Catch at Age in Crosstab Format}
-\format{Data frame with years as row names and containing four columns:
+\format{
+Data frame with years as row names and containing four columns:
 \tabular{ll}{
   \code{1} \tab number of one-year-olds in the catch (millions)\cr
   \code{2} \tab number of two-year-olds in the catch (millions)\cr
   \code{3} \tab number of three-year-olds in the catch (millions)\cr
   \code{4} \tab number of four-year-olds in the catch (millions)
-}}
+}
+}
 \source{
 ICES (2016) Report of the working group on the assessment of demersal stocks
 in the North Sea and Skagerrak (WGNSSK).
