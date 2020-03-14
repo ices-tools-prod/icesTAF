@@ -13,8 +13,8 @@
 #' producing plots.
 #'
 #' @seealso
-#' \code{\link{catage.long}} and \code{\link{catage.taf}} describe the long and
-#' TAF formats.
+#' \code{\link{catage.taf}} and \code{\link{catage.long}} describe the TAF and
+#' long formats.
 #'
 #' \code{\link{long2taf}} converts a long table to TAF format.
 #'

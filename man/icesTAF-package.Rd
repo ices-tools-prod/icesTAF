@@ -44,16 +44,18 @@ data, methods, and results used in ICES assessments.
 }
 \emph{Tables:}
 \tabular{ll}{
-  \code{\link{div}}      \tab divide column values\cr
-  \code{\link{flr2taf}}  \tab convert FLR to TAF\cr
-  \code{\link{long2taf}} \tab convert long format to TAF\cr
-  \code{\link{plus}}     \tab rename plus group column\cr
-  \code{\link{rnd}}      \tab round column values\cr
-  \code{\link{sam2taf}}  \tab convert SAM to TAF\cr
-  \code{\link{taf2long}} \tab convert TAF to long format\cr
-  \code{\link{taf2xtab}} \tab convert TAF to crosstab\cr
-  \code{\link{tt}}       \tab transpose TAF table\cr
-  \code{\link{xtab2taf}} \tab convert crosstab to TAF
+  \code{\link{div}}       \tab divide column values\cr
+  \code{\link{flr2taf}}   \tab convert FLR to TAF\cr
+  \code{\link{long2taf}}  \tab convert long format to TAF\cr
+  \code{\link{long2xtab}} \tab convert long format to crosstab\cr
+  \code{\link{plus}}      \tab rename plus group column\cr
+  \code{\link{rnd}}       \tab round column values\cr
+  \code{\link{sam2taf}}   \tab convert SAM to TAF\cr
+  \code{\link{taf2long}}  \tab convert TAF to long format\cr
+  \code{\link{taf2xtab}}  \tab convert TAF to crosstab\cr
+  \code{\link{tt}}        \tab transpose TAF table\cr
+  \code{\link{xtab2long}} \tab convert crosstab to long format\cr
+  \code{\link{xtab2taf}}  \tab convert crosstab to TAF
 }
 \emph{Plots:}
 \tabular{ll}{

@@ -27,8 +27,8 @@ xtab2taf(catage.xtab)
 
 }
 \seealso{
-\code{\link{catage.taf}} and \code{\link{catage.xtab}} describe the TAF and
-crosstab formats.
+\code{\link{catage.xtab}} and \code{\link{catage.taf}} describe the crosstab
+and TAF formats.
 
 \code{\link{taf2xtab}} converts a TAF table to crosstab format.
 

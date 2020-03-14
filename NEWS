@@ -1,7 +1,15 @@
 --------------------------------------------------------------------------------
+icesTAF 3.4-0 (2020-02-14)
+--------------------------------------------------------------------------------
+* Added functions xtab2long() and long2xtab() to convert between table formats.
+
+
+
+
+--------------------------------------------------------------------------------
 icesTAF 3.3-3 (2020-01-29)
 --------------------------------------------------------------------------------
-o Moved documentation of metadata (DATA.bib and SOFTWARE.bib) entries from
+* Moved documentation of metadata (DATA.bib and SOFTWARE.bib) entries from
   process.bib() help page to https://github.com/ices-taf/doc/wiki/Bib-entries.
 
 
@@ -10,7 +18,7 @@ o Moved documentation of metadata (DATA.bib and SOFTWARE.bib) entries from
 --------------------------------------------------------------------------------
 icesTAF 3.3-2 (2020-01-07)
 --------------------------------------------------------------------------------
-o Improved process.bib() so it allows 'access' to be undefined.
+* Improved process.bib() so it allows 'access' to be undefined.
 
 
 
@@ -18,10 +26,10 @@ o Improved process.bib() so it allows 'access' to be undefined.
 --------------------------------------------------------------------------------
 icesTAF 3.3-1 (2019-12-11)
 --------------------------------------------------------------------------------
-o Improved handling of SOFTWARE.bib GitHub entries that have owner/repo/subdir.
+* Improved handling of SOFTWARE.bib GitHub entries that have owner/repo/subdir.
   Code contributed by Ibrahim Umar.
 
-o Improved process.bib() so it verifies that 'access' values match the allowed
+* Improved process.bib() so it verifies that 'access' values match the allowed
   values.
 
 
@@ -30,20 +38,20 @@ o Improved process.bib() so it verifies that 'access' values match the allowed
 --------------------------------------------------------------------------------
 icesTAF 3.3-0 (2019-12-03)
 --------------------------------------------------------------------------------
-o Added function get.remote.sha() to look up a SHA reference code on GitHub.
+* Added function get.remote.sha() to look up a SHA reference code on GitHub.
   Fixed a bug introduced in 3.2-0.
 
-o Improved clean.library() and clean.software() to remove bootstrap/library and
+* Improved clean.library() and clean.software() to remove bootstrap/library and
   bootstrap/software when SOFTWARE.bib file does not exist. Improved
   clean.software() to remove software file when version does not match
   SOFTWARE.bib.
 
-o Improved download.github() to handle packages that are nested inside a
+* Improved download.github() to handle packages that are nested inside a
   repository. Set default to quiet=FALSE.
 
-o Changed write.taf() so it no longer converts line endings.
+* Changed write.taf() so it no longer converts line endings.
 
-o Removed 'remotes' package dependency.
+* Removed 'remotes' package dependency.
 
 
 
@@ -51,50 +59,50 @@ o Removed 'remotes' package dependency.
 --------------------------------------------------------------------------------
 icesTAF 3.2-0 (2019-11-01)
 --------------------------------------------------------------------------------
-o Added functions clean.library() and clean.software() to selectively clean the
+* Added functions clean.library() and clean.software() to selectively clean the
   TAF library and software folders.
 
-o Added function download.github() to download a GitHub repository.
+* Added function download.github() to download a GitHub repository.
 
-o Added function taf.install() to install a package in the local TAF library.
+* Added function taf.install() to install a package in the local TAF library.
 
-o Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
+* Changed taf.bootstrap() so bootstrap/initial/config is now deprecated.
   Instead, model configuration files can be processed as a DATA.bib entry.
   Removed argument 'config'. SOFTWARE.bib is now processed before DATA.bib.
 
-o Changed clean() so it uses clean.library() to clean bootstrap/library.
+* Changed clean() so it uses clean.library() to clean bootstrap/library.
 
-o Improved draft.data() so it detects bootstrap/*.R scripts as source files to
+* Improved draft.data() so it detects bootstrap/*.R scripts as source files to
   consider. Added arguments 'access' and 'data.scripts'. Removed argument
   'data.dir'. Added support for file=TRUE as shorthand for
   file="bootstrap/DATA.bib".
 
-o Improved draft.software() so it first looks for packages in bootstrap/library.
+* Improved draft.software() so it first looks for packages in bootstrap/library.
   Added support for package="owner/repo@ref" to install package on the fly.
   Added support for file=TRUE as shorthand for file="bootstrap/SOFTWARE.bib".
 
-o Improved taf.library() so it works from a bootstrap data script.
+* Improved taf.library() so it works from a bootstrap data script.
 
-o Improved write.taf() so it gives an error if data frame contains comma.
+* Improved write.taf() so it gives an error if data frame contains comma.
 
-o Added argument 'quiet' to cp().
+* Added argument 'quiet' to cp().
 
-o Added arguments 'force' and 'recon' to make().
+* Added arguments 'force' and 'recon' to make().
 
-o Added argument 'clean' to process.bib(). Renamed argument 'data.source' to
+* Added argument 'clean' to process.bib(). Renamed argument 'data.source' to
   'data.scripts'.
 
-o Added argument 'force' to taf.bootstrap().
+* Added argument 'force' to taf.bootstrap().
 
-o Improved convert.spaces() so it allows 'sep' to be any number of characters,
+* Improved convert.spaces() so it allows 'sep' to be any number of characters,
   treats %20 as space, and allows spaces in parent directories.
 
-o Improved download() so it shaves off ?tail from the end of 'destfile', and
+* Improved download() so it shaves off ?tail from the end of 'destfile', and
   converts spaces and %20 to underscores.
 
-o Improved zoom() so it handles legend text size.
+* Improved zoom() so it handles legend text size.
 
-o Removed 'jsonlite' package dependency.
+* Removed 'jsonlite' package dependency.
 
 
 
@@ -102,22 +110,22 @@ o Removed 'jsonlite' package dependency.
 --------------------------------------------------------------------------------
 icesTAF 3.1-1 (2019-05-24)
 --------------------------------------------------------------------------------
-o Added function convert.spaces() to convert spaces in filenames.
+* Added function convert.spaces() to convert spaces in filenames.
 
-o Added function sam2taf() to convert SAM tables to TAF format.
+* Added function sam2taf() to convert SAM tables to TAF format.
 
-o Added argument 'quiet' to process.bib() and support for source={script} and
+* Added argument 'quiet' to process.bib() and support for source={script} and
   dir={TRUE}. Removed 'bundle' field.
 
-o Added argument 'quiet' to taf.bootstrap(). Improved taf.bootstrap() so it
+* Added argument 'quiet' to taf.bootstrap(). Improved taf.bootstrap() so it
   doesn't clean the corresponding bootstrap subdirectories when arguments
   'config', 'data', or 'software' are FALSE. Dropped support for custom
   bootstrap.R script, superseded by source={script}.
 
-o Improved draft.data() so it works in R versions older than 3.5. Code
+* Improved draft.data() so it works in R versions older than 3.5. Code
   contributed by Alexandros Kokkalis.
 
-o Changed sourceTAF() so working directory is not changed before script is run.
+* Changed sourceTAF() so working directory is not changed before script is run.
 
 
 
@@ -125,23 +133,23 @@ o Changed sourceTAF() so working directory is not changed before script is run.
 --------------------------------------------------------------------------------
 icesTAF 3.0-0 (2019-04-25)
 --------------------------------------------------------------------------------
-o Added function period() to paste period string for DATA.bib entries.
+* Added function period() to paste period string for DATA.bib entries.
 
-o Removed argument 'name' from taf.skeleton(). The default behavior is now to
+* Removed argument 'name' from taf.skeleton(). The default behavior is now to
   create initial directories and scripts in the current working directory.
 
-o Changed taf.library() so it loads a package instead of changing the library
+* Changed taf.library() so it loads a package instead of changing the library
   path.
 
-o Changed default size of taf.png(). Changed text size in zoom() accordingly and
+* Changed default size of taf.png(). Changed text size in zoom() accordingly and
   renamed arguments. The zoom() function is now generic.
 
-o Changed write.taf() so it gives a warning if column names are duplicated.
+* Changed write.taf() so it gives a warning if column names are duplicated.
 
-o Improved process.bib() so it supports 'prefix' field when specifying multiple
+* Improved process.bib() so it supports 'prefix' field when specifying multiple
   filenames in 'source' field.
 
-o Improved process.bib() so it doesn't install a package that is already
+* Improved process.bib() so it doesn't install a package that is already
   installed.
 
 
@@ -150,28 +158,28 @@ o Improved process.bib() so it doesn't install a package that is already
 --------------------------------------------------------------------------------
 icesTAF 2.3-0 (2019-04-08)
 --------------------------------------------------------------------------------
-o Added function sourceDir() to read all *.R files from a directory.
+* Added function sourceDir() to read all *.R files from a directory.
 
-o Added function zoom() to change text size in a lattice plot.
+* Added function zoom() to change text size in a lattice plot.
 
-o Added arguments 'config', 'data', and 'software' to taf.bootstrap().
+* Added arguments 'config', 'data', and 'software' to taf.bootstrap().
 
-o Added argument 'append' to draft.data() and draft.software(). Code contributed
+* Added argument 'append' to draft.data() and draft.software(). Code contributed
   by Alexandros Kokkalis.
 
-o Added argument 'colname' to xtab2taf().
+* Added argument 'colname' to xtab2taf().
 
-o Improved draft.data() so the default value of 'year' is the current year and
+* Improved draft.data() so the default value of 'year' is the current year and
   user can pass period=FALSE.
 
-o Improved file.encoding() so it handles spaces in filenames.
+* Improved file.encoding() so it handles spaces in filenames.
 
-o Improved os.unix() so it recognizes both Linux and macOS operating systems.
+* Improved os.unix() so it recognizes both Linux and macOS operating systems.
 
-o Improved process.bib() so it supports 'bundle' field and multiple filenames in
+* Improved process.bib() so it supports 'bundle' field and multiple filenames in
   'source' field, separated by newlines.
 
-o Improved write.taf() so file="" prints to screen, regardless of dir.
+* Improved write.taf() so file="" prints to screen, regardless of dir.
 
 
 
@@ -179,22 +187,22 @@ o Improved write.taf() so file="" prints to screen, regardless of dir.
 --------------------------------------------------------------------------------
 icesTAF 2.2-0 (2019-02-22)
 --------------------------------------------------------------------------------
-o Added function file.encoding() to examine file encoding. Added functions
+* Added function file.encoding() to examine file encoding. Added functions
   latin1.to.utf8() and utf8.to.latin1() to convert file encoding.
 
-o Added function line.endings() to examine line endings.
+* Added function line.endings() to examine line endings.
 
-o Added arguments 'author', 'year', and 'title' to draft.software(), and
+* Added arguments 'author', 'year', and 'title' to draft.software(), and
   improved it so it also handles software other than R packages.
 
-o Added argument 'clean' to taf.bootstrap().
+* Added argument 'clean' to taf.bootstrap().
 
-o Added argument 'create' to taf.library().
+* Added argument 'create' to taf.library().
 
-o Improved process.bib() so it does not require taf.bootstrap() to create 'data'
+* Improved process.bib() so it does not require taf.bootstrap() to create 'data'
   and 'software' subdirectories.
 
-o Improved taf.skeleton() so every script starts with library(icesTAF) and
+* Improved taf.skeleton() so every script starts with library(icesTAF) and
   mkdir() to create a working directory.
 
 
@@ -203,19 +211,19 @@ o Improved taf.skeleton() so every script starts with library(icesTAF) and
 --------------------------------------------------------------------------------
 icesTAF 2.1-0 (2019-01-08)
 --------------------------------------------------------------------------------
-o Added functions taf.bootstrap() and process.bib() to set up data files and
+* Added functions taf.bootstrap() and process.bib() to set up data files and
   software.
 
-o Added functions draft.data() and draft.software() to create initial draft
+* Added functions draft.data() and draft.software() to create initial draft
   versions of metadata files.
 
-o Added functions os(), os.linux() and os.macos() to detect more operating
+* Added functions os(), os.linux() and os.macos() to detect more operating
   systems than before.
 
-o Updated colors (taf.green, taf.orange, taf.blue, taf.dark, taf.light) to make
+* Updated colors (taf.green, taf.orange, taf.blue, taf.dark, taf.light) to make
   them equally intense and easy to distinguish.
 
-o This release introduces package dependencies to parse BibTeX files (bibtex)
+* This release introduces package dependencies to parse BibTeX files (bibtex)
   and install packages from GitHub (remotes), with further underlying package
   dependencies.
 
@@ -225,22 +233,22 @@ o This release introduces package dependencies to parse BibTeX files (bibtex)
 --------------------------------------------------------------------------------
 icesTAF 2.0-0 (2018-12-07)
 --------------------------------------------------------------------------------
-o Added function taf.library() to work with packages in a local TAF library.
+* Added function taf.library() to work with packages in a local TAF library.
 
-o Added function rmdir() to remove an empty directory.
+* Added function rmdir() to remove an empty directory.
 
-o Added functions os.unix() and os.windows() to determine OS family.
+* Added functions os.unix() and os.windows() to determine OS family.
 
-o Added function taf.unzip() to extract files from zip archives.
+* Added function taf.unzip() to extract files from zip archives.
 
-o Moved functions read.dls() and write.dls() to the 'icesAdvice' package.
+* Moved functions read.dls() and write.dls() to the 'icesAdvice' package.
 
-o Changed clean(), makeAll(), makeTAF(), sourceAll(), and taf.skeleton() to
+* Changed clean(), makeAll(), makeTAF(), sourceAll(), and taf.skeleton() to
   align with new data-model workflow.
 
-o Renamed function tafpng() to taf.png().
+* Renamed function tafpng() to taf.png().
 
-o Added argument 'destfile' to download().
+* Added argument 'destfile' to download().
 
 
 
@@ -248,11 +256,11 @@ o Added argument 'destfile' to download().
 --------------------------------------------------------------------------------
 icesTAF 1.6-2 (2018-08-03)
 --------------------------------------------------------------------------------
-o Added argument 'underscore' to write.taf().
+* Added argument 'underscore' to write.taf().
 
-o Added argument 'stringsAsFactors' to read.taf().
+* Added argument 'stringsAsFactors' to read.taf().
 
-o Improved multitable support for read.taf() and write.taf().
+* Improved multitable support for read.taf() and write.taf().
 
 
 
@@ -260,17 +268,17 @@ o Improved multitable support for read.taf() and write.taf().
 --------------------------------------------------------------------------------
 icesTAF 1.6-1 (2018-06-28)
 --------------------------------------------------------------------------------
-o Changed sourceTAF(), sourceAll(), makeTAF(), and makeAll() so they never
+* Changed sourceTAF(), sourceAll(), makeTAF(), and makeAll() so they never
   delete the 'begin' folder.
 
-o Changed sourceAll(), makeTAF(), makeAll() so they don't set the working
+* Changed sourceAll(), makeTAF(), makeAll() so they don't set the working
   directory.
 
-o Changed clean() so user can specify directories to remove.
+* Changed clean() so user can specify directories to remove.
 
-o Changed write.taf() to search in the global workspace if 'x' is a string.
+* Changed write.taf() to search in the global workspace if 'x' is a string.
 
-o Changed cp() to enforce safeguards when moving files.
+* Changed cp() to enforce safeguards when moving files.
 
 
 
@@ -278,19 +286,19 @@ o Changed cp() to enforce safeguards when moving files.
 --------------------------------------------------------------------------------
 icesTAF 1.6-0 (2018-05-15)
 --------------------------------------------------------------------------------
-o Removed function upload(). Initial data and model files are now in the 'begin'
+* Removed function upload(). Initial data and model files are now in the 'begin'
   folder of each assessment.
 
-o Added function plus() to rename plus group column.
+* Added function plus() to rename plus group column.
 
-o Added argument 'dir' to write.taf().
+* Added argument 'dir' to write.taf().
 
-o Changed read.taf() and write.taf() so they can read/write many tables in one
+* Changed read.taf() and write.taf() so they can read/write many tables in one
   call.
 
-o Changed write.taf() so the name of the data frame is the default filename.
+* Changed write.taf() so the name of the data frame is the default filename.
 
-o Changed cp() to preserve the timestamp when copying a file.
+* Changed cp() to preserve the timestamp when copying a file.
 
 
 
@@ -298,7 +306,7 @@ o Changed cp() to preserve the timestamp when copying a file.
 --------------------------------------------------------------------------------
 icesTAF 1.5-3 (2018-04-27)
 --------------------------------------------------------------------------------
-o Changed default file encoding in read.taf() to UTF-8.
+* Changed default file encoding in read.taf() to UTF-8.
 
 
 
@@ -306,9 +314,9 @@ o Changed default file encoding in read.taf() to UTF-8.
 --------------------------------------------------------------------------------
 icesTAF 1.5-1 (2018-03-20)
 --------------------------------------------------------------------------------
-o Replaced argument 'local' with 'rm' in sourceTAF().
+* Replaced argument 'local' with 'rm' in sourceTAF().
 
-o Added argument 'colname' to flr2taf().
+* Added argument 'colname' to flr2taf().
 
 
 
@@ -316,13 +324,13 @@ o Added argument 'colname' to flr2taf().
 --------------------------------------------------------------------------------
 icesTAF 1.5-0 (2018-01-25)
 --------------------------------------------------------------------------------
-o Added functions makeTAF() and makeAll() to run TAF scripts as needed.
+* Added functions makeTAF() and makeAll() to run TAF scripts as needed.
 
-o Added arguments 'include' and 'engine' to make().
+* Added arguments 'include' and 'engine' to make().
 
-o Added argument 'local' to sourceTAF(), replacing the 'rm' argument.
+* Added argument 'local' to sourceTAF(), replacing the 'rm' argument.
 
-o Changed sourceAll() to only run TAF scripts: data.R, input.R, model.R,
+* Changed sourceAll() to only run TAF scripts: data.R, input.R, model.R,
   output.R, and report.R.
 
 
@@ -331,7 +339,7 @@ o Changed sourceAll() to only run TAF scripts: data.R, input.R, model.R,
 --------------------------------------------------------------------------------
 icesTAF 1.4-1 (2017-12-05)
 --------------------------------------------------------------------------------
-o Added argument 'grep' to div() and rnd().
+* Added argument 'grep' to div() and rnd().
 
 
 
@@ -339,29 +347,29 @@ o Added argument 'grep' to div() and rnd().
 --------------------------------------------------------------------------------
 icesTAF 1.4-0 (2017-10-30)
 --------------------------------------------------------------------------------
-o Added function upload() to upload file to TAF database. Added function
+* Added function upload() to upload file to TAF database. Added function
   download() to download file in binary mode.
 
-o Added function msg() to show a message, as well as the current time.
+* Added function msg() to show a message, as well as the current time.
 
-o Added function tafpng() to open a graphics device. Added function lim() to
+* Added function tafpng() to open a graphics device. Added function lim() to
   compute axis limits.
 
-o Added function div() to divide column values with a common number. Added
+* Added function div() to divide column values with a common number. Added
   function rnd() to round column values.
 
-o Added function taf.skeleton() to create an empty template for a TAF analysis.
+* Added function taf.skeleton() to create an empty template for a TAF analysis.
 
-o Added function deps() to list dependencies.
+* Added function deps() to list dependencies.
 
-o Renamed function sourceAtoZ() to sourceAll().
+* Renamed function sourceAtoZ() to sourceAll().
 
-o Added argument 'move' to cp(). Added argument 'clean' to sourceTAF(). Added
+* Added argument 'move' to cp(). Added argument 'clean' to sourceTAF(). Added
   argument 'column' to tt().
 
-o Added color objects: taf.green, taf.orange, taf.blue, taf.dark, and taf.light.
+* Added color objects: taf.green, taf.orange, taf.blue, taf.dark, and taf.light.
 
-o Added example data frame summary.taf to demonstrate div() and rnd().
+* Added example data frame summary.taf to demonstrate div() and rnd().
 
 
 
@@ -369,7 +377,7 @@ o Added example data frame summary.taf to demonstrate div() and rnd().
 --------------------------------------------------------------------------------
 icesTAF 1.3-2 (2017-06-03)
 --------------------------------------------------------------------------------
-o Improved package description.
+* Improved package description.
 
 
 
@@ -377,7 +385,7 @@ o Improved package description.
 --------------------------------------------------------------------------------
 icesTAF 1.3-0 (2017-05-27)
 --------------------------------------------------------------------------------
-o Added function make() to run script if needed, and sourceAtoZ() to run all
+* Added function make() to run script if needed, and sourceAtoZ() to run all
   scripts in alphabetical order. Added clean() to remove TAF directories.
 
 
@@ -386,16 +394,16 @@ o Added function make() to run script if needed, and sourceAtoZ() to run all
 --------------------------------------------------------------------------------
 icesTAF 1.2-0 (2017-05-19)
 --------------------------------------------------------------------------------
-o Added function sourceTAF() to run scripts. Added cp() to copy files and
+* Added function sourceTAF() to run scripts. Added cp() to copy files and
   mkdir() to create a directory. Added read.taf() and write.taf() to read and
   write TAF tables. Added long2taf(), taf2xtab(), tt(), and xtab2taf to convert
   between table formats.
 
-o Renamed functions readDLS() and writeDLS() to read.dls() and write.dls().
+* Renamed functions readDLS() and writeDLS() to read.dls() and write.dls().
 
-o Removed function dir.remove() which is no longer needed in TAF scripts.
+* Removed function dir.remove() which is no longer needed in TAF scripts.
 
-o Added example data frames catage.long, catage.taf, and catage.xtab to
+* Added example data frames catage.long, catage.taf, and catage.xtab to
   demonstrate different table formats.
 
 
@@ -404,7 +412,7 @@ o Added example data frames catage.long, catage.taf, and catage.xtab to
 --------------------------------------------------------------------------------
 icesTAF 1.1-0 (2017-04-27)
 --------------------------------------------------------------------------------
-o Added functions flr2taf() and taf2long() to convert between table formats.
+* Added functions flr2taf() and taf2long() to convert between table formats.
 
 
 
@@ -412,5 +420,5 @@ o Added functions flr2taf() and taf2long() to convert between table formats.
 --------------------------------------------------------------------------------
 icesTAF 1.0-0 (2017-02-17)
 --------------------------------------------------------------------------------
-o Initial release, with five functions: dir.remove(), dos2unix(), readDLS(),
+* Initial release, with five functions: dir.remove(), dos2unix(), readDLS(),
   unix2dos(), and writeDLS().
