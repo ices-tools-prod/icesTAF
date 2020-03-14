@@ -1,4 +1,2 @@
 language: r
 cache: packages
-r_packages: icesAdvice
-r_github_packages: fishfollower/SAM/stockassessment
