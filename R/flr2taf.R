@@ -36,7 +36,8 @@ flr2taf <- function(x, colname="Value")
   y <- xtab2taf(as.data.frame(t(drop(unclass(x)))))
   if(nrow(y) == 1)
   {
-    y <- data.frame(Year=simplify(names(y[-1])), Value=unname(t(y[-1])))
+    y <- data.frame(Year=type.convert(as.character(names(y[-1]))),
+                    Value=unname(t(y[-1])))
     names(y)[2] <- colname
   }
   y

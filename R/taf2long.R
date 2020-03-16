@@ -30,8 +30,8 @@ taf2long <- function(x, names=c("Year","Age","Value"))
   row.names(x) <- x[[1]]
   x <- x[-1]
   y <- as.data.frame(as.table(as.matrix(x)))
-  y[[1]] <- simplify(y[[1]])
-  y[[2]] <- simplify(y[[2]])
+  y[[1]] <- type.convert(as.character(y[[1]]))
+  y[[2]] <- type.convert(as.character(y[[2]]))
   names(y) <- names
   y
 }
