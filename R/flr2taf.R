@@ -29,6 +29,8 @@
 #' flr2taf(x1)
 #' flr2taf(x1, "Juveniles")
 #'
+#' @importFrom utils type.convert
+#'
 #' @export
 
 flr2taf <- function(x, colname="Value")

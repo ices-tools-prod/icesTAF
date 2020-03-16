@@ -23,6 +23,8 @@
 #' @examples
 #' taf2long(catage.taf, names=c("Year","Age","Catch"))
 #'
+#' @importFrom utils type.convert
+#'
 #' @export
 
 taf2long <- function(x, names=c("Year","Age","Value"))
