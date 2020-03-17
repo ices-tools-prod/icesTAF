@@ -31,7 +31,7 @@ xtab2taf <- function(x, colname="Year")
 {
   if(is.table(x))
     x <- unclass(x)  # handle xtabs() output
-  y <- data.frame(type.convert(as.character(row.names(x))), x,
+  y <- data.frame(type.convert(as.character(row.names(x)),as.is=TRUE), x,
                   check.names=FALSE)
   names(y)[1] <- colname
   row.names(y) <- NULL
