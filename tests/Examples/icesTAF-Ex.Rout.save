@@ -774,6 +774,8 @@ Type 'q()' to quit R.
 [1] "1963-1970"
 > period(catage.xtab)
 [1] "1963-1970"
+> period(catage.long)
+[1] "1963-1970"
 > 
 > 
 > 
@@ -1479,7 +1481,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.349 0.009 0.358 0 0 
+Time elapsed:  0.327 0.016 0.344 0 0 
 > grDevices::dev.off()
 null device 
           1 

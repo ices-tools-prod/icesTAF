@@ -37,6 +37,7 @@ period(range(catage.taf$Year))
 period(catage.taf$Year)
 period(catage.taf)
 period(catage.xtab)
+period(catage.long)
 
 }
 \seealso{
