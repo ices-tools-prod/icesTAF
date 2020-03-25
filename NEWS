@@ -3,6 +3,10 @@ icesTAF 3.4-0 (2020-03-25)
 --------------------------------------------------------------------------------
 * Added functions xtab2long() and long2xtab() to convert between table formats.
 
+* Added taf.session() to show session information.
+
+* Added taf.libPaths() to add TAF library to search path.
+
 * Improved download.github() to store GitHub metadata in the DESCRIPTION file.
 
 

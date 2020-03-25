@@ -1,13 +1,38 @@
-#' @rdname icesTAF-internal
+#' TAF Session
+#'
+#' Show session information about loaded packages, clearly indicating which
+#' packages were loaded from the local TAF library.
+#'
+#' @param sort whether to sort packages by name.
+#'
+#' @return
+#' Data from containing four columns:
+#' \item{Package}{package name}
+#' \item{Version}{package version}
+#' \item{Library}{library where package was loaded from}
+#' \item{RemoteSha}{GitHub reference code}
+#'
+#' @seealso
+#' \code{\link{sessionInfo}} and the \pkg{sessioninfo} package provide further
+#' session information about the version of R, etc.
+#'
+#' \code{\link{taf.libPaths}} adds the TAF library to the search path for R
+#' packages.
+#'
+#' \code{\link{icesTAF-package}} gives an overview of the package.
+#'
+#' @examples
+#' \dontrun{
+#' taf.session()
+#' taf.session(TRUE)
+#' }
 #'
 #' @importFrom utils sessionInfo
 #' @importFrom stats setNames
 #'
 #' @export
 
-## Session info with RemoteSha
-
-taf.session <- function(sort=TRUE)
+taf.session <- function(sort=FALSE)
 {
   info <- function(desc)
   {

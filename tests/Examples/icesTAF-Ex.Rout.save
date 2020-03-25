@@ -1129,6 +1129,22 @@ Type 'q()' to quit R.
 > 
 > 
 > cleanEx()
+> nameEx("taf.libPaths")
+> ### * taf.libPaths
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: taf.libPaths
+> ### Title: Add TAF Library Path
+> ### Aliases: taf.libPaths
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
 > nameEx("taf.library")
 > ### * taf.library
 > 
@@ -1179,6 +1195,26 @@ Type 'q()' to quit R.
 > ##D taf.png("myggplot")
 > ##D qplot(1, 1)
 > ##D dev.off()
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("taf.session")
+> ### * taf.session
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: taf.session
+> ### Title: TAF Session
+> ### Aliases: taf.session
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D taf.session()
+> ##D taf.session(TRUE)
 > ## End(Not run)
 > 
 > 
@@ -1481,7 +1517,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.327 0.016 0.344 0 0 
+Time elapsed:  0.352 0.004 0.355 0 0 
 > grDevices::dev.off()
 null device 
           1 
