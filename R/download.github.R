@@ -51,7 +51,8 @@ download.github <- function(repo, dir=".", quiet=FALSE)
 
   ## 1  Parse repo string
   spec <- parse.repo(repo)
-  sha <- get.remote.sha(spec$username, spec$repo, spec$ref)  # branch -> sha
+  sha.full <- get.remote.sha(spec$username, spec$repo, spec$ref, seven=FALSE)
+  sha <- substring(sha.full, 1, 7)
   url <- paste0("https://api.github.com/repos/",
                 spec$username, "/", spec$repo, "/tarball/", spec$ref)
   targz <- paste0(spec$repo, "_", sha, ".tar.gz")  # repo_sha.tar.gz
@@ -82,9 +83,12 @@ download.github <- function(repo, dir=".", quiet=FALSE)
       extract.subdir(targz, subtargz, subdir)
   }
 
-  value <- if(subdir == "") targz else subtargz
+  outfile <- if(subdir == "") targz else subtargz
 
-  invisible(value)
+  ## 3  Add entries to DESCRIPTION file
+  stamp.description(outfile, spec, sha.full)
+
+  invisible(outfile)
 }
 
 #' @rdname icesTAF-internal
@@ -113,4 +117,37 @@ extract.subdir <- function(targz, subtargz, subdir)
     tar(subtargz, subdir, compression="gzip")
     unlink(subdir, recursive=TRUE, force=TRUE)
   }
+}
+
+#' @rdname icesTAF-internal
+#'
+#' @importFrom utils tar untar
+#'
+#' @export
+
+## Add entries to DESCRIPTION file
+
+stamp.description <- function(targz, spec, sha.full)
+{
+  pkg <- sub("/.*", "", untar(targz,list=TRUE)[1])
+  unlink(pkg, recursive=TRUE)
+  untar(targz)
+
+  desc <- read.dcf(file.path(pkg, "DESCRIPTION"), all=TRUE)
+  desc$RemoteType <- "github"
+  desc$RemoteHost <- "api.github.com"
+  desc$RemoteRepo <- spec$repo
+  desc$RemoteUsername <- spec$username
+  desc$RemoteRef <- spec$ref
+  desc$RemoteSha <- sha.full
+  desc$RemoteSubdir <- if(spec$subdir == "") NULL else spec$subdir
+  desc$GithubRepo <- spec$repo
+  desc$GithubUsername <- spec$username
+  desc$GithubRef <- spec$ref
+  desc$GithubSHA1 <- sha.full
+  desc$GithubSubdir <- if(spec$subdir == "") NULL else spec$subdir
+  write.dcf(desc, file.path(pkg, "DESCRIPTION"))
+
+  tar(targz, pkg, compression="gzip")
+  unlink(pkg, recursive=TRUE)
 }

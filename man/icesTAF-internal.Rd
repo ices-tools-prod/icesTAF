@@ -3,6 +3,7 @@
 %   R/icesTAF-internal.R, R/parse.repo.R, R/process.inner.R, R/taf.install.R
 \name{extract.subdir}
 \alias{extract.subdir}
+\alias{stamp.description}
 \alias{ds.file}
 \alias{ds.package}
 \alias{icesTAF-internal}
@@ -12,6 +13,8 @@
 \title{Various TAF Helper Functions}
 \usage{
 extract.subdir(targz, subtargz, subdir)
+
+stamp.description(targz, spec, sha.full)
 
 ds.file(package, author, year, title, version, source)
 

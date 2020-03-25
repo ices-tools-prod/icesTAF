@@ -76,14 +76,6 @@ taf.install <- function(targz=NULL, lib="bootstrap/library", quiet=FALSE)
     else
     {
       install.packages(tgz, lib=lib, repos=NULL, quiet=quiet)
-      ## Store RemoteSha in DESCRIPTION
-      desc <- read.dcf(file.path(lib, pkg, "DESCRIPTION"), all=TRUE)
-      desc$RemoteSha <- sha
-      write.dcf(desc, file.path(lib, pkg, "DESCRIPTION"))
-      ## Store RemoteSha in package.rds
-      meta <- readRDS(file.path(lib, pkg, "Meta/package.rds"))
-      meta$DESCRIPTION["RemoteSha"] <- sha
-      saveRDS(meta, file.path(lib, pkg, "Meta/package.rds"))
     }
   }
 }
