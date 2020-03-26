@@ -61,6 +61,7 @@ clean.library <- function(folder="bootstrap/library", quiet=FALSE)
         repo <- bib[pkg]$source
         spec <- parse.repo(repo)
         sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
+        sha.inst <- substring(sha.inst, 1, nchar(sha.bib))  # same length
       }
       else
       {
