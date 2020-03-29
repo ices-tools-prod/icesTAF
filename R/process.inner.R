@@ -34,8 +34,14 @@ process.inner <- function(bib, dir, quiet)
   ## Case 4: File to copy
   else
   {
+    ## Warn if entry looks like GitHub without a @reference
+    if(grepl("/", bib$source) &&               # source entry includes /
+       sub("/.*","",bib$source)!="initial" &&  # but does not start with initial
+       !grepl("@", bib$source))                # and does not include @
+      warning("'", key,
+              "' entry might be a GitHub reference that is missing the '@'")
     ## Shorthand notation: source = {file} means key is a filename
-    if(bib$source[1] == "file")
+    if(bib$source[1] %in% c("file","folder"))
       bib$source[1] <- file.path("initial", dir, key)
     sapply(bib$source, cp, to=dir)
   }
