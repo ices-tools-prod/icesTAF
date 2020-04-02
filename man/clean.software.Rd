@@ -16,8 +16,8 @@ Selectively remove software from the local TAF software folder if not listed
 in \verb{SOFTWARE.bib}.
 }
 \note{
-For each file in the software folder, the cleaning procedure selects between
-three cases:
+For each file (and subdirectory) in the software folder, the cleaning
+procedure selects between three cases:
 \enumerate{
 \item File and version matches \verb{SOFTWARE.bib} - do nothing.
 \item Filename does not contain the version listed in \verb{SOFTWARE.bib} -
