@@ -53,7 +53,7 @@ process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
           else if(bibfile == "SOFTWARE.bib") "software"
           else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
 
-  if(clean && type=="data")
+  if(clean && type=="data" && dir.exists("data"))
   {
     clean("data")
     if(!quiet)
