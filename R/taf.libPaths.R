@@ -22,14 +22,11 @@
 #' taf.libPaths()
 #' }
 #'
-#' @importFrom utils file_test
-#'
 #' @export
 
 taf.libPaths <- function()
 {
-  ## dir.exists() requires R 3.2, so we use older file_test
-  if(!file_test("-d", "bootstrap/library"))
+  if(!dir.exists("bootstrap/library"))
     warning("'bootstrap/library' does not exist")
   .libPaths(c("bootstrap/library", .libPaths()))
 }
