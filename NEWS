@@ -1,11 +1,13 @@
 --------------------------------------------------------------------------------
 icesTAF 3.4-0 (2020-03-27)
 --------------------------------------------------------------------------------
-* Added functions xtab2long() and long2xtab() to convert between table formats.
+* Added function is.r.package() to check if tar.gz file is an R package.
 
-* Added taf.session() to show session information.
+* Added functions long2xtab() and xtab2long() to convert between table formats.
 
-* Added taf.libPaths() to add TAF library to search path.
+* Added function taf.libPaths() to add TAF library to search path.
+
+* Added function taf.session() to show session information.
 
 * Added argument 'ignore' to cp().
 
