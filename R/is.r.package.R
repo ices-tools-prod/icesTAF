@@ -6,7 +6,11 @@
 #' @param spec an optional list generated with \code{parse.repo}.
 #' @param warn whether to warn if the file contents look like an R package
 #'        nested inside a repository.
-#' @param quiet whether to suppress messages.
+#'
+#' @details
+#' The only purpose of passing \code{spec} is to get a more helpful warning
+#' message if the file contents look like an R package nested inside a
+#' repository.
 #'
 #' @return Logical indicating whether \code{targz} is an R package.
 #'
@@ -20,7 +24,7 @@
 #'
 #' @export
 
-is.r.package <- function(targz, spec=NULL, warn=TRUE, quiet=FALSE)
+is.r.package <- function(targz, spec=NULL, warn=TRUE)
 {
   contents <- untar(targz, list=TRUE)
   if("DESCRIPTION" %in% sub(".*?/", "", contents))  # DESCRIPTION in top dir
@@ -29,18 +33,19 @@ is.r.package <- function(targz, spec=NULL, warn=TRUE, quiet=FALSE)
   }
   else if("DESCRIPTION" %in% basename(contents))  # DESCRIPTION in subdir
   {
-    subdir <- basename(dirname(contents[basename(contents) == "DESCRIPTION"]))
-    suggestion <- if(is.null(spec)) NULL
-                  else paste0("- did you mean\n  source = {", spec$username,
-                              "/", spec$repo, "/", subdir, "@", spec$ref, "}")
     if(warn)
-      warning("looks like an R package inside a repository", suggestion)
+    {
+      subdir <- basename(dirname(contents[basename(contents) == "DESCRIPTION"]))
+      suggestion <- if(is.null(spec)) NULL
+                    else paste0(" - did you mean\n  source = {", spec$username,
+                                "/", spec$repo, "/", subdir, "@", spec$ref, "}")
+      warning(subdir, " looks like an R package inside a repository",
+              suggestion)
+    }
     ans <- FALSE
   }
   else # no DESCRIPTION file found
   {
-    if(!quiet)
-      message("  not an R package")
     ans <- FALSE
   }
   ans

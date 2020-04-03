@@ -4,7 +4,7 @@
 \alias{is.r.package}
 \title{Is R Package}
 \usage{
-is.r.package(targz, spec = NULL, warn = TRUE, quiet = FALSE)
+is.r.package(targz, spec = NULL, warn = TRUE)
 }
 \arguments{
 \item{targz}{a filename ending with \verb{tar.gz}.}
@@ -13,14 +13,17 @@ is.r.package(targz, spec = NULL, warn = TRUE, quiet = FALSE)
 
 \item{warn}{whether to warn if the file contents look like an R package
 nested inside a repository.}
-
-\item{quiet}{whether to suppress messages.}
 }
 \value{
 Logical indicating whether \code{targz} is an R package.
 }
 \description{
 Check if \file{.tar.gz} file is an R package.
+}
+\details{
+The only purpose of passing \code{spec} is to get a more helpful warning
+message if the file contents look like an R package nested inside a
+repository.
 }
 \examples{
 \dontrun{

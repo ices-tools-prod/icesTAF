@@ -85,9 +85,14 @@ download.github <- function(repo, dir=".", quiet=FALSE)
 
   outfile <- if(subdir == "") targz else subtargz
 
-  ## 3  Add entries to DESCRIPTION file
-  if(is.r.package(outfile, spec=spec, quiet=quiet))
-    stamp.description(outfile, spec, sha.full)
+  ## 3  Add entries to DESCRIPTION file if we downloaded an R package
+  if(basename(getwd()) == "software")
+  {
+    if(is.r.package(outfile, spec=spec))
+      stamp.description(outfile, spec, sha.full)
+    else if(!quiet)
+      message("  note: ", outfile, " is not an R package")
+  }
 
   invisible(outfile)
 }
