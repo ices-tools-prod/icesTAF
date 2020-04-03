@@ -12,6 +12,12 @@
 #'
 #' @importFrom utils untar
 #'
+#' @examples
+#' \dontrun{
+#' is.r.package("bootstrap/software/SAM.tar.gz")
+#' is.r.package("bootstrap/software/stockassessment.tar.gz")
+#' }
+#'
 #' @export
 
 is.r.package <- function(targz, spec=NULL, warn=TRUE, quiet=FALSE)

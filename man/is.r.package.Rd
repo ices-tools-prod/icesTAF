@@ -22,3 +22,10 @@ Logical indicating whether \code{targz} is an R package.
 \description{
 Check if \file{.tar.gz} file is an R package.
 }
+\examples{
+\dontrun{
+is.r.package("bootstrap/software/SAM.tar.gz")
+is.r.package("bootstrap/software/stockassessment.tar.gz")
+}
+
+}

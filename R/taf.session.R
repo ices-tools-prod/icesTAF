@@ -22,7 +22,7 @@
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' taf.session()
 #' taf.session(TRUE)
 #' }

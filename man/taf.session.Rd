@@ -21,7 +21,7 @@ Show session information about loaded packages, clearly indicating which
 packages were loaded from the local TAF library.
 }
 \examples{
-\dontrun{
+\donttest{
 taf.session()
 taf.session(TRUE)
 }
