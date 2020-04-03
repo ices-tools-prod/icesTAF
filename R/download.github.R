@@ -86,14 +86,15 @@ download.github <- function(repo, dir=".", quiet=FALSE)
   outfile <- if(subdir == "") targz else subtargz
 
   ## 3  Add entries to DESCRIPTION file
-  stamp.description(outfile, spec, sha.full)
+  if(is.r.package(outfile, spec=spec, quiet=quiet))
+    stamp.description(outfile, spec, sha.full)
 
   invisible(outfile)
 }
 
 #' @rdname icesTAF-internal
 #'
-#' @importFrom utils packageDescription
+#' @importFrom utils packageDescription untar
 #'
 #' @export
 
@@ -102,6 +103,7 @@ download.github <- function(repo, dir=".", quiet=FALSE)
 extract.subdir <- function(targz, subtargz, subdir)
 {
   repdir <- sub("/.*", "", untar(targz,list=TRUE)[1])  # top dir inside targz
+  unlink(repdir, recursive=TRUE)  # remove folder if it already exists
 
   ## Sometimes the repo and subdir have the same name
   if(repdir != subdir)  # if repdir == subdir, then we have already
@@ -130,7 +132,7 @@ extract.subdir <- function(targz, subtargz, subdir)
 stamp.description <- function(targz, spec, sha.full)
 {
   pkg <- sub("/.*", "", untar(targz,list=TRUE)[1])
-  unlink(pkg, recursive=TRUE)
+  unlink(pkg, recursive=TRUE)  # remove folder if it already exists
   untar(targz)
 
   desc <- read.dcf(file.path(pkg, "DESCRIPTION"), all=TRUE)
