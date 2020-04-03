@@ -90,8 +90,6 @@ download.github <- function(repo, dir=".", quiet=FALSE)
   {
     if(is.r.package(outfile, spec=spec))
       stamp.description(outfile, spec, sha.full)
-    else if(!quiet)
-      message("  note: ", outfile, " is not an R package")
   }
 
   invisible(outfile)
