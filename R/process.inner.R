@@ -10,18 +10,23 @@ process.inner <- function(bib, dir, quiet)
 {
   key <- attr(bib, "key")
 
-  ## Case 1: R package on GitHub
+  ## Case 1: Resource on GitHub
   if(grepl("@", bib$source[1]))
   {
-    targz <- download.github(bib$source, "software", quiet=quiet)
-    spec <- parse.repo(bib$source[1])
-    ## is.r.package was already called in download.github, so call quietly now
-    if(is.r.package(targz, spec=spec, warn=FALSE, quiet=TRUE))
-      taf.install(file.path("software",targz), lib="library", quiet=quiet)
+    targz <- download.github(bib$source, dir, quiet=quiet)
+    if(dir == "software")
+    {
+      spec <- parse.repo(bib$source[1])
+      ## is.r.package was already called in download.github, so don't warn again
+      if(is.r.package(file.path("software",targz), spec=spec, warn=FALSE))
+        taf.install(file.path("software",targz), lib="library", quiet=quiet)
+    }
   }
 
   ## Case 2: File to download
-  else if(grepl("^http", bib$source[1]))
+  else if(grepl("^http://", bib$source[1]) ||
+          grepl("^https://", bib$source[1]) ||
+          grepl("^ftp://", bib$source[1]))
   {
     sapply(bib$source, download, dir=dir, quiet=quiet)
   }
