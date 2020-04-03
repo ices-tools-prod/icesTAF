@@ -14,7 +14,10 @@ process.inner <- function(bib, dir, quiet)
   if(grepl("@", bib$source[1]))
   {
     targz <- download.github(bib$source, "software", quiet=quiet)
-    taf.install(file.path("software",targz), lib="library", quiet=quiet)
+    spec <- parse.repo(bib$source[1])
+    ## is.r.package was already called in download.github, so call quietly now
+    if(is.r.package(targz, spec=spec, warn=FALSE, quiet=TRUE))
+      taf.install(file.path("software",targz), lib="library", quiet=quiet)
   }
 
   ## Case 2: File to download
