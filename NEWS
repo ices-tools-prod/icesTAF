@@ -11,11 +11,13 @@ icesTAF 3.4-0 (2020-03-27)
 
 * Added argument 'ignore' to cp().
 
-* Improved download.github() to store GitHub metadata in the DESCRIPTION file.
+* Improved download.github() to store GitHub metadata in the DESCRIPTION file,
+  if the GitHub resource is an R package. Warn if the tar.gz file looks like an
+  R package nested inside a repository.
 
 * Improved taf.bootstrap() to interpret source = {folder} in the same way as
-  source = {file}. Also, warn if source = {owner/repo@ref} GitHub entry is
-  missing the '@ref' part.
+  source = {file}. Warn if source = {owner/repo@ref} GitHub entry is missing the
+  '@ref' part.
 
 
 
