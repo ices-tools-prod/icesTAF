@@ -6,7 +6,7 @@
 
 ## Process *.bib file
 
-process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
+process.bibfile <- function(bibfile, clean=TRUE, quiet=FALSE)
 {
   if(!quiet)
     message("Processing ", bibfile)
@@ -65,7 +65,7 @@ process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
              file.path(type, key) else type
     mkdir(dir)  # target directory
 
-    process.inner(bib, dir, quiet)
+    process.entry(bib, dir, quiet)
   }
 
   invisible(TRUE)

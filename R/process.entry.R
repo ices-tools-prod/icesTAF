@@ -6,7 +6,7 @@
 
 ## Process bib entry
 
-process.inner <- function(bib, dir, quiet)
+process.entry <- function(bib, dir, quiet)
 {
   key <- attr(bib, "key")
 

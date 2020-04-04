@@ -20,6 +20,9 @@ icesTAF 3.4-0 (2020-03-27)
   a special value, similar to source = {file}. Warn if source = {owner/repo@ref}
   entry is missing the '@ref' part.
 
+* Renamed internal function process.bib() to process.bibfile() and
+  process.inner() to process.entry().
+
 
 
 
