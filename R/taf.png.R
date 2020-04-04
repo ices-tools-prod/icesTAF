@@ -76,6 +76,9 @@ taf.png <- function(filename, width=1600, height=1200, pointsize=32, ...)
 
 #' @export
 
+## This spelling is seen in the 2018 YouTube tutorial video and the
+## corresponding transcript, so we will probably support it forever.
+
 tafpng <- function(...)
 {
   ## .Deprecated("taf.png")
