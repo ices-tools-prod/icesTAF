@@ -89,7 +89,7 @@ draft.data("WGEF", 2015, file=TRUE)
 \code{\link{draft.software}} creates an initial draft version of a
 \verb{SOFTWARE.bib} metadata file.
 
-\code{\link{process.bib}} reads and processes metadata entries.
+\code{\link{taf.bootstrap}} reads and processes metadata entries.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

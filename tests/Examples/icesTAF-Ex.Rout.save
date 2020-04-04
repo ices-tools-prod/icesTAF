@@ -824,26 +824,6 @@ Type 'q()' to quit R.
 > 
 > 
 > cleanEx()
-> nameEx("process.bib")
-> ### * process.bib
-> 
-> flush(stderr()); flush(stdout())
-> 
-> ### Name: process.bib
-> ### Title: Process Metadata
-> ### Aliases: process.bib
-> 
-> ### ** Examples
-> 
-> ## Not run: 
-> ##D process.bib("DATA.bib")
-> ##D process.bib("SOFTWARE.bib")
-> ## End(Not run)
-> 
-> 
-> 
-> 
-> cleanEx()
 > nameEx("read.taf")
 > ### * read.taf
 > 
@@ -1533,7 +1513,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.325 0.02 0.346 0 0 
+Time elapsed:  0.376 0.012 0.387 0 0 
 > grDevices::dev.off()
 null device 
           1 

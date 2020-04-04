@@ -1,49 +1,10 @@
-#' Process Metadata
-#'
-#' Read and process metadata entries in a \verb{*.bib} file.
-#'
-#' @param bibfile metadata file to process, either \code{"SOFTWARE.bib"} or
-#'        \code{"DATA.bib"}.
-#' @param clean whether to \code{\link{clean}} directories.
-#' @param quiet whether to suppress messages reporting progress.
-#'
-#' @details
-#' If \code{bibfile = "SOFTWARE.bib"} and \code{clean = TRUE}, then
-#' \file{bootstrap/software} is cleaned with \code{\link{clean.software}} and
-#' \file{bootstrap/library} is cleaned with \code{\link{clean.library}} before
-#' processing metadata entries.
-#'
-#' If \code{bibfile = "DATA.bib"} and \code{clean = TRUE}, then the
-#' \file{bootstrap/data} directory is cleaned before processing metadata
-#' entries.
-#'
-#' @return \code{TRUE} for success.
-#'
-#' @note
-#' This is a helper function for \code{\link{taf.bootstrap}}. It is called
-#' within the \file{bootstrap} directory that contains the metadata file.
-#'
-#' For a detailed description of the metadata entry format, see the
-#' \href{https://github.com/ices-taf/doc/wiki/Bib-entries}{TAF Wiki}.
-#'
-#' @seealso
-#' \code{\link{taf.bootstrap}} calls \code{process.bib} to process metadata.
-#'
-#' \code{\link{draft.data}} and \code{\link{draft.software}} can be used to
-#' create initial draft versions of \file{DATA.bib} and \file{SOFTWARE.bib}
-#' metadata files.
-#'
-#' \code{\link{icesTAF-package}} gives an overview of the package.
-#'
-#' @examples
-#' \dontrun{
-#' process.bib("DATA.bib")
-#' process.bib("SOFTWARE.bib")
-#' }
+#' @rdname icesTAF-internal
 #'
 #' @importFrom bibtex read.bib
 #'
 #' @export
+
+## Process *.bib file
 
 process.bib <- function(bibfile, clean=TRUE, quiet=FALSE)
 {

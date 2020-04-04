@@ -17,8 +17,8 @@
 #' \href{https://github.com/ices-taf/doc/wiki/Bib-entries}{TAF Wiki}).
 #'
 #' @seealso
-#' \code{\link{taf.bootstrap}} calls \code{download.github} to fetch software
-#' and data repositories, via \code{\link{process.bib}}.
+#' \code{\link{taf.bootstrap}} uses \code{download.github} to fetch software and
+#' data repositories.
 #'
 #' \code{\link{download}} downloads a file.
 #'

@@ -27,8 +27,7 @@
 #'
 #' @seealso
 #' \code{\link{taf.bootstrap}} calls \code{\link{download.github}} and
-#' \code{taf.install} to download and install R packages, via
-#' \code{\link{process.bib}}.
+#' \code{taf.install} to download and install R packages.
 #'
 #' \code{\link{clean.library}} selectively removes packages from the local TAF
 #' library.

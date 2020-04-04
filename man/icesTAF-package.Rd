@@ -84,7 +84,6 @@ data, methods, and results used in ICES assessments.
   \code{\link{is.r.package}}    \tab check if file is an R package\cr
   \code{\link{latin1.to.utf8}}  \tab convert file encoding\cr
   \code{\link{line.endings}}    \tab examine line endings\cr
-  \code{\link{process.bib}}     \tab read and process metadata\cr
   \code{\link{rmdir}}           \tab remove empty directory\cr
   \code{\link{taf.install}}     \tab install package in TAF library\cr
   \code{\link{taf.libPaths}}    \tab add TAF library to search path\cr

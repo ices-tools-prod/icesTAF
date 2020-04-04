@@ -44,9 +44,8 @@ software according to metadata specifications.
 The bootstrap procedure consists of the following steps:
 \enumerate{
 \item If a \verb{bootstrap/SOFTWARE.bib} metadata file exists, it is
-      processed with \code{\link{process.bib}}.
-\item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed
-      with \code{\link{process.bib}}.
+      processed.
+\item If a \verb{bootstrap/DATA.bib} metadata file exists, it is processed.
 }
 
 After the bootstrap procedure, software and data have been documented and
@@ -70,7 +69,9 @@ taf.bootstrap()
 
 }
 \seealso{
-\code{\link{process.bib}} is a helper function used to process metadata.
+\code{\link{draft.data}} and \code{\link{draft.software}} can be used to
+create initial draft versions of \file{DATA.bib} and \file{SOFTWARE.bib}
+metadata files.
 
 \code{\link{taf.library}} loads a package from \verb{bootstrap/library}.
 
