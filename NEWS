@@ -15,10 +15,10 @@ icesTAF 3.4-0 (2020-03-27)
   if the GitHub resource is an R package. Warn if the tar.gz file looks like an
   R package nested inside a repository.
 
-* Improved taf.bootstrap() to support GitHub data references and recognize when
-  software from GitHub is not an R package to install. Add source = {folder} as
-  a special value, similar to source = {file}. Warn if source = {owner/repo@ref}
-  entry is missing the '@ref' part.
+* Improved taf.bootstrap() to support GitHub references in DATA.bib. Runs
+  taf.install() only when software from GitHub contains a DESCRIPTION file.
+  Added source = {folder} as a special value, similar to source = {file}. Warn
+  if source = {owner/repo@ref} entry is missing the '@ref' part.
 
 * Renamed internal function process.bib() to process.bibfile() and
   process.inner() to process.entry().
