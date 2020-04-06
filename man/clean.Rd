@@ -4,10 +4,13 @@
 \alias{clean}
 \title{Clean TAF Directories}
 \usage{
-clean(dirs = c("data", "model", "output", "report"))
+clean(dirs = c("data", "model", "output", "report"), force = FALSE)
 }
 \arguments{
 \item{dirs}{directories to delete.}
+
+\item{force}{passed to \code{software} and \code{clean.library} if any of the
+\code{dirs} is \code{"bootstrap"}.}
 }
 \description{
 Remove working TAF directories (\verb{data}, \verb{model}, \verb{output},
@@ -24,9 +27,6 @@ subdirectories \verb{data} is removed, while \code{clean.software} and
 \verb{bootstrap/library} subdirectories. This protects the subdirectory
 \verb{bootstrap/initial} and \verb{*.bib} metadata files from being
 accidentally deleted.
-
-The commands \code{clean("bootstrap/software")} and
-\code{clean("bootstrap/library")} remove those directories completely.
 }
 \examples{
 \dontrun{
@@ -35,11 +35,11 @@ clean()
 
 }
 \seealso{
-\code{\link{clean.library}} selectively removes packages from
-\verb{bootstrap/library}.
-
 \code{\link{clean.software}} selectively removes software from
 \verb{bootstrap/software}.
+
+\code{\link{clean.library}} selectively removes packages from
+\verb{bootstrap/library}.
 
 \code{\link{mkdir}} and \code{\link{rmdir}} create and remove empty
 directories.

@@ -4,12 +4,15 @@
 \alias{clean.software}
 \title{Clean TAF Software}
 \usage{
-clean.software(folder = "bootstrap/software", quiet = FALSE)
+clean.software(folder = "bootstrap/software", quiet = FALSE, force = FALSE)
 }
 \arguments{
 \item{folder}{location of local TAF software folder.}
 
 \item{quiet}{whether to suppress messages about removed software.}
+
+\item{force}{whether to remove the local TAF software folder, regardless of
+how it compares to SOFTWARE.bib entries.}
 }
 \description{
 Selectively remove software from the local TAF software folder if not listed

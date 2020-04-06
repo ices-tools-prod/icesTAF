@@ -4,6 +4,8 @@
 #' \verb{report}), \verb{bootstrap}, or other directories.
 #'
 #' @param dirs directories to delete.
+#' @param force passed to \code{software} and \code{clean.library} if any of the
+#'        \code{dirs} is \code{"bootstrap"}.
 #'
 #' @note
 #' The purpose of removing the directories is to make sure that subsequent TAF
@@ -17,15 +19,12 @@
 #' \verb{bootstrap/initial} and \verb{*.bib} metadata files from being
 #' accidentally deleted.
 #'
-#' The commands \code{clean("bootstrap/software")} and
-#' \code{clean("bootstrap/library")} remove those directories completely.
-#'
 #' @seealso
-#' \code{\link{clean.library}} selectively removes packages from
-#' \verb{bootstrap/library}.
-#'
 #' \code{\link{clean.software}} selectively removes software from
 #' \verb{bootstrap/software}.
+#'
+#' \code{\link{clean.library}} selectively removes packages from
+#' \verb{bootstrap/library}.
 #'
 #' \code{\link{mkdir}} and \code{\link{rmdir}} create and remove empty
 #' directories.
@@ -39,7 +38,7 @@
 #'
 #' @export
 
-clean <- function(dirs=c("data", "model", "output", "report"))
+clean <- function(dirs=c("data", "model", "output", "report"), force=FALSE)
 {
   ## Convert "bootstrap/" to "bootstrap", so clean("bootstrap/") doesn't go wild
   dirs <- sub("/$", "", dirs)
@@ -48,8 +47,8 @@ clean <- function(dirs=c("data", "model", "output", "report"))
   {
     ## An odd directory called 'library:' can appear in Linux
     unlink(c("bootstrap/data", "bootstrap/library:"), recursive=TRUE)
-    clean.software("bootstrap/software")
-    clean.library("bootstrap/library")
+    clean.software("bootstrap/software", force=force)
+    clean.library("bootstrap/library", force=force)
     dirs <- dirs[dirs != "bootstrap"]
   }
 

@@ -4,12 +4,15 @@
 \alias{clean.library}
 \title{Clean TAF Library}
 \usage{
-clean.library(folder = "bootstrap/library", quiet = FALSE)
+clean.library(folder = "bootstrap/library", quiet = FALSE, force = FALSE)
 }
 \arguments{
 \item{folder}{location of local TAF library.}
 
 \item{quiet}{whether to suppress messages about removed packages.}
+
+\item{force}{whether to remove the local TAF library, regardless of how it
+compares to SOFTWARE.bib entries.}
 }
 \description{
 Selectively remove packages from the local TAF library if not listed in

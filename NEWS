@@ -9,7 +9,11 @@ icesTAF 3.4-0 (2020-03-27)
 
 * Added function taf.session() to show session information.
 
+* Added argument 'force' to clean(), clean.library(), and clean.software().
+
 * Added argument 'ignore' to cp().
+
+* Improved clean.software() to remove software folder, not just software files.
 
 * Improved download.github() to store GitHub metadata in the DESCRIPTION file,
   if the GitHub resource is an R package. Warn if the tar.gz file looks like an
