@@ -7,7 +7,7 @@
 \usage{
 zoom(x, ...)
 
-\method{zoom}{trellis}(x, size = 2.7, main = 1.2 * size, lab = size,
+\method{zoom}{trellis}(x, size = 1, main = 1.2 * size, lab = size,
   axis = size, strip = size, sub = 0.9 * size, legend = 0.9 * size,
   splom = 0.9 * size, ...)
 }
@@ -61,8 +61,9 @@ library(lattice)
 
 xyplot(1~1)
 zoom(xyplot(1~1))
-zoom(xyplot(1~1), size=1, axis=0.8)
-zoom(xyplot(1~1), lab=NULL, axis=NULL)
+zoom(xyplot(1~1), size=1.2)
+zoom(xyplot(1~1), axis=0.8)
+zoom(xyplot(1~1), axis=NULL)
 
 \dontrun{
 taf.png("myplot")
@@ -70,6 +71,10 @@ plot(1)
 dev.off()
 
 taf.png("mytrellis")
+xyplot(1~1)
+dev.off()
+
+taf.png("mytrellis_zoom")
 zoom(xyplot(1~1))
 dev.off()
 }

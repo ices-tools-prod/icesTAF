@@ -5,7 +5,8 @@
 #' @param filename plot filename.
 #' @param width image width.
 #' @param height image height.
-#' @param pointsize text size.
+#' @param res resolution determining the text size, line width, plot symbol
+#'        size, etc.
 #' @param \dots passed to \code{png}.
 #'
 #' @details
@@ -23,15 +24,16 @@
 #'
 #' @note
 #' A simple convenience function to shorten
-#' \preformatted{png("report/plot.png", width=1600, height=1200, pointsize=32)}
+#' \preformatted{png("report/plot.png", width=1600, height=1200, res=200)}
 #' to
 #' \preformatted{taf.png("plot")}
 #'
-#' The \code{pointsize} argument only affects base plots. To change the text
-#' size of a lattice plot, the \code{zoom} function can be helpful.
+#' The \code{res} argument affects the text size, along with all other plot
+#' elements. To change the text size of specific lattice plot elements, the
+#' \code{zoom} function can be helpful.
 #'
 #' For consistent image width and text size, it can be useful to keep the
-#' default \code{width = 1600} but vary the \code{height} to get the desired
+#' default \code{width = 1600} but vary the \code{height} to adjust the desired
 #' aspect ratio for each plot.
 #'
 #' @seealso
@@ -50,7 +52,7 @@
 #'
 #' library(lattice)
 #' taf.png("mytrellis")
-#' zoom(xyplot(1~1))
+#' xyplot(1~1)
 #' dev.off()
 #'
 #' library(ggplot2)
@@ -65,13 +67,13 @@
 #'
 #' @export
 
-taf.png <- function(filename, width=1600, height=1200, pointsize=32, ...)
+taf.png <- function(filename, width=1600, height=1200, res=200, ...)
 {
   if(!grepl("/",filename) && !grepl("report$",getwd()) && dir.exists("report"))
     filename <- file.path("report", filename)
   if(!grepl("\\.png$", filename))
     filename <- paste0(filename, ".png")
-  png(filename=filename, width=width, height=height, pointsize=pointsize, ...)
+  png(filename=filename, width=width, height=height, res=res, ...)
 }
 
 #' @export

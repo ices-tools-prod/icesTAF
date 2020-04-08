@@ -5,7 +5,7 @@
 \alias{tafpng}
 \title{PNG Device}
 \usage{
-taf.png(filename, width = 1600, height = 1200, pointsize = 32, ...)
+taf.png(filename, width = 1600, height = 1200, res = 200, ...)
 }
 \arguments{
 \item{filename}{plot filename.}
@@ -14,7 +14,8 @@ taf.png(filename, width = 1600, height = 1200, pointsize = 32, ...)
 
 \item{height}{image height.}
 
-\item{pointsize}{text size.}
+\item{res}{resolution determining the text size, line width, plot symbol
+size, etc.}
 
 \item{\dots}{passed to \code{png}.}
 }
@@ -36,15 +37,16 @@ function directly.
 }
 \note{
 A simple convenience function to shorten
-\preformatted{png("report/plot.png", width=1600, height=1200, pointsize=32)}
+\preformatted{png("report/plot.png", width=1600, height=1200, res=200)}
 to
 \preformatted{taf.png("plot")}
 
-The \code{pointsize} argument only affects base plots. To change the text
-size of a lattice plot, the \code{zoom} function can be helpful.
+The \code{res} argument affects the text size, along with all other plot
+elements. To change the text size of specific lattice plot elements, the
+\code{zoom} function can be helpful.
 
 For consistent image width and text size, it can be useful to keep the
-default \code{width = 1600} but vary the \code{height} to get the desired
+default \code{width = 1600} but vary the \code{height} to adjust the desired
 aspect ratio for each plot.
 }
 \examples{
@@ -55,7 +57,7 @@ dev.off()
 
 library(lattice)
 taf.png("mytrellis")
-zoom(xyplot(1~1))
+xyplot(1~1)
 dev.off()
 
 library(ggplot2)

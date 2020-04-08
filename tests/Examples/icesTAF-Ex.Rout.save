@@ -1188,7 +1188,7 @@ Type 'q()' to quit R.
 > ##D 
 > ##D library(lattice)
 > ##D taf.png("mytrellis")
-> ##D zoom(xyplot(1~1))
+> ##D xyplot(1~1)
 > ##D dev.off()
 > ##D 
 > ##D library(ggplot2)
@@ -1489,8 +1489,9 @@ Type 'q()' to quit R.
 > 
 > xyplot(1~1)
 > zoom(xyplot(1~1))
-> zoom(xyplot(1~1), size=1, axis=0.8)
-> zoom(xyplot(1~1), lab=NULL, axis=NULL)
+> zoom(xyplot(1~1), size=1.2)
+> zoom(xyplot(1~1), axis=0.8)
+> zoom(xyplot(1~1), axis=NULL)
 > 
 > ## Not run: 
 > ##D taf.png("myplot")
@@ -1498,6 +1499,10 @@ Type 'q()' to quit R.
 > ##D dev.off()
 > ##D 
 > ##D taf.png("mytrellis")
+> ##D xyplot(1~1)
+> ##D dev.off()
+> ##D 
+> ##D taf.png("mytrellis_zoom")
 > ##D zoom(xyplot(1~1))
 > ##D dev.off()
 > ## End(Not run)
@@ -1513,7 +1518,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.376 0.012 0.387 0 0 
+Time elapsed:  0.361 0.008 0.369 0 0 
 > grDevices::dev.off()
 null device 
           1 

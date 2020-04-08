@@ -1,4 +1,13 @@
 --------------------------------------------------------------------------------
+icesTAF 3.4-1 (2020-04-08)
+--------------------------------------------------------------------------------
+* Changed taf.png() to use 'res' rather than 'pointsize', improving consistency
+  between base, lattice, and ggplot2 plots. Code contributed by Iago Mosqueira.
+
+
+
+
+--------------------------------------------------------------------------------
 icesTAF 3.4-0 (2020-04-07)
 --------------------------------------------------------------------------------
 * Added function is.r.package() to check if tar.gz file is an R package.
