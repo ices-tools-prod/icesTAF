@@ -59,7 +59,7 @@ process.bibfile <- function(bibfile, clean=TRUE, quiet=FALSE)
     bib$dir <- as.logical(bib$dir)  # is now TRUE, FALSE, NA, or logical(0)
     if(identical(bib$dir, NA))
       stop("parsing entry '", key, "' - dir should be TRUE or unspecified")
-    dir <- if(identical(bib$dir, TRUE) ||
+    dir <- if(isTRUE(bib$dir) ||
               length(bib$source) > 1 ||
               bib$source[1] == "script")
              file.path(type, key) else type
