@@ -285,6 +285,25 @@ Type 'q()' to quit R.
 > 
 > 
 > cleanEx()
+> nameEx("detach.packages")
+> ### * detach.packages
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: detach.packages
+> ### Title: Detach Packages
+> ### Aliases: detach.packages
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D detach.packages()
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
 > nameEx("div")
 > ### * div
 > 
@@ -1518,7 +1537,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.361 0.008 0.369 0 0 
+Time elapsed:  0.365 0.004 0.37 0 0 
 > grDevices::dev.off()
 null device 
           1 

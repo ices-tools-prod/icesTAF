@@ -17,7 +17,7 @@ taf.library(package, messages = FALSE, warnings = FALSE)
 The names of packages currently installed in the TAF library.
 }
 \description{
-Load package from local TAF library.
+Load and attach package from local TAF library.
 }
 \note{
 The purpose of the TAF library is to retain R packages that are not commonly
@@ -36,10 +36,13 @@ taf.library(that)
 
 }
 \seealso{
-\code{\link{library}} is the underlying base function to load a package.
+\code{\link{library}} is the underlying base function to load and attach a
+package.
 
 \code{\link{taf.bootstrap}} is the procedure to install packages into a local
 TAF library, via the \verb{SOFTWARE.bib} metadata file.
+
+\code{\link{detach.packages}} detaches all packages.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

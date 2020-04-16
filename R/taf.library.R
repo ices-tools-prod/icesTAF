@@ -1,6 +1,6 @@
 #' TAF Library
 #'
-#' Load package from local TAF library.
+#' Load and attach package from local TAF library.
 #'
 #' @param package name of a package found in \verb{bootstrap/library}.
 #' @param messages whether to show messages when package loads.
@@ -13,10 +13,13 @@
 #' used (and not on CRAN), to support long-term reproducibility of TAF analyses.
 #'
 #' @seealso
-#' \code{\link{library}} is the underlying base function to load a package.
+#' \code{\link{library}} is the underlying base function to load and attach a
+#' package.
 #'
 #' \code{\link{taf.bootstrap}} is the procedure to install packages into a local
 #' TAF library, via the \verb{SOFTWARE.bib} metadata file.
+#'
+#' \code{\link{detach.packages}} detaches all packages.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'

@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
-icesTAF 3.4-1 (2020-04-08)
+icesTAF 3.5-0 (2020-04-16)
 --------------------------------------------------------------------------------
+* Added function detach.packages() to detach all packages.
+
 * Changed taf.png() to use 'res' rather than 'pointsize', improving consistency
   between base, lattice, and ggplot2 plots. Code contributed by Iago Mosqueira.
 
