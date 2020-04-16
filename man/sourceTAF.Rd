@@ -4,7 +4,8 @@
 \alias{sourceTAF}
 \title{Run TAF Script}
 \usage{
-sourceTAF(script, rm = FALSE, clean = TRUE, quiet = FALSE)
+sourceTAF(script, rm = FALSE, clean = TRUE, detach = FALSE, taf = NULL,
+  quiet = FALSE)
 }
 \arguments{
 \item{script}{script filename.}
@@ -14,6 +15,14 @@ and after the script is run.}
 
 \item{clean}{whether to \code{\link{clean}} the target directory before
 running the script.}
+
+\item{detach}{whether to detach all non-base packages before running the
+script, to ensure that the script is not affected by packages that may
+have been attached outside the script.}
+
+\item{taf}{a convenience flag where \code{taf = TRUE} sets \code{rm},
+\code{clean}, and \code{detach} to \code{TRUE}, as is done on the TAF
+server. Any other value of \code{taf} is ignored.}
 
 \item{quiet}{whether to suppress messages reporting progress.}
 }

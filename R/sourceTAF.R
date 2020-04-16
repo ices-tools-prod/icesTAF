@@ -7,6 +7,12 @@
 #'        and after the script is run.
 #' @param clean whether to \code{\link{clean}} the target directory before
 #'        running the script.
+#' @param detach whether to detach all non-base packages before running the
+#'        script, to ensure that the script is not affected by packages that may
+#'        have been attached outside the script.
+#' @param taf a convenience flag where \code{taf = TRUE} sets \code{rm},
+#'        \code{clean}, and \code{detach} to \code{TRUE}, as is done on the TAF
+#'        server. Any other value of \code{taf} is ignored.
 #' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
@@ -49,14 +55,19 @@
 #'
 #' @export
 
-sourceTAF <- function(script, rm=FALSE, clean=TRUE, quiet=FALSE)
+sourceTAF <- function(script, rm=FALSE, clean=TRUE, detach=FALSE, taf=NULL,
+                      quiet=FALSE)
 {
+  if(isTRUE(taf))
+    rm <- clean <- detach <- TRUE
   if(file.exists(paste0(script, ".R")))
     script <- paste0(script, ".R")
   if(rm)
     rm(list=ls(.GlobalEnv), pos=.GlobalEnv)
   if(clean && dir.exists(file_path_sans_ext(script)))
     clean(file_path_sans_ext(script))
+  if(detach)
+    detach.packages(quiet=quiet)
   if(!quiet)
     msg(script, " running...")
 
