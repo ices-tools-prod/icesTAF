@@ -66,17 +66,14 @@ taf.install <- function(targz=NULL, lib="bootstrap/library", quiet=FALSE)
     pkg <- sub(".*/(.*)_.*", "\\1", tgz)     # path/pkg_sha.tar.gz -> pkg
     sha <- sub(".*_(.*?)\\..*", "\\1", tgz)  # path/pkg_sha.tar.gz -> sha
 
-    if(already.in.taf.library(tgz, lib))
-    {
-      if(!quiet)
-      {
-        message("Skipping install of '", basename(tgz), "'.")
-        message("  Version '", sha, "' is already in ", lib, ".")
-      }
-    }
-    else
+    if(!already.in.taf.library(tgz, lib))
     {
       install.packages(tgz, lib=lib, repos=NULL, quiet=quiet)
+    }
+    else if(!quiet)
+    {
+      message("Skipping install of '", basename(tgz), "'.")
+      message("  Version '", sha, "' is already in ", lib, ".")
     }
   }
 }
