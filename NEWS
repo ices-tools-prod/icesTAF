@@ -3,6 +3,8 @@ icesTAF 3.5-0 (2020-04-16)
 --------------------------------------------------------------------------------
 * Added function detach.packages() to detach all packages.
 
+* Added argument 'overwrite' to cp().
+
 * Added arguments 'detach' and 'taf' to sourceTAF().
 
 * Changed taf.png() to use 'res' rather than 'pointsize', improving consistency
@@ -78,10 +80,9 @@ icesTAF 3.3-0 (2019-12-03)
 * Added function get.remote.sha() to look up a SHA reference code on GitHub.
   Fixed a bug introduced in 3.2-0.
 
-* Improved clean.library() and clean.software() to remove bootstrap/library and
-  bootstrap/software when SOFTWARE.bib file does not exist. Improved
-  clean.software() to remove software file when version does not match
-  SOFTWARE.bib.
+* Improved clean.library() and clean.software() to remove the TAF library and
+  software when SOFTWARE.bib file does not exist. Improved clean.software() to
+  remove software file when version does not match SOFTWARE.bib.
 
 * Improved download.github() to handle packages that are nested inside a
   repository. Set default to quiet=FALSE.
@@ -107,14 +108,14 @@ icesTAF 3.2-0 (2019-11-01)
   Instead, model configuration files can be processed as a DATA.bib entry.
   Removed argument 'config'. SOFTWARE.bib is now processed before DATA.bib.
 
-* Changed clean() so it uses clean.library() to clean bootstrap/library.
+* Changed clean() so it uses clean.library() to clean the TAF library.
 
 * Improved draft.data() so it detects bootstrap/*.R scripts as source files to
   consider. Added arguments 'access' and 'data.scripts'. Removed argument
   'data.dir'. Added support for file=TRUE as shorthand for
   file="bootstrap/DATA.bib".
 
-* Improved draft.software() so it first looks for packages in bootstrap/library.
+* Improved draft.software() so it first looks for packages in the TAF library.
   Added support for package="owner/repo@ref" to install package on the fly.
   Added support for file=TRUE as shorthand for file="bootstrap/SOFTWARE.bib".
 
@@ -330,8 +331,8 @@ icesTAF 1.6-0 (2018-05-15)
 
 * Added argument 'dir' to write.taf().
 
-* Changed read.taf() and write.taf() so they can read/write many tables in one
-  call.
+* Changed read.taf() and write.taf() so they can read and write many tables in
+  one call.
 
 * Changed write.taf() so the name of the data frame is the default filename.
 

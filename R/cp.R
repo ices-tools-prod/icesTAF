@@ -7,6 +7,7 @@
 #' @param to destination filenames, or directory.
 #' @param move whether to move instead of copy.
 #' @param ignore whether to suppress error if source file does not exist.
+#' @param overwrite whether to overwrite if destination file exists.
 #' @param quiet whether to suppress messages.
 #'
 #' @return \code{TRUE} for success, \code{FALSE} for failure, invisibly.
@@ -47,7 +48,7 @@
 #'
 #' @export
 
-cp <- function(from, to, move=FALSE, ignore=FALSE, quiet=TRUE)
+cp <- function(from, to, move=FALSE, ignore=FALSE, overwrite=TRUE, quiet=TRUE)
 {
   ## Include both glob matches and filenames without asterisk,
   ## in case some filenames without asterisk are not found
@@ -72,7 +73,7 @@ cp <- function(from, to, move=FALSE, ignore=FALSE, quiet=TRUE)
   if(any(!file.exists(from)) && !ignore)
     stop("file '", from[match(FALSE, file.exists(from))], "' does not exist")
 
-  out <- suppressWarnings(mapply(file.copy, from, to, overwrite=TRUE,
+  out <- suppressWarnings(mapply(file.copy, from, to, overwrite=overwrite,
                                  recursive=dir.exists(from), copy.date=TRUE))
   if(move)
     unlink(from, recursive=TRUE, force=TRUE)
