@@ -14,11 +14,9 @@ process.bibfile <- function(bibfile, clean=TRUE, quiet=FALSE)
           else if(bibfile == "SOFTWARE.bib") "software"
           else stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
 
-  if(clean && type=="data" && dir.exists("data"))
+  if(clean && type=="data")
   {
-    clean("data")
-    if(!quiet)
-      message("  cleaned 'bootstrap/data'")
+    clean.data("data", quiet=quiet)
   }
   if(clean && type=="software")
   {
