@@ -41,6 +41,8 @@ clean()
 \code{\link{clean.library}} selectively removes packages from
 \verb{bootstrap/library}.
 
+\code{\link{clean.data}} selectively removes data from \verb{bootstrap/data}.
+
 \code{\link{mkdir}} and \code{\link{rmdir}} create and remove empty
 directories.
 

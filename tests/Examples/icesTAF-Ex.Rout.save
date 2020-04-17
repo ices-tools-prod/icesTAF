@@ -207,6 +207,25 @@ Type 'q()' to quit R.
 > 
 > 
 > cleanEx()
+> nameEx("clean.data")
+> ### * clean.data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: clean.data
+> ### Title: Clean Data
+> ### Aliases: clean.data
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D clean.data()
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
 > nameEx("clean.library")
 > ### * clean.library
 > 
@@ -1575,7 +1594,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.36 0.011 0.372 0 0 
+Time elapsed:  0.369 0.004 0.374 0 0 
 > grDevices::dev.off()
 null device 
           1 

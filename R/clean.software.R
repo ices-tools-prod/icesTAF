@@ -32,6 +32,8 @@
 #'
 #' \code{\link{clean.library}} cleans the local TAF library.
 #'
+#' \code{\link{clean.data}} cleans the \verb{bootstrap/data} folder.
+#'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples

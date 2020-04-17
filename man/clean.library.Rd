@@ -47,5 +47,7 @@ bootstrap procedure.
 
 \code{\link{clean.software}} cleans the local TAF software folder.
 
+\code{\link{clean.data}} cleans the \verb{bootstrap/data} folder.
+
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

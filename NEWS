@@ -3,6 +3,8 @@ icesTAF 3.5-0 (2020-04-16)
 --------------------------------------------------------------------------------
 * Added function detach.packages() to detach all packages.
 
+* Added function clean.data() to selectively clean the bootstrap data folder.
+
 * Added argument 'overwrite' to cp().
 
 * Added arguments 'detach' and 'taf' to sourceTAF().

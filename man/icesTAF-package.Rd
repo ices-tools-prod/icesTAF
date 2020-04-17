@@ -73,6 +73,7 @@ data, methods, and results used in ICES assessments.
 }
 \emph{Administrative tools, rarely used in scripts:}
 \tabular{ll}{
+  \code{\link{clean.data}}      \tab clean bootstrap data\cr
   \code{\link{clean.library}}   \tab clean TAF library\cr
   \code{\link{clean.software}}  \tab clean TAF software\cr
   \code{\link{deps}}            \tab list dependencies\cr
