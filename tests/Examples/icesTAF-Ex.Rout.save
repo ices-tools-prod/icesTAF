@@ -207,6 +207,44 @@ Type 'q()' to quit R.
 > 
 > 
 > cleanEx()
+> nameEx("clean.library")
+> ### * clean.library
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: clean.library
+> ### Title: Clean TAF Library
+> ### Aliases: clean.library
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D clean.library()
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("clean.software")
+> ### * clean.software
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: clean.software
+> ### Title: Clean TAF Software
+> ### Aliases: clean.software
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D clean.software()
+> ## End(Not run)
+> 
+> 
+> 
+> 
+> cleanEx()
 > nameEx("convert.spaces")
 > ### * convert.spaces
 > 
@@ -1537,7 +1575,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.365 0.004 0.37 0 0 
+Time elapsed:  0.36 0.011 0.372 0 0 
 > grDevices::dev.off()
 null device 
           1 

@@ -6,7 +6,7 @@
 #' @param folder location of local TAF software folder.
 #' @param quiet whether to suppress messages about removed software.
 #' @param force whether to remove the local TAF software folder, regardless of
-#'        how it compares to SOFTWARE.bib entries.
+#'        how it compares to \verb{SOFTWARE.bib} entries.
 #'
 #' @note
 #' For each file (and subdirectory) in the software folder, the cleaning
@@ -24,9 +24,6 @@
 #' and removing different versions of software without modifying the
 #' \verb{SOFTWARE.bib} file.
 #'
-#' The command \code{clean("bootstrap/software")} removes that directory
-#' completely.
-#'
 #' @seealso
 #' \code{\link{taf.bootstrap}} calls \code{clean.software} as part of the
 #' default bootstrap procedure.
@@ -37,6 +34,11 @@
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
+#' @examples
+#' \dontrun{
+#' clean.software()
+#' }
+#'
 #' @importFrom bibtex read.bib
 #'
 #' @export
@@ -44,8 +46,6 @@
 clean.software <- function(folder="bootstrap/software", quiet=FALSE,
                            force=FALSE)
 {
-  software.files <- dir(folder, full.names=TRUE)
-
   if(!file.exists(file.path(folder, "../SOFTWARE.bib")) || force)
   {
     unlink(folder, recursive=TRUE)
@@ -53,8 +53,7 @@ clean.software <- function(folder="bootstrap/software", quiet=FALSE,
   else
   {
     bib <- read.bib(file.path(folder, "../SOFTWARE.bib"))
-
-    for(file in software.files)
+    for(file in dir(folder, full.names=TRUE))
     {
       ## Read sha.file, the SHA for a software file
       pkg <- sub(".*/(.*)_.*", "\\1", file)         # path/pkg_sha.tar.gz -> pkg
@@ -80,6 +79,5 @@ clean.software <- function(folder="bootstrap/software", quiet=FALSE,
       }
     }
   }
-
   rmdir(folder)
 }

@@ -12,7 +12,7 @@ clean.software(folder = "bootstrap/software", quiet = FALSE, force = FALSE)
 \item{quiet}{whether to suppress messages about removed software.}
 
 \item{force}{whether to remove the local TAF software folder, regardless of
-how it compares to SOFTWARE.bib entries.}
+how it compares to \verb{SOFTWARE.bib} entries.}
 }
 \description{
 Selectively remove software from the local TAF software folder if not listed
@@ -33,9 +33,12 @@ requiring the user to run \code{clean.software}. The main reason for a TAF
 user to run \code{clean.software} directly is to experiment with installing
 and removing different versions of software without modifying the
 \verb{SOFTWARE.bib} file.
+}
+\examples{
+\dontrun{
+clean.software()
+}
 
-The command \code{clean("bootstrap/software")} removes that directory
-completely.
 }
 \seealso{
 \code{\link{taf.bootstrap}} calls \code{clean.software} as part of the
