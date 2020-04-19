@@ -57,23 +57,31 @@ clean.software <- function(folder="bootstrap/software", quiet=FALSE,
     bib <- read.bib(file.path(folder, "../SOFTWARE.bib"))
     for(file in dir(folder, full.names=TRUE))
     {
-      ## Read sha.file, the SHA for a software file
-      pkg <- sub(".*/(.*)_.*", "\\1", file)         # path/pkg_sha.tar.gz -> pkg
-      sha.file <- sub(".*_(.*?)\\..*", "\\1", file) # path/pkg_sha.tar.gz -> sha
-      ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
-      if(pkg %in% names(bib))
+      ## Check if filename looks like GitHub software, e.g. model_13579bd.tar.gz
+      if(grepl("_[a-f0-9]{7}\\.tar\\.gz", substring(file, nchar(file)-14)))
       {
-        repo <- bib[pkg]$source
-        spec <- parse.repo(repo)
-        sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
+        ## Read sha.file, the SHA for a software file
+        pkg <- sub(".*/(.*)_.*", "\\1", file)         # bs/pkg_sha.tar.gz -> pkg
+        sha.file <- sub(".*_(.*?)\\..*", "\\1", file) # bs/pkg_sha.tar.gz -> sha
+        ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
+        if(pkg %in% names(bib))
+        {
+          repo <- bib[pkg]$source
+          spec <- parse.repo(repo)
+          sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
+        }
+        else
+        {
+          sha.bib <- "Not listed"
+        }
+        ## If software file is either a mismatch or not listed, then remove it
+        delete <- sha.file != sha.bib
       }
-      else
+      else  # filename is either a folder or plain file, e.g. model or model.exe
       {
-        sha.bib <- "Not listed"
+        delete <- !(basename(file) %in% names(bib))
       }
-
-      ## If software file is either a mismatch or not listed, then remove it
-      if(sha.file != sha.bib)
+      if(delete)
       {
         unlink(file, recursive=TRUE, force=TRUE)
         if(!quiet)
