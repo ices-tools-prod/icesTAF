@@ -9,9 +9,6 @@ icesTAF 3.5-0 (2020-04-16)
 
 * Added arguments 'detach' and 'taf' to sourceTAF().
 
-* Changed taf.bootstrap(clean=TRUE) so it uses clean.data() instead of removing
-  all bootstrap data.
-
 * Changed taf.png() to use 'res' rather than 'pointsize', improving consistency
   between base, lattice, and ggplot2 plots. Code contributed by Iago Mosqueira.
 
