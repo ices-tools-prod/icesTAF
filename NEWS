@@ -9,8 +9,10 @@ icesTAF 3.5-0 (2020-04-16)
 
 * Added arguments 'detach' and 'taf' to sourceTAF().
 
+* Added argument 'taf' to taf.bootstrap().
+
 * Changed taf.bootstrap() to skip download of files if they already exist, and
-  skip bootstrap script if the target folder already exists and is not empty.
+  skip bootstrap script if the destination folder already contains files.
 
 * Changed taf.png() to use 'res' rather than 'pointsize', improving consistency
   between base, lattice, and ggplot2 plots. Code contributed by Iago Mosqueira.

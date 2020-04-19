@@ -7,10 +7,13 @@
 #' @param data whether to process \verb{DATA.bib}.
 #' @param clean whether to \code{\link{clean}} directories during the bootstrap
 #'        procedure.
-#' @param quiet whether to suppress messages reporting progress.
 #' @param force whether to remove existing \verb{bootstrap/data},
 #'        \verb{bootstrap/library}, and \verb{bootstrap/software} directories
 #'        before the bootstrap procedure.
+#' @param taf a convenience flag where \code{taf = TRUE} sets \code{software},
+#'        \code{data}, \code{clean}, and \code{force} to \code{TRUE}, as is done
+#'        on the TAF server. Any other value of \code{taf} is ignored.
+#' @param quiet whether to suppress messages reporting progress.
 #'
 #' @details
 #' If \code{clean = TRUE} then:
@@ -64,9 +67,11 @@
 #'
 #' @export
 
-taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, quiet=FALSE,
-                          force=FALSE)
+taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, force=FALSE,
+                          taf=NULL, quiet=FALSE)
 {
+  if(isTRUE(taf))
+    software <- data <- clean <- force <- TRUE
   if(!dir.exists("bootstrap"))
     return(invisible(NULL))  # nothing to do
   if(!quiet)

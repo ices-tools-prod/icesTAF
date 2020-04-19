@@ -5,7 +5,7 @@
 \title{Bootstrap TAF Analysis}
 \usage{
 taf.bootstrap(software = TRUE, data = TRUE, clean = TRUE,
-  quiet = FALSE, force = FALSE)
+  force = FALSE, taf = NULL, quiet = FALSE)
 }
 \arguments{
 \item{software}{whether to process \verb{SOFTWARE.bib}.}
@@ -15,11 +15,15 @@ taf.bootstrap(software = TRUE, data = TRUE, clean = TRUE,
 \item{clean}{whether to \code{\link{clean}} directories during the bootstrap
 procedure.}
 
-\item{quiet}{whether to suppress messages reporting progress.}
-
 \item{force}{whether to remove existing \verb{bootstrap/data},
 \verb{bootstrap/library}, and \verb{bootstrap/software} directories
 before the bootstrap procedure.}
+
+\item{taf}{a convenience flag where \code{taf = TRUE} sets \code{software},
+\code{data}, \code{clean}, and \code{force} to \code{TRUE}, as is done
+on the TAF server. Any other value of \code{taf} is ignored.}
+
+\item{quiet}{whether to suppress messages reporting progress.}
 }
 \value{
 Logical vector indicating which metadata files were processed.
