@@ -28,7 +28,16 @@ process.entry <- function(bib, dir, quiet)
           grepl("^https://", bib$source[1]) ||
           grepl("^ftp://", bib$source[1]))
   {
-    sapply(bib$source, download, dir=dir, quiet=quiet)
+    destfile <- basename(bib$source)
+    destfile <- gsub("\\?.*", "", destfile)   # file.dat?tail -> file.dat
+    destfile <- gsub(" |%20", "_", destfile)  # my%20script.R -> my_script.R
+    for(i in seq_len(bib$source))
+    {
+      if(!file.exists(file.path(dir, destfile[i])))
+        download(bib$source[i], dir=dir, quiet=quiet)
+      else if(!quiet)
+        message("  Skipping download of '", destfile[i], "' (already in place).")
+    }
   }
 
   ## Case 3: R script in bootstrap directory
