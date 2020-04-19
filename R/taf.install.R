@@ -72,8 +72,7 @@ taf.install <- function(targz=NULL, lib="bootstrap/library", quiet=FALSE)
     }
     else if(!quiet)
     {
-      message("Skipping install of '", basename(tgz), "'.")
-      message("  Version '", sha, "' is already in ", lib, ".")
+      message("  Skipping install of '", basename(tgz), "' (already in place).")
     }
   }
 }

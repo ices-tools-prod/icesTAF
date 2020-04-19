@@ -63,18 +63,12 @@ download.github <- function(repo, dir=".", quiet=FALSE)
   if(subdir=="" && file.exists(targz))  # no subdir, targz exists
   {
     if(!quiet)
-    {
-      message("Skipping download of '", targz, "'.")
-      message("  Version '", sha, "' is already in ", dir)
-    }
+      message("  Skipping download of '", targz, "' (already in place).")
   }
   else if(subdir!="" && file.exists(subtargz))  # subdir, subtargz exists
   {
     if(!quiet)
-    {
-      message("Skipping download of '", subtargz, "'.")
-      message("  Version '", sha, "' is already in ", dir)
-    }
+      message("  Skipping download of '", subtargz, "' (already in place).")
   }
   else
   {
