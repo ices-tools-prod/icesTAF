@@ -36,23 +36,20 @@ process.entry <- function(bib, dir, quiet)
       if(!file.exists(file.path(dir, destfile[i])))
         download(bib$source[i], dir=dir, quiet=quiet)
       else if(!quiet)
-        message("  Skipping download of '", destfile[i], "' (already in place).")
+        message("  Skipping download of '", destfile[i],
+                "' (already in place).")
     }
   }
 
   ## Case 3: R script in bootstrap directory
   else if(bib$source[1] == "script")
   {
-    if(length(dir(dir)) != 0)
-    {
-      script <- file_path_as_absolute(paste0(key, ".R"))
-      owd <- setwd(dir); on.exit(setwd(owd))
+    script <- file_path_as_absolute(paste0(key, ".R"))
+    owd <- setwd(dir); on.exit(setwd(owd))
+    if(length(dir(recursive=TRUE)) == 0)  # no destination files exist yet
       source(script)
-    }
-    else
-    {
-      rmdir(dir)
-    }
+    else if(!quiet)
+      message("  Skipping script '", basename(script), "' (already in place).")
   }
 
   ## Case 4: File to copy
