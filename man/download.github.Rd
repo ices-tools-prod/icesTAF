@@ -23,8 +23,8 @@ Download a repository from GitHub in \file{tar.gz} format.
 In general, TAF scripts do not access the internet using
 \code{download.github} or similar functions. Instead, data and software are
 declared in \verb{DATA.bib} and \verb{SOFTWARE.bib} and then downloaded using
-\code{\link{taf.bootstrap}}. The exception is when a bootstrap data script is
-used to fetch data files from a web service (see
+\code{\link{taf.bootstrap}}. The exception is when a bootstrap script is used
+to fetch files from a web service (see
 \href{https://github.com/ices-taf/doc/wiki/Bib-entries}{TAF Wiki}).
 }
 \examples{

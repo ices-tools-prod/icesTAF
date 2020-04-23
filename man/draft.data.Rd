@@ -38,8 +38,8 @@ filename, special value \code{"file"}, or special value
 \item{data.files}{data files to consider. The default is all folders and
 files inside \verb{bootstrap/initial/data}.}
 
-\item{data.scripts}{data scripts to consider. The default is all \verb{*.R}
-files in the \verb{bootstrap} folder.}
+\item{data.scripts}{bootstrap data scripts to consider. The default is all
+\verb{*.R} files in the \verb{bootstrap} folder.}
 }
 \value{
 Object of class \verb{Bibtex}.

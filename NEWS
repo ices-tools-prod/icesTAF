@@ -126,7 +126,7 @@ icesTAF 3.2-0 (2019-11-01)
   Added support for package="owner/repo@ref" to install package on the fly.
   Added support for file=TRUE as shorthand for file="bootstrap/SOFTWARE.bib".
 
-* Improved taf.library() so it works from a bootstrap data script.
+* Improved taf.library() so it works from a bootstrap script.
 
 * Improved write.taf() so it gives an error if data frame contains comma.
 

@@ -21,8 +21,8 @@
 #' @param append whether to append metadata entries to an existing file.
 #' @param data.files data files to consider. The default is all folders and
 #'        files inside \verb{bootstrap/initial/data}.
-#' @param data.scripts data scripts to consider. The default is all \verb{*.R}
-#'        files in the \verb{bootstrap} folder.
+#' @param data.scripts bootstrap data scripts to consider. The default is all
+#'        \verb{*.R} files in the \verb{bootstrap} folder.
 #'
 #' @details
 #' Typical usage is to specify \code{originator}, while using the default values
