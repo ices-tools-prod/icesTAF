@@ -10,11 +10,12 @@ taf.session(sort = FALSE)
 \item{sort}{whether to sort packages by name.}
 }
 \value{
-Data from containing four columns:
+Data frame containing four columns:
 \item{Package}{package name}
 \item{Version}{package version}
 \item{Library}{library where package was loaded from}
 \item{RemoteSha}{GitHub reference code}
+and \verb{libPath} as an attribute.
 }
 \description{
 Show session information about loaded packages, clearly indicating which

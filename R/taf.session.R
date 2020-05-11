@@ -6,11 +6,12 @@
 #' @param sort whether to sort packages by name.
 #'
 #' @return
-#' Data from containing four columns:
+#' Data frame containing four columns:
 #' \item{Package}{package name}
 #' \item{Version}{package version}
 #' \item{Library}{library where package was loaded from}
 #' \item{RemoteSha}{GitHub reference code}
+#' and \verb{libPath} as an attribute.
 #'
 #' @seealso
 #' \code{\link{sessionInfo}} and the \pkg{sessioninfo} package provide further
@@ -56,5 +57,14 @@ taf.session <- function(sort=FALSE)
   if(sort)
     pkgs <- data.frame(pkgs[order(pkgs$Package),], row.names=NULL)
 
-  pkgs
+  key <- paste0("[", seq_along(.libPaths()), "] ", .libPaths())
+  if(basename(dirname(.libPaths()[1])) == "bootstrap")
+    key <- sub("^\\[1\\]", "TAF", key)
+  key <- paste0("\n", paste(key, collapse="\n"), "\n")
+
+  print(pkgs)
+  cat(key)
+
+  attr(pkgs, "libPaths") <- .libPaths()
+  invisible(pkgs)
 }
