@@ -49,4 +49,5 @@ taf.libPaths <- function(remove=FALSE)
       warning("'bootstrap/library' does not exist")
     .libPaths(c("bootstrap/library", .libPaths()))
   }
+  .libPaths()
 }
