@@ -4,7 +4,11 @@
 \alias{taf.libPaths}
 \title{Add TAF Library Path}
 \usage{
-taf.libPaths()
+taf.libPaths(remove = FALSE)
+}
+\arguments{
+\item{remove}{whether to remove TAF library from the search path, instead of
+adding it.}
 }
 \value{
 The resulting vector of file paths.
@@ -17,9 +21,20 @@ Specifically, this function sets \code{"bootstrap/library"} as the first
 element of \code{.libPaths()}. This is rarely beneficial in TAF scripts, but
 can be useful when using the \pkg{sessioninfo} package, for example.
 }
+\section{Warning}{
+
+An unwanted side effect of having the TAF library as the first element in the
+search path is that \code{install.packages} will then install packages inside
+\verb{bootstrap/library}. This is not a serious side effect, since a
+subsequent call to \code{taf.bootstrap} or  \code{clean.library} will remove
+packages from the TAF library that are not declared in the
+\file{SOFTWARE.bib} file.
+}
+
 \examples{
 \donttest{
 taf.libPaths()
+taf.libPaths(remove=TRUE)
 }
 
 }

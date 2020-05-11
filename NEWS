@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-icesTAF 3.5-0 (2020-04-16)
+icesTAF 3.5-0 (2020-05-11)
 --------------------------------------------------------------------------------
 * Added function detach.packages() to detach all packages.
 
@@ -10,6 +10,8 @@ icesTAF 3.5-0 (2020-04-16)
 * Added arguments 'detach' and 'taf' to sourceTAF().
 
 * Added argument 'taf' to taf.bootstrap().
+
+* Added argument 'remove' to taf.libPaths().
 
 * Changed taf.bootstrap() to skip download of files if they already exist, and
   skip bootstrap script if the destination folder already contains files.
