@@ -13,6 +13,8 @@ icesTAF 3.5-0 (2020-05-11)
 
 * Added argument 'remove' to taf.libPaths().
 
+* Added argument 'details' to taf.session().
+
 * Changed taf.bootstrap() to skip download of files if they already exist, and
   skip bootstrap script if the destination folder already contains files.
 

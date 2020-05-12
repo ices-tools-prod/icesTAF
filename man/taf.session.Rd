@@ -4,18 +4,15 @@
 \alias{taf.session}
 \title{TAF Session}
 \usage{
-taf.session(sort = FALSE)
+taf.session(sort = FALSE, details = FALSE)
 }
 \arguments{
 \item{sort}{whether to sort packages by name.}
+
+\item{details}{whether to include more detailed session information.}
 }
 \value{
-Data frame containing four columns:
-\item{Package}{package name}
-\item{Version}{package version}
-\item{Library}{library where package was loaded from}
-\item{RemoteSha}{GitHub reference code}
-and \verb{libPath} as an attribute.
+List containing session information about loaded packages.
 }
 \description{
 Show session information about loaded packages, clearly indicating which
@@ -24,16 +21,15 @@ packages were loaded from the local TAF library.
 \examples{
 \donttest{
 taf.session()
-taf.session(TRUE)
+taf.session(sort=TRUE)
+taf.session(details=TRUE)
 }
 
 }
 \seealso{
-\code{\link{sessionInfo}} and the \pkg{sessioninfo} package provide further
-session information about the version of R, etc.
-
-\code{\link{taf.libPaths}} adds the TAF library to the search path for R
-packages.
+\code{\link{sessionInfo}} and the \pkg{sessioninfo} package provide similar
+information, but do not indicate clearly packages that were loaded from the
+local TAF library.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }
