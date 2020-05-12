@@ -61,6 +61,7 @@ taf.session <- function(sort=FALSE, details=FALSE)
     running <- sessionInfo()$running
     arch <- R.version$arch
     user <- Sys.info()[["user"]]
+    stringsAsFactors <- getOption("stringsAsFactors")
     encoding <- unlist(l10n_info())
     locale <- unlist(strsplit(Sys.getlocale(), ";"))
     locale <- strsplit(locale, "=")
