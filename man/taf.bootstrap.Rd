@@ -39,6 +39,14 @@ If \code{clean = TRUE} then:
       \file{SOFTWARE.bib} is processed.
 \item \code{\link{clean.data}} is run if \file{DATA.bib} is processed.
 }
+
+The default behavior of \code{taf.bootstrap} is to skip downloading of remote
+files (GitHub resources, URLs, bootstrap scripts) and also skip installing R
+packages from GitHub if the files seem to be already in place. This is done
+to speed up the bootstrap procedure as much as possible. To override this and
+guarantee that all data and software files are updated, pass \code{force =
+TRUE} to download and install everything declared in \verb{SOFTWARE.bib} and
+\verb{DATA.bib}.
 }
 \note{
 This function should be called from the top directory of a TAF analysis. It
