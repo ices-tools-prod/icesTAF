@@ -1,9 +1,16 @@
 --------------------------------------------------------------------------------
 icesTAF 4.0-0 (2020-05-20)
 --------------------------------------------------------------------------------
-* This release renames the term 'bootstrap' to 'boot'.
+* This release renames the term 'bootstrap' to 'boot', which is now the
+  preferred term. All functions are backward compatible with older analyses that
+  have a 'bootstrap' folder.
 
 * Renamed taf.bootstrap() to taf.boot().
+
+* The functions clean(), taf.boot(), taf.libPaths(), taf.library(), and
+  taf.session() work in the same way as before, regardless of whether there is a
+  'boot' folder or a 'bootstrap' folder. If both folders exist, they work with
+  the 'boot' folder.
 
 
 

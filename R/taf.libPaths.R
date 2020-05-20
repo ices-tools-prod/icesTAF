@@ -37,16 +37,23 @@
 
 taf.libPaths <- function(remove=FALSE)
 {
+  if(is.null(boot.dir()))
+  {
+    warning("'boot' folder does not exist")
+    return(.libPaths())
+  }
+
   if(remove)
   {
-    include <- .libPaths() != file.path(getwd(), "boot/library")
+    include <- .libPaths() != file.path(getwd(), boot.dir(), "library")
     .libPaths(.libPaths()[include])
   }
-  else
+  else  # add
   {
-    if(!dir.exists("boot/library"))
-      warning("'boot/library' does not exist")
-    .libPaths(c("boot/library", .libPaths()))
+    bootlib <- file.path(boot.dir(), "library")
+    if(!dir.exists(bootlib))
+      warning("'", bootlib, "' does not exist")
+    .libPaths(c(bootlib, .libPaths()))
   }
   .libPaths()
 }

@@ -80,16 +80,16 @@ taf.boot <- function(software=TRUE, data=TRUE, clean=TRUE, force=FALSE,
 {
   if(isTRUE(taf))
     software <- data <- clean <- force <- TRUE
-  if(!dir.exists("boot"))
+  if(is.null(boot.dir()))
     return(invisible(NULL))  # nothing to do
   if(!quiet)
     msg("Boot procedure running...")
 
   if(force)
-    clean(c("boot/software", "boot/library", "boot/data"))
+    clean(file.path(boot.dir(), c("software","library","data")))
 
   ## Work inside boot
-  setwd("boot"); on.exit(setwd(".."))
+  setwd(boot.dir()); on.exit(setwd(".."))
 
   out <- c(SOFTWARE.bib=FALSE, DATA.bib=FALSE)
 
@@ -98,7 +98,7 @@ taf.boot <- function(software=TRUE, data=TRUE, clean=TRUE, force=FALSE,
   {
     if(clean)
       clean("config")
-    warning("'boot/initial/config' is deprecated.\n",
+    warning("'", basename(getwd()), "/initial/config' is deprecated.\n",
             "Use DATA.bib entry instead.")
     cp("initial/config", ".")
   }

@@ -42,15 +42,15 @@ taf.library <- function(package, messages=FALSE, warnings=FALSE)
 {
   ## If taf.library() is called from boot data script, the working directory is
   ## root/boot/data/scriptname; change to root temporarily
-  if(basename(dirname(dirname(getwd()))) == "boot")
+  if(basename(dirname(dirname(getwd()))) %in% c("boot","bootstrap"))
   {
     owd <- setwd("../../.."); on.exit(setwd(owd))
   }
 
-  if(!dir.exists("boot/library"))
+  if(is.null(boot.dir()) || !dir.exists(file.path(boot.dir(),"library")))
     stop("directory 'boot/library' not found")
 
-  installed <- dir("boot/library")
+  installed <- dir(file.path(boot.dir(),"library"))
   if(missing(package))
     return(installed)
 
@@ -60,5 +60,5 @@ taf.library <- function(package, messages=FALSE, warnings=FALSE)
 
   supM <- if(messages) identity else suppressMessages
   supW <- if(warnings) identity else suppressWarnings
-  supW(supM(library(package, lib.loc="boot/library", character.only=TRUE)))
+  supW(supM(library(package, lib.loc=file.path(boot.dir(),"library"), character.only=TRUE)))
 }

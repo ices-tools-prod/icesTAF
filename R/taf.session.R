@@ -36,7 +36,8 @@ taf.session <- function(sort=FALSE, details=FALSE)
                       paste0("[", match(lib, .libPaths()), "]") else "TAF"
     desc$RemoteSha <- if(is.null(desc$RemoteSha))
                         "" else substring(desc$RemoteSha, 1, 7)
-    desc$TAF <- if(basename(dirname(lib)) == "boot") "*" else ""
+    desc$TAF <- if(basename(dirname(lib)) %in% c("boot","bootstrap"))
+                  "*" else ""
     fields <- c("Package", "Version", "Library", "RemoteSha", "TAF")
     if(identical(desc$Priority, "base"))
       setNames(rep(NA_character_, 5), fields)

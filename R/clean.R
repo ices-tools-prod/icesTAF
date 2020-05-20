@@ -44,14 +44,18 @@ clean <- function(dirs=c("data", "model", "output", "report"), force=FALSE)
   ## Convert "boot/" to "boot", so clean("boot/") doesn't go wild
   dirs <- sub("/$", "", dirs)
 
-  if("boot" %in% dirs)
+  ## 1: boot exists, do it there
+  ## 2: bootstrap exists, do it there
+  #  3: neither exists
+
+  if(!is.null(boot.dir()) && boot.dir() %in% dirs)
   {
     ## An odd directory called 'library:' can appear in Linux
-    unlink("boot/library:", recursive=TRUE)
-    clean.software("boot/software", force=force)
-    clean.library("boot/library", force=force)
-    clean.data("boot/data", force=force)
-    dirs <- dirs[dirs != "boot"]
+    unlink(file.path(boot.dir(),"library:"), recursive=TRUE)
+    clean.software(file.path(boot.dir(),"software"), force=force)
+    clean.library(file.path(boot.dir(),"library"), force=force)
+    clean.data(file.path(boot.dir(),"data"), force=force)
+    dirs <- dirs[dirs != boot.dir()]
   }
 
   unlink(dirs, recursive=TRUE)
