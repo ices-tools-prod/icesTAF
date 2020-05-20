@@ -35,15 +35,20 @@
 makeTAF <- function(script, ...)
 {
   script <- basename(script)
+  model.dir <- if(dir.exists("method") && !dir.exists("model"))
+                 "method" else "model"
   out <- switch(script,
                 data.R=make("data.R",
                             dir(pattern="^data_.*\\.R$"),
                             "data", engine=sourceTAF, ...),
+                method.R=make("method.R",
+                              c("data",dir(pattern="^method_.*\\.R$")),
+                              "method", engine=sourceTAF, ...),
                 model.R=make("model.R",
                              c("data",dir(pattern="^model_.*\\.R$")),
                              "model", engine=sourceTAF, ...),
                 output.R=make("output.R",
-                              c("model",dir(pattern="^output_.*\\.R$")),
+                              c(model.dir,dir(pattern="^output_.*\\.R$")),
                               "output", engine=sourceTAF, ...),
                 report.R=make("report.R",
                               c("output",dir(pattern="^report_.*\\.R$")),

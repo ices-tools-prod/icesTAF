@@ -4,7 +4,7 @@
 \alias{clean}
 \title{Clean TAF Directories}
 \usage{
-clean(dirs = c("data", "model", "output", "report"), force = FALSE)
+clean(dirs = c("data", "method", "model", "output", "report"), force = FALSE)
 }
 \arguments{
 \item{dirs}{directories to delete.}
@@ -13,8 +13,8 @@ clean(dirs = c("data", "model", "output", "report"), force = FALSE)
 \code{dirs} is \code{"boot"}.}
 }
 \description{
-Remove working TAF directories (\verb{data}, \verb{model}, \verb{output},
-\verb{report}), \verb{boot}, or other directories.
+Remove working TAF directories (\verb{data}, \verb{method}, \verb{model},
+\verb{output}, \verb{report}), \verb{boot}, or other directories.
 }
 \note{
 The purpose of removing the directories is to make sure that subsequent TAF

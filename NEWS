@@ -5,12 +5,17 @@ icesTAF 4.0-0 (2020-05-20)
   preferred term. All functions are backward compatible with older analyses that
   have a 'bootstrap' folder.
 
+* This release also adds method.R as an alternative name for the model.R script.
+
 * Renamed taf.bootstrap() to taf.boot().
 
 * The functions clean(), taf.boot(), taf.libPaths(), taf.library(), and
   taf.session() work in the same way as before, regardless of whether there is a
   'boot' folder or a 'bootstrap' folder. If both folders exist, they work with
   the 'boot' folder.
+
+* The functions clean(), makeAll(), makeTAF(), and sourceAll() recognize
+  method.R as an alternative name for the model.R script.
 
 
 

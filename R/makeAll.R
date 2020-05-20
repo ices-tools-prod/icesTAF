@@ -7,8 +7,8 @@
 #' @return Logical vector indicating which scripts were run.
 #'
 #' @note
-#' TAF scripts that will be run as needed: \verb{data.R}, \verb{model.R},
-#' \verb{output.R}, and \verb{report.R}.
+#' TAF scripts that will be run as needed: \verb{data.R}, \verb{method.R},
+#' \verb{model.R}, \verb{output.R}, and \verb{report.R}.
 #'
 #' @seealso
 #' \code{\link{source}} runs any R script, \code{\link{sourceTAF}} is more
@@ -30,7 +30,7 @@
 
 makeAll <- function(...)
 {
-  scripts <- c("data.R", "model.R", "output.R", "report.R")
+  scripts <- c("data.R", "method.R", "model.R", "output.R", "report.R")
   scripts <- scripts[file.exists(scripts)]
 
   out <- sapply(scripts, makeTAF, ...)

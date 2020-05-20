@@ -1,7 +1,7 @@
 #' Clean TAF Directories
 #'
-#' Remove working TAF directories (\verb{data}, \verb{model}, \verb{output},
-#' \verb{report}), \verb{boot}, or other directories.
+#' Remove working TAF directories (\verb{data}, \verb{method}, \verb{model},
+#' \verb{output}, \verb{report}), \verb{boot}, or other directories.
 #'
 #' @param dirs directories to delete.
 #' @param force passed to \code{software} and \code{clean.library} if any of the
@@ -39,7 +39,8 @@
 #'
 #' @export
 
-clean <- function(dirs=c("data", "model", "output", "report"), force=FALSE)
+clean <- function(dirs=c("data", "method", "model", "output", "report"),
+                  force=FALSE)
 {
   ## Convert "boot/" to "boot", so clean("boot/") doesn't go wild
   dirs <- sub("/$", "", dirs)
