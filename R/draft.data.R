@@ -17,12 +17,12 @@
 #'        filename, special value \code{"file"}, or special value
 #'        \code{"script"}.
 #' @param file optional filename to save the draft metadata to a file. The value
-#'        \code{TRUE} can be used as shorthand for \code{"bootstrap/DATA.bib"}.
+#'        \code{TRUE} can be used as shorthand for \code{"boot/DATA.bib"}.
 #' @param append whether to append metadata entries to an existing file.
 #' @param data.files data files to consider. The default is all folders and
-#'        files inside \verb{bootstrap/initial/data}.
-#' @param data.scripts bootstrap data scripts to consider. The default is all
-#'        \verb{*.R} files in the \verb{bootstrap} folder.
+#'        files inside \verb{boot/initial/data}.
+#' @param data.scripts boot data scripts to consider. The default is all
+#'        \verb{*.R} files in the \verb{boot} folder.
 #'
 #' @details
 #' Typical usage is to specify \code{originator}, while using the default values
@@ -45,8 +45,8 @@
 #'
 #' @note
 #' This function is intended to be called from the top directory of a TAF
-#' analysis. It looks for data files inside \verb{bootstrap/initial/data} folder
-#' and data scripts inside \verb{bootstrap}.
+#' analysis. It looks for data files inside \verb{boot/initial/data} folder and
+#' data scripts inside \verb{boot}.
 #'
 #' After creating the initial draft, the user can complete the description of
 #' each data entry inside the \verb{title} field and look into each file to
@@ -58,7 +58,7 @@
 #' \code{\link{draft.software}} creates an initial draft version of a
 #' \verb{SOFTWARE.bib} metadata file.
 #'
-#' \code{\link{taf.bootstrap}} reads and processes metadata entries.
+#' \code{\link{taf.boot}} reads and processes metadata entries.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -76,8 +76,8 @@
 draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
                        title=NULL, period=NULL, access="Public", source=NULL,
                        file="", append=FALSE,
-                       data.files=dir("bootstrap/initial/data"),
-                       data.scripts=dir("bootstrap",pattern="\\.R$"))
+                       data.files=dir("boot/initial/data"),
+                       data.scripts=dir("boot",pattern="\\.R$"))
 {
   ## icesTAF:::access.vocab is a string vector of allowed 'access' values
   if(!is.character(access) || !all(as.character(access) %in% access.vocab))
@@ -87,8 +87,8 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
   data.scripts <- file_path_sans_ext(data.scripts)
   entries <- c(data.files, data.scripts)
   if(length(entries) == 0)
-    stop("no data (bootstrap/initial/data/*) ",
-         "or data scripts (bootstrap/*.R) found")
+    stop("no data (boot/initial/data/*) ",
+         "or data scripts (boot/*.R) found")
   if(is.null(source))
     source <- rep(c("file","script"),
                   c(length(data.files),length(data.scripts)))
@@ -115,7 +115,7 @@ draft.data <- function(originator=NULL, year=format(Sys.time(),"%Y"),
 
   ## 3  Export
   if(identical(file, TRUE))
-    file <- "bootstrap/DATA.bib"
+    file <- "boot/DATA.bib"
   if(identical(file, FALSE))
     file <- ""
   ## No write() when file="", to ensure quiet assignment x <- draft.data()

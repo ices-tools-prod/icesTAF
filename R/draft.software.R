@@ -3,7 +3,7 @@
 #' Create an initial draft version of a \file{SOFTWARE.bib} metadata file.
 #'
 #' @param package name of one or more R packages, or files/folders starting with
-#'        the path \verb{bootstrap/initial/software}.
+#'        the path \verb{boot/initial/software}.
 #' @param author author(s) of the software.
 #' @param year year when this version of the software was released, or the
 #'        publication year of the cited manual/article/etc.
@@ -15,7 +15,7 @@
 #'        \verb{owner/repo[/subdir]@ref}, URL, or a filename.
 #' @param file optional filename to save the draft metadata to a file. The value
 #'        \code{TRUE} can be used as shorthand for
-#'        \code{"bootstrap/SOFTWARE.bib"}.
+#'        \code{"boot/SOFTWARE.bib"}.
 #' @param append whether to append metadata entries to an existing file.
 #'
 #' @details
@@ -58,7 +58,7 @@
 #' \code{\link{draft.data}} creates an initial draft version of a
 #' \verb{DATA.bib} metadata file.
 #'
-#' \code{\link{taf.bootstrap}} reads and processes metadata entries.
+#' \code{\link{taf.boot}} reads and processes metadata entries.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -102,16 +102,16 @@ draft.software <- function(package, author=NULL, year=NULL, title=NULL,
   ## 1  GitHub repo
   else if(grepl("@", package))
   {
-    targz <- download.github(package, "bootstrap/software")
-    taf.install(file.path("bootstrap/software", targz))
+    targz <- download.github(package, "boot/software")
+    taf.install(file.path("boot/software", targz))
     spec <- parse.repo(package)
     package <- if(spec$subdir=="") spec$repo else spec$subdir
     ## Pass source=NULL, to get a GitHub reference instead of trunk name
     out <- ds.package(package=package, author=author, year=year, title=title,
                       version=version, source=NULL)
   }
-  ## 2  Bootstrap folder or file
-  else if(dirname(package) == "bootstrap/initial/software")
+  ## 2  Boot folder or file
+  else if(dirname(package) == "boot/initial/software")
   {
     out <- ds.file(package=package, author=author, year=year, title=title,
                    version=version, source=source)
@@ -125,7 +125,7 @@ draft.software <- function(package, author=NULL, year=NULL, title=NULL,
 
   ## Export
   if(identical(file, TRUE))
-    file <- "bootstrap/SOFTWARE.bib"
+    file <- "boot/SOFTWARE.bib"
   if(identical(file, FALSE))
     file <- ""
   ## No write() when file="", to ensure quiet assignment x <- draft.software()

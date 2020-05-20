@@ -4,7 +4,7 @@
 \alias{taf.install}
 \title{TAF Install}
 \usage{
-taf.install(targz = NULL, lib = "bootstrap/library", quiet = FALSE)
+taf.install(targz = NULL, lib = "boot/library", quiet = FALSE)
 }
 \arguments{
 \item{targz}{a package filename, vector of filenames, or \code{NULL}.}
@@ -17,7 +17,7 @@ taf.install(targz = NULL, lib = "bootstrap/library", quiet = FALSE)
 Install packages in \file{tar.gz} format in local TAF library.
 }
 \details{
-If \verb{targz = NULL}, all packages found in \verb{bootstrap/software} are
+If \verb{targz = NULL}, all packages found in \verb{boot/software} are
 installed, as long as they have filenames of the form
 \verb{package_sha.tar.gz} containing a 7-character SHA reference code.
 
@@ -26,11 +26,11 @@ alphabetical order. When the installation order matters because of
 dependencies, the user can specify a vector of package filenames to install.
 }
 \note{
-The \code{taf.bootstrap} procedure downloads and installs R packages, without
+The \code{taf.boot} procedure downloads and installs R packages, without
 requiring the user to run \code{taf.install}. The main reason for a TAF user
 to run \code{taf.install} directly is to initialize and run a TAF analysis
-without running the bootstrap procedure, e.g. to avoid updating the
-underlying datasets and software.
+without running the boot procedure, e.g. to avoid updating the underlying
+datasets and software.
 
 After installing the package, this function writes the remote SHA reference
 code into the package files \verb{DESCRIPTION} and \verb{Meta/package.rds}.
@@ -38,18 +38,18 @@ code into the package files \verb{DESCRIPTION} and \verb{Meta/package.rds}.
 \examples{
 \dontrun{
 # Install one package
-taf.install("bootstrap/software/FLAssess_f1e5acb.tar.gz")
+taf.install("boot/software/FLAssess_f1e5acb.tar.gz")
 
-# Install all packages found in bootstrap/software
+# Install all packages found in boot/software
 taf.install()
 }
 
 }
 \seealso{
-\code{\link{taf.bootstrap}} calls \code{\link{download.github}} and
+\code{\link{taf.boot}} calls \code{\link{download.github}} and
 \code{taf.install} to download and install R packages.
 
-\code{\link{taf.library}} loads a package from \verb{bootstrap/library}.
+\code{\link{taf.library}} loads a package from \verb{boot/library}.
 
 \code{\link{clean.library}} selectively removes packages from the local TAF
 library.

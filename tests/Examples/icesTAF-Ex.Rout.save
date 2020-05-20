@@ -1,5 +1,5 @@
 
-R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
+R version 4.0.0 (2020-04-24) -- "Arbor Day"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -280,7 +280,7 @@ Type 'q()' to quit R.
 > ##D convert.spaces("A B.txt")
 > ##D 
 > ##D ## Many files
-> ##D convert.spaces("bootstrap/initial/data/*")
+> ##D convert.spaces("boot/initial/data/*")
 > ## End(Not run)
 > 
 > 
@@ -431,8 +431,8 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > ## Not run: 
-> ##D url <- paste0("https://github.com/ices-taf/2015_had-iceg/raw/master/",
-> ##D               "bootstrap/initial/software/catageysa.exe")
+> ##D url <- paste0("https://raw.githubusercontent.com/",
+> ##D               "ices-tools-prod/icesTAF/master/DESCRIPTION")
 > ##D download(url)
 > ## End(Not run)
 > 
@@ -613,8 +613,8 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > ## Not run: 
-> ##D is.r.package("bootstrap/software/SAM.tar.gz")
-> ##D is.r.package("bootstrap/software/stockassessment.tar.gz")
+> ##D is.r.package("boot/software/SAM.tar.gz")
+> ##D is.r.package("boot/software/stockassessment.tar.gz")
 > ## End(Not run)
 > 
 > 
@@ -1074,7 +1074,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > ## Not run: 
-> ##D sourceDir("bootstrap/software/utilities")
+> ##D sourceDir("boot/software/utilities")
 > ## End(Not run)
 > 
 > 
@@ -1134,19 +1134,19 @@ Type 'q()' to quit R.
 > 
 > 
 > cleanEx()
-> nameEx("taf.bootstrap")
-> ### * taf.bootstrap
+> nameEx("taf.boot")
+> ### * taf.boot
 > 
 > flush(stderr()); flush(stdout())
 > 
-> ### Name: taf.bootstrap
-> ### Title: Bootstrap TAF Analysis
-> ### Aliases: taf.bootstrap
+> ### Name: taf.boot
+> ### Title: Boot TAF Analysis
+> ### Aliases: taf.boot taf.bootstrap
 > 
 > ### ** Examples
 > 
 > ## Not run: 
-> ##D taf.bootstrap()
+> ##D taf.boot()
 > ## End(Not run)
 > 
 > 
@@ -1195,9 +1195,9 @@ Type 'q()' to quit R.
 > 
 > ## Not run: 
 > ##D # Install one package
-> ##D taf.install("bootstrap/software/FLAssess_f1e5acb.tar.gz")
+> ##D taf.install("boot/software/FLAssess_f1e5acb.tar.gz")
 > ##D 
-> ##D # Install all packages found in bootstrap/software
+> ##D # Install all packages found in boot/software
 > ##D taf.install()
 > ## End(Not run)
 > 
@@ -1325,7 +1325,7 @@ Type 'q()' to quit R.
 > 
 > ## Not run: 
 > ##D exefile <- if(os.unix()) "run" else "run.exe"
-> ##D taf.unzip("bootstrap/software/archive.zip", files=exefile, exdir="model")
+> ##D taf.unzip("boot/software/archive.zip", files=exefile, exdir="model")
 > ## End(Not run)
 > 
 > 
@@ -1594,7 +1594,7 @@ detaching ‘package:lattice’
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.369 0.004 0.374 0 0 
+Time elapsed:  0.334 0.024 0.358 0 0 
 > grDevices::dev.off()
 null device 
           1 

@@ -1,9 +1,9 @@
 #' Clean Data
 #'
-#' Selectively remove data from the \verb{bootstrap/data} folder if not listed
-#' in \verb{DATA.bib}.
+#' Selectively remove data from the \verb{boot/data} folder if not listed in
+#' \verb{DATA.bib}.
 #'
-#' @param folder location of \verb{bootstrap/data}.
+#' @param folder location of \verb{boot/data}.
 #' @param quiet whether to suppress messages about removed data.
 #' @param force whether to remove \verb{folder}, regardless of how it compares
 #'        to \verb{DATA.bib} entries.
@@ -16,12 +16,12 @@
 #' \item Data entry is not listed in \verb{DATA.bib} - remove.
 #' }
 #'
-#' The \code{taf.bootstrap} procedure cleans the \verb{bootstrap/data} folder,
-#' without requiring the user to run \code{clean.data}.
+#' The \code{taf.boot} procedure cleans the \verb{boot/data} folder, without
+#' requiring the user to run \code{clean.data}.
 #'
 #' @seealso
-#' \code{\link{taf.bootstrap}} calls \code{clean.data} as part of the default
-#' bootstrap procedure.
+#' \code{\link{taf.boot}} calls \code{clean.data} as part of the default boot
+#' procedure.
 #'
 #' \code{\link{clean.software}} cleans the local TAF software folder.
 #'
@@ -38,7 +38,7 @@
 #'
 #' @export
 
-clean.data <- function(folder="bootstrap/data", quiet=FALSE, force=FALSE)
+clean.data <- function(folder="boot/data", quiet=FALSE, force=FALSE)
 {
   if(!file.exists(file.path(folder, "../DATA.bib")) || force)
   {

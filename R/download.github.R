@@ -12,13 +12,13 @@
 #' In general, TAF scripts do not access the internet using
 #' \code{download.github} or similar functions. Instead, data and software are
 #' declared in \verb{DATA.bib} and \verb{SOFTWARE.bib} and then downloaded using
-#' \code{\link{taf.bootstrap}}. The exception is when a bootstrap script is used
-#' to fetch files from a web service (see
+#' \code{\link{taf.boot}}. The exception is when a boot script is used to fetch
+#' files from a web service (see
 #' \href{https://github.com/ices-taf/doc/wiki/Bib-entries}{TAF Wiki}).
 #'
 #' @seealso
-#' \code{\link{taf.bootstrap}} uses \code{download.github} to fetch software and
-#' data repositories.
+#' \code{\link{taf.boot}} uses \code{download.github} to fetch software and data
+#' repositories.
 #'
 #' \code{\link{download}} downloads a file.
 #'
@@ -43,7 +43,7 @@
 
 download.github <- function(repo, dir=".", quiet=FALSE)
 {
-  mkdir(dir)  # bootstrap/software
+  mkdir(dir)  # boot/software
   owd <- setwd(dir); on.exit(setwd(owd))
 
   if(!grepl("@", repo))
@@ -108,7 +108,7 @@ extract.subdir <- function(targz, subtargz, subdir)
     untar(targz, file.path(repdir, subdir)) # extract subdir
     file.remove(targz)
 
-    ## Move bootstrap/software/repdir/subdir to bootstrap/software/subdir
+    ## Move boot/software/repdir/subdir to boot/software/subdir
     file.rename(file.path(repdir, subdir), subdir)
     rmdir(repdir)
 

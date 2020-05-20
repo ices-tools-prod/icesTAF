@@ -17,21 +17,21 @@
 #' \item Installed package is not listed in \verb{SOFTWARE.bib} - remove.
 #' }
 #'
-#' The \code{taf.bootstrap} procedure cleans the TAF library, without requiring
-#' the user to run \code{clean.library}. The main reason for a TAF user to run
+#' The \code{taf.boot} procedure cleans the TAF library, without requiring the
+#' user to run \code{clean.library}. The main reason for a TAF user to run
 #' \code{clean.library} directly is to experiment with installing and removing
 #' different versions of software without modifying the \verb{SOFTWARE.bib}
 #' file.
 #'
 #' @seealso
-#' \code{\link{taf.bootstrap}} calls \code{clean.library} as part of the default
-#' bootstrap procedure.
+#' \code{\link{taf.boot}} calls \code{clean.library} as part of the default boot
+#' procedure.
 #'
 #' \code{\link{taf.install}} installs a package in the local TAF library.
 #'
 #' \code{\link{clean.software}} cleans the local TAF software folder.
 #'
-#' \code{\link{clean.data}} cleans the \verb{bootstrap/data} folder.
+#' \code{\link{clean.data}} cleans the \verb{boot/data} folder.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -45,7 +45,7 @@
 #'
 #' @export
 
-clean.library <- function(folder="bootstrap/library", quiet=FALSE, force=FALSE)
+clean.library <- function(folder="boot/library", quiet=FALSE, force=FALSE)
 {
   if(!file.exists(file.path(folder, "../SOFTWARE.bib")) || force)
   {

@@ -8,23 +8,22 @@
 #' @return The resulting vector of file paths.
 #'
 #' @note
-#' Specifically, this function sets \code{"bootstrap/library"} as the first
-#' element of \code{.libPaths()}. This is rarely beneficial in TAF scripts, but
-#' can be useful when using the \pkg{sessioninfo} package, for example.
+#' Specifically, this function sets \code{"boot/library"} as the first element
+#' of \code{.libPaths()}. This is rarely beneficial in TAF scripts, but can be
+#' useful when using the \pkg{sessioninfo} package, for example.
 #'
 #' @section Warning:
 #' An unwanted side effect of having the TAF library as the first element in the
 #' search path is that \code{install.packages} will then install packages inside
-#' \verb{bootstrap/library}. This is not a serious side effect, since a
-#' subsequent call to \code{taf.bootstrap} or  \code{clean.library} will remove
-#' packages from the TAF library that are not declared in the
-#' \file{SOFTWARE.bib} file.
+#' \verb{boot/library}. This is not a serious side effect, since a subsequent
+#' call to \code{taf.boot} or  \code{clean.library} will remove packages from
+#' the TAF library that are not declared in the \file{SOFTWARE.bib} file.
 #'
 #' @seealso
 #' \code{\link{.libPaths}} is the underlying function to modify the search path
 #' for R packages.
 #'
-#' \code{\link{taf.library}} loads a package from \verb{bootstrap/library}.
+#' \code{\link{taf.library}} loads a package from \verb{boot/library}.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
@@ -40,14 +39,14 @@ taf.libPaths <- function(remove=FALSE)
 {
   if(remove)
   {
-    include <- .libPaths() != file.path(getwd(), "bootstrap/library")
+    include <- .libPaths() != file.path(getwd(), "boot/library")
     .libPaths(.libPaths()[include])
   }
   else
   {
-    if(!dir.exists("bootstrap/library"))
-      warning("'bootstrap/library' does not exist")
-    .libPaths(c("bootstrap/library", .libPaths()))
+    if(!dir.exists("boot/library"))
+      warning("'boot/library' does not exist")
+    .libPaths(c("boot/library", .libPaths()))
   }
   .libPaths()
 }

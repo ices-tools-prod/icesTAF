@@ -41,7 +41,7 @@ process.entry <- function(bib, dir, quiet)
     }
   }
 
-  ## Case 3: R script in bootstrap directory
+  ## Case 3: R script in boot directory
   else if(bib$source[1] == "script")
   {
     script <- file_path_as_absolute(paste0(key, ".R"))

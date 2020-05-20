@@ -6,8 +6,8 @@
 \usage{
 draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
   title = NULL, period = NULL, access = "Public", source = NULL,
-  file = "", append = FALSE, data.files = dir("bootstrap/initial/data"),
-  data.scripts = dir("bootstrap", pattern = "\\\\.R$"))
+  file = "", append = FALSE, data.files = dir("boot/initial/data"),
+  data.scripts = dir("boot", pattern = "\\\\.R$"))
 }
 \arguments{
 \item{originator}{who prepared the data, e.g. a working group acronym.}
@@ -31,15 +31,15 @@ filename, special value \code{"file"}, or special value
 \code{"script"}.}
 
 \item{file}{optional filename to save the draft metadata to a file. The value
-\code{TRUE} can be used as shorthand for \code{"bootstrap/DATA.bib"}.}
+\code{TRUE} can be used as shorthand for \code{"boot/DATA.bib"}.}
 
 \item{append}{whether to append metadata entries to an existing file.}
 
 \item{data.files}{data files to consider. The default is all folders and
-files inside \verb{bootstrap/initial/data}.}
+files inside \verb{boot/initial/data}.}
 
-\item{data.scripts}{bootstrap data scripts to consider. The default is all
-\verb{*.R} files in the \verb{bootstrap} folder.}
+\item{data.scripts}{boot data scripts to consider. The default is all
+\verb{*.R} files in the \verb{boot} folder.}
 }
 \value{
 Object of class \verb{Bibtex}.
@@ -66,8 +66,8 @@ edit further, without accidentally overwriting an existing metadata file.
 }
 \note{
 This function is intended to be called from the top directory of a TAF
-analysis. It looks for data files inside \verb{bootstrap/initial/data} folder
-and data scripts inside \verb{bootstrap}.
+analysis. It looks for data files inside \verb{boot/initial/data} folder and
+data scripts inside \verb{boot}.
 
 After creating the initial draft, the user can complete the description of
 each data entry inside the \verb{title} field and look into each file to
@@ -89,7 +89,7 @@ draft.data("WGEF", 2015, file=TRUE)
 \code{\link{draft.software}} creates an initial draft version of a
 \verb{SOFTWARE.bib} metadata file.
 
-\code{\link{taf.bootstrap}} reads and processes metadata entries.
+\code{\link{taf.boot}} reads and processes metadata entries.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

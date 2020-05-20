@@ -37,7 +37,7 @@ stored in a directory, see example below.
 }
 \examples{
 \dontrun{
-sourceDir("bootstrap/software/utilities")
+sourceDir("boot/software/utilities")
 }
 
 }

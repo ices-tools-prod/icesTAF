@@ -16,7 +16,7 @@
 #'   \code{\link{draft.data}}     \tab draft DATA.bib file\cr
 #'   \code{\link{draft.software}} \tab draft SOFTWARE.bib file\cr
 #'   \code{\link{period}}         \tab paste period string for DATA.bib\cr
-#'   \code{\link{taf.bootstrap}}  \tab set up data files and software\cr
+#'   \code{\link{taf.boot}}       \tab set up data files and software\cr
 #'   \code{\link{taf.skeleton}}   \tab create empty TAF template
 #' }
 #' \emph{Running scripts:}
@@ -74,7 +74,7 @@
 #' }
 #' \emph{Administrative tools, rarely used in scripts:}
 #' \tabular{ll}{
-#'   \code{\link{clean.data}}      \tab clean bootstrap data\cr
+#'   \code{\link{clean.data}}      \tab clean boot data\cr
 #'   \code{\link{clean.library}}   \tab clean TAF library\cr
 #'   \code{\link{clean.software}}  \tab clean TAF software\cr
 #'   \code{\link{deps}}            \tab list dependencies\cr

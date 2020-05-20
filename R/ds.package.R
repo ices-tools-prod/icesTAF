@@ -9,7 +9,7 @@
 ds.package <- function(package, author, year, title, version, source)
 {
   ## 1  Bibliographic info: author, year, title, details
-  cit <- citation(package, lib.loc=c("bootstrap/library",.libPaths()))[1]
+  cit <- citation(package, lib.loc=c("boot/library",.libPaths()))[1]
   bib <- as.list(toBibtex(cit))
   key <- sub(",$", paste0(package,","), bib[[1]])  # add package name
   ## Treat null and NA (from mapply) the same, must test null first
@@ -32,7 +32,7 @@ ds.package <- function(package, author, year, title, version, source)
                     c(bib$edition, bib$doi))
 
   ## 2  Package info: version, source
-  pkg <- packageDescription(package, lib.loc=c("bootstrap/library",.libPaths()))
+  pkg <- packageDescription(package, lib.loc=c("boot/library",.libPaths()))
   repotype <- if(isTRUE(pkg$Repository == "CRAN")) "CRAN"
               else if(isTRUE(pkg$RemoteType == "github")) "GitHub"
               else if(!is.null(pkg$Repository)) pkg$Repository

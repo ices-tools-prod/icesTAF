@@ -10,23 +10,22 @@ clean(dirs = c("data", "model", "output", "report"), force = FALSE)
 \item{dirs}{directories to delete.}
 
 \item{force}{passed to \code{software} and \code{clean.library} if any of the
-\code{dirs} is \code{"bootstrap"}.}
+\code{dirs} is \code{"boot"}.}
 }
 \description{
 Remove working TAF directories (\verb{data}, \verb{model}, \verb{output},
-\verb{report}), \verb{bootstrap}, or other directories.
+\verb{report}), \verb{boot}, or other directories.
 }
 \note{
 The purpose of removing the directories is to make sure that subsequent TAF
 scripts start by creating new empty directories.
 
-If any of the \code{dirs} is \code{"bootstrap"} it is treated specially.
-Instead of completely removing the \verb{bootstrap} directory, only the
-subdirectories \verb{data} is removed, while \code{clean.software} and
-\code{clean.library} are used to clean the \verb{bootstrap/software} and
-\verb{bootstrap/library} subdirectories. This protects the subdirectory
-\verb{bootstrap/initial} and \verb{*.bib} metadata files from being
-accidentally deleted.
+If any of the \code{dirs} is \code{"boot"} it is treated specially. Instead
+of completely removing the \verb{boot} directory, only the subdirectories
+\verb{data} is removed, while \code{clean.software} and \code{clean.library}
+are used to clean the \verb{boot/software} and \verb{boot/library}
+subdirectories. This protects the subdirectory \verb{boot/initial} and
+\verb{*.bib} metadata files from being accidentally deleted.
 }
 \examples{
 \dontrun{
@@ -36,12 +35,12 @@ clean()
 }
 \seealso{
 \code{\link{clean.software}} selectively removes software from
-\verb{bootstrap/software}.
+\verb{boot/software}.
 
 \code{\link{clean.library}} selectively removes packages from
-\verb{bootstrap/library}.
+\verb{boot/library}.
 
-\code{\link{clean.data}} selectively removes data from \verb{bootstrap/data}.
+\code{\link{clean.data}} selectively removes data from \verb{boot/data}.
 
 \code{\link{mkdir}} and \code{\link{rmdir}} create and remove empty
 directories.

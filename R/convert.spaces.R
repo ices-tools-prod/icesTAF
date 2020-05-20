@@ -23,7 +23,7 @@
 #' convert.spaces("A B.txt")
 #'
 #' ## Many files
-#' convert.spaces("bootstrap/initial/data/*")
+#' convert.spaces("boot/initial/data/*")
 #' }
 #'
 #' @export

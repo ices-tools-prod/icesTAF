@@ -9,7 +9,7 @@ draft.software(package, author = NULL, year = NULL, title = NULL,
 }
 \arguments{
 \item{package}{name of one or more R packages, or files/folders starting with
-the path \verb{bootstrap/initial/software}.}
+the path \verb{boot/initial/software}.}
 
 \item{author}{author(s) of the software.}
 
@@ -27,7 +27,7 @@ from. This can be a GitHub reference of the form
 
 \item{file}{optional filename to save the draft metadata to a file. The value
 \code{TRUE} can be used as shorthand for
-\code{"bootstrap/SOFTWARE.bib"}.}
+\code{"boot/SOFTWARE.bib"}.}
 
 \item{append}{whether to append metadata entries to an existing file.}
 }
@@ -87,7 +87,7 @@ underlying functions to access information about installed R packages.
 \code{\link{draft.data}} creates an initial draft version of a
 \verb{DATA.bib} metadata file.
 
-\code{\link{taf.bootstrap}} reads and processes metadata entries.
+\code{\link{taf.boot}} reads and processes metadata entries.
 
 \code{\link{icesTAF-package}} gives an overview of the package.
 }

@@ -35,7 +35,7 @@ taf.skeleton <- function(path = ".", force = FALSE)
   on.exit(setwd(owd))
 
   # create initial directories
-  mkdir("bootstrap/initial/data")
+  mkdir("boot/initial/data")
 
   # define headers
   template <- paste0("## %s\n\n## Before:\n## After:\n\n",

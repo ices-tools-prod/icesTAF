@@ -38,7 +38,7 @@ scripts.
 \examples{
 \dontrun{
 exefile <- if(os.unix()) "run" else "run.exe"
-taf.unzip("bootstrap/software/archive.zip", files=exefile, exdir="model")
+taf.unzip("boot/software/archive.zip", files=exefile, exdir="model")
 }
 }
 \seealso{
