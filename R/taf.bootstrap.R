@@ -95,7 +95,7 @@ taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, force=FALSE,
   if (force)
     clean(c("bootstrap/software", "bootstrap/library", "bootstrap/data"))
 
-  out <- c(SOFTWARE.bib = FALSE, DATA.bib = FALSE)
+  out <- list(SOFTWARE.bib = FALSE, DATA.bib = FALSE)
 
   ## 0  Process config
   if (dir.exists("bootstrap/initial/config"))
@@ -110,7 +110,7 @@ taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, force=FALSE,
   ## 1  Process software
   if (software)
   {
-    out["SOFTWARE.bib"] <-
+    out[["SOFTWARE.bib"]] <-
       process.bibfile(
         "software",
         clean = clean,
@@ -121,7 +121,7 @@ taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, force=FALSE,
   ## 2  Process data
   if (data)
   {
-    out["DATA.bib"] <-
+    out[["DATA.bib"]] <-
       process.bibfile(
         "data",
         clean = clean,
