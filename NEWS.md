@@ -1,3 +1,9 @@
+# icesTAF 3.5.0.9001 (2020-08-23)
+
+* move all bib entry processing to process.bib
+* add function taf.data.path() to provide path to bootstrap data
+
+
 # icesTAF 3.5.0.9000 (2020-08-23)
 
 * add function taf.data.path() to provide path to bootstrap data
