@@ -78,49 +78,62 @@
 taf.bootstrap <- function(software=TRUE, data=TRUE, clean=TRUE, force=FALSE,
                           taf=NULL, quiet=FALSE)
 {
-  if(isTRUE(taf))
+  if (isTRUE(taf))
     software <- data <- clean <- force <- TRUE
-  if(!dir.exists("bootstrap"))
-    return(invisible(NULL))  # nothing to do
-  if(!quiet)
+
+  if (!dir.exists("bootstrap")) {
+    warning(
+      "'bootstrap' folder does not exists.\n",
+      "Are you sure you are in the correct working directory?"
+    )
+    return(invisible(NULL)) # nothing to do
+  }
+
+  if (!quiet)
     msg("Bootstrap procedure running...")
 
-  if(force)
+  if (force)
     clean(c("bootstrap/software", "bootstrap/library", "bootstrap/data"))
 
-  ## Work inside bootstrap
-  setwd("bootstrap"); on.exit(setwd(".."))
-
-  out <- c(SOFTWARE.bib=FALSE, DATA.bib=FALSE)
+  out <- c(SOFTWARE.bib = FALSE, DATA.bib = FALSE)
 
   ## 0  Process config
-  if(dir.exists("initial/config"))
+  if (dir.exists("bootstrap/initial/config"))
   {
-    if(clean)
+    if (clean)
       clean("config")
     warning("'bootstrap/initial/config' is deprecated.\n",
             "Use DATA.bib entry instead.")
-    cp("initial/config", ".")
+    cp("bootstrap/initial/config", "bootstrap")
   }
 
   ## 1  Process software
-  if(software && file.exists("SOFTWARE.bib"))
+  if (software)
   {
-    out["SOFTWARE.bib"] <- process.bibfile("SOFTWARE.bib",
-                                           clean=clean, quiet=quiet)
+    out["SOFTWARE.bib"] <-
+      process.bibfile(
+        "software",
+        clean = clean,
+        quiet = quiet
+      )
   }
 
   ## 2  Process data
-  if(data && file.exists("DATA.bib"))
+  if (data)
   {
-    out["DATA.bib"] <- process.bibfile("DATA.bib", clean=clean, quiet=quiet)
+    out["DATA.bib"] <-
+      process.bibfile(
+        "data",
+        clean = clean,
+        quiet = quiet
+      )
   }
 
   ## Remove empty folders
-  rmdir(c("data", "library", "software"), recursive=TRUE)
-  rmdir("library:", recursive=TRUE)  # this directory name can appear in Linux
+  rmdir(c("bootstrap/data", "bootstrap/library", "bootstrap/software"), recursive = TRUE)
+  rmdir("bootstrap/library:", recursive = TRUE) # this directory name can appear in Linux
 
-  if(!quiet)
+  if (!quiet)
     msg("Bootstrap procedure done")
 
   invisible(out)

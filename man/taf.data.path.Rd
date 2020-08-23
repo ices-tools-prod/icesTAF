@@ -11,6 +11,9 @@ taf.data.path(..., fsep = .Platform$file.sep)
 
 \item{fsep}{the path separator to use (assumed to be ASCII).}
 }
+\value{
+character
+}
 \description{
 Construct the path to a file in the TAF bootstrap data folder
 from components in a platform-independent way.  This function

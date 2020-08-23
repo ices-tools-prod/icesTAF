@@ -6,38 +6,25 @@
 
 ## Process *.bib file
 
-process.bibfile <- function(bibfile, clean=TRUE, quiet=FALSE)
+process.bibfile <- function(type, clean = TRUE, quiet = FALSE)
 {
+  # check type arg
+  type <- match.arg(type, c("data", "software"))
+
+  if (clean && type == "data")
+  {
+    clean.data(quiet = quiet)
+  }
+  if (clean && type == "software")
+  {
+    clean.software(quiet = quiet)
+    clean.library(quiet = quiet)
+  }
+
   if (!quiet) {
-    message("Processing ", bibfile)
+    message("Processing ", paste0(toupper(type), ".bib"))
   }
 
-  if (bibfile == "DATA.bib") {
-    type <- "data"
-  } else if (bibfile == "SOFTWARE.bib") {
-    type <- "software"
-  } else {
-    stop("bibfile must be 'DATA.bib' or 'SOFTWARE.bib'")
-  }
-
-  if (clean && type=="data")
-  {
-    clean.data("data", quiet=quiet)
-  }
-  if (clean && type=="software")
-  {
-    clean.software("software", quiet=quiet)
-    clean.library("library", quiet=quiet)
-  }
-
-  entries <- if (file.exists(bibfile)) read.bib(bibfile) else list()
-  dups <- anyDuplicated(names(entries))
-  if (dups) {
-    stop("Duplicated key: '", names(entries)[dups], "'")
-  }
-
-  for(bib in entries)
-  {
-    process.entry(bib, dir, quiet)
-  }
+  entries <- taf.sources(type)
+  sapply(entries, process.entry, quiet = quiet)
 }

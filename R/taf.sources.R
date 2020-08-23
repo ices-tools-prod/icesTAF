@@ -19,11 +19,19 @@ taf.sources <- function(type) {
 
   bibfile <- file.path("bootstrap", paste0(toupper(type), ".bib"))
   sources <- bibtex::read.bib(bibfile)
+
+  # check for duplicates
+  dups <- anyDuplicated(names(sources))
+  if (dups) {
+    stop("Duplicated key: '", names(sources)[dups], "'")
+  }
+
+  # add type feild (data or software)
   sources <-
     lapply(
       sources,
       function(x) {
-        x$type = type
+        x$type <- type
         x
       }
     )

@@ -24,7 +24,7 @@ ds.package(package, author, year, title, version, source)
 
 parse.repo(repo)
 
-process.bibfile(bibfile, clean = TRUE, quiet = FALSE)
+process.bibfile(type, clean = TRUE, quiet = FALSE)
 
 process.entry(bib, quiet = FALSE, force = FALSE, clean = FALSE)
 

@@ -17,7 +17,7 @@
 #' working directory set to the bootstrap folder, and hence make it
 #' to develop and debug.
 #'
-#' @value character
+#' @return character
 #' @export
 taf.data.path <- function(..., fsep = .Platform$file.sep) {
   if (basename(dirname(dirname(getwd()))) == "bootstrap") {
