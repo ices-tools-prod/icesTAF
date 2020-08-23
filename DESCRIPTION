@@ -2,18 +2,21 @@ Package: icesTAF
 Version: 3.5.0.9002
 Date: 2020-08-23
 Title: Functions to Support the ICES Transparent Assessment Framework
-Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="arni.magnusson@ices.dk"),
-             person("Colin", "Millar", role="aut"),
-             person("Alexandros", "Kokkalis", role="ctb"),
-             person("Iago", "Mosqueira", role="ctb"),
-             person("Ibrahim", "Umar", role="ctb"))
+Authors@R:
+  c(
+    person("Arni", "Magnusson", role = "aut"),
+    person("Colin", "Millar", role = c("aut", "cre"), emai="colin.millar@ices.dk"),
+    person("Alexandros", "Kokkalis", role = "ctb"),
+    person("Iago", "Mosqueira", role = "ctb"),
+    person("Ibrahim", "Umar", role = "ctb")
+  )
 Imports: grDevices, lattice, stats, tools, utils,
   bibtex
 LazyData: yes
-Description: Functions to support the ICES Transparent Assessment Framework
-  <https://taf.ices.dk> to organize data, methods, and results used in ICES
-  assessments. ICES is an organization facilitating international collaboration
-  in marine science.
+Description: Functions to support the ICES Transparent Assessment
+  Framework <https://taf.ices.dk> to organize data, methods, and
+  results used in ICES assessments. ICES is an organization
+  facilitating international collaboration in marine science.
 License: file LICENSE
 URL: https://taf.ices.dk
 Encoding: UTF-8
