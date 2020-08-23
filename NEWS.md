@@ -1,3 +1,9 @@
+# icesTAF 3.5.0.9003 (2020-08-23)
+
+* add taf.roxygenise() to build DATA.bib file from roxygen documentation
+* bug fixes introduces by changes to process.bib
+
+
 # icesTAF 3.5.0.9002 (2020-08-23)
 
 * add function taf.sources() to extract data and software sources used in a project
