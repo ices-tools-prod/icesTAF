@@ -1,6 +1,12 @@
---------------------------------------------------------------------------------
-icesTAF 3.5-0 (2020-05-15)
---------------------------------------------------------------------------------
+# icesTAF 3.5.0.9000 (2020-08-23)
+
+* add function taf.data.path() to provide path to bootstrap data
+
+
+
+
+# icesTAF 3.5-0 (2020-05-15)
+
 * Added function clean.data() to selectively clean the bootstrap data folder.
 
 * Added function detach.packages() to detach all packages.
@@ -24,9 +30,8 @@ icesTAF 3.5-0 (2020-05-15)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 3.4-0 (2020-04-07)
---------------------------------------------------------------------------------
+# icesTAF 3.4-0 (2020-04-07)
+
 * Added function is.r.package() to check if tar.gz file is an R package.
 
 * Added functions long2xtab() and xtab2long() to convert between table formats.
@@ -56,26 +61,23 @@ icesTAF 3.4-0 (2020-04-07)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 3.3-3 (2020-01-29)
---------------------------------------------------------------------------------
+# icesTAF 3.3-3 (2020-01-29)
+
 * Moved documentation of metadata (DATA.bib and SOFTWARE.bib) entries from
   process.bib() help page to https://github.com/ices-taf/doc/wiki/Bib-entries.
 
 
 
 
---------------------------------------------------------------------------------
-icesTAF 3.3-2 (2020-01-07)
---------------------------------------------------------------------------------
+# icesTAF 3.3-2 (2020-01-07)
+
 * Improved process.bib() so it allows 'access' to be undefined.
 
 
 
 
---------------------------------------------------------------------------------
-icesTAF 3.3-1 (2019-12-11)
---------------------------------------------------------------------------------
+# icesTAF 3.3-1 (2019-12-11)
+
 * Improved handling of SOFTWARE.bib GitHub entries that have owner/repo/subdir.
   Code contributed by Ibrahim Umar.
 
@@ -85,9 +87,8 @@ icesTAF 3.3-1 (2019-12-11)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 3.3-0 (2019-12-03)
---------------------------------------------------------------------------------
+# icesTAF 3.3-0 (2019-12-03)
+
 * Added function get.remote.sha() to look up a SHA reference code on GitHub.
   Fixed a bug introduced in 3.2-0.
 
@@ -105,9 +106,8 @@ icesTAF 3.3-0 (2019-12-03)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 3.2-0 (2019-11-01)
---------------------------------------------------------------------------------
+# icesTAF 3.2-0 (2019-11-01)
+
 * Added functions clean.library() and clean.software() to selectively clean the
   TAF library and software folders.
 
@@ -156,9 +156,8 @@ icesTAF 3.2-0 (2019-11-01)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 3.1-1 (2019-05-24)
---------------------------------------------------------------------------------
+# icesTAF 3.1-1 (2019-05-24)
+
 * Added function convert.spaces() to convert spaces in filenames.
 
 * Added function sam2taf() to convert SAM tables to TAF format.
@@ -179,9 +178,8 @@ icesTAF 3.1-1 (2019-05-24)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 3.0-0 (2019-04-25)
---------------------------------------------------------------------------------
+# icesTAF 3.0-0 (2019-04-25)
+
 * Added function period() to paste period string for DATA.bib entries.
 
 * Removed argument 'name' from taf.skeleton(). The default behavior is now to
@@ -204,9 +202,8 @@ icesTAF 3.0-0 (2019-04-25)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 2.3-0 (2019-04-08)
---------------------------------------------------------------------------------
+# icesTAF 2.3-0 (2019-04-08)
+
 * Added function sourceDir() to read all *.R files from a directory.
 
 * Added function zoom() to change text size in a lattice plot.
@@ -233,9 +230,8 @@ icesTAF 2.3-0 (2019-04-08)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 2.2-0 (2019-02-22)
---------------------------------------------------------------------------------
+# icesTAF 2.2-0 (2019-02-22)
+
 * Added function file.encoding() to examine file encoding. Added functions
   latin1.to.utf8() and utf8.to.latin1() to convert file encoding.
 
@@ -257,9 +253,8 @@ icesTAF 2.2-0 (2019-02-22)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 2.1-0 (2019-01-08)
---------------------------------------------------------------------------------
+# icesTAF 2.1-0 (2019-01-08)
+
 * Added functions taf.bootstrap() and process.bib() to set up data files and
   software.
 
@@ -279,9 +274,8 @@ icesTAF 2.1-0 (2019-01-08)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 2.0-0 (2018-12-07)
---------------------------------------------------------------------------------
+# icesTAF 2.0-0 (2018-12-07)
+
 * Added function taf.library() to work with packages in a local TAF library.
 
 * Added function rmdir() to remove an empty directory.
@@ -302,9 +296,8 @@ icesTAF 2.0-0 (2018-12-07)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.6-2 (2018-08-03)
---------------------------------------------------------------------------------
+# icesTAF 1.6-2 (2018-08-03)
+
 * Added argument 'underscore' to write.taf().
 
 * Added argument 'stringsAsFactors' to read.taf().
@@ -314,9 +307,8 @@ icesTAF 1.6-2 (2018-08-03)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.6-1 (2018-06-28)
---------------------------------------------------------------------------------
+# icesTAF 1.6-1 (2018-06-28)
+
 * Changed sourceTAF(), sourceAll(), makeTAF(), and makeAll() so they never
   delete the 'begin' folder.
 
@@ -332,9 +324,8 @@ icesTAF 1.6-1 (2018-06-28)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.6-0 (2018-05-15)
---------------------------------------------------------------------------------
+# icesTAF 1.6-0 (2018-05-15)
+
 * Removed function upload(). Initial data and model files are now in the 'begin'
   folder of each assessment.
 
@@ -352,17 +343,15 @@ icesTAF 1.6-0 (2018-05-15)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.5-3 (2018-04-27)
---------------------------------------------------------------------------------
+# icesTAF 1.5-3 (2018-04-27)
+
 * Changed default file encoding in read.taf() to UTF-8.
 
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.5-1 (2018-03-20)
---------------------------------------------------------------------------------
+# icesTAF 1.5-1 (2018-03-20)
+
 * Replaced argument 'local' with 'rm' in sourceTAF().
 
 * Added argument 'colname' to flr2taf().
@@ -370,9 +359,8 @@ icesTAF 1.5-1 (2018-03-20)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.5-0 (2018-01-25)
---------------------------------------------------------------------------------
+# icesTAF 1.5-0 (2018-01-25)
+
 * Added functions makeTAF() and makeAll() to run TAF scripts as needed.
 
 * Added arguments 'include' and 'engine' to make().
@@ -385,17 +373,15 @@ icesTAF 1.5-0 (2018-01-25)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.4-1 (2017-12-05)
---------------------------------------------------------------------------------
+# icesTAF 1.4-1 (2017-12-05)
+
 * Added argument 'grep' to div() and rnd().
 
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.4-0 (2017-10-30)
---------------------------------------------------------------------------------
+# icesTAF 1.4-0 (2017-10-30)
+
 * Added function upload() to upload file to TAF database. Added function
   download() to download file in binary mode.
 
@@ -423,26 +409,23 @@ icesTAF 1.4-0 (2017-10-30)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.3-2 (2017-06-03)
---------------------------------------------------------------------------------
+# icesTAF 1.3-2 (2017-06-03)
+
 * Improved package description.
 
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.3-0 (2017-05-27)
---------------------------------------------------------------------------------
+# icesTAF 1.3-0 (2017-05-27)
+
 * Added function make() to run script if needed, and sourceAtoZ() to run all
   scripts in alphabetical order. Added clean() to remove TAF directories.
 
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.2-0 (2017-05-19)
---------------------------------------------------------------------------------
+# icesTAF 1.2-0 (2017-05-19)
+
 * Added function sourceTAF() to run scripts. Added cp() to copy files and
   mkdir() to create a directory. Added read.taf() and write.taf() to read and
   write TAF tables. Added long2taf(), taf2xtab(), tt(), and xtab2taf to convert
@@ -458,16 +441,14 @@ icesTAF 1.2-0 (2017-05-19)
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.1-0 (2017-04-27)
---------------------------------------------------------------------------------
+# icesTAF 1.1-0 (2017-04-27)
+
 * Added functions flr2taf() and taf2long() to convert between table formats.
 
 
 
 
---------------------------------------------------------------------------------
-icesTAF 1.0-0 (2017-02-17)
---------------------------------------------------------------------------------
+# icesTAF 1.0-0 (2017-02-17)
+
 * Initial release, with five functions: dir.remove(), dos2unix(), readDLS(),
   unix2dos(), and writeDLS().
