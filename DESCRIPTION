@@ -10,8 +10,8 @@ Authors@R:
     person("Iago", "Mosqueira", role = "ctb"),
     person("Ibrahim", "Umar", role = "ctb")
   )
-Imports: grDevices, lattice, stats, tools, utils,
-  bibtex
+Imports: grDevices, lattice, stats, tools, utils, bibtex, purrr,
+  roxygen2
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment
   Framework <https://taf.ices.dk> to organize data, methods, and
