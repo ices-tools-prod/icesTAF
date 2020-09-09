@@ -28,7 +28,7 @@
 
 sourceAll <- function(...)
 {
-  scripts <- c("data.R", "model.R", "output.R", "report.R")
+  scripts <- c("data.R", "model.R", "output.R", "report.R", "utilities.R")
   scripts <- scripts[file.exists(scripts)]
 
   out <- sapply(scripts, sourceTAF, ...)
