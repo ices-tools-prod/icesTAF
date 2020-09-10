@@ -37,8 +37,9 @@ draft.data.script <- function(name, title, description, format, originator, year
 # @tafYear {year}
 # @tafAccess {access}
 # @tafSource script
-"
-    )
 
-  cat(content, file = taf.boot.path(glue("{name}.R")))
+{content}
+")
+
+  cat(file_contents, file = taf.boot.path(glue("{name}.R")))
 }
