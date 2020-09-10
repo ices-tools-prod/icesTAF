@@ -11,6 +11,9 @@
 #' @param originator who prepared the data, e.g. a working group acronym.
 #' @param year year of the analysis when the data were used. The default is the
 #'        current year.
+#' @param period a numeric vector of the form \code{c(1990, 2000)},
+#'        indicating the first and last year that the data cover.
+#'        Alternatively, a single number if the data cover only one year.
 #' @param access data access code: \code{"OSPAR"}, \code{"Public"}, or
 #'        \code{"Restricted"}.
 #' @param content the r code that fetches and saves the data
@@ -19,15 +22,11 @@
 #'
 #' @export
 draft.data.script <- function(name, title, description, format, originator, year,
-                              access, content) {
+                              period, access, content) {
 
-  # make names valid doesnt garauntee valid file name,
-  # but better than nothing
-  name <- make.names(name)
-
-  file_contents <-
-    glue(
-      "# {title}
+  # set up template
+  header <-
+"# {title}
 #
 # {description}
 #
@@ -35,11 +34,23 @@ draft.data.script <- function(name, title, description, format, originator, year
 # @format {format}
 # @tafOriginator {originator}
 # @tafYear {year}
+# @tafPeriod {period}
 # @tafAccess {access}
 # @tafSource script
+"
+  header <- gsub("#", "#'", header)
 
-{content}
-")
+  # make names valid doesnt garauntee valid file name,
+  # but better than nothing
+  name <- make.names(name)
+  period <- paste(unlist(period), collapse = "-")
 
-  cat(file_contents, file = taf.boot.path(glue("{name}.R")))
+  # make sure content is a single string
+  content <- paste(content, collapse = "\n")
+
+  cat(
+    glue(header), content,
+    file = taf.boot.path(glue("{name}.R")),
+    sep = "\n\n"
+  )
 }

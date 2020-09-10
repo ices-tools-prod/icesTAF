@@ -4,8 +4,8 @@
 \alias{draft.data.script}
 \title{Draft or create a bootstrap data script}
 \usage{
-draft.data.script(name, title, description, format, originator, year, access,
-  content)
+draft.data.script(name, title, description, format, originator, year, period,
+  access, content)
 }
 \arguments{
 \item{name}{the name of the dataset and the file name that will be
@@ -21,6 +21,10 @@ created.}
 
 \item{year}{year of the analysis when the data were used. The default is the
 current year.}
+
+\item{period}{a numeric vector of the form \code{c(1990, 2000)},
+indicating the first and last year that the data cover.
+Alternatively, a single number if the data cover only one year.}
 
 \item{access}{data access code: \code{"OSPAR"}, \code{"Public"}, or
 \code{"Restricted"}.}
