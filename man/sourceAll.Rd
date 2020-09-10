@@ -16,8 +16,8 @@ Logical vector, indicating which scripts ran without errors.
 Run core TAF scripts in current directory.
 }
 \note{
-TAF scripts that will be run if they exist: \verb{data.R}, \verb{model.R},
-\verb{output.R}, and \verb{report.R}.
+TAF scripts that will be run if they exist: \verb{utilities.R}
+\verb{data.R}, \verb{model.R}, \verb{output.R}, and \verb{report.R}.
 }
 \examples{
 \dontrun{
