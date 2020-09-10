@@ -1,4 +1,4 @@
-#' Construct Path to a TAF bootstrap data file
+#' Construct Path to a TAF bootstrap folder
 #'
 #' Construct the path to a file in the TAF bootstrap data folder
 #' from components in a platform-independent way.  This function
@@ -11,14 +11,15 @@
 #' @seealso \link{file.path}
 #' @details
 #' This function, simplifies the construction of file paths to
-#' inintial data files gathered during the TAF bootstrapping step.
-#' In addition, this function is useful when developing scripts used
-#' in the bootstrap procedure, as these scripts are run with the
-#' working directory set to the bootstrap folder, and hence make it
-#' to develop and debug.
+#' the boot (bootstrap) folder.
 #'
 #' @return character
 #' @export
-taf.data.path <- function(..., fsep = .Platform$file.sep) {
-  taf.boot.path("data")
+taf.boot.path <- function(..., fsep = .Platform$file.sep) {
+  if (basename(dirname(dirname(getwd()))) == "bootstrap") {
+    args <- list("..")
+  } else {
+    args <- list("bootstrap")
+  }
+  do.call(file.path, c(args, ..., fsep = fsep))
 }
