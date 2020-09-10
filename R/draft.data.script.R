@@ -20,6 +20,11 @@
 #' @export
 draft.data.script <- function(name, title, description, format, originator, year,
                               access, content) {
+
+  # make names valid doesnt garauntee valid file name,
+  # but better than nothing
+  name <- make.names(name)
+
   file_contents <-
     glue(
       "# {title}
@@ -35,5 +40,5 @@ draft.data.script <- function(name, title, description, format, originator, year
 "
     )
 
-  cat(content, file = taf.data.path())
+  cat(content, file = taf.boot.path("{name}.R"))
 }
