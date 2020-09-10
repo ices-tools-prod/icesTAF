@@ -14,8 +14,8 @@ Description: Functions to support the ICES Transparent Assessment Framework
   <https://taf.ices.dk> to organize data, methods, and results used in ICES
   assessments. ICES is an organization facilitating international collaboration
   in marine science.
-License: GPL (>= 2)
+License: GPL-3
 URL: https://taf.ices.dk
 Encoding: UTF-8
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Roxygen: list(old_usage=TRUE)
