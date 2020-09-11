@@ -20,5 +20,5 @@
 #' @return character
 #' @export
 taf.data.path <- function(..., fsep = .Platform$file.sep) {
-  taf.boot.path("data")
+  taf.boot.path("data", ...)
 }

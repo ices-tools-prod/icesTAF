@@ -17,6 +17,8 @@
 #' @export
 taf.boot.path <- function(..., fsep = .Platform$file.sep) {
   if (basename(dirname(dirname(getwd()))) == "bootstrap") {
+    args <- list("..", "..")
+  } else if (basename(dirname(getwd())) == "bootstrap") {
     args <- list("..")
   } else {
     args <- list("bootstrap")
