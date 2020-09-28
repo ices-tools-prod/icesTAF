@@ -27,13 +27,14 @@
 #'
 #' @export
 
-taf2long <- function(x, names=c("Year","Age","Value"))
+taf2long <- function(x, names = c("Year", "Age", "Value"))
 {
-  row.names(x) <- x[[1]]
-  x <- x[-1]
-  y <- as.data.frame(as.table(as.matrix(x)))
-  y[[1]] <- type.convert(as.character(y[[1]]), as.is=TRUE)
-  y[[2]] <- type.convert(as.character(y[[2]]), as.is=TRUE)
+  row.names.x <- x[[1]]
+  x <- as.matrix(x[-1])
+  row.names(x) <- row.names.x
+  y <- as.data.frame(as.table(x))
+  y[[1]] <- type.convert(as.character(y[[1]]), as.is = TRUE)
+  y[[2]] <- type.convert(as.character(y[[2]]), as.is = TRUE)
   names(y) <- names
   y
 }
