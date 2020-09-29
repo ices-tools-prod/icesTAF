@@ -3,7 +3,8 @@
 * Add upload_fay() function
 * add taf.boot.path() function to simplify access to boot folder
 * add function draft.data.script()
-
+* add local read.bib() function
+* fix taf2long so it works on tibbles
 
 # icesTAF 3.5.0.9003 (2020-08-23)
 
