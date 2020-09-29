@@ -1,3 +1,10 @@
+# icesTAF 3.5.0.9004 (2020-09-29)
+
+* Add upload_fay() function
+* add taf.boot.path() function to simplify access to boot folder
+* add function draft.data.script()
+
+
 # icesTAF 3.5.0.9003 (2020-08-23)
 
 * add taf.roxygenise() to build DATA.bib file from roxygen documentation
