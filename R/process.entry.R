@@ -10,11 +10,7 @@ process.entry <- function(bib, quiet = FALSE, force = FALSE, clean = FALSE) {
   owd <- setwd("bootstrap")
   on.exit(setwd(owd))
 
-  if (inherits(bib, "bibentry")) {
-    bib <- unclass(bib)[[1]]
-  }
-
-  key <- attr(bib, "key")
+  key <- bib$key
   if (!quiet) {
     msg("* ", key)
   }

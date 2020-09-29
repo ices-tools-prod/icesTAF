@@ -35,6 +35,6 @@ taf.sources <- function(type) {
         x
       }
     )
-  names(sources) <- NULL
-  do.call("c", sources)
+
+  sources
 }
