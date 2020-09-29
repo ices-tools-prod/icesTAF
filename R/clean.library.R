@@ -40,7 +40,6 @@
 #' clean.library()
 #' }
 #'
-#' @importFrom bibtex read.bib
 #' @importFrom utils packageDescription
 #'
 #' @export

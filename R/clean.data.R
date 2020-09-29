@@ -34,8 +34,6 @@
 #' clean.data()
 #' }
 #'
-#' @importFrom bibtex read.bib
-#'
 #' @export
 
 clean.data <- function(folder="bootstrap/data", quiet=FALSE, force=FALSE)

@@ -1,7 +1,5 @@
 #' @rdname icesTAF-internal
 #'
-#' @importFrom bibtex read.bib
-#'
 #' @export
 
 ## Process *.bib file

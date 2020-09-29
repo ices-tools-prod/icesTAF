@@ -41,8 +41,6 @@
 #' clean.software()
 #' }
 #'
-#' @importFrom bibtex read.bib
-#'
 #' @export
 
 clean.software <- function(folder="bootstrap/software", quiet=FALSE,
