@@ -60,7 +60,7 @@ clean.library <- function(folder="bootstrap/library", quiet=FALSE, force=FALSE)
       ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
       if(pkg %in% names(bib))
       {
-        repo <- bib[pkg]$source
+        repo <- bib[[pkg]]$source
         spec <- parse.repo(repo)
         sha.bib <- get.remote.sha(spec$username, spec$repo, spec$ref)
         sha.inst <- substring(sha.inst, 1, nchar(sha.bib))  # same length
