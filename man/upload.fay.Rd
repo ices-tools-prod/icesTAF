@@ -4,7 +4,7 @@
 \alias{upload.fay}
 \title{Upload Fishing Mortality at Age}
 \usage{
-upload.fay(data, info, quiet = FALSE, only.check = FALSE)
+upload.fay(data, info, quiet = TRUE, only.check = FALSE, ...)
 }
 \arguments{
 \item{data}{a dataframe with columns for year followed by columns

@@ -44,14 +44,14 @@
 #' @importFrom jsonlite toJSON
 #' @importFrom jsonvalidate json_validate
 #' @importFrom httr POST content_type_json verbose
-upload.fay <- function(data, info, quiet = FALSE,
-                      only.check = FALSE) {
+upload.fay <- function(data, info, quiet = TRUE,
+                      only.check = FALSE, ...) {
 
   # fillin missing info
   if (is.null(info$activeYear)) {
     info$activeYear <- as.integer(format(Sys.Date(), "%Y"))
   }
-  info$repoTag <- glue("{info$activeYear}_{info$stockCode}_assessment")
+  info$repoTag <- glue("{info$activeYear}_{info$stockCode}_assessment@v0.1")
   if (is.null(info$unit)) {
     # default unit is F
     info$unit <- "F"
@@ -72,16 +72,11 @@ upload.fay <- function(data, info, quiet = FALSE,
   # stop if invalid
   schema <- system.file("schemas/assessment.schema-0.1.json", package = "icesTAF")
   ok <- json_validate(json, schema, verbose = TRUE)
-  if (!ok) {
-    return(ok)
-  }
-  if (!quiet) msg("OK")
-
-  if (only.check) {
+  if (!ok || only.check) {
     return(ok)
   }
 
-  url <- "https://localhost:5001/api/upload"
+  url <- "https://taf.ices.dk/repomanager/api/assessments"
 
   if (quiet) {
     ret <- POST(url, body = json, content_type_json())
@@ -90,7 +85,8 @@ upload.fay <- function(data, info, quiet = FALSE,
     ret <- POST(url, body = json, content_type_json(), verbose())
   }
 
-  # check return value from POST
+  if (!quiet) msg(http_condition(status_code(ret), "message")$message)
 
+  # check return value from POST
   ret
 }

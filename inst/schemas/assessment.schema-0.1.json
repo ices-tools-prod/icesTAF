@@ -37,7 +37,7 @@
     "repoTag": {
       "description": "The github repository followed by a @ then the commit reference or tag name",
       "type": "string",
-      "pattern": "^[a-zA-Z0-9_\\.]+@?[a-zA-Z0-9_\\.]*$"
+      "pattern": "^[a-zA-Z0-9\\-_\\.]+@?[a-zA-Z0-9_\\.]*$"
     },
     "values": {
       "type": "array",
