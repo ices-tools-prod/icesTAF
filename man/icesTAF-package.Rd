@@ -99,7 +99,7 @@ ICES Transparent Assessment Framework: \url{https://taf.ices.dk}.
 
 To explore example TAF stock assessments, see the introductory
 \href{https://www.youtube.com/watch?v=FweJbr9hfdY}{video} and
-\href{https://github.com/ices-taf/doc/tree/master/tutorial-1/README.md}{tutorial}.
+\href{https://github.com/ices-taf/doc/blob/master/tutorial-1/README.md}{tutorial}.
 
 The \href{https://github.com/ices-taf/doc/wiki}{TAF Wiki} provides additional
 help resources.
