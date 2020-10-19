@@ -8,7 +8,8 @@ Authors@R:
     person("Colin", "Millar", role = c("aut", "cre"), email="colin.millar@ices.dk"),
     person("Alexandros", "Kokkalis", role = "ctb"),
     person("Iago", "Mosqueira", role = "ctb"),
-    person("Ibrahim", "Umar", role = "ctb")
+    person("Ibrahim", "Umar", role = "ctb"),
+    person("Hjalte", "Parner", role = "ctb")
   )
 Imports: grDevices, lattice, stats, tools, utils,
   purrr, roxygen2, glue
