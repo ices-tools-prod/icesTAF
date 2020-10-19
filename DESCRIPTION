@@ -12,7 +12,7 @@ Authors@R:
     person("Hjalte", "Parner", role = "ctb")
   )
 Imports: grDevices, lattice, stats, tools, utils,
-  purrr, roxygen2, glue
+  purrr, roxygen2, glue, jsonlite
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework
   <https://taf.ices.dk> to organize data, methods, and results used in ICES

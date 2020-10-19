@@ -24,6 +24,7 @@
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
+#' @importFrom jsonlite parse_json
 #' @export
 
 read.bib <- function(file) {
