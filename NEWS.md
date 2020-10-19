@@ -1,31 +1,22 @@
-# icesTAF 3.5.0.9004 (2020-09-29)
+# icesTAF 3.6.0 (2020-10-19)
 
-* Add upload_fay() function
 * add taf.boot.path() function to simplify access to boot folder
-* add function draft.data.script()
+
+* add function draft.data.script() to create R script template for downloading
+  data with metadata
+
 * add local read.bib() function
+
 * fix taf2long so it works on tibbles
 
-# icesTAF 3.5.0.9003 (2020-08-23)
-
 * add taf.roxygenise() to build DATA.bib file from roxygen documentation
-* bug fixes introduces by changes to process.bib
 
-
-# icesTAF 3.5.0.9002 (2020-08-23)
-
-* add function taf.sources() to extract data and software sources used in a project
-
-
-# icesTAF 3.5.0.9001 (2020-08-23)
+* add function taf.sources() to extract data and software sources used in a
+  project
 
 * move all bib entry processing to process.bib
 
-
-# icesTAF 3.5.0.9000 (2020-08-23)
-
 * add function taf.data.path() to provide path to bootstrap data
-
 
 
 
