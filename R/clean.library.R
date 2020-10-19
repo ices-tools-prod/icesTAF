@@ -56,7 +56,10 @@ clean.library <- function(folder="bootstrap/library", quiet=FALSE, force=FALSE)
     for(pkg in dir(folder))
     {
       ## Read sha.inst, the SHA for an installed package
-      sha.inst <- packageDescription(pkg, lib.loc=folder)$RemoteSha
+      sha.inst <- packageDescription(pkg, lib.loc = folder)$RemoteSha
+      if (is.null(sha.inst)) {
+        sha.inst <- "Not listed"
+      }
       ## Read sha.bib, the corresponding SHA from SOFTWARE.bib
       if(pkg %in% names(bib))
       {
@@ -69,7 +72,6 @@ clean.library <- function(folder="bootstrap/library", quiet=FALSE, force=FALSE)
       {
         sha.bib <- "Not listed"
       }
-
       ## If installed package is either a mismatch or not listed, then remove it
       if(sha.inst != sha.bib)
       {
