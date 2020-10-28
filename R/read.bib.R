@@ -28,10 +28,10 @@
 #' @export
 
 read.bib <- function(file) {
-  x <- readLines(file)
+  x <- readLines(file, warn = FALSE)
 
   # remove comments
-  x <- paste(x[!grepl("^%", x)], collapse = "")
+  x <- paste(x[!grepl("^\\s*[%#].*$", x)], collapse = "")
   # split into entiries
   x <- paste0("@", strsplit(x, "\\}\\s*@")[[1]], "}")
   # convert key and bibtype entry
