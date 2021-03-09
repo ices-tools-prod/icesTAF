@@ -16,6 +16,7 @@ process.entry <- function(bib, quiet = FALSE, force = FALSE, clean = FALSE) {
   }
 
   ## If source contains multiple files then split into vector
+  bib$source <- gsub(" +", "\n", bib$source) # treat space in source as newline
   bib$source <- trimws(unlist(strsplit(bib$source, "\\n")))
   bib$source <- sub(",$", "", bib$source) # remove trailing comma
   bib$source <- bib$source[bib$source != ""] # remove empty strings
