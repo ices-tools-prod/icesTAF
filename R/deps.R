@@ -2,7 +2,7 @@
 #'
 #' Search R scripts for packages that are required.
 #'
-#' @param path a directory or file containing R scripts.
+#' @param path an R script file or a directory containing R scripts.
 #' @param base whether to include base packages in the output.
 #' @param installed whether to include installed packages in the output.
 #' @param available whether to include available packages in the output.
@@ -49,8 +49,8 @@
 deps <- function(path=".", base=FALSE, installed=TRUE, available=TRUE,
                  list=FALSE)
 {
-  files <- if(dir.exists(path)) dir(path, pattern="\\.[Rr]$", full.names=TRUE)
-           else path
+  files <- if(dir.exists(path))
+             dir(path, pattern="\\.[Rr]$|\\.[Rr]md$", full.names=TRUE) else path
   code <- lapply(files, readLines)
   names(code) <- basename(files)
 
