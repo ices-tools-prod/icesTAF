@@ -18,3 +18,23 @@ using roxygen syntax headers.  It depnends on the roxygen2
 package adding some extra functionality to produce citation
 entries for data sources
 }
+\examples{
+\dontrun{
+
+# Create bootstrap folder
+mkdir("bootstrap")
+
+# Create bootstrap script, bootstrap/mydata.R
+draft.data.script(name="mydata", title="Title", description="Description",
+                  format="txt", originator="Me", year="2022",
+                  period=c(2000,2020), access="Public",
+                  content='write(pi, file="pi.txt")')
+
+# Create metadata, bootstrap/DATA.bib
+taf.roxygenise(files="mydata.R")
+
+# Run bootstrap script, creating bootstrap/data/mydata/pi.txt
+taf.bootstrap()
+}
+
+}

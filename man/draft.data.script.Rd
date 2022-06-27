@@ -35,3 +35,23 @@ Alternatively, a single number if the data cover only one year.}
 Create an \file{R} file to fetch data including adding metadata
 via roxygen2 fields to the top of the file.
 }
+\examples{
+\dontrun{
+
+# Create bootstrap folder
+mkdir("bootstrap")
+
+# Create bootstrap script, bootstrap/mydata.R
+draft.data.script(name="mydata", title="Title", description="Description",
+                  format="txt", originator="Me", year="2022",
+                  period=c(2000,2020), access="Public",
+                  content='write(pi, file="pi.txt")')
+
+# Create metadata, bootstrap/DATA.bib
+taf.roxygenise(files="mydata.R")
+
+# Run bootstrap script, creating bootstrap/data/mydata/pi.txt
+taf.bootstrap()
+}
+
+}
