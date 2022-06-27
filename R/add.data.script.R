@@ -3,10 +3,11 @@
 #' Download an \file{R} file from the ICES datasets repo to fetch
 #' data including adding metadata via roxygen2 fields to the top of the file.
 #'
-#' @param name the name of the dataset and the file name that will be
-#'        created.
+#' @param name the name of the dataset.
+#' @param install.deps install packages used in the script if not already
+#'        installed.
 #' @param commit should the bootstrap file be added and committed to the
-#'        analysis
+#'        analysis.
 #'
 #' @examples
 #' \dontrun{
@@ -29,7 +30,7 @@
 #' @export
 
 
-add.data.script <- function(name, commit = FALSE) {
+add.data.script <- function(name, install.deps = TRUE, commit = FALSE) {
   message(
     "browse TAF dataset scripts at:\n",
     "    https://github.com/ices-taf/datasets"
@@ -45,6 +46,10 @@ add.data.script <- function(name, commit = FALSE) {
     sep = "\n",
     file = taf.boot.path(sprintf("%s.R", name))
   )
+
+  if (install.deps) {
+    install.deps()
+  }
 
   if (commit) {
     loadpkg("git2r")
