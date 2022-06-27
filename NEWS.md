@@ -1,3 +1,28 @@
+# icesTAF 4.0.0 (2022-02-23)
+
+* The ICES TAF R package has been split into two packages (TAF + icesTAF),
+  mainly to facilitate the wider use of TAF beyond ICES. With the new design,
+  the core functionality is in the TAF package, while icesTAF adds a thin layer
+  on top of core TAF.
+
+* The core TAF package has no dependencies beyond base R, while the icesTAF
+  package depends on TAF and possibly other packages.
+
+* Maintaining icesTAF as a light package will also facilitate further
+  developments, e.g., tools that are specific to ICES workflows.
+
+* There is essentially no difference in the functionality of icesTAF 3.6.0 and
+  icesTAF 4.0.0. Existing scripts will run as before and ICES TAF users continue
+  to start their TAF scripts with library(icesTAF). This also loads and attaches
+  the TAF package, so an explicit library(TAF) call is not necessary.
+
+* The only technical difference in the functionality of icesTAF 4.0.0 for the
+  user is that if any existing scripts have used double-colon explicit namespace
+  calls such as icesTAF::mkdir, then these should be changed to TAF::mkdir.
+
+
+
+
 # icesTAF 3.6.0 (2020-10-19)
 
 * add taf.boot.path() function to simplify access to boot folder

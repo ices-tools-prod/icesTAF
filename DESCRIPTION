@@ -1,6 +1,6 @@
 Package: icesTAF
-Version: 3.6.0
-Date: 2020-10-19
+Version: 4.0.0
+Date: 2022-02-23
 Title: Functions to Support the ICES Transparent Assessment Framework
 Authors@R:
   c(
@@ -11,8 +11,8 @@ Authors@R:
     person("Ibrahim", "Umar", role = "ctb"),
     person("Hjalte", "Parner", role = "ctb")
   )
-Imports: grDevices, lattice, stats, tools, utils,
-  purrr, roxygen2, glue, jsonlite
+Depends: TAF
+Imports: glue, purrr, roxygen2
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework
   <https://taf.ices.dk> to organize data, methods, and results used in ICES
@@ -21,5 +21,5 @@ Description: Functions to support the ICES Transparent Assessment Framework
 License: GPL-3
 URL: https://taf.ices.dk
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Roxygen: list(old_usage=TRUE)
