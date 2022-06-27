@@ -4,11 +4,14 @@
 \alias{add.data.script}
 \title{Import a bootstrap data script from ICES datasets repo}
 \usage{
-add.data.script(name)
+add.data.script(name, commit = FALSE)
 }
 \arguments{
 \item{name}{the name of the dataset and the file name that will be
 created.}
+
+\item{commit}{should the bootstrap file be added and committed to the
+analysis}
 }
 \description{
 Download an \file{R} file from the ICES datasets repo to fetch

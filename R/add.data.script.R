@@ -5,6 +5,8 @@
 #'
 #' @param name the name of the dataset and the file name that will be
 #'        created.
+#' @param commit should the bootstrap file be added and committed to the
+#'        analysis
 #'
 #' @examples
 #' \dontrun{
@@ -27,7 +29,7 @@
 #' @export
 
 
-add.data.script <- function(name) {
+add.data.script <- function(name, commit = FALSE) {
   message(
     "browse TAF dataset scripts at:\n",
     "    https://github.com/ices-taf/datasets"
@@ -44,7 +46,8 @@ add.data.script <- function(name) {
     file = taf.boot.path(sprintf("%s.R", name))
   )
 
-  if (FALSE && is.installed("git2r")) {
+  if (commit) {
+    loadpkg("git2r")
     git2r::add(".", taf.boot.path(sprintf("%s.R", name)))
     git2r::commit(".", sprintf("added TAF dataset %s.R", name))
   }
