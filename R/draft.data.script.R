@@ -37,40 +37,40 @@
 #' taf.bootstrap()
 #' }
 #'
-#' @importFrom glue glue
 #' @importFrom TAF taf.boot.path
+#' @importFrom TAF mkdir
 #'
 #' @export
 draft.data.script <- function(name, title, description, format, originator, year,
                               period, access, content) {
 
-  # set up template
-  header <-
-"# {title}
-#
-# {description}
-#
-# @name {name}
-# @format {format}
-# @tafOriginator {originator}
-# @tafYear {year}
-# @tafPeriod {period}
-# @tafAccess {access}
-# @tafSource script
-"
-  header <- gsub("#", "#'", header)
-
   # make names valid doesnt garauntee valid file name,
   # but better than nothing
   name <- make.names(name)
+
   period <- paste(unlist(period), collapse = "-")
 
   # make sure content is a single string
   content <- paste(content, collapse = "\n")
 
+  # create bootstrap path
+  mkdir(taf.boot.path())
+
+  # write script with header
   cat(
-    glue(header), content,
-    file = taf.boot.path(glue("{name}.R")),
+    sprintf("#' %s",title),
+    "#'",
+    sprintf("#' %s",description),
+    "#'",
+    sprintf("#' @name %s",name),
+    sprintf("#' @format %s",format),
+    sprintf("#' @tafOriginator %s",originator),
+    sprintf("#' @tafYear %s",year),
+    sprintf("#' @tafPeriod %s",period),
+    sprintf("#' @tafAccess %s",access),
+    "#' @tafSource script",
+    content,
+    file = taf.boot.path(sprintf("%s.R", name)),
     sep = "\n\n"
   )
 }

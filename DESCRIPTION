@@ -12,7 +12,8 @@ Authors@R:
     person("Hjalte", "Parner", role = "ctb")
   )
 Depends: TAF
-Imports: glue, purrr, roxygen2
+Imports: purrr, roxygen2
+Suggests: git2r
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework
   <https://taf.ices.dk> to organize data, methods, and results used in ICES
