@@ -37,7 +37,7 @@ add.data.script <- function(name, commit = FALSE) {
 
   script <-
     readLines(
-      sprintf("https://raw.githubusercontent.com/ices-taf/doc/master/datasets/%s.R", name)
+      sprintf("https://raw.githubusercontent.com/ices-taf/datasets/main/%s.R", name)
     )
 
   cat(
