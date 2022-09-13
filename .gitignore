@@ -5,3 +5,5 @@
 *.Rproj
 worksheet.R
 icesTAF.code-workspace
+
+.vscode/

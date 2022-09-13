@@ -1,5 +1,3 @@
-
-
 #' Install packages dependencies of a TAF analysis
 #'
 #' Search R scripts for packages that are required and install them.
