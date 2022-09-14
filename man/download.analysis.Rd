@@ -24,7 +24,6 @@ run_dir <- download.analysis("ices-taf/2019_san.sa.6", dir = ".")
 
 # run the analysis
 run.analysis(run_dir)
-
 }
 
 }
