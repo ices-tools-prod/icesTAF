@@ -1,3 +1,13 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# icesTAF 4.0.1.9000 (2023-01-10)
+
+* re-export TAF functions as aliases
+* Add upload_fay() function
+* add taf.boot.path() function to simplify access to boot folder
+* add function draft.data.script()
+
+
 # icesTAF 4.0.0 (2022-02-23)
 
 * The ICES TAF R package has been split into two packages (TAF + icesTAF),
