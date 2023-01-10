@@ -22,5 +22,5 @@ Description: Functions to support the ICES Transparent Assessment Framework
 License: GPL-3
 URL: https://taf.ices.dk
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Roxygen: list(old_usage=TRUE)

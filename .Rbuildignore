@@ -8,3 +8,4 @@ README.md
 ^icesTAF.code-workspace$
 ^CRAN-SUBMISSION$
 ^\.vscode$
+^TAF-exports$
