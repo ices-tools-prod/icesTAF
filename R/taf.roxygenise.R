@@ -1,7 +1,7 @@
 #' Process a TAF repo with the taf roclet
 #'
 #' This function builds documentation for a TAF repository
-#' using roxygen syntax headers.  It depnends on the roxygen2
+#' using roxygen syntax headers.  It depends on the roxygen2
 #' package adding some extra functionality to produce citation
 #' entries for data sources
 #'
@@ -179,4 +179,3 @@ list2bibtex <- function(entry) {
   class(out) <- "Bibtex"
   out
 }
-
