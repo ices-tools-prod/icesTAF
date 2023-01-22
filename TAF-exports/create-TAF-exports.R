@@ -1,8 +1,12 @@
+# see:
+# https://github.com/r-lib/devtools/blob/main/R/remotes.R
+
 
 # get TAF exports
 ns <- loadNamespace("TAF")
 TAF_functions <- unlist(eapply(ns, inherits, "function"))
 TAF_functions <- names(TAF_functions)[which(TAF_functions)]
+TAF_functions <- setdiff(TAF_functions, "taf.skeleton")
 
 import_block <- function(fun_name, first = FALSE) {
 
@@ -26,6 +30,16 @@ import_block <- function(fun_name, first = FALSE) {
   )
 }
 
+taf.skeleton.txt <-
+  "#' @importFrom TAF taf.skeleton
+#' @rdname taf-reexports
+#' @export
+taf.skeleton <- function(path = \".\", force = FALSE, pkgs = \"icesTAF\") {
+  TAF::taf.skeleton(path = path, force = force, pkgs = pkgs)
+}
+"
+
+
 TAF_R <-
   paste(
     "#' Functions re-exported from the TAF package",
@@ -38,6 +52,7 @@ TAF_R <-
     "#'",
     import_block(TAF_functions[1], first = TRUE),
     paste0(sapply(TAF_functions[-1], import_block), collapse = "\n"),
+    taf.skeleton.txt,
     sep = "\n"
   )
 
