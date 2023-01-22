@@ -1,5 +1,5 @@
 Package: icesTAF
-Version: 4.0.2
+Version: 4.1.0
 Title: Functions to Support the ICES Transparent Assessment Framework
 Authors@R:
   c(
