@@ -3,6 +3,7 @@
 #' Search R scripts for packages that are required and install them.
 #'
 #' @param ... arguments passed on to \link{install.packages}
+#' @param path a directory or file containing R scripts.
 #'
 #' @seealso
 #'
@@ -31,6 +32,6 @@
 #' @importFrom utils install.packages
 #'
 #' @export
-install.deps <- function(...) {
-  install.packages(deps(installed = FALSE), ...)
+install.deps <- function(path = ".", ...) {
+  install.packages(deps(path = path, installed = FALSE), ...)
 }

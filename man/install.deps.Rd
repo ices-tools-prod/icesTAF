@@ -4,9 +4,11 @@
 \alias{install.deps}
 \title{Install packages dependencies of a TAF analysis}
 \usage{
-install.deps(...)
+install.deps(path = ".", ...)
 }
 \arguments{
+\item{path}{a directory or file containing R scripts.}
+
 \item{...}{arguments passed on to \link{install.packages}}
 }
 \description{
