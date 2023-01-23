@@ -24,20 +24,27 @@
 #' @export
 
 taf.skeleton.sa.org <- function(path = ".", stockname, force = FALSE) {
-  taf.skeleton(path)
+  taf.skeleton(path, pkgs = c("icesTAF", "stockassessment"))
   owd <- setwd(path)
   on.exit(setwd(owd))
 
-  cat(paste0('library(stockassessment)
+  cat(paste0('sam_assessment <- "', stockname, '"
 
-# download model from stockassessment.org
-fit <- fitfromweb("', stockname, '")
+sam_dir <-
+  paste0(
+    "https://stockassessment.org/datadisk/stockassessment/userdirs/user3/",
+    sam_assessment,
+    "/conf/"
+  )
 
-# save to model folder
-save(fit, file = "fit.rData")
+files <- "model.cfg"
+
+for (file in files) {
+  download(paste0(sam_dir, file))
+}
 
 '),
-    file = "bootstrap/sam_fit.R"
+    file = "bootstrap/sam_config.R"
   )
 
   cat(paste0('sam_assessment <- "', stockname, '"
@@ -49,10 +56,12 @@ sam_dir <-
     "/data/"
   )
 
+# read dat files from html
 files <-
-  paste0(
-    c("cn", "cw", "dw", "lf", "lw", "mo", "nm", "pf", "pm", "survey", "sw"),
-    ".dat"
+  gsub(
+    ".*>(.+)</a>.*",
+    "\\\\1",
+    grep("[.]dat", readLines(sam_dir), value = TRUE)
   )
 
 for (file in files) {
@@ -65,9 +74,9 @@ for (file in files) {
 
   draft.data(
     data.files = NULL,
-    data.scripts = c("sam_data", "sam_fit"),
-    originator = "",
-    title = c("SAM input data for ...", "SAM fitted object for ..."),
+    data.scripts = c("sam_data", "sam_config"),
+    originator = "stockassessment.org",
+    title = c("SAM input data for ...", "SAM configuration file for ..."),
     file = TRUE,
     append = TRUE
   )
