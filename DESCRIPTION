@@ -10,7 +10,7 @@ Authors@R:
     person("Ibrahim", "Umar", role = "ctb"),
     person("Hjalte", "Parner", role = "ctb")
   )
-Imports: purrr, roxygen2, TAF
+Imports: purrr, roxygen2, TAF (>= 4.1.0), data.tree
 Suggests: git2r
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework

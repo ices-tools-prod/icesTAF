@@ -1,3 +1,13 @@
+# icesTAF 4.1.0 (2023-01-23)
+
+* Set TAF package as an import to avoid package load messages about
+  function aliases
+* new function dir.tree() to visualise TAF analysis structure
+* bug fixes to install.deps()
+* improvements to taf.skeleton.sao.org()
+* Add new aliases from TAF package and change default args for taf.skeleton()
+* export taf.colours for backwards compatability
+
 # icesTAF 4.0.2 (2023-01-10)
 
 * re-export TAF functions as aliases
