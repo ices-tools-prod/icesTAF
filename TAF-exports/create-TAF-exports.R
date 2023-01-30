@@ -48,7 +48,7 @@ TAF_R <-
     "#' These functions are re-exported from the TAF package.",
     "#'",
     "#' Follow the links below to see the documentation.",
-    paste0("#' ", paste("[TAF::", TAF_functions, "]", collapse = ", ", sep = "")),
+    paste0("#' ", paste("\\code{\\link[TAF]{", TAF_functions, "}}", collapse = ", ", sep = "")),
     "#'",
     import_block(TAF_functions[1], first = TRUE),
     paste0(sapply(TAF_functions[-1], import_block), collapse = "\n"),
@@ -58,5 +58,5 @@ TAF_R <-
 
 cat(
   TAF_R,
-  file = "R/TAF.R"
+  file = "../R/TAF.R"
 )
