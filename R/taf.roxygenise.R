@@ -14,20 +14,20 @@
 #' @examples
 #' \dontrun{
 #'
-#' # Create bootstrap folder
-#' mkdir("bootstrap")
+#' # Create boot folder
+#' mkdir("boot")
 #'
-#' # Create bootstrap script, bootstrap/mydata.R
+#' # Create boot script, boot/mydata.R
 #' draft.data.script(name="mydata", title="Title", description="Description",
 #'                   format="txt", originator="Me", year="2022",
 #'                   period=c(2000,2020), access="Public",
 #'                   content='write(pi, file="pi.txt")')
 #'
-#' # Create metadata, bootstrap/DATA.bib
+#' # Create metadata, boot/DATA.bib
 #' taf.roxygenise(files="mydata.R")
 #'
-#' # Run bootstrap script, creating bootstrap/data/mydata/pi.txt
-#' taf.bootstrap()
+#' # Run boot script, creating boot/data/mydata/pi.txt
+#' taf.boot()
 #' }
 #'
 #' @export
@@ -36,12 +36,12 @@
 taf.roxygenise <- function(path = ".", files) {
 
   base_path <- normalizePath(path, mustWork = TRUE)
-  bootstrap <- normalizePath(file.path(base_path, "bootstrap"))
+  boot_path <- normalizePath(boot.dir.inside(base_path))
 
   if (missing(files)) {
-    files <- dir(bootstrap, pattern = "\\.R$")
+    files <- dir(boot_path, pattern = "\\.R$")
   }
-  files <- normalizePath(file.path(bootstrap, files))
+  files <- normalizePath(file.path(boot_path, files))
 
   list_of_blocks <- lapply(files, roxygen2::parse_file, env = NULL)
 
@@ -133,9 +133,9 @@ roclet_output.roclet_taf <- function(x, results, base_path, ...) {
   if ("bibfile" %in% names(dots)) {
     path <- dots$bibfile
   } else {
-    bootstrap <- normalizePath(file.path(base_path, "bootstrap"))
+    boot_path <- normalizePath(boot.dir.inside(base_path))
     bibfile <- "DATA.bib"
-    path <- file.path(bootstrap, bibfile)
+    path <- file.path(boot_path, bibfile)
   }
 
   # add header?

@@ -60,6 +60,7 @@ download.analysis <- function(repo, dir = tempdir()) {
   files_to_get <-
     c(
       grep("*[.]R", files$Name, value = TRUE),
+      grep("*/boot/initial/*", files$Name, value = TRUE),
       grep("*/bootstrap/initial/*", files$Name, value = TRUE),
       grep("*[.]bib", files$Name, value = TRUE)
     )

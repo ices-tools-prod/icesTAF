@@ -1,4 +1,4 @@
-#' Import a bootstrap data script from ICES datasets repo
+#' Import a boot data script from ICES datasets repo
 #'
 #' Download an \file{R} file from the ICES datasets repo to fetch
 #' data including adding metadata via roxygen2 fields to the top of the file.
@@ -6,23 +6,22 @@
 #' @param name the name of the dataset.
 #' @param install.deps install packages used in the script if not already
 #'        installed.
-#' @param commit should the bootstrap file be added and committed to the
-#'        analysis.
+#' @param commit should the boot script be added and committed to the analysis.
 #'
 #' @examples
 #' \dontrun{
 #'
-#' # Create bootstrap folder
+#' # Create boot folder
 #' mkdir(taf.boot.path())
 #'
-#' # Create bootstrap script, bootstrap/mydata.R
+#' # Create boot script, boot/mydata.R
 #' add.data.script(name = "vms")
 #'
-#' # Create metadata, bootstrap/DATA.bib
+#' # Create metadata, boot/DATA.bib
 #' taf.roxygenise(files = "vms.R")
 #'
-#' # Run bootstrap script, creating bootstrap/data/vms/...
-#' taf.bootstrap()
+#' # Run boot script, creating boot/data/vms/...
+#' taf.boot()
 #' }
 #'
 #' @importFrom TAF taf.boot.path
@@ -62,6 +61,6 @@ add.data.script <- function(name, install.deps = TRUE, commit = FALSE) {
     "# register script in DATA.bib\n",
     "taf.roxygenise()\n",
     "# fetch data\n",
-    "taf.bootstrap()\n"
+    "taf.boot()\n"
   )
 }

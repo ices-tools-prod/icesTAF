@@ -13,11 +13,11 @@
 #' @details
 #' \emph{Initial TAF steps:}
 #' \tabular{ll}{
-#'   \code{\link{draft.data.script}} \tab create bootstrap script\cr
+#'   \code{\link{draft.data.script}} \tab create boot script\cr
 #'   \code{\link{taf.roxygenise}}    \tab create DATA.bib entry from tags
 #' }
 #'
-#' @author Arni Magnusson and Colin Millar.
+#' @author Colin Millar and Arni Magnusson.
 #'
 #' @references
 #' ICES Transparent Assessment Framework: \url{https://taf.ices.dk}.

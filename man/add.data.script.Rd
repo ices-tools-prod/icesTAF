@@ -2,7 +2,7 @@
 % Please edit documentation in R/add.data.script.R
 \name{add.data.script}
 \alias{add.data.script}
-\title{Import a bootstrap data script from ICES datasets repo}
+\title{Import a boot data script from ICES datasets repo}
 \usage{
 add.data.script(name, install.deps = TRUE, commit = FALSE)
 }
@@ -12,8 +12,7 @@ add.data.script(name, install.deps = TRUE, commit = FALSE)
 \item{install.deps}{install packages used in the script if not already
 installed.}
 
-\item{commit}{should the bootstrap file be added and committed to the
-analysis.}
+\item{commit}{should the boot script be added and committed to the analysis.}
 }
 \description{
 Download an \file{R} file from the ICES datasets repo to fetch
@@ -22,17 +21,17 @@ data including adding metadata via roxygen2 fields to the top of the file.
 \examples{
 \dontrun{
 
-# Create bootstrap folder
+# Create boot folder
 mkdir(taf.boot.path())
 
-# Create bootstrap script, bootstrap/mydata.R
+# Create boot script, boot/mydata.R
 add.data.script(name = "vms")
 
-# Create metadata, bootstrap/DATA.bib
+# Create metadata, boot/DATA.bib
 taf.roxygenise(files = "vms.R")
 
-# Run bootstrap script, creating bootstrap/data/vms/...
-taf.bootstrap()
+# Run boot script, creating boot/data/vms/...
+taf.boot()
 }
 
 }

@@ -20,7 +20,7 @@
 #' run.analysis(run_dir)
 #' }
 #'
-#' @importFrom TAF taf.bootstrap sourceAll
+#' @importFrom TAF taf.boot sourceAll
 #'
 #' @export
 
@@ -29,7 +29,7 @@ run.analysis <- function(dir) {
   install.deps(dir)
   # run
   oldwd <- setwd(dir)
-  taf.bootstrap()
+  taf.boot()
   sourceAll()
   setwd(oldwd)
 

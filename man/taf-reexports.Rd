@@ -86,7 +86,7 @@
 \usage{
 makeAll(...)
 
-taf.install(targz = NULL, lib = "bootstrap/library", quiet = FALSE)
+taf.install(targz = NULL, lib = "boot/library", quiet = FALSE)
 
 parse.repo(repo)
 
@@ -139,7 +139,7 @@ period(x, y = NULL)
 
 tt(x, column = FALSE)
 
-clean.data(folder = "bootstrap/data", quiet = FALSE, force = FALSE)
+clean.data(folder = "boot/data", quiet = FALSE, force = FALSE)
 
 \method{zoom}{trellis}(x, size = 1, main = 1.2 * size, lab = size,
   axis = size, strip = size, sub = 0.9 * size, legend = 0.9 * size,
@@ -159,8 +159,7 @@ lim(x, mult = 1.1)
 
 is.r.package(targz, spec = NULL, warn = TRUE)
 
-clean.software(folder = "bootstrap/software", quiet = FALSE,
-  force = FALSE)
+clean.software(folder = "boot/software", quiet = FALSE, force = FALSE)
 
 taf.boot.path(..., fsep = .Platform$file.sep)
 
@@ -181,7 +180,7 @@ download.github(repo, dir = ".", quiet = FALSE)
 deps(path = ".", base = FALSE, installed = TRUE, available = TRUE,
   list = FALSE)
 
-taf.session(sort = FALSE, details = FALSE)
+taf.session(sort = FALSE, imports = TRUE, details = FALSE)
 
 os.unix()
 
@@ -191,13 +190,13 @@ xtab2long(x, names = c("Year", "Age", "Value"))
 
 draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
   title = NULL, period = NULL, access = "Public", source = NULL,
-  file = "", append = FALSE, data.files = dir("bootstrap/initial/data"),
-  data.scripts = dir("bootstrap", pattern = "\\\\.R$"))
+  file = "", append = FALSE, data.files = dir("boot/initial/data"),
+  data.scripts = dir("boot", pattern = "\\\\.R$"))
 
 read.taf(file, check.names = FALSE, stringsAsFactors = FALSE,
   fileEncoding = "UTF-8", ...)
 
-clean(dirs = c("data", "model", "output", "report"), force = FALSE)
+clean(dirs = c("data", model.dir(), "output", "report"), force = FALSE)
 
 taf.libPaths(remove = FALSE)
 
@@ -213,7 +212,7 @@ file.encoding(file)
 
 latin1.to.utf8(file, force = FALSE)
 
-clean.library(folder = "bootstrap/library", quiet = FALSE, force = FALSE)
+clean.library(folder = "boot/library", quiet = FALSE, force = FALSE)
 
 tafpng(...)
 
