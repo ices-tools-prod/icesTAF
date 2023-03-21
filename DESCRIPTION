@@ -1,5 +1,5 @@
 Package: icesTAF
-Version: 4.1.0
+Version: 4.2.0
 Title: Functions to Support the ICES Transparent Assessment Framework
 Authors@R:
   c(
@@ -10,7 +10,7 @@ Authors@R:
     person("Ibrahim", "Umar", role = "ctb"),
     person("Hjalte", "Parner", role = "ctb")
   )
-Imports: purrr, roxygen2, TAF (>= 4.1.0), data.tree
+Imports: purrr, roxygen2, TAF (>= 4.2.0), data.tree
 Suggests: git2r
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework

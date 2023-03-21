@@ -21,20 +21,20 @@ entries for data sources
 \examples{
 \dontrun{
 
-# Create bootstrap folder
-mkdir("bootstrap")
+# Create boot folder
+mkdir("boot")
 
-# Create bootstrap script, bootstrap/mydata.R
+# Create boot script, boot/mydata.R
 draft.data.script(name="mydata", title="Title", description="Description",
                   format="txt", originator="Me", year="2022",
                   period=c(2000,2020), access="Public",
                   content='write(pi, file="pi.txt")')
 
-# Create metadata, bootstrap/DATA.bib
+# Create metadata, boot/DATA.bib
 taf.roxygenise(files="mydata.R")
 
-# Run bootstrap script, creating bootstrap/data/mydata/pi.txt
-taf.bootstrap()
+# Run boot script, creating boot/data/mydata/pi.txt
+taf.boot()
 }
 
 }

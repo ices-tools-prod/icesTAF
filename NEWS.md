@@ -1,3 +1,17 @@
+# icesTAF 4.2.0 (2023-03-14)
+
+* The term 'boot' is now preferred for what used to be called 'bootstrap',
+  mainly to avoid confusion with statistical bootstrap. To taf.boot() is similar
+  to booting a computer, readying the components required for subsequent
+  computations. Help pages now refer to 'boot', but all icesTAF functions fully
+  support existing analyses that have a legacy 'bootstrap' folder.
+
+* The filename method.R is now an alternative to the default filename model.R
+  script, for analyses where the term 'model' would be misleading or ambiguous.
+
+* See also: news(package="TAF", Version=="4.2.0").
+
+
 # icesTAF 4.1.0 (2023-01-23)
 
 * Set TAF package as an import to avoid package load messages about
@@ -7,6 +21,8 @@
 * improvements to taf.skeleton.sao.org()
 * Add new aliases from TAF package and change default args for taf.skeleton()
 * export taf.colours for backwards compatability
+* See also: news(package="TAF", Version<="4.1.0").
+
 
 # icesTAF 4.0.2 (2023-01-10)
 
@@ -37,7 +53,7 @@
   user is that if any existing scripts have used double-colon explicit namespace
   calls such as icesTAF::mkdir, then these should be changed to TAF::mkdir.
 
-
+* See also: news(package="TAF", Version=="4.0.0").
 
 
 # icesTAF 3.6.0 (2020-10-19)

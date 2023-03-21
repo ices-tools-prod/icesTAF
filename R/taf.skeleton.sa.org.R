@@ -44,7 +44,7 @@ for (file in files) {
 }
 
 '),
-    file = "bootstrap/sam_config.R"
+    file = "boot/sam_config.R"
   )
 
   cat(paste0('sam_assessment <- "', stockname, '"
@@ -69,7 +69,7 @@ for (file in files) {
 }
 
 '),
-    file = "bootstrap/sam_data.R"
+    file = "boot/sam_data.R"
   )
 
   draft.data(

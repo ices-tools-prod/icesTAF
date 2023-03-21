@@ -4,7 +4,7 @@
 #' These functions are re-exported from the TAF package.
 #'
 #' Follow the links below to see the documentation.
-#' \code{\link[TAF]{makeAll}}, \code{\link[TAF]{taf.install}}, \code{\link[TAF]{parse.repo}}, \code{\link[TAF]{taf2long}}, \code{\link[TAF]{utf8.to.latin1}}, \code{\link[TAF]{download}}, \code{\link[TAF]{write.taf}}, \code{\link[TAF]{flr2taf}}, \code{\link[TAF]{get.remote.sha}}, \code{\link[TAF]{taf.bootstrap}}, \code{\link[TAF]{long2taf}}, \code{\link[TAF]{xtab2taf}}, \code{\link[TAF]{source.taf}}, \code{\link[TAF]{ds.file}}, \code{\link[TAF]{div}}, \code{\link[TAF]{detach.packages}}, \code{\link[TAF]{rnd}}, \code{\link[TAF]{taf2xtab}}, \code{\link[TAF]{ds.package}}, \code{\link[TAF]{long2xtab}}, \code{\link[TAF]{os.linux}}, \code{\link[TAF]{taf.png}}, \code{\link[TAF]{os.macos}}, \code{\link[TAF]{os}}, \code{\link[TAF]{period}}, \code{\link[TAF]{tt}}, \code{\link[TAF]{clean.data}}, \code{\link[TAF]{zoom.trellis}}, \code{\link[TAF]{zoom}}, \code{\link[TAF]{unix2dos}}, \code{\link[TAF]{dos2unix}}, \code{\link[TAF]{mkdir}}, \code{\link[TAF]{convert.spaces}}, \code{\link[TAF]{lim}}, \code{\link[TAF]{is.r.package}}, \code{\link[TAF]{clean.software}}, \code{\link[TAF]{taf.boot.path}}, \code{\link[TAF]{sourceAll}}, \code{\link[TAF]{plus}}, \code{\link[TAF]{taf.sources}}, \code{\link[TAF]{msg}}, \code{\link[TAF]{process.entry}}, \code{\link[TAF]{taf.data.path}}, \code{\link[TAF]{download.github}}, \code{\link[TAF]{deps}}, \code{\link[TAF]{taf.session}}, \code{\link[TAF]{os.unix}}, \code{\link[TAF]{os.windows}}, \code{\link[TAF]{xtab2long}}, \code{\link[TAF]{draft.data}}, \code{\link[TAF]{read.taf}}, \code{\link[TAF]{clean}}, \code{\link[TAF]{taf.libPaths}}, \code{\link[TAF]{draft.software}}, \code{\link[TAF]{sourceDir}}, \code{\link[TAF]{taf.boot}}, \code{\link[TAF]{file.encoding}}, \code{\link[TAF]{latin1.to.utf8}}, \code{\link[TAF]{clean.library}}, \code{\link[TAF]{tafpng}}, \code{\link[TAF]{sourceTAF}}, \code{\link[TAF]{taf2html}}, \code{\link[TAF]{source.all}}, \code{\link[TAF]{extract.subdir}}, \code{\link[TAF]{taf.library}}, \code{\link[TAF]{read.bib}}, \code{\link[TAF]{stamp.description}}, \code{\link[TAF]{make.all}}, \code{\link[TAF]{make.taf}}, \code{\link[TAF]{make}}, \code{\link[TAF]{line.endings}}, \code{\link[TAF]{already.in.taf.library}}, \code{\link[TAF]{taf.unzip}}, \code{\link[TAF]{process.bibfile}}, \code{\link[TAF]{cp}}, \code{\link[TAF]{makeTAF}}, \code{\link[TAF]{rmdir}}, \code{\link[TAF]{source.dir}}, \code{\link[TAF]{sam2taf}}
+#' \code{\link[TAF]{makeAll}}, \code{\link[TAF]{taf.install}}, \code{\link[TAF]{parse.repo}}, \code{\link[TAF]{taf2long}}, \code{\link[TAF]{write.taf}}, \code{\link[TAF]{utf8.to.latin1}}, \code{\link[TAF]{download}}, \code{\link[TAF]{clean.boot}}, \code{\link[TAF]{flr2taf}}, \code{\link[TAF]{get.remote.sha}}, \code{\link[TAF]{taf.bootstrap}}, \code{\link[TAF]{xtab2taf}}, \code{\link[TAF]{long2taf}}, \code{\link[TAF]{source.taf}}, \code{\link[TAF]{ds.file}}, \code{\link[TAF]{div}}, \code{\link[TAF]{detach.packages}}, \code{\link[TAF]{rnd}}, \code{\link[TAF]{taf2xtab}}, \code{\link[TAF]{ds.package}}, \code{\link[TAF]{long2xtab}}, \code{\link[TAF]{os.linux}}, \code{\link[TAF]{taf.png}}, \code{\link[TAF]{os.macos}}, \code{\link[TAF]{os}}, \code{\link[TAF]{period}}, \code{\link[TAF]{tt}}, \code{\link[TAF]{clean.data}}, \code{\link[TAF]{zoom.trellis}}, \code{\link[TAF]{zoom}}, \code{\link[TAF]{unix2dos}}, \code{\link[TAF]{dos2unix}}, \code{\link[TAF]{mkdir}}, \code{\link[TAF]{convert.spaces}}, \code{\link[TAF]{lim}}, \code{\link[TAF]{is.r.package}}, \code{\link[TAF]{clean.software}}, \code{\link[TAF]{taf.boot.path}}, \code{\link[TAF]{sourceAll}}, \code{\link[TAF]{plus}}, \code{\link[TAF]{taf.sources}}, \code{\link[TAF]{msg}}, \code{\link[TAF]{process.entry}}, \code{\link[TAF]{taf.data.path}}, \code{\link[TAF]{download.github}}, \code{\link[TAF]{deps}}, \code{\link[TAF]{taf.session}}, \code{\link[TAF]{os.unix}}, \code{\link[TAF]{xtab2long}}, \code{\link[TAF]{os.windows}}, \code{\link[TAF]{draft.data}}, \code{\link[TAF]{read.taf}}, \code{\link[TAF]{clean}}, \code{\link[TAF]{model.script}}, \code{\link[TAF]{taf.libPaths}}, \code{\link[TAF]{draft.software}}, \code{\link[TAF]{sourceDir}}, \code{\link[TAF]{taf.boot}}, \code{\link[TAF]{file.encoding}}, \code{\link[TAF]{latin1.to.utf8}}, \code{\link[TAF]{clean.library}}, \code{\link[TAF]{tafpng}}, \code{\link[TAF]{sourceTAF}}, \code{\link[TAF]{taf2html}}, \code{\link[TAF]{source.all}}, \code{\link[TAF]{extract.subdir}}, \code{\link[TAF]{taf.library}}, \code{\link[TAF]{read.bib}}, \code{\link[TAF]{boot.exists}}, \code{\link[TAF]{boot.dir}}, \code{\link[TAF]{stamp.description}}, \code{\link[TAF]{make.all}}, \code{\link[TAF]{make.taf}}, \code{\link[TAF]{make}}, \code{\link[TAF]{boot.dir.inside}}, \code{\link[TAF]{model.dir}}, \code{\link[TAF]{line.endings}}, \code{\link[TAF]{already.in.taf.library}}, \code{\link[TAF]{taf.unzip}}, \code{\link[TAF]{process.bibfile}}, \code{\link[TAF]{cp}}, \code{\link[TAF]{makeTAF}}, \code{\link[TAF]{rmdir}}, \code{\link[TAF]{source.dir}}, \code{\link[TAF]{sam2taf}}
 #'
 #' @importFrom TAF makeAll
 #' @name taf-reexports
@@ -27,6 +27,11 @@ parse.repo <- TAF::parse.repo
 #' @export
 taf2long <- TAF::taf2long
 
+#' @importFrom TAF write.taf
+#' @rdname taf-reexports
+#' @export
+write.taf <- TAF::write.taf
+
 #' @importFrom TAF utf8.to.latin1
 #' @rdname taf-reexports
 #' @export
@@ -37,10 +42,10 @@ utf8.to.latin1 <- TAF::utf8.to.latin1
 #' @export
 download <- TAF::download
 
-#' @importFrom TAF write.taf
+#' @importFrom TAF clean.boot
 #' @rdname taf-reexports
 #' @export
-write.taf <- TAF::write.taf
+clean.boot <- TAF::clean.boot
 
 #' @importFrom TAF flr2taf
 #' @rdname taf-reexports
@@ -57,15 +62,15 @@ get.remote.sha <- TAF::get.remote.sha
 #' @export
 taf.bootstrap <- TAF::taf.bootstrap
 
-#' @importFrom TAF long2taf
-#' @rdname taf-reexports
-#' @export
-long2taf <- TAF::long2taf
-
 #' @importFrom TAF xtab2taf
 #' @rdname taf-reexports
 #' @export
 xtab2taf <- TAF::xtab2taf
+
+#' @importFrom TAF long2taf
+#' @rdname taf-reexports
+#' @export
+long2taf <- TAF::long2taf
 
 #' @importFrom TAF source.taf
 #' @rdname taf-reexports
@@ -242,15 +247,15 @@ taf.session <- TAF::taf.session
 #' @export
 os.unix <- TAF::os.unix
 
-#' @importFrom TAF os.windows
-#' @rdname taf-reexports
-#' @export
-os.windows <- TAF::os.windows
-
 #' @importFrom TAF xtab2long
 #' @rdname taf-reexports
 #' @export
 xtab2long <- TAF::xtab2long
+
+#' @importFrom TAF os.windows
+#' @rdname taf-reexports
+#' @export
+os.windows <- TAF::os.windows
 
 #' @importFrom TAF draft.data
 #' @rdname taf-reexports
@@ -266,6 +271,11 @@ read.taf <- TAF::read.taf
 #' @rdname taf-reexports
 #' @export
 clean <- TAF::clean
+
+#' @importFrom TAF model.script
+#' @rdname taf-reexports
+#' @export
+model.script <- TAF::model.script
 
 #' @importFrom TAF taf.libPaths
 #' @rdname taf-reexports
@@ -337,6 +347,16 @@ taf.library <- TAF::taf.library
 #' @export
 read.bib <- TAF::read.bib
 
+#' @importFrom TAF boot.exists
+#' @rdname taf-reexports
+#' @export
+boot.exists <- TAF::boot.exists
+
+#' @importFrom TAF boot.dir
+#' @rdname taf-reexports
+#' @export
+boot.dir <- TAF::boot.dir
+
 #' @importFrom TAF stamp.description
 #' @rdname taf-reexports
 #' @export
@@ -356,6 +376,16 @@ make.taf <- TAF::make.taf
 #' @rdname taf-reexports
 #' @export
 make <- TAF::make
+
+#' @importFrom TAF boot.dir.inside
+#' @rdname taf-reexports
+#' @export
+boot.dir.inside <- TAF::boot.dir.inside
+
+#' @importFrom TAF model.dir
+#' @rdname taf-reexports
+#' @export
+model.dir <- TAF::model.dir
 
 #' @importFrom TAF line.endings
 #' @rdname taf-reexports
