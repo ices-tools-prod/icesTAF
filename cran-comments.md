@@ -2,11 +2,9 @@
 
 Status: OK (local) / Error (win.builder) - see note
 
-* This is an update of an existing package.  Core functions have been moved to package TAF.
-* Package TAF functions have been exported from this package to fix backwards compatability issues.
-* An update to the TAF packages has been submitted to CRAN TAF 4.1.0. This submission is
-  a tandem release icesTAF 4.1.0.
-* All local checks pass, but checks based on the TAF 4.0.0 (current CRAN version) fail.
+* This is an update of an existing package with a strong dependency on the
+  package: TAF - a new version of which is currently being distributed accross the CRAN servers.  The new version breaks icesTAF and this version addresses this.
+  The two packages TAF and icesTAF are developed in tandem, and releases are coordinated.
 
 NOTE:
 
