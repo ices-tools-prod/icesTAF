@@ -2,199 +2,137 @@
 % Please edit documentation in R/TAF.R
 \name{taf-reexports}
 \alias{taf-reexports}
-\alias{makeAll}
-\alias{taf.install}
-\alias{parse.repo}
-\alias{taf2long}
-\alias{write.taf}
-\alias{utf8.to.latin1}
-\alias{download}
+\alias{already.in.taf.library}
+\alias{boot.dir}
+\alias{boot.dir.inside}
+\alias{boot.exists}
+\alias{check.software}
+\alias{clean}
 \alias{clean.boot}
+\alias{clean.data}
+\alias{clean.library}
+\alias{clean.software}
+\alias{convert.spaces}
+\alias{cp}
+\alias{ddim}
+\alias{deps}
+\alias{detach.packages}
+\alias{div}
+\alias{dos2unix}
+\alias{download}
+\alias{download.github}
+\alias{draft.data}
+\alias{draft.software}
+\alias{ds.file}
+\alias{ds.package}
+\alias{extract.subdir}
+\alias{file.encoding}
 \alias{flr2taf}
 \alias{get.remote.sha}
-\alias{taf.bootstrap}
-\alias{xtab2taf}
-\alias{long2taf}
-\alias{source.taf}
-\alias{ds.file}
-\alias{div}
-\alias{detach.packages}
-\alias{rnd}
-\alias{taf2xtab}
-\alias{ds.package}
-\alias{long2xtab}
-\alias{os.linux}
-\alias{taf.png}
-\alias{os.macos}
-\alias{os}
-\alias{period}
-\alias{tt}
-\alias{clean.data}
-\alias{zoom.trellis}
-\alias{zoom}
-\alias{unix2dos}
-\alias{dos2unix}
-\alias{mkdir}
-\alias{convert.spaces}
-\alias{lim}
 \alias{is.r.package}
-\alias{clean.software}
-\alias{taf.boot.path}
-\alias{sourceAll}
-\alias{plus}
-\alias{taf.sources}
-\alias{msg}
-\alias{process.entry}
-\alias{taf.data.path}
-\alias{download.github}
-\alias{deps}
-\alias{taf.session}
-\alias{os.unix}
-\alias{xtab2long}
-\alias{os.windows}
-\alias{draft.data}
-\alias{read.taf}
-\alias{clean}
-\alias{model.script}
-\alias{taf.libPaths}
-\alias{draft.software}
-\alias{sourceDir}
-\alias{taf.boot}
-\alias{file.encoding}
 \alias{latin1.to.utf8}
-\alias{clean.library}
-\alias{tafpng}
-\alias{sourceTAF}
-\alias{taf2html}
-\alias{source.all}
-\alias{extract.subdir}
-\alias{taf.library}
-\alias{read.bib}
-\alias{boot.exists}
-\alias{boot.dir}
-\alias{stamp.description}
+\alias{lim}
+\alias{line.endings}
+\alias{long2taf}
+\alias{long2xtab}
+\alias{make}
 \alias{make.all}
 \alias{make.taf}
-\alias{make}
-\alias{boot.dir.inside}
-\alias{model.dir}
-\alias{line.endings}
-\alias{already.in.taf.library}
-\alias{taf.unzip}
-\alias{process.bibfile}
-\alias{cp}
+\alias{makeAll}
 \alias{makeTAF}
+\alias{mkdir}
+\alias{model.dir}
+\alias{model.script}
+\alias{msg}
+\alias{os}
+\alias{os.linux}
+\alias{os.macos}
+\alias{os.unix}
+\alias{os.windows}
+\alias{parse.repo}
+\alias{period}
+\alias{plus}
+\alias{process.bibfile}
+\alias{process.entry}
+\alias{read.bib}
+\alias{read.taf}
 \alias{rmdir}
-\alias{source.dir}
+\alias{rnd}
 \alias{sam2taf}
+\alias{source.all}
+\alias{source.dir}
+\alias{source.taf}
+\alias{sourceAll}
+\alias{sourceDir}
+\alias{sourceTAF}
+\alias{stamp.description}
+\alias{taf.boot}
+\alias{taf.boot.path}
+\alias{taf.bootstrap}
+\alias{taf.data.path}
+\alias{taf.install}
+\alias{taf.libPaths}
+\alias{taf.libraries}
+\alias{taf.library}
+\alias{taf.png}
+\alias{taf.session}
+\alias{taf.sources}
+\alias{taf.unzip}
+\alias{taf2html}
+\alias{taf2long}
+\alias{taf2xtab}
+\alias{tafpng}
+\alias{tt}
+\alias{unix2dos}
+\alias{utf8.to.latin1}
+\alias{write.taf}
+\alias{xtab2long}
+\alias{xtab2taf}
+\alias{zoom}
+\alias{zoom.trellis}
 \alias{taf.skeleton}
 \title{Functions re-exported from the TAF package}
 \usage{
-makeAll(...)
+already.in.taf.library(targz, lib)
 
-taf.install(targz = NULL, lib = "boot/library", quiet = FALSE)
+boot.dir()
 
-parse.repo(repo)
+boot.dir.inside(inside = ".")
 
-taf2long(x, names = c("Year", "Age", "Value"))
+boot.exists()
 
-write.taf(x, file = NULL, dir = NULL, quote = FALSE, row.names = FALSE,
-  fileEncoding = "UTF-8", underscore = TRUE, ...)
+check.software(full = FALSE)
 
-utf8.to.latin1(file, force = FALSE)
-
-download(url, dir = ".", mode = "wb", chmod = file_ext(url) == "",
-  destfile = file.path(dir, basename(url)), quiet = TRUE, ...)
+clean(dirs = c("data", model.dir(), "output", "report"), force = FALSE)
 
 clean.boot(force = FALSE)
 
-flr2taf(x, colname = "Value")
-
-get.remote.sha(owner, repo, ref, seven = TRUE)
-
-taf.bootstrap(...)
-
-xtab2taf(x, colname = "Year")
-
-long2taf(x)
-
-source.taf(script, rm = FALSE, clean = TRUE, detach = FALSE,
-  taf = NULL, quiet = FALSE)
-
-ds.file(package, author, year, title, version, source)
-
-div(x, cols, by = 1000, grep = FALSE, ...)
-
-detach.packages(quiet = FALSE)
-
-rnd(x, cols, digits = 0, grep = FALSE, ...)
-
-taf2xtab(x)
-
-ds.package(package, author, year, title, version, source)
-
-long2xtab(x)
-
-os.linux()
-
-taf.png(filename, width = 1600, height = 1200, res = 200, ...)
-
-os.macos()
-
-os()
-
-period(x, y = NULL)
-
-tt(x, column = FALSE)
-
 clean.data(folder = "boot/data", quiet = FALSE, force = FALSE)
 
-\method{zoom}{trellis}(x, size = 1, main = 1.2 * size, lab = size,
-  axis = size, strip = size, sub = 0.9 * size, legend = 0.9 * size,
-  splom = 0.9 * size, ...)
-
-zoom(x, ...)
-
-unix2dos(file)
-
-dos2unix(file)
-
-mkdir(path)
-
-convert.spaces(file, sep = "_")
-
-lim(x, mult = 1.1)
-
-is.r.package(targz, spec = NULL, warn = TRUE)
+clean.library(folder = "boot/library", quiet = FALSE, force = FALSE)
 
 clean.software(folder = "boot/software", quiet = FALSE, force = FALSE)
 
-taf.boot.path(..., fsep = .Platform$file.sep)
+convert.spaces(file, sep = "_")
 
-sourceAll(...)
+cp(from, to, move = FALSE, ignore = FALSE, overwrite = TRUE,
+  quiet = TRUE)
 
-plus(x)
-
-taf.sources(type)
-
-msg(...)
-
-process.entry(bib, quiet = FALSE, force = FALSE, clean = FALSE)
-
-taf.data.path(..., fsep = .Platform$file.sep)
-
-download.github(repo, dir = ".", quiet = FALSE)
+ddim(x, reduce = FALSE)
 
 deps(path = ".", base = FALSE, installed = TRUE, available = TRUE,
   list = FALSE)
 
-taf.session(sort = FALSE, imports = TRUE, details = FALSE)
+detach.packages(quiet = FALSE)
 
-os.unix()
+div(x, cols, by = 1000, grep = FALSE, ...)
 
-xtab2long(x, names = c("Year", "Age", "Value"))
+dos2unix(file)
 
-os.windows()
+download(url, dir = ".", mode = "wb", chmod = file_ext(url) == "",
+  destfile = file.path(dir, basename(url)), quiet = TRUE, ...)
+
+download.github(repo, dir = ".", quiet = FALSE)
 
 draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
   title = NULL, period = NULL, access = "Public", source = NULL,
@@ -202,82 +140,154 @@ draft.data(originator = NULL, year = format(Sys.time(), "\%Y"),
   data.files = dir(taf.boot.path("initial/data")),
   data.scripts = dir(boot.dir(), pattern = "\\\\.R$"))
 
-read.taf(file, check.names = FALSE, stringsAsFactors = FALSE,
-  fileEncoding = "UTF-8", ...)
-
-clean(dirs = c("data", model.dir(), "output", "report"), force = FALSE)
-
-model.script()
-
-taf.libPaths(remove = FALSE)
-
 draft.software(package, author = NULL, year = NULL, title = NULL,
   version = NULL, source = NULL, file = "", append = FALSE)
 
-sourceDir(...)
+ds.file(package, author, year, title, version, source)
 
-taf.boot(software = TRUE, data = TRUE, clean = TRUE, force = FALSE,
-  taf = NULL, quiet = FALSE)
+ds.package(package, author, year, title, version, source)
+
+extract.subdir(targz, subtargz, subdir)
 
 file.encoding(file)
 
+flr2taf(x, colname = "Value")
+
+get.remote.sha(owner, repo, ref, seven = TRUE)
+
+is.r.package(targz, spec = NULL, warn = TRUE)
+
 latin1.to.utf8(file, force = FALSE)
 
-clean.library(folder = "boot/library", quiet = FALSE, force = FALSE)
+lim(x, mult = 1.1)
 
-tafpng(...)
+line.endings(file)
+
+long2taf(x)
+
+long2xtab(x)
+
+make(recipe, prereq, target, include = TRUE, engine = source,
+  details = FALSE, force = FALSE, recon = FALSE, quiet = TRUE, ...)
+
+make.all(...)
+
+make.taf(script, ...)
+
+makeAll(...)
+
+makeTAF(...)
+
+mkdir(path)
+
+model.dir()
+
+model.script()
+
+msg(...)
+
+os()
+
+os.linux()
+
+os.macos()
+
+os.unix()
+
+os.windows()
+
+parse.repo(repo)
+
+period(x, y = NULL)
+
+plus(x)
+
+process.bibfile(type, clean = TRUE, quiet = FALSE, ...)
+
+process.entry(bib, clean = FALSE, comma.split = TRUE, force = FALSE,
+  quiet = FALSE)
+
+read.bib(file)
+
+read.taf(file, check.names = FALSE, stringsAsFactors = FALSE,
+  fileEncoding = "UTF-8", ...)
+
+rmdir(path, recursive = FALSE)
+
+rnd(x, cols, digits = 0, grep = FALSE, ...)
+
+sam2taf(x, colname = NULL, year = TRUE)
+
+source.all(...)
+
+source.dir(dir, pattern = "\\\\.[r|R]$", all.files = FALSE,
+  recursive = FALSE, quiet = TRUE, ...)
+
+source.taf(script, rm = FALSE, clean = TRUE, detach = FALSE,
+  taf = NULL, quiet = FALSE)
+
+sourceAll(...)
+
+sourceDir(...)
 
 sourceTAF(...)
+
+stamp.description(targz, spec, sha.full)
+
+taf.boot(software = TRUE, data = TRUE, clean = TRUE, force = FALSE,
+  taf = NULL, quiet = FALSE, ...)
+
+taf.boot.path(..., fsep = .Platform$file.sep)
+
+taf.bootstrap(...)
+
+taf.data.path(..., fsep = .Platform$file.sep)
+
+taf.install(targz = NULL, lib = taf.boot.path("library"), quiet = FALSE)
+
+taf.libPaths(remove = FALSE)
+
+taf.libraries(messages = FALSE, warnings = FALSE)
+
+taf.library(package, messages = FALSE, warnings = FALSE)
+
+taf.png(filename, width = 1600, height = 1200, res = 200, ...)
+
+taf.session(sort = FALSE, imports = TRUE, details = FALSE)
+
+taf.sources(type)
+
+taf.unzip(zipfile, files = NULL, exdir = ".", unzip = NULL, ...)
 
 taf2html(x, file = "", align = "", header = align,
   digits = getOption("digits"), center = "style=\\"text-align:center\\"",
   left = "style=\\"text-align:left\\"",
   right = "style=\\"text-align:right\\"", append = FALSE)
 
-source.all(...)
+taf2long(x, names = c("Year", "Age", "Value"))
 
-extract.subdir(targz, subtargz, subdir)
+taf2xtab(x)
 
-taf.library(package, messages = FALSE, warnings = FALSE)
+tafpng(...)
 
-read.bib(file)
+tt(x, column = FALSE)
 
-boot.exists()
+unix2dos(file)
 
-boot.dir()
+utf8.to.latin1(file, force = FALSE)
 
-stamp.description(targz, spec, sha.full)
+write.taf(x, file = NULL, dir = NULL, quote = FALSE, row.names = FALSE,
+  fileEncoding = "UTF-8", underscore = TRUE, ...)
 
-make.all(...)
+xtab2long(x, names = c("Year", "Age", "Value"))
 
-make.taf(script, ...)
+xtab2taf(x, colname = "Year")
 
-make(recipe, prereq, target, include = TRUE, engine = source,
-  debug = FALSE, force = FALSE, recon = FALSE, ...)
+zoom(x, ...)
 
-boot.dir.inside(inside = ".")
-
-model.dir()
-
-line.endings(file)
-
-already.in.taf.library(targz, lib)
-
-taf.unzip(zipfile, files = NULL, exdir = ".", unzip = NULL, ...)
-
-process.bibfile(type, clean = TRUE, quiet = FALSE)
-
-cp(from, to, move = FALSE, ignore = FALSE, overwrite = TRUE,
-  quiet = TRUE)
-
-makeTAF(...)
-
-rmdir(path, recursive = FALSE)
-
-source.dir(dir, pattern = "\\\\.[r|R]$", all.files = FALSE,
-  recursive = FALSE, quiet = TRUE, ...)
-
-sam2taf(x, colname = NULL, year = TRUE)
+\method{zoom}{trellis}(x, size = 1, main = 1.2 * size, lab = size,
+  axis = size, strip = size, sub = 0.9 * size, legend = 0.9 * size,
+  splom = 0.9 * size, ...)
 
 taf.skeleton(path = ".", force = FALSE, pkgs = "icesTAF")
 }
@@ -286,6 +296,6 @@ These functions are re-exported from the TAF package.
 }
 \details{
 Follow the links below to see the documentation.
-\code{\link[TAF]{makeAll}}, \code{\link[TAF]{taf.install}}, \code{\link[TAF]{parse.repo}}, \code{\link[TAF]{taf2long}}, \code{\link[TAF]{write.taf}}, \code{\link[TAF]{utf8.to.latin1}}, \code{\link[TAF]{download}}, \code{\link[TAF]{clean.boot}}, \code{\link[TAF]{flr2taf}}, \code{\link[TAF]{get.remote.sha}}, \code{\link[TAF]{taf.bootstrap}}, \code{\link[TAF]{xtab2taf}}, \code{\link[TAF]{long2taf}}, \code{\link[TAF]{source.taf}}, \code{\link[TAF]{ds.file}}, \code{\link[TAF]{div}}, \code{\link[TAF]{detach.packages}}, \code{\link[TAF]{rnd}}, \code{\link[TAF]{taf2xtab}}, \code{\link[TAF]{ds.package}}, \code{\link[TAF]{long2xtab}}, \code{\link[TAF]{os.linux}}, \code{\link[TAF]{taf.png}}, \code{\link[TAF]{os.macos}}, \code{\link[TAF]{os}}, \code{\link[TAF]{period}}, \code{\link[TAF]{tt}}, \code{\link[TAF]{clean.data}}, \code{\link[TAF]{zoom.trellis}}, \code{\link[TAF]{zoom}}, \code{\link[TAF]{unix2dos}}, \code{\link[TAF]{dos2unix}}, \code{\link[TAF]{mkdir}}, \code{\link[TAF]{convert.spaces}}, \code{\link[TAF]{lim}}, \code{\link[TAF]{is.r.package}}, \code{\link[TAF]{clean.software}}, \code{\link[TAF]{taf.boot.path}}, \code{\link[TAF]{sourceAll}}, \code{\link[TAF]{plus}}, \code{\link[TAF]{taf.sources}}, \code{\link[TAF]{msg}}, \code{\link[TAF]{process.entry}}, \code{\link[TAF]{taf.data.path}}, \code{\link[TAF]{download.github}}, \code{\link[TAF]{deps}}, \code{\link[TAF]{taf.session}}, \code{\link[TAF]{os.unix}}, \code{\link[TAF]{xtab2long}}, \code{\link[TAF]{os.windows}}, \code{\link[TAF]{draft.data}}, \code{\link[TAF]{read.taf}}, \code{\link[TAF]{clean}}, \code{\link[TAF]{model.script}}, \code{\link[TAF]{taf.libPaths}}, \code{\link[TAF]{draft.software}}, \code{\link[TAF]{sourceDir}}, \code{\link[TAF]{taf.boot}}, \code{\link[TAF]{file.encoding}}, \code{\link[TAF]{latin1.to.utf8}}, \code{\link[TAF]{clean.library}}, \code{\link[TAF]{tafpng}}, \code{\link[TAF]{sourceTAF}}, \code{\link[TAF]{taf2html}}, \code{\link[TAF]{source.all}}, \code{\link[TAF]{extract.subdir}}, \code{\link[TAF]{taf.library}}, \code{\link[TAF]{read.bib}}, \code{\link[TAF]{boot.exists}}, \code{\link[TAF]{boot.dir}}, \code{\link[TAF]{stamp.description}}, \code{\link[TAF]{make.all}}, \code{\link[TAF]{make.taf}}, \code{\link[TAF]{make}}, \code{\link[TAF]{boot.dir.inside}}, \code{\link[TAF]{model.dir}}, \code{\link[TAF]{line.endings}}, \code{\link[TAF]{already.in.taf.library}}, \code{\link[TAF]{taf.unzip}}, \code{\link[TAF]{process.bibfile}}, \code{\link[TAF]{cp}}, \code{\link[TAF]{makeTAF}}, \code{\link[TAF]{rmdir}}, \code{\link[TAF]{source.dir}}, \code{\link[TAF]{sam2taf}}
+\code{\link[TAF]{already.in.taf.library}}, \code{\link[TAF]{boot.dir}}, \code{\link[TAF]{boot.dir.inside}}, \code{\link[TAF]{boot.exists}}, \code{\link[TAF]{check.software}}, \code{\link[TAF]{clean}}, \code{\link[TAF]{clean.boot}}, \code{\link[TAF]{clean.data}}, \code{\link[TAF]{clean.library}}, \code{\link[TAF]{clean.software}}, \code{\link[TAF]{convert.spaces}}, \code{\link[TAF]{cp}}, \code{\link[TAF]{ddim}}, \code{\link[TAF]{deps}}, \code{\link[TAF]{detach.packages}}, \code{\link[TAF]{div}}, \code{\link[TAF]{dos2unix}}, \code{\link[TAF]{download}}, \code{\link[TAF]{download.github}}, \code{\link[TAF]{draft.data}}, \code{\link[TAF]{draft.software}}, \code{\link[TAF]{ds.file}}, \code{\link[TAF]{ds.package}}, \code{\link[TAF]{extract.subdir}}, \code{\link[TAF]{file.encoding}}, \code{\link[TAF]{flr2taf}}, \code{\link[TAF]{get.remote.sha}}, \code{\link[TAF]{is.r.package}}, \code{\link[TAF]{latin1.to.utf8}}, \code{\link[TAF]{lim}}, \code{\link[TAF]{line.endings}}, \code{\link[TAF]{long2taf}}, \code{\link[TAF]{long2xtab}}, \code{\link[TAF]{make}}, \code{\link[TAF]{make.all}}, \code{\link[TAF]{make.taf}}, \code{\link[TAF]{makeAll}}, \code{\link[TAF]{makeTAF}}, \code{\link[TAF]{mkdir}}, \code{\link[TAF]{model.dir}}, \code{\link[TAF]{model.script}}, \code{\link[TAF]{msg}}, \code{\link[TAF]{os}}, \code{\link[TAF]{os.linux}}, \code{\link[TAF]{os.macos}}, \code{\link[TAF]{os.unix}}, \code{\link[TAF]{os.windows}}, \code{\link[TAF]{parse.repo}}, \code{\link[TAF]{period}}, \code{\link[TAF]{plus}}, \code{\link[TAF]{process.bibfile}}, \code{\link[TAF]{process.entry}}, \code{\link[TAF]{read.bib}}, \code{\link[TAF]{read.taf}}, \code{\link[TAF]{rmdir}}, \code{\link[TAF]{rnd}}, \code{\link[TAF]{sam2taf}}, \code{\link[TAF]{source.all}}, \code{\link[TAF]{source.dir}}, \code{\link[TAF]{source.taf}}, \code{\link[TAF]{sourceAll}}, \code{\link[TAF]{sourceDir}}, \code{\link[TAF]{sourceTAF}}, \code{\link[TAF]{stamp.description}}, \code{\link[TAF]{taf.boot}}, \code{\link[TAF]{taf.boot.path}}, \code{\link[TAF]{taf.bootstrap}}, \code{\link[TAF]{taf.data.path}}, \code{\link[TAF]{taf.install}}, \code{\link[TAF]{taf.libPaths}}, \code{\link[TAF]{taf.libraries}}, \code{\link[TAF]{taf.library}}, \code{\link[TAF]{taf.png}}, \code{\link[TAF]{taf.session}}, \code{\link[TAF]{taf.sources}}, \code{\link[TAF]{taf.unzip}}, \code{\link[TAF]{taf2html}}, \code{\link[TAF]{taf2long}}, \code{\link[TAF]{taf2xtab}}, \code{\link[TAF]{tafpng}}, \code{\link[TAF]{tt}}, \code{\link[TAF]{unix2dos}}, \code{\link[TAF]{utf8.to.latin1}}, \code{\link[TAF]{write.taf}}, \code{\link[TAF]{xtab2long}}, \code{\link[TAF]{xtab2taf}}, \code{\link[TAF]{zoom}}, \code{\link[TAF]{zoom.trellis}}
 }
 \keyword{internal}
