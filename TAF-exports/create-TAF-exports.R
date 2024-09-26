@@ -7,6 +7,7 @@ ns <- loadNamespace("TAF")
 TAF_functions <- unlist(eapply(ns, inherits, "function"))
 TAF_functions <- names(TAF_functions)[which(TAF_functions)]
 TAF_functions <- setdiff(TAF_functions, "taf.skeleton")
+TAF_functions <- sort(TAF_functions)
 
 import_block <- function(fun_name, first = FALSE) {
 
