@@ -3,7 +3,7 @@
 [![CRAN Monthly](https://cranlogs.r-pkg.org/badges/icesTAF)](https://cran.r-project.org/package=icesTAF)
 [![CRAN Total](https://cranlogs.r-pkg.org/badges/grand-total/icesTAF)](https://cran.r-project.org/package=icesTAF)
 
-[<img align="right" alt="ICES Logo" width="17%" height="17%" src="https://ices.dk/_layouts/15/1033/images/icesimg/iceslogo.png">](https://ices.dk)
+[<img align="right" alt="ICES Logo" height="40" src="https://www.ices.dk/_layouts/15/1033/images/icesimg/iceslogo.png">](https://www.ices.dk)
 
 icesTAF
 =======
