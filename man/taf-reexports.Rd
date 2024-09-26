@@ -289,7 +289,8 @@ zoom(x, ...)
   axis = size, strip = size, sub = 0.9 * size, legend = 0.9 * size,
   splom = 0.9 * size, ...)
 
-taf.skeleton(path = ".", force = FALSE, pkgs = "icesTAF")
+taf.skeleton(path = ".", force = FALSE, pkgs = "icesTAF",
+  model.script = "model.R", gitignore = TRUE)
 }
 \description{
 These functions are re-exported from the TAF package.

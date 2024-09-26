@@ -35,8 +35,10 @@ taf.skeleton.txt <-
   "#' @importFrom TAF taf.skeleton
 #' @rdname taf-reexports
 #' @export
-taf.skeleton <- function(path = \".\", force = FALSE, pkgs = \"icesTAF\") {
-  TAF::taf.skeleton(path = path, force = force, pkgs = pkgs)
+taf.skeleton <- function(path = \".\", force = FALSE, pkgs = \"icesTAF\",
+  model.script = \"model.R\", gitignore = TRUE) {
+  TAF::taf.skeleton(path = path, force = force, pkgs = pkgs,
+    model.script = model.script, gitignore = gitignore)
 }
 "
 
