@@ -34,5 +34,5 @@ barplot(7:1, main="Seven", col=c("black", taf.dark, taf.light,
 par(opar)
 }
 \seealso{
-\code{\link{TAF-package}} gives an overview of the package.
+\code{\link{icesTAF-package}} gives an overview of the package.
 }

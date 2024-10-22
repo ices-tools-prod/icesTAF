@@ -7,6 +7,7 @@ ns <- loadNamespace("TAF")
 TAF_functions <- unlist(eapply(ns, inherits, "function"))
 TAF_functions <- names(TAF_functions)[which(TAF_functions)]
 TAF_functions <- setdiff(TAF_functions, "taf.skeleton")
+TAF_functions <- sort(TAF_functions)
 
 import_block <- function(fun_name, first = FALSE) {
 
@@ -34,8 +35,10 @@ taf.skeleton.txt <-
   "#' @importFrom TAF taf.skeleton
 #' @rdname taf-reexports
 #' @export
-taf.skeleton <- function(path = \".\", force = FALSE, pkgs = \"icesTAF\") {
-  TAF::taf.skeleton(path = path, force = force, pkgs = pkgs)
+taf.skeleton <- function(path = \".\", force = FALSE, pkgs = \"icesTAF\",
+  model.script = \"model.R\", gitignore = TRUE) {
+  TAF::taf.skeleton(path = path, force = force, pkgs = pkgs,
+    model.script = model.script, gitignore = gitignore)
 }
 "
 

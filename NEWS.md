@@ -1,3 +1,8 @@
+# icesTAF 4.3.0 (2024-06-11)
+
+* See: news(package="TAF", Version=="4.3.0").
+
+
 # icesTAF 4.2.0 (2023-03-14)
 
 * The term 'boot' is now preferred for what used to be called 'bootstrap',

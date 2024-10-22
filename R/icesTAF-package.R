@@ -1,5 +1,3 @@
-#' @docType package
-#'
 #' @name icesTAF-package
 #'
 #' @aliases icesTAF
@@ -29,4 +27,4 @@
 #' The \href{https://github.com/ices-taf/doc/wiki}{TAF Wiki} provides additional
 #' help resources.
 
-NA
+"_PACKAGE"
