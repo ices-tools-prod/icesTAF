@@ -10,8 +10,16 @@ Authors@R:
     person("Ibrahim", "Umar", role = "ctb"),
     person("Hjalte", "Parner", role = "ctb")
   )
-Imports: purrr, roxygen2, TAF (>= 4.2.0), data.tree
-Suggests: git2r
+Imports:  purrr,
+          roxygen2,
+          TAF (>= 4.2.0),
+          data.tree,
+          jsonlite,
+          icesVocab,
+          icesDatsu,
+          rlang,
+          icesSAG
+Suggests: git2r, FLCore
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework
   <https://taf.ices.dk> to organize data, methods, and results used in ICES
@@ -20,5 +28,5 @@ Description: Functions to support the ICES Transparent Assessment Framework
 License: GPL-3
 URL: https://taf.ices.dk, https://github.com/ices-tools-prod/icesTAF
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Roxygen: list(old_usage=TRUE)
