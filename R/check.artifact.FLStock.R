@@ -14,6 +14,9 @@ check.artifact.FLStock <- function(file) {
       return(FALSE)
     }
 
+    # check if object is valid
+    validity <- validObject(ple4)
+
     # run type specific checks
     tests <- FLCore::verify(stk)
 

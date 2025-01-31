@@ -1,5 +1,7 @@
 #' @importFrom icesSAG readSAGxml
+#' @importFrom icesDatsu uploadDatsuFile
 #' @importFrom icesDatsu getDataFieldsDescription
+#' @importFrom icesDatsu getScreeningSessionMessages
 #' @importFrom icesVocab getCodeList
 check.artifact.SAG <- function(file) {
   if (tools::file_ext(file) != "xml") {
@@ -30,11 +32,19 @@ check.artifact.SAG <- function(file) {
   ok <- check.artifact(hack, quiet = TRUE)
 
   # check xml file using datsu....
-  msg("Still to code DATSU checks for SAG artifacts")
+  datsu_resp <- suppressMessages(uploadDatsuFile(file, 126))
+  errors <- suppressMessages(getScreeningSessionMessages(datsu_resp))
 
-  if (!ok) {
-    "SAG info part failed"
+  if (is.data.frame(errors)) {
+    warning(
+      " Errors were found in the upload.  See\n\t https://datsu.ices.dk/web/ScreenResult.aspx?sessionid=",
+      datsu_resp, "\n\tfor details"
+    )
+  }
+
+  if (is.data.frame(errors)) {
+    errors
   } else {
-    TRUE
+    ok
   }
 }

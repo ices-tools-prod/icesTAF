@@ -77,7 +77,7 @@ check.artifact <- function(artifact, check.metadata = TRUE, quiet = FALSE) {
     fail <- TRUE
     typeok <- FALSE
   } else {
-    check.func <- get(paste0("check.artifact.", artifact$type), envir = parent.frame())
+    check.func <- get(paste0("check.artifact.", artifact$type))
 
     typeok <- check.func(artifact$file)
 
