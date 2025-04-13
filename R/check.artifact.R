@@ -1,6 +1,7 @@
 
 #' @importFrom icesVocab getCodeList getCodeTypeList
 #' @importFrom utils capture.output type.convert
+#' @importFrom TAF msg
 check.artifact <- function(artifact, check.metadata = TRUE, quiet = FALSE) {
   fail <- FALSE
 

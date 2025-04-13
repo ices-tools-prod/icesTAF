@@ -12,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #'
-#' library(icesTAF)
+#' library(TAF)
 #'
 #' # Download a TAF analysis
 #' download("https://github.com/ices-taf/2019_san.sa.6/archive/refs/heads/master.zip")

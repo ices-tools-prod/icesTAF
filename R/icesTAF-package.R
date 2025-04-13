@@ -8,13 +8,6 @@
 #' Functions to support the ICES Transparent Assessment Framework, to organize
 #' data, methods, and results used in ICES assessments.
 #'
-#' @details
-#' \emph{Initial TAF steps:}
-#' \tabular{ll}{
-#'   \code{\link{draft.data.script}} \tab create boot script\cr
-#'   \code{\link{taf.roxygenise}}    \tab create DATA.bib entry from tags
-#' }
-#'
 #' @author Colin Millar and Arni Magnusson.
 #'
 #' @references

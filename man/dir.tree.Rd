@@ -15,11 +15,14 @@ Print the directory tree and file contents in a pretty way
 \examples{
 \dontrun{
 
-library(icesTAF)
+library(TAF)
 
-# Download a TAF analysis
-dir.tree()
+# make the TAF structure
+tmpdir <- tempfile()
+taf.skeleton(tmpdir)
+dir.tree(tmpdir)
 }
+
 
 }
 \seealso{

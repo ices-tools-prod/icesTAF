@@ -10,16 +10,12 @@ Authors@R:
     person("Ibrahim", "Umar", role = "ctb"),
     person("Hjalte", "Parner", role = "ctb")
   )
-Imports:  purrr,
-          roxygen2,
-          TAF (>= 4.3.0),
-          data.tree,
+Imports:  TAF (>= 4.3.0),
           jsonlite,
           icesVocab,
           icesDatsu,
           rlang,
           icesSAG
-Suggests: git2r, FLCore
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework
   <https://taf.ices.dk> to organize data, methods, and results used in ICES
