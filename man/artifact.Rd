@@ -4,8 +4,8 @@
 \alias{artifact}
 \title{Make an Artifact File Entry}
 \usage{
-artifact(path, type = c("adhoc", "FLStock", "SAG", "ASD", "RDBES_national",
-  "RDBES_total"), ..., check = TRUE, quiet = FALSE)
+artifact(path, type = c("adhoc", "FLStock", "SAG"), ..., check = TRUE,
+  quiet = FALSE)
 }
 \arguments{
 \item{path}{The relative path to a file to be added, e.g. "data/indices.csv".}
@@ -19,5 +19,23 @@ artifact(path, type = c("adhoc", "FLStock", "SAG", "ASD", "RDBES_national",
 \item{quiet}{logical, should the function be quiet?}
 }
 \description{
-Form and valid artifact as an export from a TAF repository.
+Form and validate an artifact as an export from a TAF repository.
+}
+\examples{
+
+sag_file <- system.file("SAG", "sol_27_4.xml", package = "icesTAF")
+sag <- artifact(sag_file, type = "SAG", check = FALSE)
+sag
+
+\dontrun{
+# to check the artifact, use:
+sag <- artifact(tmpfile, type = "SAG")
+# or
+check.artifact(sag)
+}
+
+}
+\seealso{
+\link{check.artifact}
+\link{write.artifact}
 }

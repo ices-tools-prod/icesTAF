@@ -6,6 +6,7 @@
 #' @param check logical, should the artifact be checked for validity?
 #'
 #' @importFrom jsonlite read_json
+#'
 #' @export
 read.artifacts <- function(file = "ARTIFACTS.json", check = TRUE) {
   out <- read_json(file)

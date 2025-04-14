@@ -3,6 +3,7 @@
 #' @importFrom icesDatsu getDataFieldsDescription
 #' @importFrom icesDatsu getScreeningSessionMessages
 #' @importFrom icesVocab getCodeList
+
 check.artifact.SAG <- function(file) {
   if (tools::file_ext(file) != "xml") {
     warning("File must be an XML file with extension '.xml': ", file, call. = FALSE)

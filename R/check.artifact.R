@@ -1,7 +1,25 @@
-
+#' Make an Artifact File Entry
+#'
+#' Form and validate an artifact as an export from a TAF repository.
+#'
+#' @param artifact an artifact object made using \code{artifact}.
+#' @param check.metadata logical, should the metadata be checked against
+#'        the ices Vocabulary database?
+#' @param quiet logical, should the function be quiet?
+#'
+#' @examples
+#'
+#' \dontrun{
+#' sag_file <- system.file("SAG", "sol_27_4.xml", package = "icesTAF")
+#' sag <- artifact(sag_file, type = "SAG", check = FALSE)
+#' check.artifact(sag)
+#' }
+#'
 #' @importFrom icesVocab getCodeList getCodeTypeList
 #' @importFrom utils capture.output type.convert
 #' @importFrom TAF msg
+#'
+#' @export
 check.artifact <- function(artifact, check.metadata = TRUE, quiet = FALSE) {
   fail <- FALSE
 

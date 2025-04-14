@@ -9,6 +9,7 @@
 #'
 #' @importFrom jsonlite write_json
 #' @importFrom jsonlite read_json
+#'
 #' @export
 write.artifacts <- function(..., append = TRUE, check = TRUE) {
   artifacts <- list(...)

@@ -1,6 +1,6 @@
 #' Make an Artifact File Entry
 #'
-#' Form and valid artifact as an export from a TAF repository.
+#' Form and validate an artifact as an export from a TAF repository.
 #'
 #' @param path The relative path to a file to be added, e.g. "data/indices.csv".
 #' @param type the type of output, e.g. FLStock, SAG_upload
@@ -8,23 +8,43 @@
 #' @param check logical, should the artifact be checked for validity?
 #' @param quiet logical, should the function be quiet?
 #'
+#' @examples
+#'
+#' sag_file <- system.file("SAG", "sol_27_4.xml", package = "icesTAF")
+#' sag <- artifact(sag_file, type = "SAG", check = FALSE)
+#' sag
+#'
+#' \dontrun{
+#' # to check the artifact, use:
+#' sag <- artifact(tmpfile, type = "SAG")
+#' # or
+#' check.artifact(sag)
+#' }
+#'
+#' @seealso
+#'
+#' \link{check.artifact}
+#' \link{write.artifact}
+#'
 #' @importFrom jsonlite unbox
 #' @importFrom rlang hash
+#' @importFrom icesSAG readSAGxml
+#'
 #' @export
 artifact <- function(
     path,
-    type = c("adhoc", "FLStock", "SAG", "ASD", "RDBES_national", "RDBES_total"),
+    type = c("adhoc", "FLStock", "SAG"),
     ..., check = TRUE, quiet = FALSE) {
   dots <- list(...)
 
   type <- match.arg(type)
 
-  if (type == "SAG" && requireNamespace("icesSAG", quietly = TRUE)) {
+  if (type == "SAG") {
     if (length(dots) > 0) {
-      msg("SAG types do not require metadata")
+      msg("SAG types do not require metadata, it's all in the XML file")
     }
     try({
-      sag <- icesSAG::readSAGxml(path)
+      sag <- readSAGxml(path)
       dots <-
         list(
           Year = sag$info$AssessmentYear,
