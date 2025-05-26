@@ -24,7 +24,7 @@
 #' @seealso
 #'
 #' \link{check.artifact}
-#' \link{write.artifact}
+#' \link{write.artifacts}
 #'
 #' @importFrom jsonlite unbox
 #' @importFrom rlang hash

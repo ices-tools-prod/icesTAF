@@ -13,7 +13,7 @@
 #' @seealso
 #' \code{\link{package.skeleton}} creates an empty template for a new R package.
 #'
-#' \code{\link{TAF-package}} gives an overview of the package.
+#' \code{\link{icesTAF-package}} gives an overview of the package.
 #'
 #' @examples
 #' \dontrun{

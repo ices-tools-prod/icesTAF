@@ -37,5 +37,5 @@ check.artifact(sag)
 }
 \seealso{
 \link{check.artifact}
-\link{write.artifact}
+\link{write.artifacts}
 }

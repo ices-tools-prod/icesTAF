@@ -3,19 +3,14 @@ Version: 4.3.0
 Title: Functions to Support the ICES Transparent Assessment Framework
 Authors@R:
   c(
-    person("Colin", "Millar", role = c("aut", "cre"), email="colin.millar@ices.dk"),
-    person("Arni", "Magnusson", role = "aut"),
-    person("Alexandros", "Kokkalis", role = "ctb"),
-    person("Iago", "Mosqueira", role = "ctb"),
-    person("Ibrahim", "Umar", role = "ctb"),
-    person("Hjalte", "Parner", role = "ctb")
+    person("Colin", "Millar", role = c("aut", "cre"), email="colin.millar@ices.dk")
   )
-Imports:  TAF (>= 4.3.0),
+Depends: TAF (>= 4.3.0)
+Imports:  icesVocab (>= 1.3.1),
+          icesDatsu (>= 1.2.1),
+          icesSAG (>= 1.6.2),
           jsonlite,
-          icesVocab,
-          icesDatsu,
-          rlang,
-          icesSAG
+          rlang
 LazyData: yes
 Description: Functions to support the ICES Transparent Assessment Framework
   <https://taf.ices.dk> to organize data, methods, and results used in ICES
