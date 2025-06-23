@@ -4,7 +4,8 @@
 \alias{check.artifact}
 \title{Make an Artifact File Entry}
 \usage{
-check.artifact(artifact, check.metadata = TRUE, quiet = FALSE)
+check.artifact(artifact, check.metadata = TRUE, check.type = TRUE,
+  quiet = FALSE)
 }
 \arguments{
 \item{artifact}{an artifact object made using \code{artifact}.}
@@ -12,13 +13,14 @@ check.artifact(artifact, check.metadata = TRUE, quiet = FALSE)
 \item{check.metadata}{logical, should the metadata be checked against
 the ices Vocabulary database?}
 
+\item{check.type}{logical, should type specific artifact checks be run?}
+
 \item{quiet}{logical, should the function be quiet?}
 }
 \description{
 Form and validate an artifact as an export from a TAF repository.
 }
 \examples{
-
 \dontrun{
 sag_file <- system.file("SAG", "sol_27_4.xml", package = "icesTAF")
 sag <- artifact(sag_file, type = "SAG", check = FALSE)

@@ -5,10 +5,10 @@
 #' @param artifact an artifact object made using \code{artifact}.
 #' @param check.metadata logical, should the metadata be checked against
 #'        the ices Vocabulary database?
+#' @param check.type logical, should type specific artifact checks be run?
 #' @param quiet logical, should the function be quiet?
 #'
 #' @examples
-#'
 #' \dontrun{
 #' sag_file <- system.file("SAG", "sol_27_4.xml", package = "icesTAF")
 #' sag <- artifact(sag_file, type = "SAG", check = FALSE)
@@ -20,18 +20,34 @@
 #' @importFrom TAF msg
 #'
 #' @export
-check.artifact <- function(artifact, check.metadata = TRUE, quiet = FALSE) {
+check.artifact <- function(artifact, check.metadata = TRUE, check.type = TRUE, quiet = FALSE) {
   fail <- FALSE
+
+  return_check <- function() {
+    if (identical(typeok, TRUE)) {
+      if (!fail) {
+        if (!quiet) msg("Artifact check passed")
+        TRUE
+      } else {
+        FALSE
+      }
+    } else {
+      invisible(typeok)
+    }
+  }
 
   # check metadata
   if (check.metadata) {
+    # check required fields are present!
+
+
+    # create records in Datsu for TAF artifacts, and check metadata there :)
     # use icesVocab to check metadata (possible port to icesVocab)
     vocabCodeTypes <- getCodeTypeList()
 
     codeTypes <- names(artifact$metadata)
     invalidCodeTypes <- codeTypes[!codeTypes %in% vocabCodeTypes$Key]
     for (invalidCodeType in invalidCodeTypes) {
-
       warning("Invalid metadata code type: ", invalidCodeType, "\n", call. = FALSE)
       ids <- grep(invalidCodeType, vocabCodeTypes$Key)
       suggestions <-
@@ -54,7 +70,7 @@ check.artifact <- function(artifact, check.metadata = TRUE, quiet = FALSE) {
       }
     }
 
-    if(length(invalidCodeTypes) > 0) {
+    if (length(invalidCodeTypes) > 0) {
       fail <- TRUE
     }
 
@@ -72,7 +88,8 @@ check.artifact <- function(artifact, check.metadata = TRUE, quiet = FALSE) {
               url =
                 paste0(
                   "https://vocab.ices.dk/?codetypeguid=",
-                  vocabCodeTypes$GUID[vocabCodeTypes$Key == key])
+                  vocabCodeTypes$Guid[vocabCodeTypes$Key == key]
+                )
             )
           } else {
             NULL
@@ -90,12 +107,25 @@ check.artifact <- function(artifact, check.metadata = TRUE, quiet = FALSE) {
     }
   }
 
-  # run type specific checks
+  # does artifact file exist
   if (!file.exists(artifact$file)) {
     warning("File does not exist: ", artifact$file, "\n")
     fail <- TRUE
     typeok <- FALSE
-  } else {
+    return(return_check())
+  }
+
+  # run type specific checks
+  if (check.type) {
+    check.func <- paste0("check.artifact.", artifact$type)
+    if (!exists(check.func, mode = "function")) {
+      warning("No check function for artifact type: ", artifact$type, "\n")
+      fail <- TRUE
+      typeok <- FALSE
+
+      return(return_check())
+    }
+
     check.func <- get(paste0("check.artifact.", artifact$type))
 
     typeok <- check.func(artifact$file)
@@ -109,14 +139,5 @@ check.artifact <- function(artifact, check.metadata = TRUE, quiet = FALSE) {
     }
   }
 
-  if (identical(typeok, TRUE)) {
-    if (!fail) {
-      if (!quiet) msg("Artifact check passed")
-      TRUE
-    } else {
-      FALSE
-    }
-  } else {
-    invisible(typeok)
-  }
+  return_check()
 }
