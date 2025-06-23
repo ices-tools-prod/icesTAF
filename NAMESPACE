@@ -3,6 +3,7 @@
 S3method(print,taf.artifact)
 export(artifact)
 export(check.artifact)
+export(get.artifacts)
 export(read.artifacts)
 export(taf.skeleton.sa.org)
 export(taf_api)
