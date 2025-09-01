@@ -7,12 +7,12 @@
 taf_post(url, body = list(), verbose = FALSE)
 }
 \arguments{
-\item{url}{the url to get.}
+\item{url}{the url to post.}
 
 \item{body}{a list of named arguments to be sent as the body of the
 post request.}
 
-\item{verbose}{should verbose output form the http request be
+\item{verbose}{should verbose output from the http request be
 returned? default FALSE.}
 }
 \value{

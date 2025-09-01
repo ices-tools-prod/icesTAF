@@ -1,10 +1,10 @@
-#' Make an Artifact File Entry
+#' Check an Artifact File Entry
 #'
-#' Form and validate an artifact as an export from a TAF repository.
+#' Validate an artifact as an export from a TAF repository.
 #'
 #' @param artifact an artifact object made using \code{artifact}.
 #' @param check.metadata logical, should the metadata be checked against
-#'        the ices Vocabulary database?
+#'        the ICES Vocabulary database?
 #' @param check.type logical, should type specific artifact checks be run?
 #' @param quiet logical, should the function be quiet?
 #'
