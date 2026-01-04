@@ -23,11 +23,11 @@ Form and validate an artifact as an export from a TAF repository.
 }
 \examples{
 
+\dontrun{
 sag_file <- system.file("SAG", "sol_27_4.xml", package = "icesTAF")
 sag <- artifact(sag_file, type = "SAG", check = FALSE)
 sag
 
-\dontrun{
 # to check the artifact, use:
 sag <- artifact(tmpfile, type = "SAG")
 # or
