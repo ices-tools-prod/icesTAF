@@ -17,7 +17,7 @@ get.artifacts(year = NULL, stock = NULL, ...)
 A data frame.
 }
 \description{
-Get a list of TAF artifacts and thier metadata, i.e., all the FLStocks,
+Get a list of TAF artifacts and their metadata, i.e., all the FLStocks,
 SAG upload files, RCEF files, and other files uploaded to TAF.
 }
 \examples{

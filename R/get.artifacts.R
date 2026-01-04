@@ -1,6 +1,6 @@
 #' Get a List of TAF Artifacts
 #'
-#' Get a list of TAF artifacts and thier metadata, i.e., all the FLStocks,
+#' Get a list of TAF artifacts and their metadata, i.e., all the FLStocks,
 #' SAG upload files, RCEF files, and other files uploaded to TAF.
 #'
 #' @param year the assessment year, e.g. 2015, default all years.

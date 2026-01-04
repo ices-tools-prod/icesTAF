@@ -2,7 +2,7 @@
 % Please edit documentation in R/check.artifact.R
 \name{check.artifact}
 \alias{check.artifact}
-\title{Make an Artifact File Entry}
+\title{Check an Artifact File Entry}
 \usage{
 check.artifact(artifact, check.metadata = TRUE, check.type = TRUE,
   quiet = FALSE)
@@ -11,14 +11,14 @@ check.artifact(artifact, check.metadata = TRUE, check.type = TRUE,
 \item{artifact}{an artifact object made using \code{artifact}.}
 
 \item{check.metadata}{logical, should the metadata be checked against
-the ices Vocabulary database?}
+the ICES Vocabulary database?}
 
 \item{check.type}{logical, should type specific artifact checks be run?}
 
 \item{quiet}{logical, should the function be quiet?}
 }
 \description{
-Form and validate an artifact as an export from a TAF repository.
+Validate an artifact as an export from a TAF repository.
 }
 \examples{
 \dontrun{

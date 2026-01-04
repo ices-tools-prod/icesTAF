@@ -11,7 +11,7 @@
 #' @return Full path to analysis directory.
 #'
 #' @seealso
-#' \code{\link{package.skeleton}} creates an empty template for a new R package.
+#' \code{\link[TAF]{taf.skeleton}} creates an empty generic TAF skeleton.
 #'
 #' \code{\link{icesTAF-package}} gives an overview of the package.
 #'

@@ -13,8 +13,8 @@ check.artifact.SAG <- function(file) {
   sagxml <- readSAGxml(file)
   info <- sagxml$info[!sapply(sagxml$info, is.na)]
 
-  feilds <- getDataFieldsDescription(126, "AA")
-  vocabs <- feilds[!is.na(feilds$codeGroup), ]
+  fields <- getDataFieldsDescription(126, "AA")
+  vocabs <- fields[!is.na(fields$codeGroup), ]
   vocabList <- sapply(unique(vocabs$codeGroup), function(x) getCodeList(x)$Key)
 
   # hack to check info part

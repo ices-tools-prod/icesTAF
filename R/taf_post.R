@@ -2,10 +2,10 @@
 #'
 #' Post to a url using an ICES authentication token
 #'
-#' @param url the url to get.
+#' @param url the url to post.
 #' @param body a list of named arguments to be sent as the body of the
 #'   post request.
-#' @param verbose should verbose output form the http request be
+#' @param verbose should verbose output from the http request be
 #'   returned? default FALSE.
 #'
 #' @return content of the http response.

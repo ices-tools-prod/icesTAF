@@ -1,3 +1,28 @@
+# icesTAF 4.3.0 (2023-09-02)
+
+* The icesTAF package now depends on TAF, rather than importing and reexporting
+  the TAF package. This streamlines things on the the maintenance side and makes
+  synchronized icesTAF and TAF releases easier. Users may notice that double
+  colon calls such as icesTAF::source.all() no longer work, since source.all()
+  is a TAF function that can be run as TAF::source.all() or simply source.all().
+  On the plus side, an intermediate help menu will no longer appear, so
+  ?source.all or help(source.all) immediately opens the help page for the user.
+  The depend mechanism means that library(icesTAF) also loads the TAF package
+  automatically.
+
+* Added functions artifact(), check.artifact(), get.artifact(),
+  read.artifacts(), and write.artifacts() to work with ICES TAF artifacts.
+
+* Added functions taf_api(), taf_get(), and taf_post() to work with the ICES TAF
+  application programming layer using authentication tokens.
+
+* Moved install.deps() and taf.sources() from icesTAF to the TAF package.
+
+* Removed taf.roxygenise().
+
+* See also: news(package="TAF", Version=="4.3.0").
+
+
 # icesTAF 4.2.0 (2023-03-14)
 
 * The term 'boot' is now preferred for what used to be called 'bootstrap',

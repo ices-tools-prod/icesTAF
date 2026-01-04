@@ -33,4 +33,5 @@ taf_get <- function(url, retry = TRUE, quiet = getOption("icesTAF.messages") %||
 }
 
 #' @describeIn taf_get cached version of taf_get
+#' @export
 taf_get_cached <- taf_get
