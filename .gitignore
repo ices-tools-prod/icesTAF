@@ -7,6 +7,3 @@ worksheet.R
 icesTAF.code-workspace
 
 .vscode/
-renv/
-.Rprofile
-renv.lock
