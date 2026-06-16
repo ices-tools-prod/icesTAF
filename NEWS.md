@@ -1,4 +1,4 @@
-# icesTAF 4.3.0 (2023-09-02)
+# icesTAF 4.3.0 (2025-09-02)
 
 * The icesTAF package now depends on TAF, rather than importing and reexporting
   the TAF package. This streamlines things on the the maintenance side and makes
